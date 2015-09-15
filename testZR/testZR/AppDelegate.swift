@@ -8,15 +8,44 @@
 
 import UIKit
 import CoreData
-
+import Parse
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
-
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
+        // https://parse.com/docs/ios_guide#localdatastore/iOS
+        Parse.enableLocalDatastore()
+        
+        // Initialize Parse.
+        Parse.setApplicationId("fEzVacO5gJMMaZBveiq5WWacZhqacHX6lw3CimcB",
+            clientKey: "7ZW27v8E8ibfqWHwRKCFCJF79qS6lLBVxgHbBu2O")
+        
+        // [Optional] Track statistics around application opens.
+        PFAnalytics.trackAppOpenedWithLaunchOptions(launchOptions)
+        
+        //setup storyboard to display initial view
+        let storyboard:UIStoryboard = UIStoryboard(name: "Main", bundle: nil);
+        let navigationController:UINavigationController = storyboard.instantiateInitialViewController() as! UINavigationController
+        
+        //let navigationController = window?.rootViewController as! UINavigationController
+        // determine if user is logged in
+        var currentUser = PFUser.currentUser();
+        if currentUser != nil { // go directly to start screen
+            println("Logged In");
+            
+            let rootViewController:UIViewController = storyboard.instantiateViewControllerWithIdentifier("HomeVC") as! UIViewController
+            navigationController.viewControllers = [rootViewController]
+            self.window?.rootViewController = navigationController
+        } else { // go to signup/login
+            println("Not logged in");
+            let rootViewController:UIViewController = storyboard.instantiateViewControllerWithIdentifier("SignUpVC") as! UIViewController
+            navigationController.viewControllers = [rootViewController]
+            self.window?.rootViewController = navigationController
+        }
+        
         return true
     }
 

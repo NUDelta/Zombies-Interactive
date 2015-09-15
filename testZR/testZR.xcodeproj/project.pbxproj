@@ -7,24 +7,49 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5241B5601BA0928F00DBC6D3 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5241B55F1BA0928F00DBC6D3 /* HomeViewController.swift */; };
+		5241B5611BA0980000DBC6D3 /* SignUpLogInViewController.swift in Resources */ = {isa = PBXBuildFile; fileRef = 52D30FE11B9F645500E620FC /* SignUpLogInViewController.swift */; };
+		5241B5621BA0980000DBC6D3 /* testZR.xcdatamodeld in Resources */ = {isa = PBXBuildFile; fileRef = 528C3A461B826734007C59FC /* testZR.xcdatamodeld */; };
+		5241B5631BA0980000DBC6D3 /* HomeViewController.swift in Resources */ = {isa = PBXBuildFile; fileRef = 5241B55F1BA0928F00DBC6D3 /* HomeViewController.swift */; };
+		5241B5711BA0E87400DBC6D3 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5241B5701BA0E87400DBC6D3 /* AudioToolbox.framework */; };
+		5241B5731BA0E88100DBC6D3 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5241B5721BA0E88100DBC6D3 /* AVFoundation.framework */; };
+		5241B5791BA1C8F400DBC6D3 /* AcousticModelEnglish.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 5241B5751BA1C8F400DBC6D3 /* AcousticModelEnglish.bundle */; };
+		5241B57A1BA1C8F400DBC6D3 /* AcousticModelSpanish.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 5241B5761BA1C8F400DBC6D3 /* AcousticModelSpanish.bundle */; };
+		5241B57B1BA1C8F400DBC6D3 /* OpenEars.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5241B5771BA1C8F400DBC6D3 /* OpenEars.framework */; };
+		5241B57C1BA1C8F400DBC6D3 /* Slt.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5241B5781BA1C8F400DBC6D3 /* Slt.framework */; };
+		5241B57E1BA1D4B900DBC6D3 /* OpenEars.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5241B5771BA1C8F400DBC6D3 /* OpenEars.framework */; };
+		5241B57F1BA1D4BD00DBC6D3 /* Slt.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5241B5781BA1C8F400DBC6D3 /* Slt.framework */; };
+		5241B5801BA1D4C200DBC6D3 /* AcousticModelEnglish.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 5241B5751BA1C8F400DBC6D3 /* AcousticModelEnglish.bundle */; };
+		5241B5811BA1D4C800DBC6D3 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 528E89E01B9DEE1100C5FC8E /* libz.dylib */; };
+		5241B5821BA1D4CC00DBC6D3 /* AcousticModelSpanish.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 5241B5761BA1C8F400DBC6D3 /* AcousticModelSpanish.bundle */; };
+		5241B5841BA1D74400DBC6D3 /* OEBridging-Header.h in Sources */ = {isa = PBXBuildFile; fileRef = 5241B5831BA1D6A200DBC6D3 /* OEBridging-Header.h */; };
+		5241B5881BA1DB8B00DBC6D3 /* ActuationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5241B5871BA1DB8B00DBC6D3 /* ActuationController.swift */; };
 		527AA5911B86063E006A935C /* test_sweep.wav in Resources */ = {isa = PBXBuildFile; fileRef = 527AA5901B86063E006A935C /* test_sweep.wav */; };
 		528C3A451B826734007C59FC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 528C3A441B826734007C59FC /* AppDelegate.swift */; };
 		528C3A481B826734007C59FC /* testZR.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 528C3A461B826734007C59FC /* testZR.xcdatamodeld */; };
-		528C3A4A1B826734007C59FC /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 528C3A491B826734007C59FC /* ViewController.swift */; };
+		528C3A4A1B826734007C59FC /* MissionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 528C3A491B826734007C59FC /* MissionViewController.swift */; };
 		528C3A4D1B826734007C59FC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 528C3A4B1B826734007C59FC /* Main.storyboard */; };
 		528C3A4F1B826734007C59FC /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 528C3A4E1B826734007C59FC /* Images.xcassets */; };
 		528C3A521B826734007C59FC /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 528C3A501B826734007C59FC /* LaunchScreen.xib */; };
 		528C3A5E1B826734007C59FC /* testZRTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 528C3A5D1B826734007C59FC /* testZRTests.swift */; };
+		528E89CE1B9DED1B00C5FC8E /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 528E89CC1B9DED1B00C5FC8E /* Bolts.framework */; };
+		528E89CF1B9DED1B00C5FC8E /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 528E89CD1B9DED1B00C5FC8E /* Parse.framework */; };
+		528E89D11B9DEDCC00C5FC8E /* Accounts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 528E89D01B9DEDCC00C5FC8E /* Accounts.framework */; };
+		528E89D31B9DEDD500C5FC8E /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 528E89D21B9DEDD500C5FC8E /* CFNetwork.framework */; };
+		528E89D51B9DEDDE00C5FC8E /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 528E89D41B9DEDDE00C5FC8E /* CoreGraphics.framework */; };
+		528E89D71B9DEDE700C5FC8E /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 528E89D61B9DEDE700C5FC8E /* CoreLocation.framework */; };
+		528E89D91B9DEDEF00C5FC8E /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 528E89D81B9DEDEF00C5FC8E /* QuartzCore.framework */; };
+		528E89DB1B9DEDF700C5FC8E /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 528E89DA1B9DEDF700C5FC8E /* Security.framework */; };
+		528E89DD1B9DEDFE00C5FC8E /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 528E89DC1B9DEDFE00C5FC8E /* StoreKit.framework */; };
+		528E89DF1B9DEE0700C5FC8E /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 528E89DE1B9DEE0700C5FC8E /* SystemConfiguration.framework */; };
+		528E89E11B9DEE1100C5FC8E /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 528E89E01B9DEE1100C5FC8E /* libz.dylib */; };
+		528E89E31B9DEE1A00C5FC8E /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 528E89E21B9DEE1A00C5FC8E /* libsqlite3.dylib */; };
+		528E89E51B9DEE3400C5FC8E /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 528E89E41B9DEE3400C5FC8E /* Social.framework */; };
+		52C267601BA8726000124458 /* Events.swift in Resources */ = {isa = PBXBuildFile; fileRef = 52F5D9961B852427002C0F17 /* Events.swift */; };
+		52D30FE21B9F645500E620FC /* SignUpLogInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52D30FE11B9F645500E620FC /* SignUpLogInViewController.swift */; };
 		52F5D9821B85187A002C0F17 /* common in Resources */ = {isa = PBXBuildFile; fileRef = 52F5D9811B85187A002C0F17 /* common */; };
 		52F5D9831B8518CF002C0F17 /* common in Sources */ = {isa = PBXBuildFile; fileRef = 52F5D9811B85187A002C0F17 /* common */; };
 		52F5D9851B85191B002C0F17 /* ExperienceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52F5D9841B85191B002C0F17 /* ExperienceManager.swift */; };
-		52F5D98D1B851975002C0F17 /* zombie_run_interactive1.wav in Resources */ = {isa = PBXBuildFile; fileRef = 52F5D9861B851975002C0F17 /* zombie_run_interactive1.wav */; };
-		52F5D98E1B851975002C0F17 /* zombie_run_interactive2.wav in Resources */ = {isa = PBXBuildFile; fileRef = 52F5D9871B851975002C0F17 /* zombie_run_interactive2.wav */; };
-		52F5D98F1B851975002C0F17 /* zombie_run_interactive3.wav in Resources */ = {isa = PBXBuildFile; fileRef = 52F5D9881B851975002C0F17 /* zombie_run_interactive3.wav */; };
-		52F5D9901B851975002C0F17 /* zombie_run1.wav in Resources */ = {isa = PBXBuildFile; fileRef = 52F5D9891B851975002C0F17 /* zombie_run1.wav */; };
-		52F5D9911B851975002C0F17 /* zombie_run2.wav in Resources */ = {isa = PBXBuildFile; fileRef = 52F5D98A1B851975002C0F17 /* zombie_run2.wav */; };
-		52F5D9921B851975002C0F17 /* zombie_run3.wav in Resources */ = {isa = PBXBuildFile; fileRef = 52F5D98B1B851975002C0F17 /* zombie_run3.wav */; };
-		52F5D9931B851975002C0F17 /* zombie_run4.wav in Resources */ = {isa = PBXBuildFile; fileRef = 52F5D98C1B851975002C0F17 /* zombie_run4.wav */; };
 		52F5D9951B8519E6002C0F17 /* Stage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52F5D9941B8519E6002C0F17 /* Stage.swift */; };
 		52F5D9971B852427002C0F17 /* Events.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52F5D9961B852427002C0F17 /* Events.swift */; };
 /* End PBXBuildFile section */
@@ -40,12 +65,21 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		5241B55F1BA0928F00DBC6D3 /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		5241B5701BA0E87400DBC6D3 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
+		5241B5721BA0E88100DBC6D3 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		5241B5751BA1C8F400DBC6D3 /* AcousticModelEnglish.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = AcousticModelEnglish.bundle; sourceTree = "<group>"; };
+		5241B5761BA1C8F400DBC6D3 /* AcousticModelSpanish.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = AcousticModelSpanish.bundle; sourceTree = "<group>"; };
+		5241B5771BA1C8F400DBC6D3 /* OpenEars.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = OpenEars.framework; sourceTree = "<group>"; };
+		5241B5781BA1C8F400DBC6D3 /* Slt.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Slt.framework; sourceTree = "<group>"; };
+		5241B5831BA1D6A200DBC6D3 /* OEBridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "OEBridging-Header.h"; sourceTree = "<group>"; };
+		5241B5871BA1DB8B00DBC6D3 /* ActuationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActuationController.swift; sourceTree = "<group>"; };
 		527AA5901B86063E006A935C /* test_sweep.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = test_sweep.wav; sourceTree = "<group>"; };
 		528C3A3F1B826734007C59FC /* testZR.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = testZR.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		528C3A431B826734007C59FC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		528C3A441B826734007C59FC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		528C3A471B826734007C59FC /* testZR.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = testZR.xcdatamodel; sourceTree = "<group>"; };
-		528C3A491B826734007C59FC /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		528C3A491B826734007C59FC /* MissionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MissionViewController.swift; sourceTree = "<group>"; };
 		528C3A4C1B826734007C59FC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		528C3A4E1B826734007C59FC /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		528C3A511B826734007C59FC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
@@ -53,15 +87,22 @@
 		528C3A5C1B826734007C59FC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		528C3A5D1B826734007C59FC /* testZRTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = testZRTests.swift; sourceTree = "<group>"; };
 		528C3A951B8271F6007C59FC /* HabitKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HabitKit.framework; path = "../../../../../../Library/Developer/Xcode/DerivedData/HabitSourceKit-ditdgcceiqeunwbwzgtrzkwmwkhz/Build/Products/Debug-iphoneos/HabitKit.framework"; sourceTree = "<group>"; };
+		528E89CC1B9DED1B00C5FC8E /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Bolts.framework; sourceTree = "<group>"; };
+		528E89CD1B9DED1B00C5FC8E /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
+		528E89D01B9DEDCC00C5FC8E /* Accounts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accounts.framework; path = System/Library/Frameworks/Accounts.framework; sourceTree = SDKROOT; };
+		528E89D21B9DEDD500C5FC8E /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
+		528E89D41B9DEDDE00C5FC8E /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		528E89D61B9DEDE700C5FC8E /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		528E89D81B9DEDEF00C5FC8E /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		528E89DA1B9DEDF700C5FC8E /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		528E89DC1B9DEDFE00C5FC8E /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
+		528E89DE1B9DEE0700C5FC8E /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		528E89E01B9DEE1100C5FC8E /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
+		528E89E21B9DEE1A00C5FC8E /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
+		528E89E41B9DEE3400C5FC8E /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
+		52D30FE11B9F645500E620FC /* SignUpLogInViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpLogInViewController.swift; sourceTree = "<group>"; };
 		52F5D9811B85187A002C0F17 /* common */ = {isa = PBXFileReference; lastKnownFileType = folder; name = common; path = ../common; sourceTree = "<group>"; };
 		52F5D9841B85191B002C0F17 /* ExperienceManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ExperienceManager.swift; path = ../../common/ExperienceManager.swift; sourceTree = "<group>"; };
-		52F5D9861B851975002C0F17 /* zombie_run_interactive1.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = zombie_run_interactive1.wav; sourceTree = "<group>"; };
-		52F5D9871B851975002C0F17 /* zombie_run_interactive2.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = zombie_run_interactive2.wav; sourceTree = "<group>"; };
-		52F5D9881B851975002C0F17 /* zombie_run_interactive3.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = zombie_run_interactive3.wav; sourceTree = "<group>"; };
-		52F5D9891B851975002C0F17 /* zombie_run1.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = zombie_run1.wav; sourceTree = "<group>"; };
-		52F5D98A1B851975002C0F17 /* zombie_run2.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = zombie_run2.wav; sourceTree = "<group>"; };
-		52F5D98B1B851975002C0F17 /* zombie_run3.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = zombie_run3.wav; sourceTree = "<group>"; };
-		52F5D98C1B851975002C0F17 /* zombie_run4.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = zombie_run4.wav; sourceTree = "<group>"; };
 		52F5D9941B8519E6002C0F17 /* Stage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Stage.swift; sourceTree = "<group>"; };
 		52F5D9961B852427002C0F17 /* Events.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Events.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -71,6 +112,23 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5241B5731BA0E88100DBC6D3 /* AVFoundation.framework in Frameworks */,
+				5241B5711BA0E87400DBC6D3 /* AudioToolbox.framework in Frameworks */,
+				528E89E51B9DEE3400C5FC8E /* Social.framework in Frameworks */,
+				528E89D11B9DEDCC00C5FC8E /* Accounts.framework in Frameworks */,
+				528E89E31B9DEE1A00C5FC8E /* libsqlite3.dylib in Frameworks */,
+				528E89E11B9DEE1100C5FC8E /* libz.dylib in Frameworks */,
+				5241B57C1BA1C8F400DBC6D3 /* Slt.framework in Frameworks */,
+				528E89DF1B9DEE0700C5FC8E /* SystemConfiguration.framework in Frameworks */,
+				528E89DD1B9DEDFE00C5FC8E /* StoreKit.framework in Frameworks */,
+				528E89DB1B9DEDF700C5FC8E /* Security.framework in Frameworks */,
+				528E89D91B9DEDEF00C5FC8E /* QuartzCore.framework in Frameworks */,
+				528E89D71B9DEDE700C5FC8E /* CoreLocation.framework in Frameworks */,
+				5241B57B1BA1C8F400DBC6D3 /* OpenEars.framework in Frameworks */,
+				528E89D51B9DEDDE00C5FC8E /* CoreGraphics.framework in Frameworks */,
+				528E89D31B9DEDD500C5FC8E /* CFNetwork.framework in Frameworks */,
+				528E89CF1B9DED1B00C5FC8E /* Parse.framework in Frameworks */,
+				528E89CE1B9DED1B00C5FC8E /* Bolts.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -78,15 +136,45 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5241B57F1BA1D4BD00DBC6D3 /* Slt.framework in Frameworks */,
+				5241B57E1BA1D4B900DBC6D3 /* OpenEars.framework in Frameworks */,
+				5241B5811BA1D4C800DBC6D3 /* libz.dylib in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5241B5741BA1C8F400DBC6D3 /* Framework */ = {
+			isa = PBXGroup;
+			children = (
+				5241B5751BA1C8F400DBC6D3 /* AcousticModelEnglish.bundle */,
+				5241B5761BA1C8F400DBC6D3 /* AcousticModelSpanish.bundle */,
+				5241B5771BA1C8F400DBC6D3 /* OpenEars.framework */,
+				5241B5781BA1C8F400DBC6D3 /* Slt.framework */,
+			);
+			path = Framework;
+			sourceTree = "<group>";
+		};
 		528C3A361B826734007C59FC = {
 			isa = PBXGroup;
 			children = (
+				5241B5721BA0E88100DBC6D3 /* AVFoundation.framework */,
+				5241B5701BA0E87400DBC6D3 /* AudioToolbox.framework */,
+				528E89E41B9DEE3400C5FC8E /* Social.framework */,
+				528E89E21B9DEE1A00C5FC8E /* libsqlite3.dylib */,
+				5241B5741BA1C8F400DBC6D3 /* Framework */,
+				528E89E01B9DEE1100C5FC8E /* libz.dylib */,
+				528E89DE1B9DEE0700C5FC8E /* SystemConfiguration.framework */,
+				528E89DC1B9DEDFE00C5FC8E /* StoreKit.framework */,
+				528E89DA1B9DEDF700C5FC8E /* Security.framework */,
+				528E89D81B9DEDEF00C5FC8E /* QuartzCore.framework */,
+				528E89D61B9DEDE700C5FC8E /* CoreLocation.framework */,
+				528E89D41B9DEDDE00C5FC8E /* CoreGraphics.framework */,
+				528E89D21B9DEDD500C5FC8E /* CFNetwork.framework */,
+				528E89D01B9DEDCC00C5FC8E /* Accounts.framework */,
+				528E89CC1B9DED1B00C5FC8E /* Bolts.framework */,
+				528E89CD1B9DED1B00C5FC8E /* Parse.framework */,
 				52F5D9811B85187A002C0F17 /* common */,
 				528C3A951B8271F6007C59FC /* HabitKit.framework */,
 				528C3A411B826734007C59FC /* testZR */,
@@ -108,23 +196,20 @@
 			isa = PBXGroup;
 			children = (
 				527AA5901B86063E006A935C /* test_sweep.wav */,
+				5241B55F1BA0928F00DBC6D3 /* HomeViewController.swift */,
 				52F5D9841B85191B002C0F17 /* ExperienceManager.swift */,
 				52F5D9961B852427002C0F17 /* Events.swift */,
 				52F5D9941B8519E6002C0F17 /* Stage.swift */,
-				52F5D9861B851975002C0F17 /* zombie_run_interactive1.wav */,
-				52F5D9871B851975002C0F17 /* zombie_run_interactive2.wav */,
-				52F5D9881B851975002C0F17 /* zombie_run_interactive3.wav */,
-				52F5D9891B851975002C0F17 /* zombie_run1.wav */,
-				52F5D98A1B851975002C0F17 /* zombie_run2.wav */,
-				52F5D98B1B851975002C0F17 /* zombie_run3.wav */,
-				52F5D98C1B851975002C0F17 /* zombie_run4.wav */,
+				5241B5871BA1DB8B00DBC6D3 /* ActuationController.swift */,
 				528C3A441B826734007C59FC /* AppDelegate.swift */,
-				528C3A491B826734007C59FC /* ViewController.swift */,
+				528C3A491B826734007C59FC /* MissionViewController.swift */,
+				52D30FE11B9F645500E620FC /* SignUpLogInViewController.swift */,
 				528C3A4B1B826734007C59FC /* Main.storyboard */,
 				528C3A4E1B826734007C59FC /* Images.xcassets */,
 				528C3A501B826734007C59FC /* LaunchScreen.xib */,
 				528C3A461B826734007C59FC /* testZR.xcdatamodeld */,
 				528C3A421B826734007C59FC /* Supporting Files */,
+				5241B5831BA1D6A200DBC6D3 /* OEBridging-Header.h */,
 			);
 			path = testZR;
 			sourceTree = "<group>";
@@ -234,17 +319,16 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				52F5D9921B851975002C0F17 /* zombie_run3.wav in Resources */,
+				52C267601BA8726000124458 /* Events.swift in Resources */,
+				5241B5611BA0980000DBC6D3 /* SignUpLogInViewController.swift in Resources */,
+				5241B5621BA0980000DBC6D3 /* testZR.xcdatamodeld in Resources */,
+				5241B5631BA0980000DBC6D3 /* HomeViewController.swift in Resources */,
 				528C3A4D1B826734007C59FC /* Main.storyboard in Resources */,
 				528C3A521B826734007C59FC /* LaunchScreen.xib in Resources */,
-				52F5D98E1B851975002C0F17 /* zombie_run_interactive2.wav in Resources */,
+				5241B57A1BA1C8F400DBC6D3 /* AcousticModelSpanish.bundle in Resources */,
 				527AA5911B86063E006A935C /* test_sweep.wav in Resources */,
-				52F5D98F1B851975002C0F17 /* zombie_run_interactive3.wav in Resources */,
-				52F5D98D1B851975002C0F17 /* zombie_run_interactive1.wav in Resources */,
+				5241B5791BA1C8F400DBC6D3 /* AcousticModelEnglish.bundle in Resources */,
 				528C3A4F1B826734007C59FC /* Images.xcassets in Resources */,
-				52F5D9911B851975002C0F17 /* zombie_run2.wav in Resources */,
-				52F5D9901B851975002C0F17 /* zombie_run1.wav in Resources */,
-				52F5D9931B851975002C0F17 /* zombie_run4.wav in Resources */,
 				52F5D9821B85187A002C0F17 /* common in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -253,6 +337,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5241B5801BA1D4C200DBC6D3 /* AcousticModelEnglish.bundle in Resources */,
+				5241B5821BA1D4CC00DBC6D3 /* AcousticModelSpanish.bundle in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -263,10 +349,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5241B5841BA1D74400DBC6D3 /* OEBridging-Header.h in Sources */,
+				52D30FE21B9F645500E620FC /* SignUpLogInViewController.swift in Sources */,
+				5241B5881BA1DB8B00DBC6D3 /* ActuationController.swift in Sources */,
 				52F5D9951B8519E6002C0F17 /* Stage.swift in Sources */,
 				52F5D9851B85191B002C0F17 /* ExperienceManager.swift in Sources */,
 				52F5D9831B8518CF002C0F17 /* common in Sources */,
-				528C3A4A1B826734007C59FC /* ViewController.swift in Sources */,
+				528C3A4A1B826734007C59FC /* MissionViewController.swift in Sources */,
+				5241B5601BA0928F00DBC6D3 /* HomeViewController.swift in Sources */,
 				52F5D9971B852427002C0F17 /* Events.swift in Sources */,
 				528C3A451B826734007C59FC /* AppDelegate.swift in Sources */,
 				528C3A481B826734007C59FC /* testZR.xcdatamodeld in Sources */,
@@ -400,10 +490,13 @@
 					"$(inherited)",
 					"/Users/cambo/Documents/grad_school/dtr/citizen_science/HabitSourceKit/HabitKit/build/Debug-iphoneos",
 					"$(USER_LIBRARY_DIR)/Developer/Xcode/DerivedData/HabitSourceKit-ditdgcceiqeunwbwzgtrzkwmwkhz/Build/Products/Debug-iphoneos",
+					"$(PROJECT_DIR)",
+					"$(PROJECT_DIR)/Framework",
 				);
 				INFOPLIST_FILE = testZR/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "OEBridging-Header.h";
 			};
 			name = Debug;
 		};
@@ -415,10 +508,13 @@
 					"$(inherited)",
 					"/Users/cambo/Documents/grad_school/dtr/citizen_science/HabitSourceKit/HabitKit/build/Debug-iphoneos",
 					"$(USER_LIBRARY_DIR)/Developer/Xcode/DerivedData/HabitSourceKit-ditdgcceiqeunwbwzgtrzkwmwkhz/Build/Products/Debug-iphoneos",
+					"$(PROJECT_DIR)",
+					"$(PROJECT_DIR)/Framework",
 				);
 				INFOPLIST_FILE = testZR/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "OEBridging-Header.h";
 			};
 			name = Release;
 		};
@@ -429,6 +525,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
+					"$(PROJECT_DIR)/Framework",
 				);
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
@@ -448,6 +545,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
+					"$(PROJECT_DIR)/Framework",
 				);
 				INFOPLIST_FILE = testZRTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
