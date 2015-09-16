@@ -46,6 +46,13 @@
 		528E89E31B9DEE1A00C5FC8E /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 528E89E21B9DEE1A00C5FC8E /* libsqlite3.dylib */; };
 		528E89E51B9DEE3400C5FC8E /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 528E89E41B9DEE3400C5FC8E /* Social.framework */; };
 		52C267601BA8726000124458 /* Events.swift in Resources */ = {isa = PBXBuildFile; fileRef = 52F5D9961B852427002C0F17 /* Events.swift */; };
+		52C267681BA9C07D00124458 /* zombie_run4.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 52C267611BA9C07D00124458 /* zombie_run4.mp3 */; };
+		52C267691BA9C07D00124458 /* zombie_run3.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 52C267621BA9C07D00124458 /* zombie_run3.mp3 */; };
+		52C2676A1BA9C07D00124458 /* zombie_run2.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 52C267631BA9C07D00124458 /* zombie_run2.mp3 */; };
+		52C2676B1BA9C07D00124458 /* zombie_run1.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 52C267641BA9C07D00124458 /* zombie_run1.mp3 */; };
+		52C2676C1BA9C07D00124458 /* zombie_run_interactive3.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 52C267651BA9C07D00124458 /* zombie_run_interactive3.mp3 */; };
+		52C2676D1BA9C07D00124458 /* zombie_run_interactive2.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 52C267661BA9C07D00124458 /* zombie_run_interactive2.mp3 */; };
+		52C2676E1BA9C07D00124458 /* zombie_run_interactive1.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 52C267671BA9C07D00124458 /* zombie_run_interactive1.mp3 */; };
 		52D30FE21B9F645500E620FC /* SignUpLogInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52D30FE11B9F645500E620FC /* SignUpLogInViewController.swift */; };
 		52F5D9821B85187A002C0F17 /* common in Resources */ = {isa = PBXBuildFile; fileRef = 52F5D9811B85187A002C0F17 /* common */; };
 		52F5D9831B8518CF002C0F17 /* common in Sources */ = {isa = PBXBuildFile; fileRef = 52F5D9811B85187A002C0F17 /* common */; };
@@ -100,6 +107,13 @@
 		528E89E01B9DEE1100C5FC8E /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		528E89E21B9DEE1A00C5FC8E /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
 		528E89E41B9DEE3400C5FC8E /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
+		52C267611BA9C07D00124458 /* zombie_run4.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = zombie_run4.mp3; sourceTree = "<group>"; };
+		52C267621BA9C07D00124458 /* zombie_run3.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = zombie_run3.mp3; sourceTree = "<group>"; };
+		52C267631BA9C07D00124458 /* zombie_run2.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = zombie_run2.mp3; sourceTree = "<group>"; };
+		52C267641BA9C07D00124458 /* zombie_run1.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = zombie_run1.mp3; sourceTree = "<group>"; };
+		52C267651BA9C07D00124458 /* zombie_run_interactive3.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = zombie_run_interactive3.mp3; sourceTree = "<group>"; };
+		52C267661BA9C07D00124458 /* zombie_run_interactive2.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = zombie_run_interactive2.mp3; sourceTree = "<group>"; };
+		52C267671BA9C07D00124458 /* zombie_run_interactive1.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = zombie_run_interactive1.mp3; sourceTree = "<group>"; };
 		52D30FE11B9F645500E620FC /* SignUpLogInViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpLogInViewController.swift; sourceTree = "<group>"; };
 		52F5D9811B85187A002C0F17 /* common */ = {isa = PBXFileReference; lastKnownFileType = folder; name = common; path = ../common; sourceTree = "<group>"; };
 		52F5D9841B85191B002C0F17 /* ExperienceManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ExperienceManager.swift; path = ../../common/ExperienceManager.swift; sourceTree = "<group>"; };
@@ -195,6 +209,13 @@
 		528C3A411B826734007C59FC /* testZR */ = {
 			isa = PBXGroup;
 			children = (
+				52C267611BA9C07D00124458 /* zombie_run4.mp3 */,
+				52C267621BA9C07D00124458 /* zombie_run3.mp3 */,
+				52C267631BA9C07D00124458 /* zombie_run2.mp3 */,
+				52C267641BA9C07D00124458 /* zombie_run1.mp3 */,
+				52C267651BA9C07D00124458 /* zombie_run_interactive3.mp3 */,
+				52C267661BA9C07D00124458 /* zombie_run_interactive2.mp3 */,
+				52C267671BA9C07D00124458 /* zombie_run_interactive1.mp3 */,
 				527AA5901B86063E006A935C /* test_sweep.wav */,
 				5241B55F1BA0928F00DBC6D3 /* HomeViewController.swift */,
 				52F5D9841B85191B002C0F17 /* ExperienceManager.swift */,
@@ -322,14 +343,21 @@
 				52C267601BA8726000124458 /* Events.swift in Resources */,
 				5241B5611BA0980000DBC6D3 /* SignUpLogInViewController.swift in Resources */,
 				5241B5621BA0980000DBC6D3 /* testZR.xcdatamodeld in Resources */,
+				52C2676C1BA9C07D00124458 /* zombie_run_interactive3.mp3 in Resources */,
+				52C2676A1BA9C07D00124458 /* zombie_run2.mp3 in Resources */,
+				52C267681BA9C07D00124458 /* zombie_run4.mp3 in Resources */,
 				5241B5631BA0980000DBC6D3 /* HomeViewController.swift in Resources */,
+				52C267691BA9C07D00124458 /* zombie_run3.mp3 in Resources */,
 				528C3A4D1B826734007C59FC /* Main.storyboard in Resources */,
 				528C3A521B826734007C59FC /* LaunchScreen.xib in Resources */,
+				52C2676B1BA9C07D00124458 /* zombie_run1.mp3 in Resources */,
 				5241B57A1BA1C8F400DBC6D3 /* AcousticModelSpanish.bundle in Resources */,
 				527AA5911B86063E006A935C /* test_sweep.wav in Resources */,
 				5241B5791BA1C8F400DBC6D3 /* AcousticModelEnglish.bundle in Resources */,
 				528C3A4F1B826734007C59FC /* Images.xcassets in Resources */,
+				52C2676D1BA9C07D00124458 /* zombie_run_interactive2.mp3 in Resources */,
 				52F5D9821B85187A002C0F17 /* common in Resources */,
+				52C2676E1BA9C07D00124458 /* zombie_run_interactive1.mp3 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

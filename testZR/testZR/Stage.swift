@@ -52,7 +52,7 @@ class Sound: Moment, AVAudioPlayerDelegate{
         print("Sound init()");
         //initalize AVAudioPlayer with file variable
         var error:NSError?
-        var soundLocation = NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource(file, ofType: "wav")!)
+        var soundLocation = NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource(file, ofType: "mp3")!)
         println(soundLocation)
         self.player = AVAudioPlayer(contentsOfURL: soundLocation, error: &error)
         super.init(interruptable:interruptable);
