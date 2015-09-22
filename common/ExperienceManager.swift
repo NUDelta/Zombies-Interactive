@@ -74,6 +74,8 @@ class ExperienceManager: NSObject, CLLocationManagerDelegate {
     
     func setMomentTitle(information:Any?){
         self.moment_title = String(stringInterpolationSegment: information);
+        //clear data label so that it doesn't persist until later.  This may need to change for future versions with more complex notions of data labels.
+        self.data_label = "";
     }
     
     func pause(){
@@ -116,6 +118,9 @@ class ExperienceManager: NSObject, CLLocationManagerDelegate {
         pLocation["time"] = NSDate();
         pLocation["experience_id"] = self.experience;
         pLocation["mission"] = self.experience["mission_name"];
+        pLocation["stage"] = self.stage_title;
+        pLocation["moment"] = self.moment_title;
+        pLocation["data"] = self.data_label;
         pLocation.saveInBackground();
         
         //alert MissionViewController to update stats
