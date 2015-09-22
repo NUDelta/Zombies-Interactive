@@ -14,6 +14,7 @@ import AudioToolbox
 class Moment: NSObject{
     var isInterruptable:Bool
     var isPaused = true;
+    var title:String!;
     let events = EventManager()
     init(interruptable:Bool){
         self.isInterruptable = interruptable;
@@ -39,6 +40,11 @@ class Moment: NSObject{
     func restart(){
         
     }
+    
+    /* add a toString method, not sure of how to do this,
+       but the method should return some info about the moment
+       that would be useful for data analysis.
+    */
 }
 
 class Sound: Moment, AVAudioPlayerDelegate{
@@ -56,6 +62,7 @@ class Sound: Moment, AVAudioPlayerDelegate{
         println(soundLocation)
         self.player = AVAudioPlayer(contentsOfURL: soundLocation, error: &error)
         super.init(interruptable:interruptable);
+        self.title = fileName;
 
         
         self.player.delegate = self;
@@ -95,6 +102,7 @@ class Silence: Moment{
         self.length = length;
         println("Silence init()")
         super.init(interruptable:interruptable);
+        self.title = "Silence : " + String(stringInterpolationSegment: self.length);
     }
     
     override func play(){
@@ -126,6 +134,7 @@ class waitForYes: Silence{
     override init(length: Float, interruptable:Bool){
         super.init(length: length, interruptable:interruptable);
         oeController.events.listenTo("heardWord", action: self.heard);
+        self.title = "waitForYes";
     }
     
     override func play(){
@@ -146,6 +155,7 @@ class waitForYes: Silence{
     }
     
     func heard(information:Any?){
+        self.events.trigger("dataLabel", information: "heardYes");
         finished();
     }
     
@@ -181,6 +191,7 @@ class AppStage: NSObject{
         if (self.currentMoment != (moments.count-1)){
             self.currentMoment += 1;
             self.moments[currentMoment].play();
+            self.events.trigger("newMoment", information: self.moments[currentMoment].title);
         } else {
             self.events.trigger("stagefinished");
         }

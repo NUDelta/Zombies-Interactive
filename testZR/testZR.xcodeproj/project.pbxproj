@@ -40,7 +40,6 @@
 		528E89D71B9DEDE700C5FC8E /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 528E89D61B9DEDE700C5FC8E /* CoreLocation.framework */; };
 		528E89D91B9DEDEF00C5FC8E /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 528E89D81B9DEDEF00C5FC8E /* QuartzCore.framework */; };
 		528E89DB1B9DEDF700C5FC8E /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 528E89DA1B9DEDF700C5FC8E /* Security.framework */; };
-		528E89DD1B9DEDFE00C5FC8E /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 528E89DC1B9DEDFE00C5FC8E /* StoreKit.framework */; };
 		528E89DF1B9DEE0700C5FC8E /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 528E89DE1B9DEE0700C5FC8E /* SystemConfiguration.framework */; };
 		528E89E11B9DEE1100C5FC8E /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 528E89E01B9DEE1100C5FC8E /* libz.dylib */; };
 		528E89E31B9DEE1A00C5FC8E /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 528E89E21B9DEE1A00C5FC8E /* libsqlite3.dylib */; };
@@ -102,7 +101,6 @@
 		528E89D61B9DEDE700C5FC8E /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		528E89D81B9DEDEF00C5FC8E /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		528E89DA1B9DEDF700C5FC8E /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
-		528E89DC1B9DEDFE00C5FC8E /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		528E89DE1B9DEE0700C5FC8E /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		528E89E01B9DEE1100C5FC8E /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		528E89E21B9DEE1A00C5FC8E /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
@@ -134,7 +132,6 @@
 				528E89E11B9DEE1100C5FC8E /* libz.dylib in Frameworks */,
 				5241B57C1BA1C8F400DBC6D3 /* Slt.framework in Frameworks */,
 				528E89DF1B9DEE0700C5FC8E /* SystemConfiguration.framework in Frameworks */,
-				528E89DD1B9DEDFE00C5FC8E /* StoreKit.framework in Frameworks */,
 				528E89DB1B9DEDF700C5FC8E /* Security.framework in Frameworks */,
 				528E89D91B9DEDEF00C5FC8E /* QuartzCore.framework in Frameworks */,
 				528E89D71B9DEDE700C5FC8E /* CoreLocation.framework in Frameworks */,
@@ -180,7 +177,6 @@
 				5241B5741BA1C8F400DBC6D3 /* Framework */,
 				528E89E01B9DEE1100C5FC8E /* libz.dylib */,
 				528E89DE1B9DEE0700C5FC8E /* SystemConfiguration.framework */,
-				528E89DC1B9DEDFE00C5FC8E /* StoreKit.framework */,
 				528E89DA1B9DEDF700C5FC8E /* Security.framework */,
 				528E89D81B9DEDEF00C5FC8E /* QuartzCore.framework */,
 				528E89D61B9DEDE700C5FC8E /* CoreLocation.framework */,
@@ -309,6 +305,12 @@
 				TargetAttributes = {
 					528C3A3E1B826734007C59FC = {
 						CreatedOnToolsVersion = 6.4;
+						DevelopmentTeam = W4E2C6X642;
+						SystemCapabilities = {
+							com.apple.InAppPurchase = {
+								enabled = 0;
+							};
+						};
 					};
 					528C3A561B826734007C59FC = {
 						CreatedOnToolsVersion = 6.4;
@@ -514,6 +516,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"/Users/cambo/Documents/grad_school/dtr/citizen_science/HabitSourceKit/HabitKit/build/Debug-iphoneos",
@@ -532,6 +535,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"/Users/cambo/Documents/grad_school/dtr/citizen_science/HabitSourceKit/HabitKit/build/Debug-iphoneos",

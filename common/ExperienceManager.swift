@@ -21,9 +21,16 @@ class ExperienceManager: NSObject, CLLocationManagerDelegate {
     var experienceStarted = false;
     var currentUser = PFUser.currentUser();
     var experience:PFObject!;
-    init(stages: [AppStage]) {
+    var experience_title:String = "";
+    
+    var stage_title:String = "";
+    var moment_title:String = "";
+    var data_label = "";
+    
+    init(experience_title: String, stages: [AppStage]) {
         self.stages = stages
         self.currentStage = 0
+        self.experience_title = experience_title;
         
         super.init();
         
@@ -36,6 +43,9 @@ class ExperienceManager: NSObject, CLLocationManagerDelegate {
         
         for stage in stages{
             stage.events.listenTo("stagefinished", action: self.nextStage);
+            for moment in stage.moments{
+                moment.events.listenTo("newMoment", action: self.setMomentTitle);
+            }
         }
     }
     
@@ -49,7 +59,7 @@ class ExperienceManager: NSObject, CLLocationManagerDelegate {
             self.experience = PFObject(className: "Experience");
             self.experience["User"] = self.currentUser;
             self.experience["time_started"] = NSDate();
-            self.experience["mission_name"] = "Hospital"
+            self.experience["mission_name"] = self.experience_title
             self.experience["hasFinished"] = false;// <-- quick hard code hack, see note
             // Note : ^^ the mission_name should get changed to be set when the developer
             // builds the mission
@@ -57,7 +67,13 @@ class ExperienceManager: NSObject, CLLocationManagerDelegate {
         }
         println("playing stage #" + String(currentStage));
         stages[currentStage].play();
+        self.moment_title = stages[currentStage].moments[stages[currentStage].currentMoment].title;
+        self.stage_title = "Stage #1"
         isPlaying = true;
+    }
+    
+    func setMomentTitle(information:Any?){
+        self.moment_title = String(stringInterpolationSegment: information);
     }
     
     func pause(){
@@ -74,6 +90,7 @@ class ExperienceManager: NSObject, CLLocationManagerDelegate {
         if (self.currentStage < count(stages) - 1) {
             self.currentStage = self.currentStage + 1;
             self.play();
+            self.stage_title = "Stage #" + String(self.currentStage+1);
         } else {
             self.expFinished();
         }
@@ -102,6 +119,10 @@ class ExperienceManager: NSObject, CLLocationManagerDelegate {
         pLocation.saveInBackground();
         
         //alert MissionViewController to update stats
+        
+    }
+    
+    func setDataLabel(information: Any?){
         
     }
     

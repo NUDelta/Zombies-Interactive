@@ -23,24 +23,33 @@ class MissionViewController: UIViewController,MKMapViewDelegate {
         //initialize stages for experience manager <-- will later be done in a separate file most likely
         // initialize experience manager with those stages
 
+        //stage 1
         var helicopter_scene = Sound(file:"zombie_run1", interruptable:false)
         var silence1 = Silence(length:300.0, interruptable:true); // 5 minutes of silence (5 * 60 = 300)
         var run_scene = Sound(file:"zombie_run2", interruptable: false);
-        var silence2 = Silence(length:300.0, interruptable:true);
+        var silence2 = Silence(length:300.0, interruptable:true); // length is seconds
+        
+        //stage 2
         var hospital_scene = Sound(file: "zombie_run3", interruptable: false);
         var silence3 = Silence(length:300.0, interruptable:true);
+        
+        // interactive stage
         var stopAndWait = Sound(file:"zombie_run_interactive1", interruptable: false);
         var waitAtTree = waitForYes(length:30.0, interruptable:false);
         var readyAtTree = Sound(file:"zombie_run_interactive2", interruptable: false);
+        
+        // stage 4 (final
         var silence4 = Silence(length:4.0, interruptable: false);
         var goFromTree = Sound(file:"zombie_run_interactive3", interruptable: false);
         var enterSafety = Sound(file:"zombie_run4", interruptable: true);
         //var sound2 = Sound(file:"test_sweep", interruptable:false);
+        
+        //experience (Mission)
         var stage1 = AppStage(moments: [helicopter_scene, silence1, run_scene, silence2]);
         var stage2 = AppStage(moments: [hospital_scene, silence3]);
         var stage3 = AppStage(moments: [stopAndWait, waitAtTree, readyAtTree, silence4, goFromTree]);
         var stage4 = AppStage(moments: [enterSafety]);
-        expMan = ExperienceManager(stages: [stage1, stage2]);
+        expMan = ExperienceManager(experience_title: "Mission 1: The Beginning", stages: [stage1, stage2, stage3, stage4]);
         
         // Set up the map view
         theMap.delegate = self
