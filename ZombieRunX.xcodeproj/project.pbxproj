@@ -36,23 +36,23 @@
 		528E89E11B9DEE1100C5FC8E /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 528E89E01B9DEE1100C5FC8E /* libz.dylib */; };
 		528E89E31B9DEE1A00C5FC8E /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 528E89E21B9DEE1A00C5FC8E /* libsqlite3.dylib */; };
 		528E89E51B9DEE3400C5FC8E /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 528E89E41B9DEE3400C5FC8E /* Social.framework */; };
+		BA2B43CF1BBBAEF8007C2483 /* test_sweep.wav in Resources */ = {isa = PBXBuildFile; fileRef = BA2B43C71BBBAEF8007C2483 /* test_sweep.wav */; settings = {ASSET_TAGS = (); }; };
+		BA2B43D01BBBAEF8007C2483 /* zombie_run1.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = BA2B43C81BBBAEF8007C2483 /* zombie_run1.mp3 */; settings = {ASSET_TAGS = (); }; };
+		BA2B43D11BBBAEF8007C2483 /* zombie_run2.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = BA2B43C91BBBAEF8007C2483 /* zombie_run2.mp3 */; settings = {ASSET_TAGS = (); }; };
+		BA2B43D21BBBAEF8007C2483 /* zombie_run3.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = BA2B43CA1BBBAEF8007C2483 /* zombie_run3.mp3 */; settings = {ASSET_TAGS = (); }; };
+		BA2B43D31BBBAEF8007C2483 /* zombie_run4.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = BA2B43CB1BBBAEF8007C2483 /* zombie_run4.mp3 */; settings = {ASSET_TAGS = (); }; };
+		BA2B43D41BBBAEF8007C2483 /* zombie_run_interactive1.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = BA2B43CC1BBBAEF8007C2483 /* zombie_run_interactive1.mp3 */; settings = {ASSET_TAGS = (); }; };
+		BA2B43D51BBBAEF8007C2483 /* zombie_run_interactive2.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = BA2B43CD1BBBAEF8007C2483 /* zombie_run_interactive2.mp3 */; settings = {ASSET_TAGS = (); }; };
+		BA2B43D61BBBAEF8007C2483 /* zombie_run_interactive3.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = BA2B43CE1BBBAEF8007C2483 /* zombie_run_interactive3.mp3 */; settings = {ASSET_TAGS = (); }; };
+		BA2B43E01BBBAF23007C2483 /* ActuationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA2B43D81BBBAF23007C2483 /* ActuationController.swift */; settings = {ASSET_TAGS = (); }; };
+		BA2B43E11BBBAF23007C2483 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA2B43D91BBBAF23007C2483 /* AppDelegate.swift */; settings = {ASSET_TAGS = (); }; };
+		BA2B43E21BBBAF23007C2483 /* Events.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA2B43DA1BBBAF23007C2483 /* Events.swift */; settings = {ASSET_TAGS = (); }; };
+		BA2B43E31BBBAF23007C2483 /* ExperienceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA2B43DB1BBBAF23007C2483 /* ExperienceManager.swift */; settings = {ASSET_TAGS = (); }; };
+		BA2B43E41BBBAF23007C2483 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA2B43DC1BBBAF23007C2483 /* HomeViewController.swift */; settings = {ASSET_TAGS = (); }; };
+		BA2B43E51BBBAF23007C2483 /* MissionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA2B43DD1BBBAF23007C2483 /* MissionViewController.swift */; settings = {ASSET_TAGS = (); }; };
+		BA2B43E61BBBAF23007C2483 /* SignUpLogInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA2B43DE1BBBAF23007C2483 /* SignUpLogInViewController.swift */; settings = {ASSET_TAGS = (); }; };
+		BA2B43E71BBBAF23007C2483 /* Stage.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA2B43DF1BBBAF23007C2483 /* Stage.swift */; settings = {ASSET_TAGS = (); }; };
 		BA36A8951BBBA79100E197E2 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BA36A8941BBBA79100E197E2 /* Images.xcassets */; settings = {ASSET_TAGS = (); }; };
-		BA36A89D1BBBA7A200E197E2 /* zombie_run_interactive1.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = BA36A8961BBBA7A200E197E2 /* zombie_run_interactive1.mp3 */; settings = {ASSET_TAGS = (); }; };
-		BA36A89E1BBBA7A200E197E2 /* zombie_run_interactive2.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = BA36A8971BBBA7A200E197E2 /* zombie_run_interactive2.mp3 */; settings = {ASSET_TAGS = (); }; };
-		BA36A89F1BBBA7A200E197E2 /* zombie_run_interactive3.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = BA36A8981BBBA7A200E197E2 /* zombie_run_interactive3.mp3 */; settings = {ASSET_TAGS = (); }; };
-		BA36A8A01BBBA7A200E197E2 /* zombie_run1.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = BA36A8991BBBA7A200E197E2 /* zombie_run1.mp3 */; settings = {ASSET_TAGS = (); }; };
-		BA36A8A11BBBA7A200E197E2 /* zombie_run2.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = BA36A89A1BBBA7A200E197E2 /* zombie_run2.mp3 */; settings = {ASSET_TAGS = (); }; };
-		BA36A8A21BBBA7A200E197E2 /* zombie_run3.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = BA36A89B1BBBA7A200E197E2 /* zombie_run3.mp3 */; settings = {ASSET_TAGS = (); }; };
-		BA36A8A31BBBA7A200E197E2 /* zombie_run4.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = BA36A89C1BBBA7A200E197E2 /* zombie_run4.mp3 */; settings = {ASSET_TAGS = (); }; };
-		BA36A8A51BBBA7AC00E197E2 /* test_sweep.wav in Resources */ = {isa = PBXBuildFile; fileRef = BA36A8A41BBBA7AC00E197E2 /* test_sweep.wav */; settings = {ASSET_TAGS = (); }; };
-		BA36A8AD1BBBA7CF00E197E2 /* ActuationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA36A8A61BBBA7CF00E197E2 /* ActuationController.swift */; settings = {ASSET_TAGS = (); }; };
-		BA36A8AE1BBBA7CF00E197E2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA36A8A71BBBA7CF00E197E2 /* AppDelegate.swift */; settings = {ASSET_TAGS = (); }; };
-		BA36A8AF1BBBA7CF00E197E2 /* Events.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA36A8A81BBBA7CF00E197E2 /* Events.swift */; settings = {ASSET_TAGS = (); }; };
-		BA36A8B01BBBA7CF00E197E2 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA36A8A91BBBA7CF00E197E2 /* HomeViewController.swift */; settings = {ASSET_TAGS = (); }; };
-		BA36A8B11BBBA7CF00E197E2 /* MissionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA36A8AA1BBBA7CF00E197E2 /* MissionViewController.swift */; settings = {ASSET_TAGS = (); }; };
-		BA36A8B21BBBA7CF00E197E2 /* SignUpLogInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA36A8AB1BBBA7CF00E197E2 /* SignUpLogInViewController.swift */; settings = {ASSET_TAGS = (); }; };
-		BA36A8B31BBBA7CF00E197E2 /* Stage.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA36A8AC1BBBA7CF00E197E2 /* Stage.swift */; settings = {ASSET_TAGS = (); }; };
-		BA36A8C11BBBAD5800E197E2 /* ExperienceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA36A8C01BBBAD5800E197E2 /* ExperienceManager.swift */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -93,23 +93,23 @@
 		528E89E01B9DEE1100C5FC8E /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		528E89E21B9DEE1A00C5FC8E /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
 		528E89E41B9DEE3400C5FC8E /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
+		BA2B43C71BBBAEF8007C2483 /* test_sweep.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = test_sweep.wav; sourceTree = "<group>"; };
+		BA2B43C81BBBAEF8007C2483 /* zombie_run1.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = zombie_run1.mp3; sourceTree = "<group>"; };
+		BA2B43C91BBBAEF8007C2483 /* zombie_run2.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = zombie_run2.mp3; sourceTree = "<group>"; };
+		BA2B43CA1BBBAEF8007C2483 /* zombie_run3.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = zombie_run3.mp3; sourceTree = "<group>"; };
+		BA2B43CB1BBBAEF8007C2483 /* zombie_run4.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = zombie_run4.mp3; sourceTree = "<group>"; };
+		BA2B43CC1BBBAEF8007C2483 /* zombie_run_interactive1.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = zombie_run_interactive1.mp3; sourceTree = "<group>"; };
+		BA2B43CD1BBBAEF8007C2483 /* zombie_run_interactive2.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = zombie_run_interactive2.mp3; sourceTree = "<group>"; };
+		BA2B43CE1BBBAEF8007C2483 /* zombie_run_interactive3.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = zombie_run_interactive3.mp3; sourceTree = "<group>"; };
+		BA2B43D81BBBAF23007C2483 /* ActuationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActuationController.swift; sourceTree = "<group>"; };
+		BA2B43D91BBBAF23007C2483 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		BA2B43DA1BBBAF23007C2483 /* Events.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Events.swift; sourceTree = "<group>"; };
+		BA2B43DB1BBBAF23007C2483 /* ExperienceManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExperienceManager.swift; sourceTree = "<group>"; };
+		BA2B43DC1BBBAF23007C2483 /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		BA2B43DD1BBBAF23007C2483 /* MissionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MissionViewController.swift; sourceTree = "<group>"; };
+		BA2B43DE1BBBAF23007C2483 /* SignUpLogInViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpLogInViewController.swift; sourceTree = "<group>"; };
+		BA2B43DF1BBBAF23007C2483 /* Stage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Stage.swift; sourceTree = "<group>"; };
 		BA36A8941BBBA79100E197E2 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = ZombieRunX/Images.xcassets; sourceTree = SOURCE_ROOT; };
-		BA36A8961BBBA7A200E197E2 /* zombie_run_interactive1.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = zombie_run_interactive1.mp3; path = ZombieRunX/zombie_run_interactive1.mp3; sourceTree = SOURCE_ROOT; };
-		BA36A8971BBBA7A200E197E2 /* zombie_run_interactive2.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = zombie_run_interactive2.mp3; path = ZombieRunX/zombie_run_interactive2.mp3; sourceTree = SOURCE_ROOT; };
-		BA36A8981BBBA7A200E197E2 /* zombie_run_interactive3.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = zombie_run_interactive3.mp3; path = ZombieRunX/zombie_run_interactive3.mp3; sourceTree = SOURCE_ROOT; };
-		BA36A8991BBBA7A200E197E2 /* zombie_run1.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = zombie_run1.mp3; path = ZombieRunX/zombie_run1.mp3; sourceTree = SOURCE_ROOT; };
-		BA36A89A1BBBA7A200E197E2 /* zombie_run2.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = zombie_run2.mp3; path = ZombieRunX/zombie_run2.mp3; sourceTree = SOURCE_ROOT; };
-		BA36A89B1BBBA7A200E197E2 /* zombie_run3.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = zombie_run3.mp3; path = ZombieRunX/zombie_run3.mp3; sourceTree = SOURCE_ROOT; };
-		BA36A89C1BBBA7A200E197E2 /* zombie_run4.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = zombie_run4.mp3; path = ZombieRunX/zombie_run4.mp3; sourceTree = SOURCE_ROOT; };
-		BA36A8A41BBBA7AC00E197E2 /* test_sweep.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = test_sweep.wav; path = ZombieRunX/test_sweep.wav; sourceTree = SOURCE_ROOT; };
-		BA36A8A61BBBA7CF00E197E2 /* ActuationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ActuationController.swift; path = ZombieRunX/ActuationController.swift; sourceTree = SOURCE_ROOT; };
-		BA36A8A71BBBA7CF00E197E2 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = ZombieRunX/AppDelegate.swift; sourceTree = SOURCE_ROOT; };
-		BA36A8A81BBBA7CF00E197E2 /* Events.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Events.swift; path = ZombieRunX/Events.swift; sourceTree = SOURCE_ROOT; };
-		BA36A8A91BBBA7CF00E197E2 /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HomeViewController.swift; path = ZombieRunX/HomeViewController.swift; sourceTree = SOURCE_ROOT; };
-		BA36A8AA1BBBA7CF00E197E2 /* MissionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MissionViewController.swift; path = ZombieRunX/MissionViewController.swift; sourceTree = SOURCE_ROOT; };
-		BA36A8AB1BBBA7CF00E197E2 /* SignUpLogInViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SignUpLogInViewController.swift; path = ZombieRunX/SignUpLogInViewController.swift; sourceTree = SOURCE_ROOT; };
-		BA36A8AC1BBBA7CF00E197E2 /* Stage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Stage.swift; path = ZombieRunX/Stage.swift; sourceTree = SOURCE_ROOT; };
-		BA36A8C01BBBAD5800E197E2 /* ExperienceManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExperienceManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -196,23 +196,9 @@
 		528C3A411B826734007C59FC /* ZombieRunX */ = {
 			isa = PBXGroup;
 			children = (
-				BA36A8A41BBBA7AC00E197E2 /* test_sweep.wav */,
-				BA36A8961BBBA7A200E197E2 /* zombie_run_interactive1.mp3 */,
-				BA36A8971BBBA7A200E197E2 /* zombie_run_interactive2.mp3 */,
-				BA36A8981BBBA7A200E197E2 /* zombie_run_interactive3.mp3 */,
-				BA36A8991BBBA7A200E197E2 /* zombie_run1.mp3 */,
-				BA36A89A1BBBA7A200E197E2 /* zombie_run2.mp3 */,
-				BA36A89B1BBBA7A200E197E2 /* zombie_run3.mp3 */,
-				BA36A89C1BBBA7A200E197E2 /* zombie_run4.mp3 */,
+				BA2B43D71BBBAF23007C2483 /* classes */,
+				BA2B43C61BBBAEF8007C2483 /* audio */,
 				BA36A8941BBBA79100E197E2 /* Images.xcassets */,
-				BA36A8A61BBBA7CF00E197E2 /* ActuationController.swift */,
-				BA36A8A71BBBA7CF00E197E2 /* AppDelegate.swift */,
-				BA36A8A81BBBA7CF00E197E2 /* Events.swift */,
-				BA36A8C01BBBAD5800E197E2 /* ExperienceManager.swift */,
-				BA36A8A91BBBA7CF00E197E2 /* HomeViewController.swift */,
-				BA36A8AA1BBBA7CF00E197E2 /* MissionViewController.swift */,
-				BA36A8AB1BBBA7CF00E197E2 /* SignUpLogInViewController.swift */,
-				BA36A8AC1BBBA7CF00E197E2 /* Stage.swift */,
 				528C3A4B1B826734007C59FC /* Main.storyboard */,
 				528C3A501B826734007C59FC /* LaunchScreen.xib */,
 				528C3A461B826734007C59FC /* ZombieRunX.xcdatamodeld */,
@@ -245,6 +231,36 @@
 				528C3A5C1B826734007C59FC /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		BA2B43C61BBBAEF8007C2483 /* audio */ = {
+			isa = PBXGroup;
+			children = (
+				BA2B43C71BBBAEF8007C2483 /* test_sweep.wav */,
+				BA2B43C81BBBAEF8007C2483 /* zombie_run1.mp3 */,
+				BA2B43C91BBBAEF8007C2483 /* zombie_run2.mp3 */,
+				BA2B43CA1BBBAEF8007C2483 /* zombie_run3.mp3 */,
+				BA2B43CB1BBBAEF8007C2483 /* zombie_run4.mp3 */,
+				BA2B43CC1BBBAEF8007C2483 /* zombie_run_interactive1.mp3 */,
+				BA2B43CD1BBBAEF8007C2483 /* zombie_run_interactive2.mp3 */,
+				BA2B43CE1BBBAEF8007C2483 /* zombie_run_interactive3.mp3 */,
+			);
+			path = audio;
+			sourceTree = "<group>";
+		};
+		BA2B43D71BBBAF23007C2483 /* classes */ = {
+			isa = PBXGroup;
+			children = (
+				BA2B43D81BBBAF23007C2483 /* ActuationController.swift */,
+				BA2B43D91BBBAF23007C2483 /* AppDelegate.swift */,
+				BA2B43DA1BBBAF23007C2483 /* Events.swift */,
+				BA2B43DB1BBBAF23007C2483 /* ExperienceManager.swift */,
+				BA2B43DC1BBBAF23007C2483 /* HomeViewController.swift */,
+				BA2B43DD1BBBAF23007C2483 /* MissionViewController.swift */,
+				BA2B43DE1BBBAF23007C2483 /* SignUpLogInViewController.swift */,
+				BA2B43DF1BBBAF23007C2483 /* Stage.swift */,
+			);
+			path = classes;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -335,20 +351,20 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BA36A89F1BBBA7A200E197E2 /* zombie_run_interactive3.mp3 in Resources */,
-				BA36A8A51BBBA7AC00E197E2 /* test_sweep.wav in Resources */,
+				BA2B43D51BBBAEF8007C2483 /* zombie_run_interactive2.mp3 in Resources */,
+				BA2B43D01BBBAEF8007C2483 /* zombie_run1.mp3 in Resources */,
+				BA2B43CF1BBBAEF8007C2483 /* test_sweep.wav in Resources */,
+				BA2B43D21BBBAEF8007C2483 /* zombie_run3.mp3 in Resources */,
 				5241B5621BA0980000DBC6D3 /* ZombieRunX.xcdatamodeld in Resources */,
-				BA36A89D1BBBA7A200E197E2 /* zombie_run_interactive1.mp3 in Resources */,
 				528C3A4D1B826734007C59FC /* Main.storyboard in Resources */,
+				BA2B43D41BBBAEF8007C2483 /* zombie_run_interactive1.mp3 in Resources */,
 				528C3A521B826734007C59FC /* LaunchScreen.xib in Resources */,
-				BA36A8A11BBBA7A200E197E2 /* zombie_run2.mp3 in Resources */,
 				5241B57A1BA1C8F400DBC6D3 /* AcousticModelSpanish.bundle in Resources */,
+				BA2B43D61BBBAEF8007C2483 /* zombie_run_interactive3.mp3 in Resources */,
+				BA2B43D11BBBAEF8007C2483 /* zombie_run2.mp3 in Resources */,
 				5241B5791BA1C8F400DBC6D3 /* AcousticModelEnglish.bundle in Resources */,
+				BA2B43D31BBBAEF8007C2483 /* zombie_run4.mp3 in Resources */,
 				BA36A8951BBBA79100E197E2 /* Images.xcassets in Resources */,
-				BA36A8A21BBBA7A200E197E2 /* zombie_run3.mp3 in Resources */,
-				BA36A8A31BBBA7A200E197E2 /* zombie_run4.mp3 in Resources */,
-				BA36A89E1BBBA7A200E197E2 /* zombie_run_interactive2.mp3 in Resources */,
-				BA36A8A01BBBA7A200E197E2 /* zombie_run1.mp3 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -368,15 +384,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BA2B43E21BBBAF23007C2483 /* Events.swift in Sources */,
+				BA2B43E61BBBAF23007C2483 /* SignUpLogInViewController.swift in Sources */,
+				BA2B43E11BBBAF23007C2483 /* AppDelegate.swift in Sources */,
 				5241B5841BA1D74400DBC6D3 /* OEBridging-Header.h in Sources */,
-				BA36A8B21BBBA7CF00E197E2 /* SignUpLogInViewController.swift in Sources */,
-				BA36A8AF1BBBA7CF00E197E2 /* Events.swift in Sources */,
-				BA36A8B01BBBA7CF00E197E2 /* HomeViewController.swift in Sources */,
-				BA36A8B11BBBA7CF00E197E2 /* MissionViewController.swift in Sources */,
-				BA36A8C11BBBAD5800E197E2 /* ExperienceManager.swift in Sources */,
-				BA36A8B31BBBA7CF00E197E2 /* Stage.swift in Sources */,
-				BA36A8AE1BBBA7CF00E197E2 /* AppDelegate.swift in Sources */,
-				BA36A8AD1BBBA7CF00E197E2 /* ActuationController.swift in Sources */,
+				BA2B43E01BBBAF23007C2483 /* ActuationController.swift in Sources */,
+				BA2B43E41BBBAF23007C2483 /* HomeViewController.swift in Sources */,
+				BA2B43E31BBBAF23007C2483 /* ExperienceManager.swift in Sources */,
+				BA2B43E51BBBAF23007C2483 /* MissionViewController.swift in Sources */,
+				BA2B43E71BBBAF23007C2483 /* Stage.swift in Sources */,
 				528C3A481B826734007C59FC /* ZombieRunX.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
