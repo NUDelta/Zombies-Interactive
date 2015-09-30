@@ -31,10 +31,10 @@ class OpenEarsController: NSObject, OEEventsObserverDelegate{
         self.openEarsEventsObserver = OEEventsObserver()
         self.openEarsEventsObserver.delegate = self
         
-        var lmGenerator: OELanguageModelGenerator = OELanguageModelGenerator()
+        let lmGenerator: OELanguageModelGenerator = OELanguageModelGenerator()
         
         words = wordsToRecognize;
-        var name = "LanguageModelFileStarSaver"
+        let name = "LanguageModelFileStarSaver"
         lmGenerator.generateLanguageModelFromArray(words, withFilesNamed: name, forAcousticModelAtPath: OEAcousticModel.pathToModel("AcousticModelEnglish"))
         
         lmPath = lmGenerator.pathToSuccessfullyGeneratedLanguageModelWithRequestedName(name)
@@ -43,19 +43,22 @@ class OpenEarsController: NSObject, OEEventsObserverDelegate{
     
     // OEEventsObserver delegate methods
     func pocketsphinxDidReceiveHypothesis(hypothesis: String!, recognitionScore: String!, utteranceID: String!) {
-        println("The received hypothesis is " + hypothesis + " with a score of " + recognitionScore + "and an ID of " + utteranceID)
+        print("The received hypothesis is " + hypothesis + " with a score of " + recognitionScore + "and an ID of " + utteranceID)
         // if score is a certain certainty and that word is in words,
         // then send an event trigger for whatever is listening
         self.currentHypothesis = hypothesis
-        if contains(words, currentHypothesis){
-            println("found word: " + currentHypothesis);
+        if words.contains(currentHypothesis){
+            print("found word: " + currentHypothesis);
             self.events.trigger("heardWord", information: hypothesis);
         }
         // add the hypothesis to wherever you wanna store it
     }
     
     func startListening() {
-        OEPocketsphinxController.sharedInstance().setActive(true, error: nil)
+        do {
+            try OEPocketsphinxController.sharedInstance().setActive(true)
+        } catch _ {
+        }
         OEPocketsphinxController.sharedInstance().startListeningWithLanguageModelAtPath(lmPath, dictionaryAtPath: dicPath, acousticModelAtPath: OEAcousticModel.pathToModel("AcousticModelEnglish"), languageModelIsJSGF: false)
     }
     
@@ -64,43 +67,43 @@ class OpenEarsController: NSObject, OEEventsObserverDelegate{
     }
     
     func pocketsphinxDidStartListening() {
-        println("Pocketsphinx is now listening.")
+        print("Pocketsphinx is now listening.")
     }
     
     func pocketsphinxDidDetectSpeech() {
-        println("Pocketsphinx has detected speech.")
+        print("Pocketsphinx has detected speech.")
     }
     
     func pocketsphinxDidDetectFinishedSpeech() {
-        println("Pocketsphinx has detected a period of silence, concluding an utterance.")
+        print("Pocketsphinx has detected a period of silence, concluding an utterance.")
     }
     
     func pocketsphinxDidStopListening() {
-        println("Pocketsphinx has stopped listening.")
+        print("Pocketsphinx has stopped listening.")
     }
     
     func pocketsphinxDidSuspendRecognition() {
-        println("Pocketsphinx has suspended recognition")
+        print("Pocketsphinx has suspended recognition")
     }
     
     func pocketsphinxDidResumeRecognition() {
-        println("Pocketsphinx has resumed recognition")
+        print("Pocketsphinx has resumed recognition")
     }
     
     func pocketsphinxDidChangeLanguageModelToFile(newLanguageModelPathAsString: String!, andDictionary newDictionaryPathAsString: String!) {
-        println("Pocketsphinx is now using the following language model: " + newLanguageModelPathAsString + " and the following dictionary: " + newDictionaryPathAsString)
+        print("Pocketsphinx is now using the following language model: " + newLanguageModelPathAsString + " and the following dictionary: " + newDictionaryPathAsString)
     }
     
     func pocketSphinxContinuousSetupDidFailWithReason(reasonForFailure: String!) {
-        println("Listening setup wasn't successful and returned the failure reason " + reasonForFailure)
+        print("Listening setup wasn't successful and returned the failure reason " + reasonForFailure)
     }
     
     func pocketSphinxContinuousTeardownDidFailWithReason(reasonForFailure: String!) {
-        println("Listening teardown wasn't successful and returned with the following failure reason: " + reasonForFailure)
+        print("Listening teardown wasn't successful and returned with the following failure reason: " + reasonForFailure)
     }
     
     func testRecognitionCompleted() {
-        println("A test file that was submitted for recognition is now compete")
+        print("A test file that was submitted for recognition is now compete")
     }
     
     func pocketsphinxFailedNoMicPermissions() {
@@ -108,7 +111,7 @@ class OpenEarsController: NSObject, OEEventsObserverDelegate{
         NSLog("Local callback: The user has never set mic permissions or denied permission to this app's mic, so listening will not start.")
         self.startupFailedDueToLackOfPermissions = true
         if OEPocketsphinxController.sharedInstance().isListening {
-            var error = OEPocketsphinxController.sharedInstance().stopListening() // Stop listening if we are listening.
+            let error = OEPocketsphinxController.sharedInstance().stopListening() // Stop listening if we are listening.
             if(error != nil) {
                 NSLog("Error while stopping listening in micPermissionCheckCompleted: %@", error);
             }

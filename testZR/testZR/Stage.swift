@@ -18,22 +18,22 @@ class Moment: NSObject{
     let events = EventManager()
     init(interruptable:Bool){
         self.isInterruptable = interruptable;
-        println("Moment init()");
+        print("Moment init()");
     }
     //func play()
     func play(){
-        println("Moment play()")
+        print("Moment play()")
         finished();
     }
     //func pause()
     func pause(){
-        println("Moment pause()");
+        print("Moment pause()");
         self.isPaused = true;
     }
     
     //func finished()
     func finished(){
-        println("Moment isFinished()");
+        print("Moment isFinished()");
         self.events.trigger("nextSound");
     }
     //func restart()
@@ -51,42 +51,48 @@ class Sound: Moment, AVAudioPlayerDelegate{
     /* Implement this as an AudioPlayer */
     var fileName:String
     //var playerItem:AVPlayerItem
-    var player:AVAudioPlayer
+    var player:AVAudioPlayer?
     
     init(file: String, interruptable:Bool){
         self.fileName = file
-        print("Sound init()");
+        print("Sound init()", terminator: "");
         //initalize AVAudioPlayer with file variable
-        var error:NSError?
-        var soundLocation = NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource(file, ofType: "mp3")!)
-        println(soundLocation)
-        self.player = AVAudioPlayer(contentsOfURL: soundLocation, error: &error)
+        let soundLocation = NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource(file, ofType: "mp3")!)
+        print(soundLocation)
+        do {
+            self.player = try AVAudioPlayer(contentsOfURL: soundLocation)
+        } catch let error as NSError {
+            print(error.localizedDescription)
+            self.player = nil
+        }
         super.init(interruptable:interruptable);
         self.title = fileName;
 
         
-        self.player.delegate = self;
-        self.player.prepareToPlay();
+        self.player?.delegate = self;
+        self.player?.prepareToPlay();
         
 
     }
     
-    func audioPlayerDidFinishPlaying(player: AVAudioPlayer!, successfully flag: Bool) {
-        println("finished playing \(flag)")
+    func audioPlayerDidFinishPlaying(player: AVAudioPlayer, successfully flag: Bool) {
+        print("finished playing \(flag)")
         super.finished();
     }
     
-    func audioPlayerDecodeErrorDidOccur(player: AVAudioPlayer!, error: NSError!) {
-        println("\(error.localizedDescription)")
+    func audioPlayerDecodeErrorDidOccur(player: AVAudioPlayer, error: NSError?) {
+        if let error = error {
+            print(error.localizedDescription)
+        }
     }
     
     override func play(){
-        self.player.play();
+        self.player?.play();
         isPaused = false;
     }
     
     override func pause(){
-        self.player.pause();
+        self.player?.pause();
         isPaused = true;
     }
     
@@ -100,7 +106,7 @@ class Silence: Moment{
     
     init(length:Float, interruptable:Bool){
         self.length = length;
-        println("Silence init()")
+        print("Silence init()")
         super.init(interruptable:interruptable);
         self.title = "Silence : " + String(stringInterpolationSegment: self.length);
     }
@@ -115,7 +121,7 @@ class Silence: Moment{
     }
     
     override func pause(){
-        println("pausing silent moment");
+        print("pausing silent moment");
         isPaused = true;
         timer.invalidate();
     }
@@ -178,7 +184,7 @@ class AppStage: NSObject{
     }
     
     func play(){
-        println("Play moment #" + String(self.currentMoment));
+        print("Play moment #" + String(self.currentMoment));
         self.moments[currentMoment].play();
     }
     
@@ -187,7 +193,7 @@ class AppStage: NSObject{
     }
     
     func next(){
-        println("next() called");
+        print("next() called");
         if (self.currentMoment != (moments.count-1)){
             self.currentMoment += 1;
             self.moments[currentMoment].play();

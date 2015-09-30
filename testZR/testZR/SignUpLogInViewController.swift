@@ -25,7 +25,7 @@ class SignUpLogInViewController: UIViewController {
     }
     @IBAction func submitButton(sender: AnyObject) {
         
-        if (count(self.emailBox.text) > 0) && (count(self.passwordBox.text) > 0){
+        if (self.emailBox.text?.characters.count > 0) && (self.passwordBox.text?.characters.count > 0){
             //sign up with email and password
             user.email = self.emailBox.text;
             user.password = self.passwordBox.text;
@@ -34,16 +34,16 @@ class SignUpLogInViewController: UIViewController {
             user.signUpInBackgroundWithBlock {
                 (succeeded: Bool, error: NSError?) -> Void in
                 if let error = error {
-                    let errorString = error.userInfo?["error"] as? NSString
+                    let errorString = error.userInfo["error"] as? NSString
                     
                     // Show the errorString somewhere and let the user try again.
-                    println("error signing up : " + String(errorString!));
+                    print("error signing up : " + String(errorString!));
                     
                 } else {
                     
-                    println("successfully signed up!");
+                    print("successfully signed up!");
                     dispatch_async(dispatch_get_main_queue(), { () -> Void in
-                        println("going to Home");
+                        print("going to Home");
                         self.goToHome();
                     })
                 }
@@ -51,17 +51,17 @@ class SignUpLogInViewController: UIViewController {
         
         } else {
             // display error
-            println("error");
+            print("error");
         }
     }
     
     func goToHome(){
-        println("goToHome() called")
+        print("goToHome() called")
         //let storyboard:UIStoryboard = UIStoryboard(name: "Main", bundle: nil);
         //let navigationController:UINavigationController = storyboard.instantiateInitialViewController() as! UINavigationController
         // go to home page
         //let vc = ViewController(nibName: "HomeVC", bundle:nil);
-        let vc:UIViewController = storyboard!.instantiateViewControllerWithIdentifier("HomeVC") as! UIViewController
+        let vc:UIViewController = storyboard!.instantiateViewControllerWithIdentifier("HomeVC") 
         self.navigationController!.pushViewController(vc, animated: true);
     }
 }

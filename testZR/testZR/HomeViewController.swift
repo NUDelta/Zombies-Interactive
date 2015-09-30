@@ -22,12 +22,12 @@ class HomeViewController: UIViewController {
 
     @IBAction func historyButton(sender: AnyObject) {
         // go to history view
-        println("historyButton() pressed");
+        print("historyButton() pressed");
     }
     @IBAction func missionsButton(sender: AnyObject) {
         // go to missions view
         //let vc = ViewController(nibName: "MissionVC", bundle:nil);
-        let vc:UIViewController = storyboard!.instantiateViewControllerWithIdentifier("MissionVC") as! UIViewController
+        let vc:UIViewController = storyboard!.instantiateViewControllerWithIdentifier("MissionVC") 
         self.navigationController!.pushViewController(vc, animated: true);
     }
 }

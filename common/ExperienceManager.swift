@@ -65,7 +65,7 @@ class ExperienceManager: NSObject, CLLocationManagerDelegate {
             // builds the mission
             self.experience.saveInBackground();
         }
-        println("playing stage #" + String(currentStage));
+        print("playing stage #" + String(currentStage));
         stages[currentStage].play();
         self.moment_title = stages[currentStage].moments[stages[currentStage].currentMoment].title;
         self.stage_title = "Stage #1"
@@ -88,8 +88,8 @@ class ExperienceManager: NSObject, CLLocationManagerDelegate {
     }
     
     func nextStage(){
-        println("nextStage() called");
-        if (self.currentStage < count(stages) - 1) {
+        print("nextStage() called");
+        if (self.currentStage < stages.count - 1) {
             self.currentStage = self.currentStage + 1;
             self.play();
             self.stage_title = "Stage #" + String(self.currentStage+1);
@@ -99,18 +99,18 @@ class ExperienceManager: NSObject, CLLocationManagerDelegate {
     }
     
     func expFinished(){
-        println("experience finished()");
+        print("experience finished()");
         self.experience["time_finished"] = NSDate();
         self.experience["hasFinished"] = true;
         self.experience.saveInBackground();
         locationManager.stopUpdatingLocation();
     }
     
-    func locationManager(manager: CLLocationManager!, didUpdateLocations locations: [AnyObject]!) {
+    func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         // convert CLLocation to PFGeoPoint and add to expLocations
-        var currLoc = locations[0] as! CLLocation
+        let currLoc = locations[0] 
         let point = PFGeoPoint(location: currLoc);
-        var pLocation = PFObject(className: "Location");
+        let pLocation = PFObject(className: "Location");
         self.expLocations.append(point);
 
         pLocation["point"] = point;
