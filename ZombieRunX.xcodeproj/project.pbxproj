@@ -10,22 +10,12 @@
 		5241B5621BA0980000DBC6D3 /* ZombieRunX.xcdatamodeld in Resources */ = {isa = PBXBuildFile; fileRef = 528C3A461B826734007C59FC /* ZombieRunX.xcdatamodeld */; };
 		5241B5711BA0E87400DBC6D3 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5241B5701BA0E87400DBC6D3 /* AudioToolbox.framework */; };
 		5241B5731BA0E88100DBC6D3 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5241B5721BA0E88100DBC6D3 /* AVFoundation.framework */; };
-		5241B5791BA1C8F400DBC6D3 /* AcousticModelEnglish.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 5241B5751BA1C8F400DBC6D3 /* AcousticModelEnglish.bundle */; };
-		5241B57A1BA1C8F400DBC6D3 /* AcousticModelSpanish.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 5241B5761BA1C8F400DBC6D3 /* AcousticModelSpanish.bundle */; };
-		5241B57B1BA1C8F400DBC6D3 /* OpenEars.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5241B5771BA1C8F400DBC6D3 /* OpenEars.framework */; };
-		5241B57C1BA1C8F400DBC6D3 /* Slt.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5241B5781BA1C8F400DBC6D3 /* Slt.framework */; };
-		5241B57E1BA1D4B900DBC6D3 /* OpenEars.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5241B5771BA1C8F400DBC6D3 /* OpenEars.framework */; };
-		5241B57F1BA1D4BD00DBC6D3 /* Slt.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5241B5781BA1C8F400DBC6D3 /* Slt.framework */; };
-		5241B5801BA1D4C200DBC6D3 /* AcousticModelEnglish.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 5241B5751BA1C8F400DBC6D3 /* AcousticModelEnglish.bundle */; };
 		5241B5811BA1D4C800DBC6D3 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 528E89E01B9DEE1100C5FC8E /* libz.dylib */; };
-		5241B5821BA1D4CC00DBC6D3 /* AcousticModelSpanish.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 5241B5761BA1C8F400DBC6D3 /* AcousticModelSpanish.bundle */; };
 		5241B5841BA1D74400DBC6D3 /* OEBridging-Header.h in Sources */ = {isa = PBXBuildFile; fileRef = 5241B5831BA1D6A200DBC6D3 /* OEBridging-Header.h */; };
 		528C3A481B826734007C59FC /* ZombieRunX.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 528C3A461B826734007C59FC /* ZombieRunX.xcdatamodeld */; };
 		528C3A4D1B826734007C59FC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 528C3A4B1B826734007C59FC /* Main.storyboard */; };
 		528C3A521B826734007C59FC /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 528C3A501B826734007C59FC /* LaunchScreen.xib */; };
 		528C3A5E1B826734007C59FC /* ZombieRunXTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 528C3A5D1B826734007C59FC /* ZombieRunXTests.swift */; };
-		528E89CE1B9DED1B00C5FC8E /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 528E89CC1B9DED1B00C5FC8E /* Bolts.framework */; };
-		528E89CF1B9DED1B00C5FC8E /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 528E89CD1B9DED1B00C5FC8E /* Parse.framework */; };
 		528E89D11B9DEDCC00C5FC8E /* Accounts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 528E89D01B9DEDCC00C5FC8E /* Accounts.framework */; };
 		528E89D31B9DEDD500C5FC8E /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 528E89D21B9DEDD500C5FC8E /* CFNetwork.framework */; };
 		528E89D51B9DEDDE00C5FC8E /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 528E89D41B9DEDDE00C5FC8E /* CoreGraphics.framework */; };
@@ -36,6 +26,12 @@
 		528E89E11B9DEE1100C5FC8E /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 528E89E01B9DEE1100C5FC8E /* libz.dylib */; };
 		528E89E31B9DEE1A00C5FC8E /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 528E89E21B9DEE1A00C5FC8E /* libsqlite3.dylib */; };
 		528E89E51B9DEE3400C5FC8E /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 528E89E41B9DEE3400C5FC8E /* Social.framework */; };
+		BA1F2FDA1BBBB17C00E22B7F /* OpenEars.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BA1F2FD81BBBB17C00E22B7F /* OpenEars.framework */; };
+		BA1F2FDB1BBBB17C00E22B7F /* Slt.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BA1F2FD91BBBB17C00E22B7F /* Slt.framework */; };
+		BA1F2FE41BBBB25700E22B7F /* AcousticModelEnglish.bundle in Resources */ = {isa = PBXBuildFile; fileRef = BA1F2FE21BBBB25700E22B7F /* AcousticModelEnglish.bundle */; settings = {ASSET_TAGS = (); }; };
+		BA1F2FE51BBBB25700E22B7F /* AcousticModelSpanish.bundle in Resources */ = {isa = PBXBuildFile; fileRef = BA1F2FE31BBBB25700E22B7F /* AcousticModelSpanish.bundle */; settings = {ASSET_TAGS = (); }; };
+		BA1F2FE81BBBB26300E22B7F /* OpenEars.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BA1F2FE61BBBB26300E22B7F /* OpenEars.framework */; settings = {ASSET_TAGS = (); }; };
+		BA1F2FE91BBBB26300E22B7F /* Slt.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BA1F2FE71BBBB26300E22B7F /* Slt.framework */; settings = {ASSET_TAGS = (); }; };
 		BA2B43CF1BBBAEF8007C2483 /* test_sweep.wav in Resources */ = {isa = PBXBuildFile; fileRef = BA2B43C71BBBAEF8007C2483 /* test_sweep.wav */; settings = {ASSET_TAGS = (); }; };
 		BA2B43D01BBBAEF8007C2483 /* zombie_run1.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = BA2B43C81BBBAEF8007C2483 /* zombie_run1.mp3 */; settings = {ASSET_TAGS = (); }; };
 		BA2B43D11BBBAEF8007C2483 /* zombie_run2.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = BA2B43C91BBBAEF8007C2483 /* zombie_run2.mp3 */; settings = {ASSET_TAGS = (); }; };
@@ -52,6 +48,8 @@
 		BA2B43E51BBBAF23007C2483 /* MissionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA2B43DD1BBBAF23007C2483 /* MissionViewController.swift */; settings = {ASSET_TAGS = (); }; };
 		BA2B43E61BBBAF23007C2483 /* SignUpLogInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA2B43DE1BBBAF23007C2483 /* SignUpLogInViewController.swift */; settings = {ASSET_TAGS = (); }; };
 		BA2B43E71BBBAF23007C2483 /* Stage.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA2B43DF1BBBAF23007C2483 /* Stage.swift */; settings = {ASSET_TAGS = (); }; };
+		BA2B43EA1BBBB042007C2483 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BA2B43E91BBBB042007C2483 /* Parse.framework */; };
+		BA2B43EC1BBBB06D007C2483 /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BA2B43EB1BBBB06D007C2483 /* Bolts.framework */; };
 		BA36A8951BBBA79100E197E2 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BA36A8941BBBA79100E197E2 /* Images.xcassets */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
@@ -68,10 +66,6 @@
 /* Begin PBXFileReference section */
 		5241B5701BA0E87400DBC6D3 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		5241B5721BA0E88100DBC6D3 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
-		5241B5751BA1C8F400DBC6D3 /* AcousticModelEnglish.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = AcousticModelEnglish.bundle; sourceTree = "<group>"; };
-		5241B5761BA1C8F400DBC6D3 /* AcousticModelSpanish.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = AcousticModelSpanish.bundle; sourceTree = "<group>"; };
-		5241B5771BA1C8F400DBC6D3 /* OpenEars.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = OpenEars.framework; sourceTree = "<group>"; };
-		5241B5781BA1C8F400DBC6D3 /* Slt.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Slt.framework; sourceTree = "<group>"; };
 		5241B5831BA1D6A200DBC6D3 /* OEBridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "OEBridging-Header.h"; sourceTree = "<group>"; };
 		528C3A3F1B826734007C59FC /* ZombieRunX.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ZombieRunX.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		528C3A431B826734007C59FC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -81,8 +75,6 @@
 		528C3A571B826734007C59FC /* ZombieRunXTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ZombieRunXTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		528C3A5C1B826734007C59FC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		528C3A5D1B826734007C59FC /* ZombieRunXTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZombieRunXTests.swift; sourceTree = "<group>"; };
-		528E89CC1B9DED1B00C5FC8E /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Bolts.framework; sourceTree = "<group>"; };
-		528E89CD1B9DED1B00C5FC8E /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
 		528E89D01B9DEDCC00C5FC8E /* Accounts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accounts.framework; path = System/Library/Frameworks/Accounts.framework; sourceTree = SDKROOT; };
 		528E89D21B9DEDD500C5FC8E /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
 		528E89D41B9DEDDE00C5FC8E /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -93,6 +85,12 @@
 		528E89E01B9DEE1100C5FC8E /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		528E89E21B9DEE1A00C5FC8E /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
 		528E89E41B9DEE3400C5FC8E /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
+		BA1F2FD81BBBB17C00E22B7F /* OpenEars.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenEars.framework; path = ExperienceKit/Frameworks/OpenEars.framework; sourceTree = "<group>"; };
+		BA1F2FD91BBBB17C00E22B7F /* Slt.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Slt.framework; path = ExperienceKit/Frameworks/Slt.framework; sourceTree = "<group>"; };
+		BA1F2FE21BBBB25700E22B7F /* AcousticModelEnglish.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = AcousticModelEnglish.bundle; path = ExperienceKit/Bundles/AcousticModelEnglish.bundle; sourceTree = SOURCE_ROOT; };
+		BA1F2FE31BBBB25700E22B7F /* AcousticModelSpanish.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = AcousticModelSpanish.bundle; path = ExperienceKit/Bundles/AcousticModelSpanish.bundle; sourceTree = SOURCE_ROOT; };
+		BA1F2FE61BBBB26300E22B7F /* OpenEars.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenEars.framework; path = ExperienceKit/Frameworks/OpenEars.framework; sourceTree = SOURCE_ROOT; };
+		BA1F2FE71BBBB26300E22B7F /* Slt.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Slt.framework; path = ExperienceKit/Frameworks/Slt.framework; sourceTree = SOURCE_ROOT; };
 		BA2B43C71BBBAEF8007C2483 /* test_sweep.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = test_sweep.wav; sourceTree = "<group>"; };
 		BA2B43C81BBBAEF8007C2483 /* zombie_run1.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = zombie_run1.mp3; sourceTree = "<group>"; };
 		BA2B43C91BBBAEF8007C2483 /* zombie_run2.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = zombie_run2.mp3; sourceTree = "<group>"; };
@@ -109,6 +107,8 @@
 		BA2B43DD1BBBAF23007C2483 /* MissionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MissionViewController.swift; sourceTree = "<group>"; };
 		BA2B43DE1BBBAF23007C2483 /* SignUpLogInViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpLogInViewController.swift; sourceTree = "<group>"; };
 		BA2B43DF1BBBAF23007C2483 /* Stage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Stage.swift; sourceTree = "<group>"; };
+		BA2B43E91BBBB042007C2483 /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Parse.framework; path = Frameworks/Parse.framework; sourceTree = "<group>"; };
+		BA2B43EB1BBBB06D007C2483 /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Bolts.framework; path = Frameworks/Bolts.framework; sourceTree = "<group>"; };
 		BA36A8941BBBA79100E197E2 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = ZombieRunX/Images.xcassets; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
@@ -117,22 +117,24 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BA1F2FDA1BBBB17C00E22B7F /* OpenEars.framework in Frameworks */,
+				BA1F2FDB1BBBB17C00E22B7F /* Slt.framework in Frameworks */,
+				BA2B43EC1BBBB06D007C2483 /* Bolts.framework in Frameworks */,
+				BA2B43EA1BBBB042007C2483 /* Parse.framework in Frameworks */,
 				5241B5731BA0E88100DBC6D3 /* AVFoundation.framework in Frameworks */,
 				5241B5711BA0E87400DBC6D3 /* AudioToolbox.framework in Frameworks */,
+				BA1F2FE81BBBB26300E22B7F /* OpenEars.framework in Frameworks */,
 				528E89E51B9DEE3400C5FC8E /* Social.framework in Frameworks */,
 				528E89D11B9DEDCC00C5FC8E /* Accounts.framework in Frameworks */,
 				528E89E31B9DEE1A00C5FC8E /* libsqlite3.dylib in Frameworks */,
 				528E89E11B9DEE1100C5FC8E /* libz.dylib in Frameworks */,
-				5241B57C1BA1C8F400DBC6D3 /* Slt.framework in Frameworks */,
 				528E89DF1B9DEE0700C5FC8E /* SystemConfiguration.framework in Frameworks */,
+				BA1F2FE91BBBB26300E22B7F /* Slt.framework in Frameworks */,
 				528E89DB1B9DEDF700C5FC8E /* Security.framework in Frameworks */,
 				528E89D91B9DEDEF00C5FC8E /* QuartzCore.framework in Frameworks */,
 				528E89D71B9DEDE700C5FC8E /* CoreLocation.framework in Frameworks */,
-				5241B57B1BA1C8F400DBC6D3 /* OpenEars.framework in Frameworks */,
 				528E89D51B9DEDDE00C5FC8E /* CoreGraphics.framework in Frameworks */,
 				528E89D31B9DEDD500C5FC8E /* CFNetwork.framework in Frameworks */,
-				528E89CF1B9DED1B00C5FC8E /* Parse.framework in Frameworks */,
-				528E89CE1B9DED1B00C5FC8E /* Bolts.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -140,8 +142,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5241B57F1BA1D4BD00DBC6D3 /* Slt.framework in Frameworks */,
-				5241B57E1BA1D4B900DBC6D3 /* OpenEars.framework in Frameworks */,
 				5241B5811BA1D4C800DBC6D3 /* libz.dylib in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -149,14 +149,13 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		5241B5741BA1C8F400DBC6D3 /* Framework */ = {
+		5241B5741BA1C8F400DBC6D3 /* ExperienceKit */ = {
 			isa = PBXGroup;
 			children = (
-				5241B5751BA1C8F400DBC6D3 /* AcousticModelEnglish.bundle */,
-				5241B5761BA1C8F400DBC6D3 /* AcousticModelSpanish.bundle */,
-				5241B5771BA1C8F400DBC6D3 /* OpenEars.framework */,
-				5241B5781BA1C8F400DBC6D3 /* Slt.framework */,
+				BA1F2FE01BBBB23F00E22B7F /* Bundles */,
+				BA1F2FE11BBBB24C00E22B7F /* Frameworks */,
 			);
+			name = ExperienceKit;
 			path = Framework;
 			sourceTree = "<group>";
 		};
@@ -165,11 +164,11 @@
 			children = (
 				528C3A411B826734007C59FC /* ZombieRunX */,
 				528C3A5A1B826734007C59FC /* ZombieRunXTests */,
-				528E89E21B9DEE1A00C5FC8E /* libsqlite3.dylib */,
-				5241B5741BA1C8F400DBC6D3 /* Framework */,
-				528E89E01B9DEE1100C5FC8E /* libz.dylib */,
+				5241B5741BA1C8F400DBC6D3 /* ExperienceKit */,
 				BA2B43E81BBBAFA5007C2483 /* Frameworks */,
 				528C3A401B826734007C59FC /* Products */,
+				528E89E01B9DEE1100C5FC8E /* libz.dylib */,
+				528E89E21B9DEE1A00C5FC8E /* libsqlite3.dylib */,
 			);
 			sourceTree = "<group>";
 		};
@@ -222,6 +221,24 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		BA1F2FE01BBBB23F00E22B7F /* Bundles */ = {
+			isa = PBXGroup;
+			children = (
+				BA1F2FE21BBBB25700E22B7F /* AcousticModelEnglish.bundle */,
+				BA1F2FE31BBBB25700E22B7F /* AcousticModelSpanish.bundle */,
+			);
+			name = Bundles;
+			sourceTree = "<group>";
+		};
+		BA1F2FE11BBBB24C00E22B7F /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				BA1F2FE61BBBB26300E22B7F /* OpenEars.framework */,
+				BA1F2FE71BBBB26300E22B7F /* Slt.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		BA2B43C61BBBAEF8007C2483 /* audio */ = {
 			isa = PBXGroup;
 			children = (
@@ -255,6 +272,10 @@
 		BA2B43E81BBBAFA5007C2483 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				BA1F2FD81BBBB17C00E22B7F /* OpenEars.framework */,
+				BA1F2FD91BBBB17C00E22B7F /* Slt.framework */,
+				BA2B43EB1BBBB06D007C2483 /* Bolts.framework */,
+				BA2B43E91BBBB042007C2483 /* Parse.framework */,
 				5241B5721BA0E88100DBC6D3 /* AVFoundation.framework */,
 				5241B5701BA0E87400DBC6D3 /* AudioToolbox.framework */,
 				528E89E41B9DEE3400C5FC8E /* Social.framework */,
@@ -265,8 +286,6 @@
 				528E89D41B9DEDDE00C5FC8E /* CoreGraphics.framework */,
 				528E89D21B9DEDD500C5FC8E /* CFNetwork.framework */,
 				528E89D01B9DEDCC00C5FC8E /* Accounts.framework */,
-				528E89CC1B9DED1B00C5FC8E /* Bolts.framework */,
-				528E89CD1B9DED1B00C5FC8E /* Parse.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -360,17 +379,17 @@
 			buildActionMask = 2147483647;
 			files = (
 				BA2B43D51BBBAEF8007C2483 /* zombie_run_interactive2.mp3 in Resources */,
+				BA1F2FE41BBBB25700E22B7F /* AcousticModelEnglish.bundle in Resources */,
 				BA2B43D01BBBAEF8007C2483 /* zombie_run1.mp3 in Resources */,
+				BA1F2FE51BBBB25700E22B7F /* AcousticModelSpanish.bundle in Resources */,
 				BA2B43CF1BBBAEF8007C2483 /* test_sweep.wav in Resources */,
 				BA2B43D21BBBAEF8007C2483 /* zombie_run3.mp3 in Resources */,
 				5241B5621BA0980000DBC6D3 /* ZombieRunX.xcdatamodeld in Resources */,
 				528C3A4D1B826734007C59FC /* Main.storyboard in Resources */,
 				BA2B43D41BBBAEF8007C2483 /* zombie_run_interactive1.mp3 in Resources */,
 				528C3A521B826734007C59FC /* LaunchScreen.xib in Resources */,
-				5241B57A1BA1C8F400DBC6D3 /* AcousticModelSpanish.bundle in Resources */,
 				BA2B43D61BBBAEF8007C2483 /* zombie_run_interactive3.mp3 in Resources */,
 				BA2B43D11BBBAEF8007C2483 /* zombie_run2.mp3 in Resources */,
-				5241B5791BA1C8F400DBC6D3 /* AcousticModelEnglish.bundle in Resources */,
 				BA2B43D31BBBAEF8007C2483 /* zombie_run4.mp3 in Resources */,
 				BA36A8951BBBA79100E197E2 /* Images.xcassets in Resources */,
 			);
@@ -380,8 +399,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5241B5801BA1D4C200DBC6D3 /* AcousticModelEnglish.bundle in Resources */,
-				5241B5821BA1D4CC00DBC6D3 /* AcousticModelSpanish.bundle in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -535,6 +552,8 @@
 					"$(USER_LIBRARY_DIR)/Developer/Xcode/DerivedData/HabitSourceKit-ditdgcceiqeunwbwzgtrzkwmwkhz/Build/Products/Debug-iphoneos",
 					"$(PROJECT_DIR)",
 					"$(PROJECT_DIR)/Framework",
+					"$(PROJECT_DIR)/Frameworks",
+					"$(PROJECT_DIR)/ExperienceKit/Frameworks",
 				);
 				INFOPLIST_FILE = ZombieRunX/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -554,6 +573,8 @@
 					"$(USER_LIBRARY_DIR)/Developer/Xcode/DerivedData/HabitSourceKit-ditdgcceiqeunwbwzgtrzkwmwkhz/Build/Products/Debug-iphoneos",
 					"$(PROJECT_DIR)",
 					"$(PROJECT_DIR)/Framework",
+					"$(PROJECT_DIR)/Frameworks",
+					"$(PROJECT_DIR)/ExperienceKit/Frameworks",
 				);
 				INFOPLIST_FILE = ZombieRunX/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

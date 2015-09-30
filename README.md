@@ -1,5 +1,8 @@
 # HabitSourceArchitecture
-Architecture for HabitSourcing apps with demo
+Architecture for HabitSourcing apps
+ExperienceKit - A set of tools for leveraging experiences to collect data
+ZombieRunX - Implementing the Zombie Run app using ExperienceKit as a demo
+
 
 ## Branches
 As of 9/22/2015, the master and "Scott" branches should be identical.
