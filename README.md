@@ -1,7 +1,9 @@
 # HabitSourceArchitecture
 Architecture for HabitSourcing apps
-ExperienceKit - A set of tools for leveraging experiences to collect data
-ZombieRunX - Implementing the Zombie Run app using ExperienceKit as a demo
+
+*ExperienceKit* - A set of tools for leveraging experiences to collect data
+
+*ZombieRunX* - Implementation of the Zombie Run app using ExperienceKit
 
 
 ## Branches
