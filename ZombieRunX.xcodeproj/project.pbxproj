@@ -163,23 +163,12 @@
 		528C3A361B826734007C59FC = {
 			isa = PBXGroup;
 			children = (
-				5241B5721BA0E88100DBC6D3 /* AVFoundation.framework */,
-				5241B5701BA0E87400DBC6D3 /* AudioToolbox.framework */,
-				528E89E41B9DEE3400C5FC8E /* Social.framework */,
+				528C3A411B826734007C59FC /* ZombieRunX */,
+				528C3A5A1B826734007C59FC /* ZombieRunXTests */,
 				528E89E21B9DEE1A00C5FC8E /* libsqlite3.dylib */,
 				5241B5741BA1C8F400DBC6D3 /* Framework */,
 				528E89E01B9DEE1100C5FC8E /* libz.dylib */,
-				528E89DE1B9DEE0700C5FC8E /* SystemConfiguration.framework */,
-				528E89DA1B9DEDF700C5FC8E /* Security.framework */,
-				528E89D81B9DEDEF00C5FC8E /* QuartzCore.framework */,
-				528E89D61B9DEDE700C5FC8E /* CoreLocation.framework */,
-				528E89D41B9DEDDE00C5FC8E /* CoreGraphics.framework */,
-				528E89D21B9DEDD500C5FC8E /* CFNetwork.framework */,
-				528E89D01B9DEDCC00C5FC8E /* Accounts.framework */,
-				528E89CC1B9DED1B00C5FC8E /* Bolts.framework */,
-				528E89CD1B9DED1B00C5FC8E /* Parse.framework */,
-				528C3A411B826734007C59FC /* ZombieRunX */,
-				528C3A5A1B826734007C59FC /* ZombieRunXTests */,
+				BA2B43E81BBBAFA5007C2483 /* Frameworks */,
 				528C3A401B826734007C59FC /* Products */,
 			);
 			sourceTree = "<group>";
@@ -223,7 +212,7 @@
 				528C3A5B1B826734007C59FC /* Supporting Files */,
 			);
 			path = ZombieRunXTests;
-			sourceTree = "<group>";
+			sourceTree = SOURCE_ROOT;
 		};
 		528C3A5B1B826734007C59FC /* Supporting Files */ = {
 			isa = PBXGroup;
@@ -261,6 +250,25 @@
 				BA2B43DF1BBBAF23007C2483 /* Stage.swift */,
 			);
 			path = classes;
+			sourceTree = "<group>";
+		};
+		BA2B43E81BBBAFA5007C2483 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				5241B5721BA0E88100DBC6D3 /* AVFoundation.framework */,
+				5241B5701BA0E87400DBC6D3 /* AudioToolbox.framework */,
+				528E89E41B9DEE3400C5FC8E /* Social.framework */,
+				528E89DE1B9DEE0700C5FC8E /* SystemConfiguration.framework */,
+				528E89DA1B9DEDF700C5FC8E /* Security.framework */,
+				528E89D81B9DEDEF00C5FC8E /* QuartzCore.framework */,
+				528E89D61B9DEDE700C5FC8E /* CoreLocation.framework */,
+				528E89D41B9DEDDE00C5FC8E /* CoreGraphics.framework */,
+				528E89D21B9DEDD500C5FC8E /* CFNetwork.framework */,
+				528E89D01B9DEDCC00C5FC8E /* Accounts.framework */,
+				528E89CC1B9DED1B00C5FC8E /* Bolts.framework */,
+				528E89CD1B9DED1B00C5FC8E /* Parse.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
