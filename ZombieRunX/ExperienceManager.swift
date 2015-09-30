@@ -13,6 +13,7 @@ import Parse
 
 class ExperienceManager: NSObject, CLLocationManagerDelegate {
     var isPlaying = false;
+    // This cannot depend on AppStage unless AppStage is going to be part of the framework
     var stages = [AppStage]();
     var currentStage:Int;
     var pausedStage:AppStage?;
