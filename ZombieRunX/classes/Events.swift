@@ -10,32 +10,32 @@ import Foundation
 
 class EventManager {
     // using NSMutableArray as Swift arrays can't change size inside dictionaries (yet, probably)
-    var listeners = Dictionary<String, NSMutableArray>();
+    var listeners = Dictionary<String, NSMutableArray>()
     
     // Create a new event listener, not expecting information from the trigger
     // + eventName: Matching trigger eventNames will cause this listener to fire
     // + action: The block of code you want executed when the event triggers
     func listenTo(eventName:String, action:(()->())) {
-        let newListener = EventListenerAction(callback: action);
-        addListener(eventName, newEventListener: newListener);
+        let newListener = EventListenerAction(callback: action)
+        addListener(eventName, newEventListener: newListener)
     }
     
     // Create a new event listener, expecting information from the trigger
     // + eventName: Matching trigger eventNames will cause this listener to fire
     // + action: The block of code you want executed when the event triggers
     func listenTo(eventName:String, action:((Any?)->())) {
-        let newListener = EventListenerAction(callback: action);
-        addListener(eventName, newEventListener: newListener);
+        let newListener = EventListenerAction(callback: action)
+        addListener(eventName, newEventListener: newListener)
     }
     
     internal func addListener(eventName:String, newEventListener:EventListenerAction) {
         if let listenerArray = self.listeners[eventName] {
             // action array exists for this event, add new action to it
-            listenerArray.addObject(newEventListener);
+            listenerArray.addObject(newEventListener)
         }
         else {
             // no listeners created for this event yet, create a new array
-            self.listeners[eventName] = [newEventListener] as NSMutableArray;
+            self.listeners[eventName] = [newEventListener] as NSMutableArray
         }
     }
     
@@ -47,12 +47,12 @@ class EventManager {
             
             if let actionArray = self.listeners[eventNameToRemove] {
                 // actions for this event exist
-                actionArray.removeAllObjects();
+                actionArray.removeAllObjects()
             }
         }
         else {
             // no specific parameters - remove all listeners on this object
-            self.listeners.removeAll(keepCapacity: false);
+            self.listeners.removeAll(keepCapacity: false)
         }
     }
     
@@ -64,10 +64,10 @@ class EventManager {
             for actionObject in actionObjects {
                 if let actionToPerform = actionObject as? EventListenerAction {
                     if let methodToCall = actionToPerform.actionExpectsInfo {
-                        methodToCall(information);
+                        methodToCall(information)
                     }
                     else if let methodToCall = actionToPerform.action {
-                        methodToCall();
+                        methodToCall()
                     }
                 }
             }
@@ -77,16 +77,16 @@ class EventManager {
 
 // Class to hold actions to live in NSMutableArray
 class EventListenerAction {
-    let action:(() -> ())?;
-    let actionExpectsInfo:((Any?) -> ())?;
+    let action:(() -> ())?
+    let actionExpectsInfo:((Any?) -> ())?
     
     init(callback:(() -> ())) {
-        self.action = callback;
-        self.actionExpectsInfo = nil;
+        self.action = callback
+        self.actionExpectsInfo = nil
     }
     
     init(callback:((Any?) -> ())) {
-        self.actionExpectsInfo = callback;
-        self.action = nil;
+        self.actionExpectsInfo = callback
+        self.action = nil
     }
 }
