@@ -1,6 +1,6 @@
 //
 //  AppDelegate.swift
-//  testZR
+//  ZombieRunX
 //
 //  Created by Scott Cambo on 8/17/15.
 //  Copyright (c) 2015 Scott Cambo. All rights reserved.
@@ -27,20 +27,20 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         PFAnalytics.trackAppOpenedWithLaunchOptions(launchOptions)
         
         //setup storyboard to display initial view
-        let storyboard:UIStoryboard = UIStoryboard(name: "Main", bundle: nil);
+        let storyboard:UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
         let navigationController:UINavigationController = storyboard.instantiateInitialViewController() as! UINavigationController
         
         //let navigationController = window?.rootViewController as! UINavigationController
         // determine if user is logged in
-        let currentUser = PFUser.currentUser();
+        let currentUser = PFUser.currentUser()
         if currentUser != nil { // go directly to start screen
-            print("Logged In");
+            print("Logged In")
             
             let rootViewController:UIViewController = storyboard.instantiateViewControllerWithIdentifier("HomeVC") 
             navigationController.viewControllers = [rootViewController]
             self.window?.rootViewController = navigationController
         } else { // go to signup/login
-            print("Not logged in");
+            print("Not logged in")
             let rootViewController:UIViewController = storyboard.instantiateViewControllerWithIdentifier("SignUpVC") 
             navigationController.viewControllers = [rootViewController]
             self.window?.rootViewController = navigationController
@@ -60,7 +60,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
     func applicationWillEnterForeground(application: UIApplication) {
-        // Called as part of the transition from the background to the inactive state; here you can undo many of the changes made on entering the background.
+        // Called as part of the transition from the background to the inactive state here you can undo many of the changes made on entering the background.
     }
 
     func applicationDidBecomeActive(application: UIApplication) {
@@ -76,14 +76,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     // MARK: - Core Data stack
 
     lazy var applicationDocumentsDirectory: NSURL = {
-        // The directory the application uses to store the Core Data store file. This code uses a directory named "edu.northwestern.delta.testZR" in the application's documents Application Support directory.
+        // The directory the application uses to store the Core Data store file. This code uses a directory named "edu.northwestern.delta.ZombieRunX" in the application's documents Application Support directory.
         let urls = NSFileManager.defaultManager().URLsForDirectory(.DocumentDirectory, inDomains: .UserDomainMask)
         return urls[urls.count-1] 
     }()
 
     lazy var managedObjectModel: NSManagedObjectModel = {
         // The managed object model for the application. This property is not optional. It is a fatal error for the application not to be able to find and load its model.
-        let modelURL = NSBundle.mainBundle().URLForResource("testZR", withExtension: "momd")!
+        let modelURL = NSBundle.mainBundle().URLForResource("ZombieRunX", withExtension: "momd")!
         return NSManagedObjectModel(contentsOfURL: modelURL)!
     }()
 
@@ -91,7 +91,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // The persistent store coordinator for the application. This implementation creates and return a coordinator, having added the store for the application to it. This property is optional since there are legitimate error conditions that could cause the creation of the store to fail.
         // Create the coordinator and store
         var coordinator: NSPersistentStoreCoordinator? = NSPersistentStoreCoordinator(managedObjectModel: self.managedObjectModel)
-        let url = self.applicationDocumentsDirectory.URLByAppendingPathComponent("testZR.sqlite")
+        let url = self.applicationDocumentsDirectory.URLByAppendingPathComponent("ZombieRunX.sqlite")
         var error: NSError? = nil
         var failureReason = "There was an error creating or loading the application's saved data."
         do {

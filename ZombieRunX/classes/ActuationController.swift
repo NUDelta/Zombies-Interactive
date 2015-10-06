@@ -1,6 +1,6 @@
 //
 //  ActuationController.swift
-//  testZR
+//  ZombieRunX
 //
 //  Created by Scott Cambo on 9/10/15.
 //  Copyright (c) 2015 Scott Cambo. All rights reserved.
@@ -22,18 +22,18 @@ var kLevelUpdatesPerSecond = 18
 
 class OpenEarsController: NSObject, OEEventsObserverDelegate{
     var openEarsEventsObserver = OEEventsObserver()
-    var currentHypothesis:String = "";
-    var startupFailedDueToLackOfPermissions = Bool();
-    let events = EventManager();
+    var currentHypothesis:String = ""
+    var startupFailedDueToLackOfPermissions = Bool()
+    let events = EventManager()
     
     init(wordsToRecognize:[String]){
-        super.init();
+        super.init()
         self.openEarsEventsObserver = OEEventsObserver()
         self.openEarsEventsObserver.delegate = self
         
         let lmGenerator: OELanguageModelGenerator = OELanguageModelGenerator()
         
-        words = wordsToRecognize;
+        words = wordsToRecognize
         let name = "LanguageModelFileStarSaver"
         lmGenerator.generateLanguageModelFromArray(words, withFilesNamed: name, forAcousticModelAtPath: OEAcousticModel.pathToModel("AcousticModelEnglish"))
         
@@ -48,8 +48,8 @@ class OpenEarsController: NSObject, OEEventsObserverDelegate{
         // then send an event trigger for whatever is listening
         self.currentHypothesis = hypothesis
         if words.contains(currentHypothesis){
-            print("found word: " + currentHypothesis);
-            self.events.trigger("heardWord", information: hypothesis);
+            print("found word: " + currentHypothesis)
+            self.events.trigger("heardWord", information: hypothesis)
         }
         // add the hypothesis to wherever you wanna store it
     }
@@ -113,7 +113,7 @@ class OpenEarsController: NSObject, OEEventsObserverDelegate{
         if OEPocketsphinxController.sharedInstance().isListening {
             let error = OEPocketsphinxController.sharedInstance().stopListening() // Stop listening if we are listening.
             if(error != nil) {
-                NSLog("Error while stopping listening in micPermissionCheckCompleted: %@", error);
+                NSLog("Error while stopping listening in micPermissionCheckCompleted: %@", error)
             }
         }
     }

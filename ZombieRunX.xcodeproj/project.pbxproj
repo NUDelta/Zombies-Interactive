@@ -30,8 +30,6 @@
 		BA1F2FDB1BBBB17C00E22B7F /* Slt.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BA1F2FD91BBBB17C00E22B7F /* Slt.framework */; };
 		BA1F2FE41BBBB25700E22B7F /* AcousticModelEnglish.bundle in Resources */ = {isa = PBXBuildFile; fileRef = BA1F2FE21BBBB25700E22B7F /* AcousticModelEnglish.bundle */; settings = {ASSET_TAGS = (); }; };
 		BA1F2FE51BBBB25700E22B7F /* AcousticModelSpanish.bundle in Resources */ = {isa = PBXBuildFile; fileRef = BA1F2FE31BBBB25700E22B7F /* AcousticModelSpanish.bundle */; settings = {ASSET_TAGS = (); }; };
-		BA1F2FE81BBBB26300E22B7F /* OpenEars.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BA1F2FE61BBBB26300E22B7F /* OpenEars.framework */; settings = {ASSET_TAGS = (); }; };
-		BA1F2FE91BBBB26300E22B7F /* Slt.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BA1F2FE71BBBB26300E22B7F /* Slt.framework */; settings = {ASSET_TAGS = (); }; };
 		BA2B43CF1BBBAEF8007C2483 /* test_sweep.wav in Resources */ = {isa = PBXBuildFile; fileRef = BA2B43C71BBBAEF8007C2483 /* test_sweep.wav */; settings = {ASSET_TAGS = (); }; };
 		BA2B43D01BBBAEF8007C2483 /* zombie_run1.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = BA2B43C81BBBAEF8007C2483 /* zombie_run1.mp3 */; settings = {ASSET_TAGS = (); }; };
 		BA2B43D11BBBAEF8007C2483 /* zombie_run2.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = BA2B43C91BBBAEF8007C2483 /* zombie_run2.mp3 */; settings = {ASSET_TAGS = (); }; };
@@ -51,6 +49,11 @@
 		BA2B43EA1BBBB042007C2483 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BA2B43E91BBBB042007C2483 /* Parse.framework */; };
 		BA2B43EC1BBBB06D007C2483 /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BA2B43EB1BBBB06D007C2483 /* Bolts.framework */; };
 		BA36A8951BBBA79100E197E2 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BA36A8941BBBA79100E197E2 /* Images.xcassets */; settings = {ASSET_TAGS = (); }; };
+		BAF68CC41BBF0A3A00145698 /* Moment.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAF68CC31BBF0A3A00145698 /* Moment.swift */; settings = {ASSET_TAGS = (); }; };
+		BAF68CC71BBF342900145698 /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAF68CC61BBF342900145698 /* DataManager.swift */; settings = {ASSET_TAGS = (); }; };
+		BAFED6361BC36D4000197581 /* LocationUpdate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAFED6351BC36D4000197581 /* LocationUpdate.swift */; settings = {ASSET_TAGS = (); }; };
+		BAFED6381BC3764E00197581 /* Experience.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAFED6371BC3764E00197581 /* Experience.swift */; settings = {ASSET_TAGS = (); }; };
+		BAFED63A1BC3824000197581 /* DataEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAFED6391BC3824000197581 /* DataEvent.swift */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -110,6 +113,11 @@
 		BA2B43E91BBBB042007C2483 /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Parse.framework; path = Frameworks/Parse.framework; sourceTree = "<group>"; };
 		BA2B43EB1BBBB06D007C2483 /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Bolts.framework; path = Frameworks/Bolts.framework; sourceTree = "<group>"; };
 		BA36A8941BBBA79100E197E2 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = ZombieRunX/Images.xcassets; sourceTree = SOURCE_ROOT; };
+		BAF68CC31BBF0A3A00145698 /* Moment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Moment.swift; sourceTree = "<group>"; };
+		BAF68CC61BBF342900145698 /* DataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
+		BAFED6351BC36D4000197581 /* LocationUpdate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationUpdate.swift; sourceTree = "<group>"; };
+		BAFED6371BC3764E00197581 /* Experience.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Experience.swift; sourceTree = "<group>"; };
+		BAFED6391BC3824000197581 /* DataEvent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataEvent.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -123,13 +131,11 @@
 				BA2B43EA1BBBB042007C2483 /* Parse.framework in Frameworks */,
 				5241B5731BA0E88100DBC6D3 /* AVFoundation.framework in Frameworks */,
 				5241B5711BA0E87400DBC6D3 /* AudioToolbox.framework in Frameworks */,
-				BA1F2FE81BBBB26300E22B7F /* OpenEars.framework in Frameworks */,
 				528E89E51B9DEE3400C5FC8E /* Social.framework in Frameworks */,
 				528E89D11B9DEDCC00C5FC8E /* Accounts.framework in Frameworks */,
 				528E89E31B9DEE1A00C5FC8E /* libsqlite3.dylib in Frameworks */,
 				528E89E11B9DEE1100C5FC8E /* libz.dylib in Frameworks */,
 				528E89DF1B9DEE0700C5FC8E /* SystemConfiguration.framework in Frameworks */,
-				BA1F2FE91BBBB26300E22B7F /* Slt.framework in Frameworks */,
 				528E89DB1B9DEDF700C5FC8E /* Security.framework in Frameworks */,
 				528E89D91B9DEDEF00C5FC8E /* QuartzCore.framework in Frameworks */,
 				528E89D71B9DEDE700C5FC8E /* CoreLocation.framework in Frameworks */,
@@ -184,8 +190,8 @@
 		528C3A411B826734007C59FC /* ZombieRunX */ = {
 			isa = PBXGroup;
 			children = (
-				BA2B43D71BBBAF23007C2483 /* classes */,
-				BA2B43C61BBBAEF8007C2483 /* audio */,
+				BA2B43D71BBBAF23007C2483 /* Classes */,
+				BA2B43C61BBBAEF8007C2483 /* Audio */,
 				BA36A8941BBBA79100E197E2 /* Images.xcassets */,
 				528C3A4B1B826734007C59FC /* Main.storyboard */,
 				528C3A501B826734007C59FC /* LaunchScreen.xib */,
@@ -239,7 +245,7 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		BA2B43C61BBBAEF8007C2483 /* audio */ = {
+		BA2B43C61BBBAEF8007C2483 /* Audio */ = {
 			isa = PBXGroup;
 			children = (
 				BA2B43C71BBBAEF8007C2483 /* test_sweep.wav */,
@@ -251,21 +257,23 @@
 				BA2B43CD1BBBAEF8007C2483 /* zombie_run_interactive2.mp3 */,
 				BA2B43CE1BBBAEF8007C2483 /* zombie_run_interactive3.mp3 */,
 			);
+			name = Audio;
 			path = audio;
 			sourceTree = "<group>";
 		};
-		BA2B43D71BBBAF23007C2483 /* classes */ = {
+		BA2B43D71BBBAF23007C2483 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
-				BA2B43D81BBBAF23007C2483 /* ActuationController.swift */,
+				BAFED6341BC36D2800197581 /* Parse */,
+				BAF68CC51BBF340200145698 /* Controllers */,
 				BA2B43D91BBBAF23007C2483 /* AppDelegate.swift */,
 				BA2B43DA1BBBAF23007C2483 /* Events.swift */,
 				BA2B43DB1BBBAF23007C2483 /* ExperienceManager.swift */,
-				BA2B43DC1BBBAF23007C2483 /* HomeViewController.swift */,
-				BA2B43DD1BBBAF23007C2483 /* MissionViewController.swift */,
-				BA2B43DE1BBBAF23007C2483 /* SignUpLogInViewController.swift */,
 				BA2B43DF1BBBAF23007C2483 /* Stage.swift */,
+				BAF68CC31BBF0A3A00145698 /* Moment.swift */,
+				BAF68CC61BBF342900145698 /* DataManager.swift */,
 			);
+			name = Classes;
 			path = classes;
 			sourceTree = "<group>";
 		};
@@ -288,6 +296,27 @@
 				528E89D01B9DEDCC00C5FC8E /* Accounts.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		BAF68CC51BBF340200145698 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				BA2B43D81BBBAF23007C2483 /* ActuationController.swift */,
+				BA2B43DC1BBBAF23007C2483 /* HomeViewController.swift */,
+				BA2B43DD1BBBAF23007C2483 /* MissionViewController.swift */,
+				BA2B43DE1BBBAF23007C2483 /* SignUpLogInViewController.swift */,
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
+		BAFED6341BC36D2800197581 /* Parse */ = {
+			isa = PBXGroup;
+			children = (
+				BAFED6351BC36D4000197581 /* LocationUpdate.swift */,
+				BAFED6371BC3764E00197581 /* Experience.swift */,
+				BAFED6391BC3824000197581 /* DataEvent.swift */,
+			);
+			name = Parse;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -336,7 +365,7 @@
 			attributes = {
 				LastSwiftMigration = 0700;
 				LastSwiftUpdateCheck = 0700;
-				LastUpgradeCheck = 0640;
+				LastUpgradeCheck = 0700;
 				ORGANIZATIONNAME = "Scott Cambo";
 				TargetAttributes = {
 					528C3A3E1B826734007C59FC = {
@@ -410,14 +439,19 @@
 			buildActionMask = 2147483647;
 			files = (
 				BA2B43E21BBBAF23007C2483 /* Events.swift in Sources */,
+				BAF68CC71BBF342900145698 /* DataManager.swift in Sources */,
 				BA2B43E61BBBAF23007C2483 /* SignUpLogInViewController.swift in Sources */,
+				BAFED63A1BC3824000197581 /* DataEvent.swift in Sources */,
+				BAFED6381BC3764E00197581 /* Experience.swift in Sources */,
 				BA2B43E11BBBAF23007C2483 /* AppDelegate.swift in Sources */,
 				5241B5841BA1D74400DBC6D3 /* OEBridging-Header.h in Sources */,
 				BA2B43E01BBBAF23007C2483 /* ActuationController.swift in Sources */,
+				BAFED6361BC36D4000197581 /* LocationUpdate.swift in Sources */,
 				BA2B43E41BBBAF23007C2483 /* HomeViewController.swift in Sources */,
 				BA2B43E31BBBAF23007C2483 /* ExperienceManager.swift in Sources */,
 				BA2B43E51BBBAF23007C2483 /* MissionViewController.swift in Sources */,
 				BA2B43E71BBBAF23007C2483 /* Stage.swift in Sources */,
+				BAF68CC41BBF0A3A00145698 /* Moment.swift in Sources */,
 				528C3A481B826734007C59FC /* ZombieRunX.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -481,6 +515,7 @@
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -557,6 +592,7 @@
 				);
 				INFOPLIST_FILE = ZombieRunX/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "edu.northwestern.delta.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "OEBridging-Header.h";
 			};
@@ -578,6 +614,7 @@
 				);
 				INFOPLIST_FILE = ZombieRunX/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "edu.northwestern.delta.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "OEBridging-Header.h";
 			};
@@ -598,6 +635,7 @@
 				);
 				INFOPLIST_FILE = ZombieRunXTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "edu.northwestern.delta.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ZombieRunX.app/ZombieRunX";
 			};
@@ -614,6 +652,7 @@
 				);
 				INFOPLIST_FILE = ZombieRunXTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "edu.northwestern.delta.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ZombieRunX.app/ZombieRunX";
 			};
