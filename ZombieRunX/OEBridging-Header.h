@@ -9,5 +9,10 @@
 #ifndef OEBridging_Header_h
 #define OEBridging_Header_h
 
+#import <OpenEars/OELanguageModelGenerator.h>
+#import <OpenEars/OEAcousticModel.h>
+#import <OpenEars/OEPocketsphinxController.h>
+#import <OpenEars/OEEventsObserver.h>
 
 #endif /* OEBridging_Header_h */
+
