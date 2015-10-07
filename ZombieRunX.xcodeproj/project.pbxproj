@@ -11,7 +11,6 @@
 		5241B5711BA0E87400DBC6D3 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5241B5701BA0E87400DBC6D3 /* AudioToolbox.framework */; };
 		5241B5731BA0E88100DBC6D3 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5241B5721BA0E88100DBC6D3 /* AVFoundation.framework */; };
 		5241B5811BA1D4C800DBC6D3 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 528E89E01B9DEE1100C5FC8E /* libz.dylib */; };
-		5241B5841BA1D74400DBC6D3 /* OEBridging-Header.h in Sources */ = {isa = PBXBuildFile; fileRef = 5241B5831BA1D6A200DBC6D3 /* OEBridging-Header.h */; };
 		528C3A481B826734007C59FC /* ZombieRunX.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 528C3A461B826734007C59FC /* ZombieRunX.xcdatamodeld */; };
 		528C3A4D1B826734007C59FC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 528C3A4B1B826734007C59FC /* Main.storyboard */; };
 		528C3A521B826734007C59FC /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 528C3A501B826734007C59FC /* LaunchScreen.xib */; };
@@ -69,7 +68,6 @@
 /* Begin PBXFileReference section */
 		5241B5701BA0E87400DBC6D3 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		5241B5721BA0E88100DBC6D3 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
-		5241B5831BA1D6A200DBC6D3 /* OEBridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "OEBridging-Header.h"; sourceTree = "<group>"; };
 		528C3A3F1B826734007C59FC /* ZombieRunX.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ZombieRunX.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		528C3A431B826734007C59FC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		528C3A471B826734007C59FC /* ZombieRunX.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = ZombieRunX.xcdatamodel; sourceTree = "<group>"; };
@@ -113,6 +111,7 @@
 		BA2B43E91BBBB042007C2483 /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Parse.framework; path = Frameworks/Parse.framework; sourceTree = "<group>"; };
 		BA2B43EB1BBBB06D007C2483 /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Bolts.framework; path = Frameworks/Bolts.framework; sourceTree = "<group>"; };
 		BA36A8941BBBA79100E197E2 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = ZombieRunX/Images.xcassets; sourceTree = SOURCE_ROOT; };
+		BAD2F21D1BC4A7F600576D03 /* OEBridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "OEBridging-Header.h"; sourceTree = "<group>"; };
 		BAF68CC31BBF0A3A00145698 /* Moment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Moment.swift; sourceTree = "<group>"; };
 		BAF68CC61BBF342900145698 /* DataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
 		BAFED6351BC36D4000197581 /* LocationUpdate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationUpdate.swift; sourceTree = "<group>"; };
@@ -197,7 +196,7 @@
 				528C3A501B826734007C59FC /* LaunchScreen.xib */,
 				528C3A461B826734007C59FC /* ZombieRunX.xcdatamodeld */,
 				528C3A421B826734007C59FC /* Supporting Files */,
-				5241B5831BA1D6A200DBC6D3 /* OEBridging-Header.h */,
+				BAD2F21D1BC4A7F600576D03 /* OEBridging-Header.h */,
 			);
 			path = ZombieRunX;
 			sourceTree = "<group>";
@@ -444,7 +443,6 @@
 				BAFED63A1BC3824000197581 /* DataEvent.swift in Sources */,
 				BAFED6381BC3764E00197581 /* Experience.swift in Sources */,
 				BA2B43E11BBBAF23007C2483 /* AppDelegate.swift in Sources */,
-				5241B5841BA1D74400DBC6D3 /* OEBridging-Header.h in Sources */,
 				BA2B43E01BBBAF23007C2483 /* ActuationController.swift in Sources */,
 				BAFED6361BC36D4000197581 /* LocationUpdate.swift in Sources */,
 				BA2B43E41BBBAF23007C2483 /* HomeViewController.swift in Sources */,
@@ -514,6 +512,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_BITCODE = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -559,6 +558,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_BITCODE = NO;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -583,18 +583,13 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"/Users/cambo/Documents/grad_school/dtr/citizen_science/HabitSourceKit/HabitKit/build/Debug-iphoneos",
-					"$(USER_LIBRARY_DIR)/Developer/Xcode/DerivedData/HabitSourceKit-ditdgcceiqeunwbwzgtrzkwmwkhz/Build/Products/Debug-iphoneos",
-					"$(PROJECT_DIR)",
-					"$(PROJECT_DIR)/Framework",
-					"$(PROJECT_DIR)/Frameworks",
-					"$(PROJECT_DIR)/ExperienceKit/Frameworks",
+					"$(PROJECT_DIR)/**",
 				);
 				INFOPLIST_FILE = ZombieRunX/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "edu.northwestern.delta.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "OEBridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "./ZombieRunX/OEBridging-Header.h";
 			};
 			name = Debug;
 		};
@@ -605,18 +600,13 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"/Users/cambo/Documents/grad_school/dtr/citizen_science/HabitSourceKit/HabitKit/build/Debug-iphoneos",
-					"$(USER_LIBRARY_DIR)/Developer/Xcode/DerivedData/HabitSourceKit-ditdgcceiqeunwbwzgtrzkwmwkhz/Build/Products/Debug-iphoneos",
-					"$(PROJECT_DIR)",
-					"$(PROJECT_DIR)/Framework",
-					"$(PROJECT_DIR)/Frameworks",
-					"$(PROJECT_DIR)/ExperienceKit/Frameworks",
+					"$(PROJECT_DIR)/**",
 				);
 				INFOPLIST_FILE = ZombieRunX/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "edu.northwestern.delta.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "OEBridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "./ZombieRunX/OEBridging-Header.h";
 			};
 			name = Release;
 		};
