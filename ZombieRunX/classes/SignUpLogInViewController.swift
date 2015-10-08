@@ -56,7 +56,7 @@ class SignUpLogInViewController: UIViewController {
     }
     
     func goToHome(){
-        print("goToHome() called")
+        print("goToHome()")
         //let storyboard:UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
         //let navigationController:UINavigationController = storyboard.instantiateInitialViewController() as! UINavigationController
         // go to home page

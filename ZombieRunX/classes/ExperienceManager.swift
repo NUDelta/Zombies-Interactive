@@ -13,7 +13,7 @@ import Parse
 import CoreMotion
 
 
-class ExperienceManager: NSObject, CLLocationManagerDelegate {
+class ExperienceManager: NSObject {
     
     /*
     Questions
@@ -25,19 +25,13 @@ class ExperienceManager: NSObject, CLLocationManagerDelegate {
     var isPlaying = false
     var stages = [Stage]()
     var currentStageIdx = 0
-    var currentMomentIdx = 0
     var dataManager: DataManager?
     var experienceStarted = false
     var experience: Experience?
-    
     var currentStage: Stage {
         get { return stages[currentStageIdx] }
     }
     
-    // should we track currentMoment?
-    
-    // why have this?
-    var currentMomentTitle: String = ""
 
     
     init(title: String, stages: [Stage]) {
@@ -50,14 +44,11 @@ class ExperienceManager: NSObject, CLLocationManagerDelegate {
         
         for stage in stages{
             stage.eventManager.listenTo("stageFinished", action: self.nextStage)
-            for moment in stage.moments{
-                // can we just keep track of the current moment on our own?
-                moment.eventManager.listenTo("newMoment", action: self.setCurrentMomentTitle)
-            }
         }
     }
     
     func play(){
+        
         if experienceStarted == false {
             //start any data managers that are needed globally (probably just LocationManager)
             dataManager?.startUpdatingLocation()
@@ -66,17 +57,12 @@ class ExperienceManager: NSObject, CLLocationManagerDelegate {
             self.experience?.finished = false
             self.experience?.saveInBackground()
         }
-        print("playing " + currentStage.title)
+        
         currentStage.play()
         
-        self.currentMomentTitle = currentStage.currentMomentTitle()
         isPlaying = true
     }
     
-    // TODO change this to a set{} block?
-    func setCurrentMomentTitle(title:Any?){
-        self.currentMomentTitle = String(title)
-    }
     
     func pause(){
         currentStage.pause()
@@ -85,10 +71,11 @@ class ExperienceManager: NSObject, CLLocationManagerDelegate {
     
     
     func nextStage(){
-        print("nextStage()")
-        
+        print("Finished stage: " + currentStage.title)
         if (self.currentStageIdx < stages.count - 1) {
             self.currentStageIdx++
+            print("\nStarting stage: " + currentStage.title)
+            print("  Starting moment: " + currentStage.moments[0].title)
             self.play()
         } else {
             self.finishExperience()
@@ -96,7 +83,8 @@ class ExperienceManager: NSObject, CLLocationManagerDelegate {
     }
     
     func finishExperience(){
-        print("finishExperience()")
+        print("\nFinished experience")
+        // TODO do something when it's over on the UI, and reset all local data
         
         self.experience?.dateFinished = NSDate()
         self.experience?.finished = true

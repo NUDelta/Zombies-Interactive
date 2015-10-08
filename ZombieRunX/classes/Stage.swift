@@ -12,9 +12,14 @@ import Foundation
 class Stage: NSObject{
     var isPlaying = false
     var moments:[Moment]
-    var currentMoment = 0
+    var currentMomentIdx = 0
     var title: String
     let eventManager = EventManager()
+    
+    var currentMoment: Moment {
+        get { return moments[currentMomentIdx] }
+    }
+    
     
     init(moments: [Moment], title: String) {
         self.moments = moments
@@ -26,19 +31,18 @@ class Stage: NSObject{
     }
     
     func play(){
-        print("Play moment #" + String(self.currentMoment))
-        self.moments[currentMoment].play()
+        self.currentMoment.play()
     }
     
     func pause(){
-        self.moments[currentMoment].pause()
+        self.currentMoment.pause()
     }
     
     func next(){
-        print("next()")
-        if (self.currentMoment != (moments.count-1)){
-            self.currentMoment++
-            self.moments[currentMoment].play()
+        if (self.currentMomentIdx != (moments.count-1)){
+            self.currentMomentIdx++
+            print("  Starting moment: \(currentMomentTitle())")
+            self.currentMoment.play()
             self.eventManager.trigger("newMoment", information: currentMomentTitle())
         } else {
             self.eventManager.trigger("stageFinished")
@@ -50,7 +54,7 @@ class Stage: NSObject{
     }
     
     func currentMomentTitle() -> String {
-        return self.moments[currentMoment].title
+        return self.currentMoment.title
     }
 
 }

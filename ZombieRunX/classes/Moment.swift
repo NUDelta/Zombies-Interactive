@@ -13,32 +13,27 @@ import AudioToolbox
 
 
 class Moment: NSObject{
-    var isInterruptable: Bool
+    var interruptable: Bool
     var isPaused = true
-    var title: String!
+    var title: String
     let eventManager = EventManager()
     
-    init(interruptable:Bool){
-        print("Moment init()")
-        
-        self.isInterruptable = interruptable
+    init(interruptable:Bool=false, title: String){
+        self.interruptable = interruptable
+        self.title = title
     }
     
 
     func play(){
-        print("Moment play()")
-        
         finished()
     }
 
     func pause(){
-        print("Moment pause()")
-        
         self.isPaused = true
     }
     
     func finished(){
-        print("Moment finished()")
+        print("  Finished moment: \(self.title)")
         
         self.eventManager.trigger("nextSound")
     }
@@ -59,31 +54,24 @@ class Sound: Moment, AVAudioPlayerDelegate{
     //var playerItem:AVPlayerItem
     var player:AVAudioPlayer?
     
-    init(file: String, interruptable:Bool){
-        print("Sound init()", terminator: "")
-        
-        self.fileName = file
+    init(fileName: String, interruptable:Bool=false, title:String?=nil){
+        self.fileName = fileName
 
-        //initalize AVAudioPlayer with file variable
-        let soundLocation = NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource(file, ofType: "mp3")!)
-        print(soundLocation)
+        let pathToAudio = NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource(fileName, ofType: "mp3")!)
+
         do {
-            self.player = try AVAudioPlayer(contentsOfURL: soundLocation)
+            self.player = try AVAudioPlayer(contentsOfURL: pathToAudio)
         } catch let error as NSError {
             print(error.localizedDescription)
             self.player = nil
         }
-        super.init(interruptable:interruptable)
-        self.title = fileName
-        
+        super.init(interruptable:interruptable, title: title ?? fileName)
         
         self.player?.delegate = self
         self.player?.prepareToPlay()
     }
     
     func audioPlayerDidFinishPlaying(player: AVAudioPlayer, successfully flag: Bool) {
-        print("audioPlayerDidFinishPlaying \(flag)")
-        
         super.finished()
     }
     
@@ -106,22 +94,21 @@ class Sound: Moment, AVAudioPlayerDelegate{
 }
 
 class Silence: Moment{
-    /* placeholder for silence in a "stage"
-    Runs an NSTimer object*/
-    var length: Float // seconds of silence
+    /* 
+    * placeholder for silence in a Stage
+    * Runs an NSTimer object
+    */
+    var lengthInSeconds: Float // seconds of silence
     var timer = NSTimer()
     
-    init(length:Float, interruptable:Bool){
-        print("Silence init()")
-        
-        self.length = length
-        super.init(interruptable:interruptable)
-        self.title = "Silence : " + String(stringInterpolationSegment: self.length)
+    init(lengthInSeconds:Float, interruptable:Bool=false, title:String?=nil){
+        self.lengthInSeconds = lengthInSeconds
+        super.init(interruptable:interruptable, title: title ?? "Silence (\(lengthInSeconds) seconds)")
     }
     
     override func play(){
         if !timer.valid {
-            timer = NSTimer.scheduledTimerWithTimeInterval(NSTimeInterval(length), target: self, selector: Selector("finished"), userInfo: nil, repeats: false)
+            timer = NSTimer.scheduledTimerWithTimeInterval(NSTimeInterval(lengthInSeconds), target: self, selector: Selector("finished"), userInfo: nil, repeats: false)
             isPaused = false
         } else {
             timer.fire()
@@ -129,8 +116,6 @@ class Silence: Moment{
     }
     
     override func pause(){
-        print("Silent pause()")
-        
         isPaused = true
         timer.invalidate()
     }
@@ -146,17 +131,15 @@ class WaitForWord: Silence{
     
     var openEarsController : OpenEarsController
     
-    init(wordsToRecognize: [String], length: Float, interruptable:Bool){
+    init(wordsToRecognize: [String], lengthInSeconds: Float, interruptable:Bool=false, title:String?=nil){
         openEarsController = OpenEarsController(wordsToRecognize: wordsToRecognize)
-        super.init(length: length, interruptable:interruptable)
+        super.init(lengthInSeconds: lengthInSeconds, interruptable:interruptable, title: title ?? "Wait For \(wordsToRecognize)")
         openEarsController.events.listenTo("heardWord", action: self.heard)
         self.title = "WaitForWords: \(wordsToRecognize)"
     }
     
     override func play(){
-        // start OpenEarsListener
         openEarsController.startListening()
-        //start timeout
         super.play()
     }
     
