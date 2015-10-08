@@ -48,6 +48,7 @@
 		BA2B43EA1BBBB042007C2483 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BA2B43E91BBBB042007C2483 /* Parse.framework */; };
 		BA2B43EC1BBBB06D007C2483 /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BA2B43EB1BBBB06D007C2483 /* Bolts.framework */; };
 		BA36A8951BBBA79100E197E2 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BA36A8941BBBA79100E197E2 /* Images.xcassets */; settings = {ASSET_TAGS = (); }; };
+		BABD0C4E1BC6F2850093BF47 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = BABD0C4D1BC6F2850093BF47 /* Extensions.swift */; settings = {ASSET_TAGS = (); }; };
 		BAF68CC41BBF0A3A00145698 /* Moment.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAF68CC31BBF0A3A00145698 /* Moment.swift */; settings = {ASSET_TAGS = (); }; };
 		BAF68CC71BBF342900145698 /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAF68CC61BBF342900145698 /* DataManager.swift */; settings = {ASSET_TAGS = (); }; };
 		BAFED6361BC36D4000197581 /* LocationUpdate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAFED6351BC36D4000197581 /* LocationUpdate.swift */; settings = {ASSET_TAGS = (); }; };
@@ -111,6 +112,7 @@
 		BA2B43E91BBBB042007C2483 /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Parse.framework; path = Frameworks/Parse.framework; sourceTree = "<group>"; };
 		BA2B43EB1BBBB06D007C2483 /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Bolts.framework; path = Frameworks/Bolts.framework; sourceTree = "<group>"; };
 		BA36A8941BBBA79100E197E2 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = ZombieRunX/Images.xcassets; sourceTree = SOURCE_ROOT; };
+		BABD0C4D1BC6F2850093BF47 /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		BAD2F21D1BC4A7F600576D03 /* OEBridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "OEBridging-Header.h"; sourceTree = "<group>"; };
 		BAF68CC31BBF0A3A00145698 /* Moment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Moment.swift; sourceTree = "<group>"; };
 		BAF68CC61BBF342900145698 /* DataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
@@ -271,6 +273,7 @@
 				BA2B43DF1BBBAF23007C2483 /* Stage.swift */,
 				BAF68CC31BBF0A3A00145698 /* Moment.swift */,
 				BAF68CC61BBF342900145698 /* DataManager.swift */,
+				BABD0C4D1BC6F2850093BF47 /* Extensions.swift */,
 			);
 			name = Classes;
 			path = classes;
@@ -447,6 +450,7 @@
 				BAFED6361BC36D4000197581 /* LocationUpdate.swift in Sources */,
 				BA2B43E41BBBAF23007C2483 /* HomeViewController.swift in Sources */,
 				BA2B43E31BBBAF23007C2483 /* ExperienceManager.swift in Sources */,
+				BABD0C4E1BC6F2850093BF47 /* Extensions.swift in Sources */,
 				BA2B43E51BBBAF23007C2483 /* MissionViewController.swift in Sources */,
 				BA2B43E71BBBAF23007C2483 /* Stage.swift in Sources */,
 				BAF68CC41BBF0A3A00145698 /* Moment.swift in Sources */,

@@ -14,19 +14,14 @@ class HomeViewController: UIViewController {
     
     override func viewDidLoad(){
         super.viewDidLoad()
+        view.backgroundColor = UIColor(red:0.24, green:0.24, blue:0.25, alpha:1)
     }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
 
-    @IBAction func historyButton(sender: AnyObject) {
-        // go to history view
-        print("historyButton() pressed")
-    }
     @IBAction func missionsButton(sender: AnyObject) {
-        // go to missions view
-        //let vc = ViewController(nibName: "MissionVC", bundle:nil)
         let vc:UIViewController = storyboard!.instantiateViewControllerWithIdentifier("MissionVC") 
         self.navigationController!.pushViewController(vc, animated: true)
     }
