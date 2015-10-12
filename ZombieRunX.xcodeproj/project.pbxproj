@@ -47,6 +47,15 @@
 		BA2B43E71BBBAF23007C2483 /* Stage.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA2B43DF1BBBAF23007C2483 /* Stage.swift */; settings = {ASSET_TAGS = (); }; };
 		BA2B43EA1BBBB042007C2483 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BA2B43E91BBBB042007C2483 /* Parse.framework */; };
 		BA2B43EC1BBBB06D007C2483 /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BA2B43EB1BBBB06D007C2483 /* Bolts.framework */; };
+		BA32A8001BCB3B7300316136 /* Sound.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA32A7FF1BCB3B7300316136 /* Sound.swift */; settings = {ASSET_TAGS = (); }; };
+		BA32A8021BCB3B8100316136 /* Silence.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA32A8011BCB3B8100316136 /* Silence.swift */; settings = {ASSET_TAGS = (); }; };
+		BA32A8041BCB3B8A00316136 /* WaitForWord.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA32A8031BCB3B8A00316136 /* WaitForWord.swift */; settings = {ASSET_TAGS = (); }; };
+		BA32A80B1BCB3DB700316136 /* bleep-alert.m4a in Resources */ = {isa = PBXBuildFile; fileRef = BA32A8061BCB3DB700316136 /* bleep-alert.m4a */; settings = {ASSET_TAGS = (); }; };
+		BA32A80C1BCB3DB700316136 /* countdown-beep.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = BA32A8071BCB3DB700316136 /* countdown-beep.mp3 */; settings = {ASSET_TAGS = (); }; };
+		BA32A80D1BCB3DB700316136 /* hardcore-lose.wav in Resources */ = {isa = PBXBuildFile; fileRef = BA32A8081BCB3DB700316136 /* hardcore-lose.wav */; settings = {ASSET_TAGS = (); }; };
+		BA32A80E1BCB3DB700316136 /* proximity-pip.wav in Resources */ = {isa = PBXBuildFile; fileRef = BA32A8091BCB3DB700316136 /* proximity-pip.wav */; settings = {ASSET_TAGS = (); }; };
+		BA32A80F1BCB3DB700316136 /* zombie-horde-loop.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = BA32A80A1BCB3DB700316136 /* zombie-horde-loop.mp3 */; settings = {ASSET_TAGS = (); }; };
+		BA32A8111BCB4B7000316136 /* DataMoment.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA32A8101BCB4B7000316136 /* DataMoment.swift */; settings = {ASSET_TAGS = (); }; };
 		BA36A8951BBBA79100E197E2 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BA36A8941BBBA79100E197E2 /* Images.xcassets */; settings = {ASSET_TAGS = (); }; };
 		BABD0C4E1BC6F2850093BF47 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = BABD0C4D1BC6F2850093BF47 /* Extensions.swift */; settings = {ASSET_TAGS = (); }; };
 		BAF68CC41BBF0A3A00145698 /* Moment.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAF68CC31BBF0A3A00145698 /* Moment.swift */; settings = {ASSET_TAGS = (); }; };
@@ -111,6 +120,15 @@
 		BA2B43DF1BBBAF23007C2483 /* Stage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Stage.swift; sourceTree = "<group>"; };
 		BA2B43E91BBBB042007C2483 /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Parse.framework; path = Frameworks/Parse.framework; sourceTree = "<group>"; };
 		BA2B43EB1BBBB06D007C2483 /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Bolts.framework; path = Frameworks/Bolts.framework; sourceTree = "<group>"; };
+		BA32A7FF1BCB3B7300316136 /* Sound.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Sound.swift; sourceTree = "<group>"; };
+		BA32A8011BCB3B8100316136 /* Silence.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Silence.swift; sourceTree = "<group>"; };
+		BA32A8031BCB3B8A00316136 /* WaitForWord.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WaitForWord.swift; sourceTree = "<group>"; };
+		BA32A8061BCB3DB700316136 /* bleep-alert.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = "bleep-alert.m4a"; sourceTree = "<group>"; };
+		BA32A8071BCB3DB700316136 /* countdown-beep.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "countdown-beep.mp3"; sourceTree = "<group>"; };
+		BA32A8081BCB3DB700316136 /* hardcore-lose.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "hardcore-lose.wav"; sourceTree = "<group>"; };
+		BA32A8091BCB3DB700316136 /* proximity-pip.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "proximity-pip.wav"; sourceTree = "<group>"; };
+		BA32A80A1BCB3DB700316136 /* zombie-horde-loop.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "zombie-horde-loop.mp3"; sourceTree = "<group>"; };
+		BA32A8101BCB4B7000316136 /* DataMoment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataMoment.swift; sourceTree = "<group>"; };
 		BA36A8941BBBA79100E197E2 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = ZombieRunX/Images.xcassets; sourceTree = SOURCE_ROOT; };
 		BABD0C4D1BC6F2850093BF47 /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		BAD2F21D1BC4A7F600576D03 /* OEBridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "OEBridging-Header.h"; sourceTree = "<group>"; };
@@ -249,6 +267,7 @@
 		BA2B43C61BBBAEF8007C2483 /* Audio */ = {
 			isa = PBXGroup;
 			children = (
+				BA32A8051BCB3DB700316136 /* Zombies, Run! */,
 				BA2B43C71BBBAEF8007C2483 /* test_sweep.wav */,
 				BA2B43C81BBBAEF8007C2483 /* zombie_run1.mp3 */,
 				BA2B43C91BBBAEF8007C2483 /* zombie_run2.mp3 */,
@@ -265,15 +284,9 @@
 		BA2B43D71BBBAF23007C2483 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
-				BAFED6341BC36D2800197581 /* Parse */,
 				BAF68CC51BBF340200145698 /* Controllers */,
 				BA2B43D91BBBAF23007C2483 /* AppDelegate.swift */,
-				BA2B43DA1BBBAF23007C2483 /* Events.swift */,
-				BA2B43DB1BBBAF23007C2483 /* ExperienceManager.swift */,
-				BA2B43DF1BBBAF23007C2483 /* Stage.swift */,
-				BAF68CC31BBF0A3A00145698 /* Moment.swift */,
-				BAF68CC61BBF342900145698 /* DataManager.swift */,
-				BABD0C4D1BC6F2850093BF47 /* Extensions.swift */,
+				BA320E641BC828CE000E52EE /* ExperienceKit */,
 			);
 			name = Classes;
 			path = classes;
@@ -298,6 +311,60 @@
 				528E89D01B9DEDCC00C5FC8E /* Accounts.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		BA320E641BC828CE000E52EE /* ExperienceKit */ = {
+			isa = PBXGroup;
+			children = (
+				BA32A8131BCB5BC800316136 /* Utilities */,
+				BA32A8121BCB5B9100316136 /* Moments */,
+				BAFED6341BC36D2800197581 /* Parse */,
+				BA2B43DB1BBBAF23007C2483 /* ExperienceManager.swift */,
+				BA2B43DF1BBBAF23007C2483 /* Stage.swift */,
+				BAF68CC61BBF342900145698 /* DataManager.swift */,
+			);
+			name = ExperienceKit;
+			sourceTree = "<group>";
+		};
+		BA32A8051BCB3DB700316136 /* Zombies, Run! */ = {
+			isa = PBXGroup;
+			children = (
+				BA32A8061BCB3DB700316136 /* bleep-alert.m4a */,
+				BA32A8071BCB3DB700316136 /* countdown-beep.mp3 */,
+				BA32A8081BCB3DB700316136 /* hardcore-lose.wav */,
+				BA32A8091BCB3DB700316136 /* proximity-pip.wav */,
+				BA32A80A1BCB3DB700316136 /* zombie-horde-loop.mp3 */,
+			);
+			path = "Zombies, Run!";
+			sourceTree = "<group>";
+		};
+		BA32A8121BCB5B9100316136 /* Moments */ = {
+			isa = PBXGroup;
+			children = (
+				BAF68CC31BBF0A3A00145698 /* Moment.swift */,
+				BA32A7FF1BCB3B7300316136 /* Sound.swift */,
+				BA32A8011BCB3B8100316136 /* Silence.swift */,
+				BA32A8031BCB3B8A00316136 /* WaitForWord.swift */,
+				BA32A8101BCB4B7000316136 /* DataMoment.swift */,
+			);
+			name = Moments;
+			sourceTree = "<group>";
+		};
+		BA32A8131BCB5BC800316136 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				BA32A8141BCB5BDA00316136 /* Third Party */,
+				BABD0C4D1BC6F2850093BF47 /* Extensions.swift */,
+			);
+			name = Utilities;
+			sourceTree = "<group>";
+		};
+		BA32A8141BCB5BDA00316136 /* Third Party */ = {
+			isa = PBXGroup;
+			children = (
+				BA2B43DA1BBBAF23007C2483 /* Events.swift */,
+			);
+			name = "Third Party";
 			sourceTree = "<group>";
 		};
 		BAF68CC51BBF340200145698 /* Controllers */ = {
@@ -368,12 +435,15 @@
 				LastSwiftMigration = 0700;
 				LastSwiftUpdateCheck = 0700;
 				LastUpgradeCheck = 0700;
-				ORGANIZATIONNAME = "Scott Cambo";
+				ORGANIZATIONNAME = "Scott Cambo, Henry Spindell, & Delta Lab NU";
 				TargetAttributes = {
 					528C3A3E1B826734007C59FC = {
 						CreatedOnToolsVersion = 6.4;
 						DevelopmentTeam = W4E2C6X642;
 						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
 							com.apple.InAppPurchase = {
 								enabled = 0;
 							};
@@ -410,17 +480,22 @@
 			buildActionMask = 2147483647;
 			files = (
 				BA2B43D51BBBAEF8007C2483 /* zombie_run_interactive2.mp3 in Resources */,
+				BA32A80D1BCB3DB700316136 /* hardcore-lose.wav in Resources */,
+				BA32A80B1BCB3DB700316136 /* bleep-alert.m4a in Resources */,
 				BA1F2FE41BBBB25700E22B7F /* AcousticModelEnglish.bundle in Resources */,
 				BA2B43D01BBBAEF8007C2483 /* zombie_run1.mp3 in Resources */,
 				BA1F2FE51BBBB25700E22B7F /* AcousticModelSpanish.bundle in Resources */,
 				BA2B43CF1BBBAEF8007C2483 /* test_sweep.wav in Resources */,
 				BA2B43D21BBBAEF8007C2483 /* zombie_run3.mp3 in Resources */,
+				BA32A80E1BCB3DB700316136 /* proximity-pip.wav in Resources */,
 				5241B5621BA0980000DBC6D3 /* ZombieRunX.xcdatamodeld in Resources */,
 				528C3A4D1B826734007C59FC /* Main.storyboard in Resources */,
 				BA2B43D41BBBAEF8007C2483 /* zombie_run_interactive1.mp3 in Resources */,
+				BA32A80C1BCB3DB700316136 /* countdown-beep.mp3 in Resources */,
 				528C3A521B826734007C59FC /* LaunchScreen.xib in Resources */,
 				BA2B43D61BBBAEF8007C2483 /* zombie_run_interactive3.mp3 in Resources */,
 				BA2B43D11BBBAEF8007C2483 /* zombie_run2.mp3 in Resources */,
+				BA32A80F1BCB3DB700316136 /* zombie-horde-loop.mp3 in Resources */,
 				BA2B43D31BBBAEF8007C2483 /* zombie_run4.mp3 in Resources */,
 				BA36A8951BBBA79100E197E2 /* Images.xcassets in Resources */,
 			);
@@ -442,6 +517,7 @@
 			files = (
 				BA2B43E21BBBAF23007C2483 /* Events.swift in Sources */,
 				BAF68CC71BBF342900145698 /* DataManager.swift in Sources */,
+				BA32A8041BCB3B8A00316136 /* WaitForWord.swift in Sources */,
 				BA2B43E61BBBAF23007C2483 /* SignUpLogInViewController.swift in Sources */,
 				BAFED63A1BC3824000197581 /* DataEvent.swift in Sources */,
 				BAFED6381BC3764E00197581 /* Experience.swift in Sources */,
@@ -455,6 +531,9 @@
 				BA2B43E71BBBAF23007C2483 /* Stage.swift in Sources */,
 				BAF68CC41BBF0A3A00145698 /* Moment.swift in Sources */,
 				528C3A481B826734007C59FC /* ZombieRunX.xcdatamodeld in Sources */,
+				BA32A8111BCB4B7000316136 /* DataMoment.swift in Sources */,
+				BA32A8021BCB3B8100316136 /* Silence.swift in Sources */,
+				BA32A8001BCB3B7300316136 /* Sound.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

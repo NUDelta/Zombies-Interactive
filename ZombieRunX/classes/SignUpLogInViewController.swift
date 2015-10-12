@@ -18,6 +18,7 @@ class SignUpLogInViewController: UIViewController {
 
     override func viewDidLoad(){
         super.viewDidLoad()
+        view.backgroundColor = UIColor(red:0.24, green:0.24, blue:0.25, alpha:1)
     }
     
     override func didReceiveMemoryWarning() {

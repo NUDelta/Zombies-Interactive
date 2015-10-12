@@ -32,8 +32,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         //let navigationController = window?.rootViewController as! UINavigationController
         // determine if user is logged in
-        let currentUser = PFUser.currentUser()
-        if currentUser != nil { // go directly to start screen
+        if (PFUser.currentUser() != nil){ // go directly to start screen
             print("Logged In")
             
             let rootViewController:UIViewController = storyboard.instantiateViewControllerWithIdentifier("HomeVC") 

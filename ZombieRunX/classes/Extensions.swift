@@ -11,3 +11,9 @@ import Foundation
 extension Double {
     var minutesToSeconds : Float { return Float(self * 60) }
 }
+
+extension Array {
+    subscript (safe index: Int) -> Element? {
+        return indices ~= index ? self[index] : nil
+    }
+}
