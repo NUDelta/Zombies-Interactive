@@ -10,14 +10,15 @@ import Foundation
 
 // Stage: a sub-experience comprised of moments
 class Stage: NSObject{
+    var stageStarted = false
     var isPlaying = false
     var moments:[Moment]
-    var currentMomentIdx = 0
+    var currentMomentIdx = -1
     var title: String
     let eventManager = EventManager()
     
-    var currentMoment: Moment {
-        get { return moments[currentMomentIdx] }
+    var currentMoment: Moment? {
+        get { return moments[safe: currentMomentIdx] }
     }
     
     
@@ -26,36 +27,51 @@ class Stage: NSObject{
         self.title = title
         super.init()
         for moment in moments{
-            moment.eventManager.listenTo("nextSound", action: self.next)
+            moment.eventManager.listenTo("nextMoment", action: self.nextMoment)
         }
     }
     
-    func play(){
-        self.currentMoment.play()
+    
+    func start() {
+        print("\nStarting stage: " + self.title)
+        stageStarted = true
+        self.nextMoment()
     }
+    
+    
+    func play(){
+        self.currentMoment?.play()
+    }
+    
     
     func pause(){
-        self.currentMoment.pause()
+        self.currentMoment?.pause()
     }
     
-    func next(){
-        if (self.currentMomentIdx != (moments.count-1)){
-            self.currentMomentIdx++
-            print("  Starting moment: \(currentMomentTitle())")
-            self.currentMoment.play()
-            self.eventManager.trigger("newMoment", information: currentMomentTitle())
+    
+    func nextMoment(){
+        
+        if let currentMoment = self.currentMoment as? DataMoment {
+            self.eventManager.trigger("dataMomentEnded", information: currentMoment.dataTypes)
+        }
+        
+        // stop the current moment's audio here instead of ExperienceManager?
+        self.currentMomentIdx++
+        
+        if self.currentMomentIdx < moments.count {
+            if let currentMoment = self.currentMoment as? DataMoment {
+                self.eventManager.trigger("dataMomentStarted", information: currentMoment.dataTypes)
+            }
+            self.currentMoment?.start()
         } else {
+            print("Finished stage: \(self.title)")
             self.eventManager.trigger("stageFinished")
         }
     }
     
-    func next(notification: NSNotification){
-        self.next()
-    }
     
-    func currentMomentTitle() -> String {
-        return self.currentMoment.title
+    func next(notification: NSNotification){
+        self.nextMoment()
     }
-
 }
 
