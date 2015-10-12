@@ -13,13 +13,14 @@ import Parse
 class Experience : PFObject, PFSubclassing {
     
     @NSManaged var user: PFUser?
-    @NSManaged var title: String? // changed missionName to title to make it general
+    @NSManaged var title: String?
     @NSManaged var point: PFGeoPoint?
-    @NSManaged var dateFinished: NSDate?
+    @NSManaged var dateStarted: NSDate?
+    @NSManaged var dateCompleted: NSDate?
     
-    var finished: Bool {
-        get { return self["finished"] as! Bool }
-        set { self["finished"] = newValue }
+    var completed: Bool {
+        get { return self["completed"] as! Bool }
+        set { self["completed"] = newValue }
     }
     
     override class func initialize() {

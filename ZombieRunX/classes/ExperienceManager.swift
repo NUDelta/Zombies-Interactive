@@ -18,21 +18,22 @@ class ExperienceManager: NSObject {
     /*
     Questions
     
+    We need to better parameterize the ExperienceManager and use parse keys constants, etc.
+    
     When we interrupt to collect data, how do we insert the moment?
     
     */
     
     var isPlaying = false
     var stages = [Stage]()
-    var currentStageIdx = 0
-    var dataManager: DataManager?
+    var currentStageIdx = -1
+    var dataManager: DataManager?  // should be optional whether their experience will collect data
     var experienceStarted = false
     var experience: Experience?
-    var currentStage: Stage {
-        get { return stages[currentStageIdx] }
+    var currentStage: Stage? {
+        get { return stages[safe: currentStageIdx] }
     }
     
-
     
     init(title: String, stages: [Stage]) {
         self.stages = stages
@@ -44,52 +45,78 @@ class ExperienceManager: NSObject {
         
         for stage in stages{
             stage.eventManager.listenTo("stageFinished", action: self.nextStage)
+            
+            if let dataManager = dataManager {
+                stage.eventManager.listenTo("dataMomentStarted", action: dataManager.startCollecting)
+                stage.eventManager.listenTo("dataMomentEnded", action: dataManager.stopCollecting)
+            }
+        }
+        
+        // enable playing in background
+        do {
+            try AVAudioSession.sharedInstance().setCategory(AVAudioSessionCategoryPlayback)
+            print("AVAudioSession Category Playback OK")
+            do {
+                try AVAudioSession.sharedInstance().setActive(true)
+                print("AVAudioSession is Active")
+            } catch let error as NSError {
+                print(error.localizedDescription)
+            }
+        } catch let error as NSError {
+            print(error.localizedDescription)
         }
     }
     
-    func play(){
+    
+    func start() {
+        self.experience?.user = PFUser.currentUser()
+        self.experience?.dateStarted = NSDate()
+        self.experience?.saveInBackground()
+        experienceStarted = true
+        
+        self.nextStage()
+    }
+    
+    
+    func play() {
+        dataManager?.startUpdatingLocation()
+        isPlaying = true
         
         if experienceStarted == false {
-            //start any data managers that are needed globally (probably just LocationManager)
-            dataManager?.startUpdatingLocation()
-            
-            self.experience?.user = PFUser.currentUser()
-            self.experience?.finished = false
-            self.experience?.saveInBackground()
+            self.start()
+        } else {
+            currentStage?.play()
         }
-        
-        currentStage.play()
-        
-        isPlaying = true
     }
     
     
-    func pause(){
-        currentStage.pause()
+    func pause() {
+        dataManager?.stopUpdatingLocation()
         isPlaying = false
+        
+        currentStage?.pause()
     }
     
     
-    func nextStage(){
-        print("Finished stage: " + currentStage.title)
-        if (self.currentStageIdx < stages.count - 1) {
-            self.currentStageIdx++
-            print("\nStarting stage: " + currentStage.title)
-            print("  Starting moment: " + currentStage.moments[0].title)
-            self.play()
+    func nextStage() {
+        self.currentStageIdx++
+
+        if self.currentStageIdx < stages.count {
+            self.currentStage?.start()
         } else {
             self.finishExperience()
         }
     }
     
-    func finishExperience(){
+    
+    func finishExperience() {
         print("\nFinished experience")
         // TODO do something when it's over on the UI, and reset all local data
-        
-        self.experience?.dateFinished = NSDate()
-        self.experience?.finished = true
-        self.experience?.saveInBackground()
         dataManager?.stopUpdatingLocation()
+        
+        self.experience?.dateCompleted = NSDate()
+        self.experience?.completed = true
+        self.experience?.saveInBackground()
     }
 
     
