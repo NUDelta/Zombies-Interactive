@@ -51,4 +51,9 @@ class Sound: Moment, AVAudioPlayerDelegate{
         self.player?.pause()
     }
     
+    override func finished() {
+        super.finished()
+        player?.stop()
+    }
+    
 }

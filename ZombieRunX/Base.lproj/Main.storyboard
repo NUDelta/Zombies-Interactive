@@ -198,11 +198,20 @@
                                 </connections>
                             </button>
                             <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Z7h-kp-mr1">
-                                <rect key="frame" x="114" y="530" width="93" height="30"/>
+                                <rect key="frame" x="211" y="530" width="93" height="30"/>
                                 <animations/>
                                 <state key="normal" title="Next Moment"/>
                                 <connections>
                                     <action selector="nextMoment:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="6Uu-Ap-SAU"/>
+                                </connections>
+                            </button>
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="isc-GM-YcT">
+                                <rect key="frame" x="16" y="530" width="120" height="30"/>
+                                <animations/>
+                                <state key="normal" title="Previous Moment"/>
+                                <connections>
+                                    <action selector="nextMoment:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="gOj-f1-lTF"/>
+                                    <action selector="previousMoment:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="HX0-15-Obm"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -222,14 +231,17 @@
                             <constraint firstAttribute="centerY" secondItem="yVR-oT-Kmv" secondAttribute="centerY" id="ORE-Ne-4LN"/>
                             <constraint firstItem="TD2-NT-Tqh" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" id="P3L-K5-feH"/>
                             <constraint firstAttribute="centerX" secondItem="yVR-oT-Kmv" secondAttribute="centerX" id="P8H-91-vtF"/>
+                            <constraint firstAttribute="leadingMargin" secondItem="isc-GM-YcT" secondAttribute="leading" id="UTU-NJ-9VR"/>
                             <constraint firstAttribute="trailingMargin" secondItem="yVR-oT-Kmv" secondAttribute="trailing" constant="227" id="Ui6-lb-Z9A"/>
                             <constraint firstAttribute="centerX" secondItem="yVR-oT-Kmv" secondAttribute="centerX" id="VAt-U8-uEn"/>
+                            <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="isc-GM-YcT" secondAttribute="bottom" constant="8" symbolic="YES" id="Zvf-5g-ENd"/>
                             <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="Z7h-kp-mr1" secondAttribute="bottom" constant="8" symbolic="YES" id="gVd-Ev-2ks"/>
                             <constraint firstAttribute="trailingMargin" secondItem="yVR-oT-Kmv" secondAttribute="trailing" constant="45" id="h5C-O8-FEG"/>
                             <constraint firstItem="yVR-oT-Kmv" firstAttribute="top" secondItem="TD2-NT-Tqh" secondAttribute="bottom" constant="8" symbolic="YES" id="i6c-oU-NhC"/>
                             <constraint firstAttribute="trailingMargin" secondItem="yVR-oT-Kmv" secondAttribute="trailing" constant="202" id="kCb-qQ-Hvr"/>
                             <constraint firstItem="yVR-oT-Kmv" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" constant="228" id="qfX-UA-PSM"/>
                             <constraint firstItem="Z7h-kp-mr1" firstAttribute="centerX" secondItem="kh9-bI-dsS" secondAttribute="centerX" id="tUY-5t-4yZ"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="Z7h-kp-mr1" secondAttribute="trailing" id="yhP-us-q6J"/>
                             <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="yVR-oT-Kmv" secondAttribute="bottom" constant="109" id="zF9-mo-Ggy"/>
                             <constraint firstItem="yVR-oT-Kmv" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" constant="46" id="zX5-HX-E3A"/>
                             <constraint firstItem="yVR-oT-Kmv" firstAttribute="top" secondItem="TD2-NT-Tqh" secondAttribute="bottom" constant="90" id="zef-b5-mbp"/>
@@ -252,6 +264,7 @@
                                 <exclude reference="zef-b5-mbp"/>
                                 <exclude reference="9v0-hG-32c"/>
                                 <exclude reference="zF9-mo-Ggy"/>
+                                <exclude reference="tUY-5t-4yZ"/>
                             </mask>
                         </variation>
                         <variation key="heightClass=regular-widthClass=regular">
@@ -286,14 +299,23 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1EZ-tM-fTU">
-                                <rect key="frame" x="16" y="72" width="288" height="35"/>
+                                <rect key="frame" x="16" y="72" width="288" height="50"/>
                                 <animations/>
                                 <color key="backgroundColor" red="0.3318314574726961" green="0.657401944049681" blue="0.0062609708957112251" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="35" id="dzk-9Q-9CQ"/>
+                                    <constraint firstAttribute="height" constant="50" id="lfp-87-9kX"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="19"/>
                                 <state key="normal" title="Mission 1: The Beginning">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="dzk-9Q-9CQ"/>
+                                    </mask>
+                                </variation>
                                 <connections>
                                     <action selector="missionsButton:" destination="B83-kc-EzL" eventType="touchUpInside" id="f6z-Yu-flq"/>
                                 </connections>

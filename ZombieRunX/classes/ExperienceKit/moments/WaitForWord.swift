@@ -25,7 +25,6 @@ class WaitForWord: Silence{
         openEarsController = OpenEarsController(wordsToRecognize: wordsToRecognize)
         super.init(lengthInSeconds: lengthInSeconds, interruptable:interruptable, title: title ?? "Wait For \(wordsToRecognize)")
         openEarsController.events.listenTo("heardWord", action: self.heard)
-        self.title = "WaitForWords: \(wordsToRecognize)"
     }
     
     override func play(){

@@ -49,6 +49,8 @@ class ExperienceManager: NSObject {
             if let dataManager = dataManager {
                 stage.eventManager.listenTo("dataMomentStarted", action: dataManager.startCollecting)
                 stage.eventManager.listenTo("dataMomentEnded", action: dataManager.stopCollecting)
+                
+                stage.eventManager.listenTo("foundPointOfInterest", action: dataManager.recordPointOfInterest)
             }
         }
         
@@ -99,6 +101,7 @@ class ExperienceManager: NSObject {
     
     
     func nextStage() {
+        
         self.currentStageIdx++
 
         if self.currentStageIdx < stages.count {
@@ -111,7 +114,6 @@ class ExperienceManager: NSObject {
     
     func finishExperience() {
         print("\nFinished experience")
-        // TODO do something when it's over on the UI, and reset all local data
         dataManager?.stopUpdatingLocation()
         
         self.experience?.dateCompleted = NSDate()

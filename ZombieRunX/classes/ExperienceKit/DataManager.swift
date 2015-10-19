@@ -11,7 +11,6 @@ import CoreLocation
 import CoreMotion
 import Parse
 
-//  add data type enum
 
 enum DataCollectionType: String {
     case Location = "location",
@@ -21,19 +20,32 @@ enum DataCollectionType: String {
 class DataManager : NSObject, CLLocationManagerDelegate {
     
     var experience: Experience?
-    var motionManager = CMMotionManager()
+//    var motionManager = CMMotionManager()
     var locationManager = CLLocationManager()
     
     
     init(experience: Experience) {
         super.init()
         
-        // Experience hasn't been saved at this point, so im not sure this pointer will work
+        // Experience hasn't been saved at this point, so i'm not sure this pointer will work
         self.experience = experience
     
         self.locationManager.delegate = self
         self.locationManager.desiredAccuracy = kCLLocationAccuracyBest
         self.locationManager.requestAlwaysAuthorization()
+    }
+    
+    func recordPointOfInterest(information: Any?) {
+        
+        print("  recording point of interest")
+        let pointOfInterest = PointOfInterest()
+        if let infoDict = information as? [String : String] {
+            pointOfInterest.trigger = infoDict["trigger"]
+            pointOfInterest.label = infoDict["label"]
+        }
+        pointOfInterest.experience = experience
+        pointOfInterest.location = PFGeoPoint(location: locationManager.location)
+        pointOfInterest.saveInBackground()
     }
     
     
@@ -77,16 +89,12 @@ class DataManager : NSObject, CLLocationManagerDelegate {
         self.locationManager.stopUpdatingLocation()
     }
     
-    // called each time location is updated
+    
     func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        //print(locations[0])
         let locationUpdate = LocationUpdate()
         locationUpdate.experience = self.experience
         locationUpdate.location = PFGeoPoint(location: locations[0])
         locationUpdate.saveInBackground()
-        
-        // ? -H
-        //alert MissionViewController to update stats
     }
 
 }

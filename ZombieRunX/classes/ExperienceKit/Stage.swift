@@ -28,6 +28,7 @@ class Stage: NSObject{
         super.init()
         for moment in moments{
             moment.eventManager.listenTo("nextMoment", action: self.nextMoment)
+            moment.eventManager.listenTo("foundPointOfInterest", action: self.recordPointOfInterest)
         }
     }
     
@@ -39,17 +40,17 @@ class Stage: NSObject{
     }
     
     
-    func play(){
+    func play() {
         self.currentMoment?.play()
     }
     
     
-    func pause(){
+    func pause() {
         self.currentMoment?.pause()
     }
     
     
-    func nextMoment(){
+    func nextMoment() {
         
         if let currentMoment = self.currentMoment as? DataMoment {
             self.eventManager.trigger("dataMomentEnded", information: currentMoment.dataTypes)
@@ -70,8 +71,12 @@ class Stage: NSObject{
     }
     
     
-    func next(notification: NSNotification){
+    func next(notification: NSNotification) {
         self.nextMoment()
+    }
+    
+    func recordPointOfInterest(information: Any?) {
+        self.eventManager.trigger("foundPointOfInterest", information: information)
     }
 }
 

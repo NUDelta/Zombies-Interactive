@@ -29,6 +29,7 @@
 		BA1F2FDB1BBBB17C00E22B7F /* Slt.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BA1F2FD91BBBB17C00E22B7F /* Slt.framework */; };
 		BA1F2FE41BBBB25700E22B7F /* AcousticModelEnglish.bundle in Resources */ = {isa = PBXBuildFile; fileRef = BA1F2FE21BBBB25700E22B7F /* AcousticModelEnglish.bundle */; settings = {ASSET_TAGS = (); }; };
 		BA1F2FE51BBBB25700E22B7F /* AcousticModelSpanish.bundle in Resources */ = {isa = PBXBuildFile; fileRef = BA1F2FE31BBBB25700E22B7F /* AcousticModelSpanish.bundle */; settings = {ASSET_TAGS = (); }; };
+		BA28E2741BD4872500D3E04B /* knock_for_building_radio.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = BA28E2731BD4872500D3E04B /* knock_for_building_radio.mp3 */; settings = {ASSET_TAGS = (); }; };
 		BA2B43CF1BBBAEF8007C2483 /* test_sweep.wav in Resources */ = {isa = PBXBuildFile; fileRef = BA2B43C71BBBAEF8007C2483 /* test_sweep.wav */; settings = {ASSET_TAGS = (); }; };
 		BA2B43D01BBBAEF8007C2483 /* zombie_run1.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = BA2B43C81BBBAEF8007C2483 /* zombie_run1.mp3 */; settings = {ASSET_TAGS = (); }; };
 		BA2B43D11BBBAEF8007C2483 /* zombie_run2.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = BA2B43C91BBBAEF8007C2483 /* zombie_run2.mp3 */; settings = {ASSET_TAGS = (); }; };
@@ -37,32 +38,44 @@
 		BA2B43D41BBBAEF8007C2483 /* zombie_run_interactive1.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = BA2B43CC1BBBAEF8007C2483 /* zombie_run_interactive1.mp3 */; settings = {ASSET_TAGS = (); }; };
 		BA2B43D51BBBAEF8007C2483 /* zombie_run_interactive2.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = BA2B43CD1BBBAEF8007C2483 /* zombie_run_interactive2.mp3 */; settings = {ASSET_TAGS = (); }; };
 		BA2B43D61BBBAEF8007C2483 /* zombie_run_interactive3.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = BA2B43CE1BBBAEF8007C2483 /* zombie_run_interactive3.mp3 */; settings = {ASSET_TAGS = (); }; };
-		BA2B43E01BBBAF23007C2483 /* ActuationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA2B43D81BBBAF23007C2483 /* ActuationController.swift */; settings = {ASSET_TAGS = (); }; };
 		BA2B43E11BBBAF23007C2483 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA2B43D91BBBAF23007C2483 /* AppDelegate.swift */; settings = {ASSET_TAGS = (); }; };
-		BA2B43E21BBBAF23007C2483 /* Events.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA2B43DA1BBBAF23007C2483 /* Events.swift */; settings = {ASSET_TAGS = (); }; };
-		BA2B43E31BBBAF23007C2483 /* ExperienceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA2B43DB1BBBAF23007C2483 /* ExperienceManager.swift */; settings = {ASSET_TAGS = (); }; };
-		BA2B43E41BBBAF23007C2483 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA2B43DC1BBBAF23007C2483 /* HomeViewController.swift */; settings = {ASSET_TAGS = (); }; };
-		BA2B43E51BBBAF23007C2483 /* MissionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA2B43DD1BBBAF23007C2483 /* MissionViewController.swift */; settings = {ASSET_TAGS = (); }; };
-		BA2B43E61BBBAF23007C2483 /* SignUpLogInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA2B43DE1BBBAF23007C2483 /* SignUpLogInViewController.swift */; settings = {ASSET_TAGS = (); }; };
-		BA2B43E71BBBAF23007C2483 /* Stage.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA2B43DF1BBBAF23007C2483 /* Stage.swift */; settings = {ASSET_TAGS = (); }; };
 		BA2B43EA1BBBB042007C2483 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BA2B43E91BBBB042007C2483 /* Parse.framework */; };
 		BA2B43EC1BBBB06D007C2483 /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BA2B43EB1BBBB06D007C2483 /* Bolts.framework */; };
-		BA32A8001BCB3B7300316136 /* Sound.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA32A7FF1BCB3B7300316136 /* Sound.swift */; settings = {ASSET_TAGS = (); }; };
-		BA32A8021BCB3B8100316136 /* Silence.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA32A8011BCB3B8100316136 /* Silence.swift */; settings = {ASSET_TAGS = (); }; };
-		BA32A8041BCB3B8A00316136 /* WaitForWord.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA32A8031BCB3B8A00316136 /* WaitForWord.swift */; settings = {ASSET_TAGS = (); }; };
-		BA32A80B1BCB3DB700316136 /* bleep-alert.m4a in Resources */ = {isa = PBXBuildFile; fileRef = BA32A8061BCB3DB700316136 /* bleep-alert.m4a */; settings = {ASSET_TAGS = (); }; };
-		BA32A80C1BCB3DB700316136 /* countdown-beep.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = BA32A8071BCB3DB700316136 /* countdown-beep.mp3 */; settings = {ASSET_TAGS = (); }; };
-		BA32A80D1BCB3DB700316136 /* hardcore-lose.wav in Resources */ = {isa = PBXBuildFile; fileRef = BA32A8081BCB3DB700316136 /* hardcore-lose.wav */; settings = {ASSET_TAGS = (); }; };
-		BA32A80E1BCB3DB700316136 /* proximity-pip.wav in Resources */ = {isa = PBXBuildFile; fileRef = BA32A8091BCB3DB700316136 /* proximity-pip.wav */; settings = {ASSET_TAGS = (); }; };
-		BA32A80F1BCB3DB700316136 /* zombie-horde-loop.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = BA32A80A1BCB3DB700316136 /* zombie-horde-loop.mp3 */; settings = {ASSET_TAGS = (); }; };
-		BA32A8111BCB4B7000316136 /* DataMoment.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA32A8101BCB4B7000316136 /* DataMoment.swift */; settings = {ASSET_TAGS = (); }; };
 		BA36A8951BBBA79100E197E2 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BA36A8941BBBA79100E197E2 /* Images.xcassets */; settings = {ASSET_TAGS = (); }; };
-		BABD0C4E1BC6F2850093BF47 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = BABD0C4D1BC6F2850093BF47 /* Extensions.swift */; settings = {ASSET_TAGS = (); }; };
-		BAF68CC41BBF0A3A00145698 /* Moment.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAF68CC31BBF0A3A00145698 /* Moment.swift */; settings = {ASSET_TAGS = (); }; };
-		BAF68CC71BBF342900145698 /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAF68CC61BBF342900145698 /* DataManager.swift */; settings = {ASSET_TAGS = (); }; };
-		BAFED6361BC36D4000197581 /* LocationUpdate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAFED6351BC36D4000197581 /* LocationUpdate.swift */; settings = {ASSET_TAGS = (); }; };
-		BAFED6381BC3764E00197581 /* Experience.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAFED6371BC3764E00197581 /* Experience.swift */; settings = {ASSET_TAGS = (); }; };
-		BAFED63A1BC3824000197581 /* DataEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAFED6391BC3824000197581 /* DataEvent.swift */; settings = {ASSET_TAGS = (); }; };
+		BA4255F11BD15E39004B6DF9 /* M-E01-02.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = BA4255E41BD15E39004B6DF9 /* M-E01-02.mp3 */; settings = {ASSET_TAGS = (); }; };
+		BA4255F21BD15E39004B6DF9 /* M-E01-03.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = BA4255E51BD15E39004B6DF9 /* M-E01-03.mp3 */; settings = {ASSET_TAGS = (); }; };
+		BA4255F31BD15E39004B6DF9 /* M-E01-04.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = BA4255E61BD15E39004B6DF9 /* M-E01-04.mp3 */; settings = {ASSET_TAGS = (); }; };
+		BA4255F41BD15E39004B6DF9 /* M-E01-05.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = BA4255E71BD15E39004B6DF9 /* M-E01-05.mp3 */; settings = {ASSET_TAGS = (); }; };
+		BA4255F51BD15E39004B6DF9 /* M-E01-06.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = BA4255E81BD15E39004B6DF9 /* M-E01-06.mp3 */; settings = {ASSET_TAGS = (); }; };
+		BA4255F61BD15E39004B6DF9 /* NextTimeS1M3.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = BA4255E91BD15E39004B6DF9 /* NextTimeS1M3.mp3 */; settings = {ASSET_TAGS = (); }; };
+		BA4255F71BD15E39004B6DF9 /* ZRS1M1v2.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = BA4255EA1BD15E39004B6DF9 /* ZRS1M1v2.mp3 */; settings = {ASSET_TAGS = (); }; };
+		BA4255F81BD15E39004B6DF9 /* bleep-alert.m4a in Resources */ = {isa = PBXBuildFile; fileRef = BA4255EC1BD15E39004B6DF9 /* bleep-alert.m4a */; settings = {ASSET_TAGS = (); }; };
+		BA4255F91BD15E39004B6DF9 /* countdown-beep.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = BA4255ED1BD15E39004B6DF9 /* countdown-beep.mp3 */; settings = {ASSET_TAGS = (); }; };
+		BA4255FA1BD15E39004B6DF9 /* hardcore-lose.wav in Resources */ = {isa = PBXBuildFile; fileRef = BA4255EE1BD15E39004B6DF9 /* hardcore-lose.wav */; settings = {ASSET_TAGS = (); }; };
+		BA4255FB1BD15E39004B6DF9 /* proximity-pip.wav in Resources */ = {isa = PBXBuildFile; fileRef = BA4255EF1BD15E39004B6DF9 /* proximity-pip.wav */; settings = {ASSET_TAGS = (); }; };
+		BA4255FC1BD15E39004B6DF9 /* zombie-horde-loop.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = BA4255F01BD15E39004B6DF9 /* zombie-horde-loop.mp3 */; settings = {ASSET_TAGS = (); }; };
+		BAC7CBF31BD41B3A0031E905 /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAC7CBF01BD41B3A0031E905 /* DataManager.swift */; settings = {ASSET_TAGS = (); }; };
+		BAC7CBF41BD41B3A0031E905 /* ExperienceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAC7CBF11BD41B3A0031E905 /* ExperienceManager.swift */; settings = {ASSET_TAGS = (); }; };
+		BAC7CBF51BD41B3A0031E905 /* Stage.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAC7CBF21BD41B3A0031E905 /* Stage.swift */; settings = {ASSET_TAGS = (); }; };
+		BAC7CBFA1BD41B4F0031E905 /* DataEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAC7CBF61BD41B4F0031E905 /* DataEvent.swift */; settings = {ASSET_TAGS = (); }; };
+		BAC7CBFB1BD41B4F0031E905 /* Experience.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAC7CBF71BD41B4F0031E905 /* Experience.swift */; settings = {ASSET_TAGS = (); }; };
+		BAC7CBFC1BD41B4F0031E905 /* LocationUpdate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAC7CBF81BD41B4F0031E905 /* LocationUpdate.swift */; settings = {ASSET_TAGS = (); }; };
+		BAC7CBFD1BD41B4F0031E905 /* PointOfInterest.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAC7CBF91BD41B4F0031E905 /* PointOfInterest.swift */; settings = {ASSET_TAGS = (); }; };
+		BAC7CC041BD41B680031E905 /* DataMoment.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAC7CBFE1BD41B680031E905 /* DataMoment.swift */; settings = {ASSET_TAGS = (); }; };
+		BAC7CC051BD41B680031E905 /* Moment.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAC7CBFF1BD41B680031E905 /* Moment.swift */; settings = {ASSET_TAGS = (); }; };
+		BAC7CC061BD41B680031E905 /* Silence.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAC7CC001BD41B680031E905 /* Silence.swift */; settings = {ASSET_TAGS = (); }; };
+		BAC7CC071BD41B680031E905 /* Sound.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAC7CC011BD41B680031E905 /* Sound.swift */; settings = {ASSET_TAGS = (); }; };
+		BAC7CC081BD41B680031E905 /* WaitForDoubleKnock.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAC7CC021BD41B680031E905 /* WaitForDoubleKnock.swift */; settings = {ASSET_TAGS = (); }; };
+		BAC7CC091BD41B680031E905 /* WaitForWord.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAC7CC031BD41B680031E905 /* WaitForWord.swift */; settings = {ASSET_TAGS = (); }; };
+		BAC7CC0B1BD41B7C0031E905 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAC7CC0A1BD41B7C0031E905 /* Extensions.swift */; settings = {ASSET_TAGS = (); }; };
+		BAC7CC0D1BD41B870031E905 /* Events.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAC7CC0C1BD41B870031E905 /* Events.swift */; settings = {ASSET_TAGS = (); }; };
+		BAC7CC111BD41BEA0031E905 /* ARAudioRecognizer.m in Sources */ = {isa = PBXBuildFile; fileRef = BAC7CC0F1BD41BEA0031E905 /* ARAudioRecognizer.m */; settings = {ASSET_TAGS = (); }; };
+		BAC7CC161BD41BF90031E905 /* TSCoreMotionListener.m in Sources */ = {isa = PBXBuildFile; fileRef = BAC7CC131BD41BF90031E905 /* TSCoreMotionListener.m */; settings = {ASSET_TAGS = (); }; };
+		BAC7CC171BD41BF90031E905 /* TSTapDetector.m in Sources */ = {isa = PBXBuildFile; fileRef = BAC7CC151BD41BF90031E905 /* TSTapDetector.m */; settings = {ASSET_TAGS = (); }; };
+		BAC7CC1C1BD41C1B0031E905 /* ActuationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAC7CC181BD41C1B0031E905 /* ActuationController.swift */; settings = {ASSET_TAGS = (); }; };
+		BAC7CC1D1BD41C1B0031E905 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAC7CC191BD41C1B0031E905 /* HomeViewController.swift */; settings = {ASSET_TAGS = (); }; };
+		BAC7CC1E1BD41C1B0031E905 /* MissionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAC7CC1A1BD41C1B0031E905 /* MissionViewController.swift */; settings = {ASSET_TAGS = (); }; };
+		BAC7CC1F1BD41C1B0031E905 /* SignUpLogInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAC7CC1B1BD41C1B0031E905 /* SignUpLogInViewController.swift */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -102,6 +115,7 @@
 		BA1F2FE31BBBB25700E22B7F /* AcousticModelSpanish.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = AcousticModelSpanish.bundle; path = ExperienceKit/Bundles/AcousticModelSpanish.bundle; sourceTree = SOURCE_ROOT; };
 		BA1F2FE61BBBB26300E22B7F /* OpenEars.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenEars.framework; path = ExperienceKit/Frameworks/OpenEars.framework; sourceTree = SOURCE_ROOT; };
 		BA1F2FE71BBBB26300E22B7F /* Slt.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Slt.framework; path = ExperienceKit/Frameworks/Slt.framework; sourceTree = SOURCE_ROOT; };
+		BA28E2731BD4872500D3E04B /* knock_for_building_radio.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = knock_for_building_radio.mp3; sourceTree = "<group>"; };
 		BA2B43C71BBBAEF8007C2483 /* test_sweep.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = test_sweep.wav; sourceTree = "<group>"; };
 		BA2B43C81BBBAEF8007C2483 /* zombie_run1.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = zombie_run1.mp3; sourceTree = "<group>"; };
 		BA2B43C91BBBAEF8007C2483 /* zombie_run2.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = zombie_run2.mp3; sourceTree = "<group>"; };
@@ -110,33 +124,49 @@
 		BA2B43CC1BBBAEF8007C2483 /* zombie_run_interactive1.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = zombie_run_interactive1.mp3; sourceTree = "<group>"; };
 		BA2B43CD1BBBAEF8007C2483 /* zombie_run_interactive2.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = zombie_run_interactive2.mp3; sourceTree = "<group>"; };
 		BA2B43CE1BBBAEF8007C2483 /* zombie_run_interactive3.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = zombie_run_interactive3.mp3; sourceTree = "<group>"; };
-		BA2B43D81BBBAF23007C2483 /* ActuationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActuationController.swift; sourceTree = "<group>"; };
 		BA2B43D91BBBAF23007C2483 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		BA2B43DA1BBBAF23007C2483 /* Events.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Events.swift; sourceTree = "<group>"; };
-		BA2B43DB1BBBAF23007C2483 /* ExperienceManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExperienceManager.swift; sourceTree = "<group>"; };
-		BA2B43DC1BBBAF23007C2483 /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
-		BA2B43DD1BBBAF23007C2483 /* MissionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MissionViewController.swift; sourceTree = "<group>"; };
-		BA2B43DE1BBBAF23007C2483 /* SignUpLogInViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpLogInViewController.swift; sourceTree = "<group>"; };
-		BA2B43DF1BBBAF23007C2483 /* Stage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Stage.swift; sourceTree = "<group>"; };
 		BA2B43E91BBBB042007C2483 /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Parse.framework; path = Frameworks/Parse.framework; sourceTree = "<group>"; };
 		BA2B43EB1BBBB06D007C2483 /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Bolts.framework; path = Frameworks/Bolts.framework; sourceTree = "<group>"; };
-		BA32A7FF1BCB3B7300316136 /* Sound.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Sound.swift; sourceTree = "<group>"; };
-		BA32A8011BCB3B8100316136 /* Silence.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Silence.swift; sourceTree = "<group>"; };
-		BA32A8031BCB3B8A00316136 /* WaitForWord.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WaitForWord.swift; sourceTree = "<group>"; };
-		BA32A8061BCB3DB700316136 /* bleep-alert.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = "bleep-alert.m4a"; sourceTree = "<group>"; };
-		BA32A8071BCB3DB700316136 /* countdown-beep.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "countdown-beep.mp3"; sourceTree = "<group>"; };
-		BA32A8081BCB3DB700316136 /* hardcore-lose.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "hardcore-lose.wav"; sourceTree = "<group>"; };
-		BA32A8091BCB3DB700316136 /* proximity-pip.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "proximity-pip.wav"; sourceTree = "<group>"; };
-		BA32A80A1BCB3DB700316136 /* zombie-horde-loop.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "zombie-horde-loop.mp3"; sourceTree = "<group>"; };
-		BA32A8101BCB4B7000316136 /* DataMoment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataMoment.swift; sourceTree = "<group>"; };
 		BA36A8941BBBA79100E197E2 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = ZombieRunX/Images.xcassets; sourceTree = SOURCE_ROOT; };
-		BABD0C4D1BC6F2850093BF47 /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		BA4255E41BD15E39004B6DF9 /* M-E01-02.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "M-E01-02.mp3"; sourceTree = "<group>"; };
+		BA4255E51BD15E39004B6DF9 /* M-E01-03.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "M-E01-03.mp3"; sourceTree = "<group>"; };
+		BA4255E61BD15E39004B6DF9 /* M-E01-04.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "M-E01-04.mp3"; sourceTree = "<group>"; };
+		BA4255E71BD15E39004B6DF9 /* M-E01-05.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "M-E01-05.mp3"; sourceTree = "<group>"; };
+		BA4255E81BD15E39004B6DF9 /* M-E01-06.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "M-E01-06.mp3"; sourceTree = "<group>"; };
+		BA4255E91BD15E39004B6DF9 /* NextTimeS1M3.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = NextTimeS1M3.mp3; sourceTree = "<group>"; };
+		BA4255EA1BD15E39004B6DF9 /* ZRS1M1v2.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = ZRS1M1v2.mp3; sourceTree = "<group>"; };
+		BA4255EC1BD15E39004B6DF9 /* bleep-alert.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = "bleep-alert.m4a"; sourceTree = "<group>"; };
+		BA4255ED1BD15E39004B6DF9 /* countdown-beep.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "countdown-beep.mp3"; sourceTree = "<group>"; };
+		BA4255EE1BD15E39004B6DF9 /* hardcore-lose.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "hardcore-lose.wav"; sourceTree = "<group>"; };
+		BA4255EF1BD15E39004B6DF9 /* proximity-pip.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "proximity-pip.wav"; sourceTree = "<group>"; };
+		BA4255F01BD15E39004B6DF9 /* zombie-horde-loop.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "zombie-horde-loop.mp3"; sourceTree = "<group>"; };
+		BAC7CBF01BD41B3A0031E905 /* DataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DataManager.swift; path = ExperienceKit/DataManager.swift; sourceTree = "<group>"; };
+		BAC7CBF11BD41B3A0031E905 /* ExperienceManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ExperienceManager.swift; path = ExperienceKit/ExperienceManager.swift; sourceTree = "<group>"; };
+		BAC7CBF21BD41B3A0031E905 /* Stage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Stage.swift; path = ExperienceKit/Stage.swift; sourceTree = "<group>"; };
+		BAC7CBF61BD41B4F0031E905 /* DataEvent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DataEvent.swift; path = ExperienceKit/Parse/DataEvent.swift; sourceTree = "<group>"; };
+		BAC7CBF71BD41B4F0031E905 /* Experience.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Experience.swift; path = ExperienceKit/Parse/Experience.swift; sourceTree = "<group>"; };
+		BAC7CBF81BD41B4F0031E905 /* LocationUpdate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LocationUpdate.swift; path = ExperienceKit/Parse/LocationUpdate.swift; sourceTree = "<group>"; };
+		BAC7CBF91BD41B4F0031E905 /* PointOfInterest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PointOfInterest.swift; path = ExperienceKit/Parse/PointOfInterest.swift; sourceTree = "<group>"; };
+		BAC7CBFE1BD41B680031E905 /* DataMoment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DataMoment.swift; path = ExperienceKit/moments/DataMoment.swift; sourceTree = "<group>"; };
+		BAC7CBFF1BD41B680031E905 /* Moment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Moment.swift; path = ExperienceKit/moments/Moment.swift; sourceTree = "<group>"; };
+		BAC7CC001BD41B680031E905 /* Silence.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Silence.swift; path = ExperienceKit/moments/Silence.swift; sourceTree = "<group>"; };
+		BAC7CC011BD41B680031E905 /* Sound.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Sound.swift; path = ExperienceKit/moments/Sound.swift; sourceTree = "<group>"; };
+		BAC7CC021BD41B680031E905 /* WaitForDoubleKnock.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = WaitForDoubleKnock.swift; path = ExperienceKit/moments/WaitForDoubleKnock.swift; sourceTree = "<group>"; };
+		BAC7CC031BD41B680031E905 /* WaitForWord.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = WaitForWord.swift; path = ExperienceKit/moments/WaitForWord.swift; sourceTree = "<group>"; };
+		BAC7CC0A1BD41B7C0031E905 /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Extensions.swift; path = ExperienceKit/utilities/Extensions.swift; sourceTree = "<group>"; };
+		BAC7CC0C1BD41B870031E905 /* Events.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Events.swift; path = ExperienceKit/utilities/third_party/Events.swift; sourceTree = "<group>"; };
+		BAC7CC0E1BD41BEA0031E905 /* ARAudioRecognizer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ARAudioRecognizer.h; path = ZombieRunX/classes/ExperienceKit/utilities/third_party/TapShare/ARAudioRecognizer/ARAudioRecognizer.h; sourceTree = SOURCE_ROOT; };
+		BAC7CC0F1BD41BEA0031E905 /* ARAudioRecognizer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ARAudioRecognizer.m; path = ZombieRunX/classes/ExperienceKit/utilities/third_party/TapShare/ARAudioRecognizer/ARAudioRecognizer.m; sourceTree = SOURCE_ROOT; };
+		BAC7CC101BD41BEA0031E905 /* ARAudioRecognizerDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ARAudioRecognizerDelegate.h; path = ZombieRunX/classes/ExperienceKit/utilities/third_party/TapShare/ARAudioRecognizer/ARAudioRecognizerDelegate.h; sourceTree = SOURCE_ROOT; };
+		BAC7CC121BD41BF90031E905 /* TSCoreMotionListener.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TSCoreMotionListener.h; path = ZombieRunX/classes/ExperienceKit/utilities/third_party/TapShare/TSCoreMotionListener.h; sourceTree = SOURCE_ROOT; };
+		BAC7CC131BD41BF90031E905 /* TSCoreMotionListener.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TSCoreMotionListener.m; path = ZombieRunX/classes/ExperienceKit/utilities/third_party/TapShare/TSCoreMotionListener.m; sourceTree = SOURCE_ROOT; };
+		BAC7CC141BD41BF90031E905 /* TSTapDetector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TSTapDetector.h; path = ZombieRunX/classes/ExperienceKit/utilities/third_party/TapShare/TSTapDetector.h; sourceTree = SOURCE_ROOT; };
+		BAC7CC151BD41BF90031E905 /* TSTapDetector.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TSTapDetector.m; path = ZombieRunX/classes/ExperienceKit/utilities/third_party/TapShare/TSTapDetector.m; sourceTree = SOURCE_ROOT; };
+		BAC7CC181BD41C1B0031E905 /* ActuationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ActuationController.swift; path = controllers/ActuationController.swift; sourceTree = "<group>"; };
+		BAC7CC191BD41C1B0031E905 /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HomeViewController.swift; path = controllers/HomeViewController.swift; sourceTree = "<group>"; };
+		BAC7CC1A1BD41C1B0031E905 /* MissionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MissionViewController.swift; path = controllers/MissionViewController.swift; sourceTree = "<group>"; };
+		BAC7CC1B1BD41C1B0031E905 /* SignUpLogInViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SignUpLogInViewController.swift; path = controllers/SignUpLogInViewController.swift; sourceTree = "<group>"; };
 		BAD2F21D1BC4A7F600576D03 /* OEBridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "OEBridging-Header.h"; sourceTree = "<group>"; };
-		BAF68CC31BBF0A3A00145698 /* Moment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Moment.swift; sourceTree = "<group>"; };
-		BAF68CC61BBF342900145698 /* DataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
-		BAFED6351BC36D4000197581 /* LocationUpdate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationUpdate.swift; sourceTree = "<group>"; };
-		BAFED6371BC3764E00197581 /* Experience.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Experience.swift; sourceTree = "<group>"; };
-		BAFED6391BC3824000197581 /* DataEvent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataEvent.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -267,15 +297,16 @@
 		BA2B43C61BBBAEF8007C2483 /* Audio */ = {
 			isa = PBXGroup;
 			children = (
-				BA32A8051BCB3DB700316136 /* Zombies, Run! */,
+				BA28E2731BD4872500D3E04B /* knock_for_building_radio.mp3 */,
 				BA2B43C71BBBAEF8007C2483 /* test_sweep.wav */,
+				BA2B43CC1BBBAEF8007C2483 /* zombie_run_interactive1.mp3 */,
+				BA2B43CD1BBBAEF8007C2483 /* zombie_run_interactive2.mp3 */,
+				BA2B43CE1BBBAEF8007C2483 /* zombie_run_interactive3.mp3 */,
 				BA2B43C81BBBAEF8007C2483 /* zombie_run1.mp3 */,
 				BA2B43C91BBBAEF8007C2483 /* zombie_run2.mp3 */,
 				BA2B43CA1BBBAEF8007C2483 /* zombie_run3.mp3 */,
 				BA2B43CB1BBBAEF8007C2483 /* zombie_run4.mp3 */,
-				BA2B43CC1BBBAEF8007C2483 /* zombie_run_interactive1.mp3 */,
-				BA2B43CD1BBBAEF8007C2483 /* zombie_run_interactive2.mp3 */,
-				BA2B43CE1BBBAEF8007C2483 /* zombie_run_interactive3.mp3 */,
+				BA32A8051BCB3DB700316136 /* Zombies, Run! */,
 			);
 			name = Audio;
 			path = audio;
@@ -319,9 +350,9 @@
 				BA32A8131BCB5BC800316136 /* Utilities */,
 				BA32A8121BCB5B9100316136 /* Moments */,
 				BAFED6341BC36D2800197581 /* Parse */,
-				BA2B43DB1BBBAF23007C2483 /* ExperienceManager.swift */,
-				BA2B43DF1BBBAF23007C2483 /* Stage.swift */,
-				BAF68CC61BBF342900145698 /* DataManager.swift */,
+				BAC7CBF01BD41B3A0031E905 /* DataManager.swift */,
+				BAC7CBF11BD41B3A0031E905 /* ExperienceManager.swift */,
+				BAC7CBF21BD41B3A0031E905 /* Stage.swift */,
 			);
 			name = ExperienceKit;
 			sourceTree = "<group>";
@@ -329,11 +360,8 @@
 		BA32A8051BCB3DB700316136 /* Zombies, Run! */ = {
 			isa = PBXGroup;
 			children = (
-				BA32A8061BCB3DB700316136 /* bleep-alert.m4a */,
-				BA32A8071BCB3DB700316136 /* countdown-beep.mp3 */,
-				BA32A8081BCB3DB700316136 /* hardcore-lose.wav */,
-				BA32A8091BCB3DB700316136 /* proximity-pip.wav */,
-				BA32A80A1BCB3DB700316136 /* zombie-horde-loop.mp3 */,
+				BA4255E31BD15E39004B6DF9 /* mission1 */,
+				BA4255EB1BD15E39004B6DF9 /* sfx */,
 			);
 			path = "Zombies, Run!";
 			sourceTree = "<group>";
@@ -341,11 +369,12 @@
 		BA32A8121BCB5B9100316136 /* Moments */ = {
 			isa = PBXGroup;
 			children = (
-				BAF68CC31BBF0A3A00145698 /* Moment.swift */,
-				BA32A7FF1BCB3B7300316136 /* Sound.swift */,
-				BA32A8011BCB3B8100316136 /* Silence.swift */,
-				BA32A8031BCB3B8A00316136 /* WaitForWord.swift */,
-				BA32A8101BCB4B7000316136 /* DataMoment.swift */,
+				BAC7CBFE1BD41B680031E905 /* DataMoment.swift */,
+				BAC7CBFF1BD41B680031E905 /* Moment.swift */,
+				BAC7CC001BD41B680031E905 /* Silence.swift */,
+				BAC7CC011BD41B680031E905 /* Sound.swift */,
+				BAC7CC021BD41B680031E905 /* WaitForDoubleKnock.swift */,
+				BAC7CC031BD41B680031E905 /* WaitForWord.swift */,
 			);
 			name = Moments;
 			sourceTree = "<group>";
@@ -354,7 +383,7 @@
 			isa = PBXGroup;
 			children = (
 				BA32A8141BCB5BDA00316136 /* Third Party */,
-				BABD0C4D1BC6F2850093BF47 /* Extensions.swift */,
+				BAC7CC0A1BD41B7C0031E905 /* Extensions.swift */,
 			);
 			name = Utilities;
 			sourceTree = "<group>";
@@ -362,18 +391,69 @@
 		BA32A8141BCB5BDA00316136 /* Third Party */ = {
 			isa = PBXGroup;
 			children = (
-				BA2B43DA1BBBAF23007C2483 /* Events.swift */,
+				BA98DA1D1BD0A05500BB6D11 /* TapShare */,
+				BAC7CC0C1BD41B870031E905 /* Events.swift */,
 			);
 			name = "Third Party";
+			sourceTree = "<group>";
+		};
+		BA4255E31BD15E39004B6DF9 /* mission1 */ = {
+			isa = PBXGroup;
+			children = (
+				BA4255E41BD15E39004B6DF9 /* M-E01-02.mp3 */,
+				BA4255E51BD15E39004B6DF9 /* M-E01-03.mp3 */,
+				BA4255E61BD15E39004B6DF9 /* M-E01-04.mp3 */,
+				BA4255E71BD15E39004B6DF9 /* M-E01-05.mp3 */,
+				BA4255E81BD15E39004B6DF9 /* M-E01-06.mp3 */,
+				BA4255E91BD15E39004B6DF9 /* NextTimeS1M3.mp3 */,
+				BA4255EA1BD15E39004B6DF9 /* ZRS1M1v2.mp3 */,
+			);
+			path = mission1;
+			sourceTree = "<group>";
+		};
+		BA4255EB1BD15E39004B6DF9 /* sfx */ = {
+			isa = PBXGroup;
+			children = (
+				BA4255EC1BD15E39004B6DF9 /* bleep-alert.m4a */,
+				BA4255ED1BD15E39004B6DF9 /* countdown-beep.mp3 */,
+				BA4255EE1BD15E39004B6DF9 /* hardcore-lose.wav */,
+				BA4255EF1BD15E39004B6DF9 /* proximity-pip.wav */,
+				BA4255F01BD15E39004B6DF9 /* zombie-horde-loop.mp3 */,
+			);
+			path = sfx;
+			sourceTree = "<group>";
+		};
+		BA98DA1D1BD0A05500BB6D11 /* TapShare */ = {
+			isa = PBXGroup;
+			children = (
+				BA98DA241BD0A0E300BB6D11 /* ARAudioRecognizer */,
+				BAC7CC121BD41BF90031E905 /* TSCoreMotionListener.h */,
+				BAC7CC131BD41BF90031E905 /* TSCoreMotionListener.m */,
+				BAC7CC141BD41BF90031E905 /* TSTapDetector.h */,
+				BAC7CC151BD41BF90031E905 /* TSTapDetector.m */,
+			);
+			name = TapShare;
+			path = "../../../../../../../Downloads/reaxn-ios-master/ReaXn/ReaXn/TapShare";
+			sourceTree = "<group>";
+		};
+		BA98DA241BD0A0E300BB6D11 /* ARAudioRecognizer */ = {
+			isa = PBXGroup;
+			children = (
+				BAC7CC0E1BD41BEA0031E905 /* ARAudioRecognizer.h */,
+				BAC7CC0F1BD41BEA0031E905 /* ARAudioRecognizer.m */,
+				BAC7CC101BD41BEA0031E905 /* ARAudioRecognizerDelegate.h */,
+			);
+			name = ARAudioRecognizer;
+			path = ../ARAudioRecognizer;
 			sourceTree = "<group>";
 		};
 		BAF68CC51BBF340200145698 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				BA2B43D81BBBAF23007C2483 /* ActuationController.swift */,
-				BA2B43DC1BBBAF23007C2483 /* HomeViewController.swift */,
-				BA2B43DD1BBBAF23007C2483 /* MissionViewController.swift */,
-				BA2B43DE1BBBAF23007C2483 /* SignUpLogInViewController.swift */,
+				BAC7CC181BD41C1B0031E905 /* ActuationController.swift */,
+				BAC7CC191BD41C1B0031E905 /* HomeViewController.swift */,
+				BAC7CC1A1BD41C1B0031E905 /* MissionViewController.swift */,
+				BAC7CC1B1BD41C1B0031E905 /* SignUpLogInViewController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -381,9 +461,10 @@
 		BAFED6341BC36D2800197581 /* Parse */ = {
 			isa = PBXGroup;
 			children = (
-				BAFED6351BC36D4000197581 /* LocationUpdate.swift */,
-				BAFED6371BC3764E00197581 /* Experience.swift */,
-				BAFED6391BC3824000197581 /* DataEvent.swift */,
+				BAC7CBF61BD41B4F0031E905 /* DataEvent.swift */,
+				BAC7CBF71BD41B4F0031E905 /* Experience.swift */,
+				BAC7CBF81BD41B4F0031E905 /* LocationUpdate.swift */,
+				BAC7CBF91BD41B4F0031E905 /* PointOfInterest.swift */,
 			);
 			name = Parse;
 			sourceTree = "<group>";
@@ -479,25 +560,33 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BA4255F51BD15E39004B6DF9 /* M-E01-06.mp3 in Resources */,
 				BA2B43D51BBBAEF8007C2483 /* zombie_run_interactive2.mp3 in Resources */,
-				BA32A80D1BCB3DB700316136 /* hardcore-lose.wav in Resources */,
-				BA32A80B1BCB3DB700316136 /* bleep-alert.m4a in Resources */,
 				BA1F2FE41BBBB25700E22B7F /* AcousticModelEnglish.bundle in Resources */,
+				BA4255FC1BD15E39004B6DF9 /* zombie-horde-loop.mp3 in Resources */,
 				BA2B43D01BBBAEF8007C2483 /* zombie_run1.mp3 in Resources */,
+				BA4255F71BD15E39004B6DF9 /* ZRS1M1v2.mp3 in Resources */,
 				BA1F2FE51BBBB25700E22B7F /* AcousticModelSpanish.bundle in Resources */,
+				BA4255F81BD15E39004B6DF9 /* bleep-alert.m4a in Resources */,
 				BA2B43CF1BBBAEF8007C2483 /* test_sweep.wav in Resources */,
 				BA2B43D21BBBAEF8007C2483 /* zombie_run3.mp3 in Resources */,
-				BA32A80E1BCB3DB700316136 /* proximity-pip.wav in Resources */,
 				5241B5621BA0980000DBC6D3 /* ZombieRunX.xcdatamodeld in Resources */,
 				528C3A4D1B826734007C59FC /* Main.storyboard in Resources */,
+				BA4255F91BD15E39004B6DF9 /* countdown-beep.mp3 in Resources */,
+				BA4255FB1BD15E39004B6DF9 /* proximity-pip.wav in Resources */,
 				BA2B43D41BBBAEF8007C2483 /* zombie_run_interactive1.mp3 in Resources */,
-				BA32A80C1BCB3DB700316136 /* countdown-beep.mp3 in Resources */,
 				528C3A521B826734007C59FC /* LaunchScreen.xib in Resources */,
+				BA4255F21BD15E39004B6DF9 /* M-E01-03.mp3 in Resources */,
+				BA4255F61BD15E39004B6DF9 /* NextTimeS1M3.mp3 in Resources */,
 				BA2B43D61BBBAEF8007C2483 /* zombie_run_interactive3.mp3 in Resources */,
 				BA2B43D11BBBAEF8007C2483 /* zombie_run2.mp3 in Resources */,
-				BA32A80F1BCB3DB700316136 /* zombie-horde-loop.mp3 in Resources */,
 				BA2B43D31BBBAEF8007C2483 /* zombie_run4.mp3 in Resources */,
+				BA4255F41BD15E39004B6DF9 /* M-E01-05.mp3 in Resources */,
 				BA36A8951BBBA79100E197E2 /* Images.xcassets in Resources */,
+				BA4255FA1BD15E39004B6DF9 /* hardcore-lose.wav in Resources */,
+				BA4255F11BD15E39004B6DF9 /* M-E01-02.mp3 in Resources */,
+				BA28E2741BD4872500D3E04B /* knock_for_building_radio.mp3 in Resources */,
+				BA4255F31BD15E39004B6DF9 /* M-E01-04.mp3 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -515,25 +604,30 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BA2B43E21BBBAF23007C2483 /* Events.swift in Sources */,
-				BAF68CC71BBF342900145698 /* DataManager.swift in Sources */,
-				BA32A8041BCB3B8A00316136 /* WaitForWord.swift in Sources */,
-				BA2B43E61BBBAF23007C2483 /* SignUpLogInViewController.swift in Sources */,
-				BAFED63A1BC3824000197581 /* DataEvent.swift in Sources */,
-				BAFED6381BC3764E00197581 /* Experience.swift in Sources */,
+				BAC7CBF51BD41B3A0031E905 /* Stage.swift in Sources */,
 				BA2B43E11BBBAF23007C2483 /* AppDelegate.swift in Sources */,
-				BA2B43E01BBBAF23007C2483 /* ActuationController.swift in Sources */,
-				BAFED6361BC36D4000197581 /* LocationUpdate.swift in Sources */,
-				BA2B43E41BBBAF23007C2483 /* HomeViewController.swift in Sources */,
-				BA2B43E31BBBAF23007C2483 /* ExperienceManager.swift in Sources */,
-				BABD0C4E1BC6F2850093BF47 /* Extensions.swift in Sources */,
-				BA2B43E51BBBAF23007C2483 /* MissionViewController.swift in Sources */,
-				BA2B43E71BBBAF23007C2483 /* Stage.swift in Sources */,
-				BAF68CC41BBF0A3A00145698 /* Moment.swift in Sources */,
+				BAC7CC111BD41BEA0031E905 /* ARAudioRecognizer.m in Sources */,
+				BAC7CC161BD41BF90031E905 /* TSCoreMotionListener.m in Sources */,
+				BAC7CC0D1BD41B870031E905 /* Events.swift in Sources */,
+				BAC7CC071BD41B680031E905 /* Sound.swift in Sources */,
+				BAC7CC081BD41B680031E905 /* WaitForDoubleKnock.swift in Sources */,
+				BAC7CC061BD41B680031E905 /* Silence.swift in Sources */,
+				BAC7CC1D1BD41C1B0031E905 /* HomeViewController.swift in Sources */,
+				BAC7CBFA1BD41B4F0031E905 /* DataEvent.swift in Sources */,
+				BAC7CC171BD41BF90031E905 /* TSTapDetector.m in Sources */,
+				BAC7CC091BD41B680031E905 /* WaitForWord.swift in Sources */,
+				BAC7CC051BD41B680031E905 /* Moment.swift in Sources */,
+				BAC7CC041BD41B680031E905 /* DataMoment.swift in Sources */,
+				BAC7CBFC1BD41B4F0031E905 /* LocationUpdate.swift in Sources */,
 				528C3A481B826734007C59FC /* ZombieRunX.xcdatamodeld in Sources */,
-				BA32A8111BCB4B7000316136 /* DataMoment.swift in Sources */,
-				BA32A8021BCB3B8100316136 /* Silence.swift in Sources */,
-				BA32A8001BCB3B7300316136 /* Sound.swift in Sources */,
+				BAC7CC1C1BD41C1B0031E905 /* ActuationController.swift in Sources */,
+				BAC7CC1E1BD41C1B0031E905 /* MissionViewController.swift in Sources */,
+				BAC7CBFD1BD41B4F0031E905 /* PointOfInterest.swift in Sources */,
+				BAC7CC0B1BD41B7C0031E905 /* Extensions.swift in Sources */,
+				BAC7CC1F1BD41C1B0031E905 /* SignUpLogInViewController.swift in Sources */,
+				BAC7CBF31BD41B3A0031E905 /* DataManager.swift in Sources */,
+				BAC7CBF41BD41B3A0031E905 /* ExperienceManager.swift in Sources */,
+				BAC7CBFB1BD41B4F0031E905 /* Experience.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -592,6 +686,7 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
@@ -616,7 +711,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
-				PROVISIONING_PROFILE = "228df4d3-4dc3-45b4-9b57-f30e5c4da934";
+				PROVISIONING_PROFILE = "";
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
@@ -639,7 +734,7 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "iPhone Distribution: Northwestern University";
+				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
