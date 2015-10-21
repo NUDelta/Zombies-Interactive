@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import MediaPlayer
 
 class Sound: Moment, AVAudioPlayerDelegate{
     /* Implement this as an AudioPlayer */
@@ -41,6 +42,17 @@ class Sound: Moment, AVAudioPlayerDelegate{
         }
     }
     
+    override func start() {
+        super.start()
+        
+        do {
+            try AVAudioSession.sharedInstance().setActive(true)
+        } catch let error as NSError {
+            print(error.localizedDescription)
+        }
+        
+    }
+    
     override func play(){
         super.play()
         self.player?.play()
@@ -54,6 +66,12 @@ class Sound: Moment, AVAudioPlayerDelegate{
     override func finished() {
         super.finished()
         player?.stop()
+        
+        do {
+            try AVAudioSession.sharedInstance().setActive(false, withOptions: .NotifyOthersOnDeactivation)
+        } catch let error as NSError {
+            print(error.localizedDescription)
+        }
     }
     
 }

@@ -31,3 +31,8 @@ DerivedData
 # Carthage/Checkouts
 
 Carthage/Build
+
+
+Delta_Enterprise_Export.sh
+*.ipa
+*.html

@@ -9,6 +9,8 @@
 import UIKit
 import CoreData
 import Parse
+import AVFoundation.AVAudioSession
+
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
@@ -25,6 +27,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         // [Optional] Track statistics around application opens.
         PFAnalytics.trackAppOpenedWithLaunchOptions(launchOptions)
+        
+        do {
+            try AVAudioSession.sharedInstance().setCategory(AVAudioSessionCategoryPlayback)
+        } catch let e as NSError {
+            print(e.localizedDescription)
+        }
+        
         
         //setup storyboard to display initial view
         let storyboard:UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
@@ -44,6 +53,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             navigationController.viewControllers = [rootViewController]
             self.window?.rootViewController = navigationController
         }
+        
         
         return true
     }

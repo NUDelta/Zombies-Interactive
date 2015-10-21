@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
@@ -184,19 +185,6 @@
                                     </mask>
                                 </variation>
                             </mapView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yVR-oT-Kmv">
-                                <rect key="frame" x="62" y="315" width="197" height="57"/>
-                                <animations/>
-                                <color key="backgroundColor" red="0.0" green="0.657401944049681" blue="0.091084032833816608" alpha="1" colorSpace="calibratedRGB"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="37"/>
-                                <state key="normal" title="Start">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="controlButton:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="wvQ-1v-fuf"/>
-                                </connections>
-                            </button>
                             <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Z7h-kp-mr1">
                                 <rect key="frame" x="211" y="530" width="93" height="30"/>
                                 <animations/>
@@ -214,18 +202,38 @@
                                     <action selector="previousMoment:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="HX0-15-Obm"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yVR-oT-Kmv">
+                                <rect key="frame" x="0.0" y="307" width="320" height="75"/>
+                                <animations/>
+                                <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="75" id="ujo-LZ-gsT"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="33"/>
+                                <state key="normal" title="Start">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="controlButton:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="wvQ-1v-fuf"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="TD2-NT-Tqh" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" constant="-20" id="1Ud-x4-RMH"/>
                             <constraint firstItem="yVR-oT-Kmv" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" constant="203" id="59w-JL-8Gm"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="yVR-oT-Kmv" secondAttribute="trailing" constant="-16" id="8EW-4d-2nb"/>
                             <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="yVR-oT-Kmv" secondAttribute="bottom" constant="103" id="9v0-hG-32c"/>
                             <constraint firstAttribute="centerY" secondItem="yVR-oT-Kmv" secondAttribute="centerY" id="Deb-gx-edh"/>
+                            <constraint firstItem="yVR-oT-Kmv" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" constant="-16" id="Eqr-y1-fJg"/>
                             <constraint firstItem="yVR-oT-Kmv" firstAttribute="top" secondItem="TD2-NT-Tqh" secondAttribute="bottom" constant="149" id="FNa-KY-rU0"/>
                             <constraint firstAttribute="centerY" secondItem="yVR-oT-Kmv" secondAttribute="centerY" id="GcP-aM-E3e"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="yVR-oT-Kmv" secondAttribute="trailing" priority="1" constant="-16" id="ICz-Zk-lOG"/>
                             <constraint firstAttribute="centerX" secondItem="yVR-oT-Kmv" secondAttribute="centerX" id="K8Z-6T-zRH"/>
                             <constraint firstAttribute="trailingMargin" secondItem="TD2-NT-Tqh" secondAttribute="trailing" constant="-20" id="LQG-oz-j02"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="yVR-oT-Kmv" secondAttribute="trailing" id="Lg2-yW-Gfj"/>
                             <constraint firstAttribute="centerX" secondItem="yVR-oT-Kmv" secondAttribute="centerX" id="O8l-T8-Xap"/>
                             <constraint firstAttribute="centerX" secondItem="yVR-oT-Kmv" secondAttribute="centerX" id="OAc-o8-nrp"/>
                             <constraint firstAttribute="centerY" secondItem="yVR-oT-Kmv" secondAttribute="centerY" id="ORE-Ne-4LN"/>
@@ -234,7 +242,9 @@
                             <constraint firstAttribute="leadingMargin" secondItem="isc-GM-YcT" secondAttribute="leading" id="UTU-NJ-9VR"/>
                             <constraint firstAttribute="trailingMargin" secondItem="yVR-oT-Kmv" secondAttribute="trailing" constant="227" id="Ui6-lb-Z9A"/>
                             <constraint firstAttribute="centerX" secondItem="yVR-oT-Kmv" secondAttribute="centerX" id="VAt-U8-uEn"/>
+                            <constraint firstItem="yVR-oT-Kmv" firstAttribute="top" secondItem="TD2-NT-Tqh" secondAttribute="bottom" id="XAu-jK-fGF"/>
                             <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="isc-GM-YcT" secondAttribute="bottom" constant="8" symbolic="YES" id="Zvf-5g-ENd"/>
+                            <constraint firstItem="yVR-oT-Kmv" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" constant="-16" id="aQk-Mj-H1e"/>
                             <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="Z7h-kp-mr1" secondAttribute="bottom" constant="8" symbolic="YES" id="gVd-Ev-2ks"/>
                             <constraint firstAttribute="trailingMargin" secondItem="yVR-oT-Kmv" secondAttribute="trailing" constant="45" id="h5C-O8-FEG"/>
                             <constraint firstItem="yVR-oT-Kmv" firstAttribute="top" secondItem="TD2-NT-Tqh" secondAttribute="bottom" constant="8" symbolic="YES" id="i6c-oU-NhC"/>
@@ -250,17 +260,23 @@
                             <mask key="constraints">
                                 <exclude reference="59w-JL-8Gm"/>
                                 <exclude reference="Deb-gx-edh"/>
+                                <exclude reference="Eqr-y1-fJg"/>
                                 <exclude reference="FNa-KY-rU0"/>
                                 <exclude reference="GcP-aM-E3e"/>
+                                <exclude reference="ICz-Zk-lOG"/>
                                 <exclude reference="K8Z-6T-zRH"/>
+                                <exclude reference="Lg2-yW-Gfj"/>
                                 <exclude reference="O8l-T8-Xap"/>
                                 <exclude reference="OAc-o8-nrp"/>
                                 <exclude reference="ORE-Ne-4LN"/>
                                 <exclude reference="P8H-91-vtF"/>
                                 <exclude reference="Ui6-lb-Z9A"/>
                                 <exclude reference="VAt-U8-uEn"/>
+                                <exclude reference="h5C-O8-FEG"/>
+                                <exclude reference="i6c-oU-NhC"/>
                                 <exclude reference="kCb-qQ-Hvr"/>
                                 <exclude reference="qfX-UA-PSM"/>
+                                <exclude reference="zX5-HX-E3A"/>
                                 <exclude reference="zef-b5-mbp"/>
                                 <exclude reference="9v0-hG-32c"/>
                                 <exclude reference="zF9-mo-Ggy"/>
@@ -298,22 +314,34 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1EZ-tM-fTU">
-                                <rect key="frame" x="16" y="72" width="288" height="50"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="M1" translatesAutoresizingMaskIntoConstraints="NO" id="hZL-90-NIV">
+                                <rect key="frame" x="0.0" y="64" width="320" height="128"/>
                                 <animations/>
-                                <color key="backgroundColor" red="0.3318314574726961" green="0.657401944049681" blue="0.0062609708957112251" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" red="0.78282828280000005" green="0.23860895539999999" blue="0.13653605499999999" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
+                                    <constraint firstAttribute="width" secondItem="hZL-90-NIV" secondAttribute="height" multiplier="5:2" id="urQ-QH-2qC"/>
+                                </constraints>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1EZ-tM-fTU">
+                                <rect key="frame" x="0.0" y="192" width="320" height="75"/>
+                                <animations/>
+                                <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="320" id="6aA-gW-vhM"/>
                                     <constraint firstAttribute="height" constant="35" id="dzk-9Q-9CQ"/>
+                                    <constraint firstAttribute="height" constant="75" id="hyp-nC-0I1"/>
                                     <constraint firstAttribute="height" constant="50" id="lfp-87-9kX"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="19"/>
-                                <state key="normal" title="Mission 1: The Beginning">
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <state key="normal" title="S1M1: Jolly Alpha Five Niner (36 min)">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <variation key="default">
                                     <mask key="constraints">
+                                        <exclude reference="6aA-gW-vhM"/>
                                         <exclude reference="dzk-9Q-9CQ"/>
+                                        <exclude reference="lfp-87-9kX"/>
                                     </mask>
                                 </variation>
                                 <connections>
@@ -325,16 +353,25 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="centerX" secondItem="1EZ-tM-fTU" secondAttribute="centerX" id="7nM-Ro-xMi"/>
+                            <constraint firstAttribute="leadingMargin" secondItem="1EZ-tM-fTU" secondAttribute="leading" constant="16" id="Fat-dL-Oat"/>
+                            <constraint firstItem="1EZ-tM-fTU" firstAttribute="top" secondItem="hZL-90-NIV" secondAttribute="bottom" id="M0s-Eg-HDt"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="1EZ-tM-fTU" secondAttribute="trailing" constant="-16" id="VjS-JK-wOs"/>
                             <constraint firstItem="A2q-G4-38J" firstAttribute="top" secondItem="1EZ-tM-fTU" secondAttribute="bottom" constant="162" id="XER-e6-wma"/>
-                            <constraint firstAttribute="leadingMargin" secondItem="1EZ-tM-fTU" secondAttribute="leading" id="cSo-xY-Vxz"/>
+                            <constraint firstAttribute="leadingMargin" secondItem="1EZ-tM-fTU" secondAttribute="leading" constant="-20" id="cSo-xY-Vxz"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="hZL-90-NIV" secondAttribute="trailing" constant="-16" id="fYv-nQ-vBh"/>
                             <constraint firstItem="1EZ-tM-fTU" firstAttribute="top" secondItem="VXi-vT-o9f" secondAttribute="bottom" constant="8" symbolic="YES" id="gU2-vm-Ubc"/>
                             <constraint firstAttribute="centerX" secondItem="1EZ-tM-fTU" secondAttribute="centerX" id="i85-MM-we6"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="1EZ-tM-fTU" secondAttribute="trailing" id="rQb-XM-1cZ"/>
+                            <constraint firstItem="hZL-90-NIV" firstAttribute="top" secondItem="VXi-vT-o9f" secondAttribute="bottom" id="mzk-1G-Zys"/>
+                            <constraint firstItem="hZL-90-NIV" firstAttribute="leading" secondItem="3XY-Bi-L1F" secondAttribute="leadingMargin" constant="-16" id="o7B-oJ-qZt"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="1EZ-tM-fTU" secondAttribute="trailing" constant="-20" id="rQb-XM-1cZ"/>
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">
                                 <exclude reference="7nM-Ro-xMi"/>
+                                <exclude reference="cSo-xY-Vxz"/>
+                                <exclude reference="gU2-vm-Ubc"/>
                                 <exclude reference="i85-MM-we6"/>
+                                <exclude reference="rQb-XM-1cZ"/>
                                 <exclude reference="XER-e6-wma"/>
                             </mask>
                         </variation>
@@ -366,4 +403,7 @@
             <point key="canvasLocation" x="1289" y="-71"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="M1" width="640" height="370"/>
+    </resources>
 </document>

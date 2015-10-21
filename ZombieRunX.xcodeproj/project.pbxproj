@@ -31,24 +31,17 @@
 		BA1F2FE51BBBB25700E22B7F /* AcousticModelSpanish.bundle in Resources */ = {isa = PBXBuildFile; fileRef = BA1F2FE31BBBB25700E22B7F /* AcousticModelSpanish.bundle */; settings = {ASSET_TAGS = (); }; };
 		BA28E2741BD4872500D3E04B /* knock_for_building_radio.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = BA28E2731BD4872500D3E04B /* knock_for_building_radio.mp3 */; settings = {ASSET_TAGS = (); }; };
 		BA2B43CF1BBBAEF8007C2483 /* test_sweep.wav in Resources */ = {isa = PBXBuildFile; fileRef = BA2B43C71BBBAEF8007C2483 /* test_sweep.wav */; settings = {ASSET_TAGS = (); }; };
-		BA2B43D01BBBAEF8007C2483 /* zombie_run1.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = BA2B43C81BBBAEF8007C2483 /* zombie_run1.mp3 */; settings = {ASSET_TAGS = (); }; };
-		BA2B43D11BBBAEF8007C2483 /* zombie_run2.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = BA2B43C91BBBAEF8007C2483 /* zombie_run2.mp3 */; settings = {ASSET_TAGS = (); }; };
-		BA2B43D21BBBAEF8007C2483 /* zombie_run3.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = BA2B43CA1BBBAEF8007C2483 /* zombie_run3.mp3 */; settings = {ASSET_TAGS = (); }; };
-		BA2B43D31BBBAEF8007C2483 /* zombie_run4.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = BA2B43CB1BBBAEF8007C2483 /* zombie_run4.mp3 */; settings = {ASSET_TAGS = (); }; };
-		BA2B43D41BBBAEF8007C2483 /* zombie_run_interactive1.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = BA2B43CC1BBBAEF8007C2483 /* zombie_run_interactive1.mp3 */; settings = {ASSET_TAGS = (); }; };
-		BA2B43D51BBBAEF8007C2483 /* zombie_run_interactive2.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = BA2B43CD1BBBAEF8007C2483 /* zombie_run_interactive2.mp3 */; settings = {ASSET_TAGS = (); }; };
-		BA2B43D61BBBAEF8007C2483 /* zombie_run_interactive3.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = BA2B43CE1BBBAEF8007C2483 /* zombie_run_interactive3.mp3 */; settings = {ASSET_TAGS = (); }; };
 		BA2B43E11BBBAF23007C2483 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA2B43D91BBBAF23007C2483 /* AppDelegate.swift */; settings = {ASSET_TAGS = (); }; };
 		BA2B43EA1BBBB042007C2483 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BA2B43E91BBBB042007C2483 /* Parse.framework */; };
 		BA2B43EC1BBBB06D007C2483 /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BA2B43EB1BBBB06D007C2483 /* Bolts.framework */; };
+		BA3414161BD8161E0099A710 /* M-E01-02.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = BA34140F1BD8161E0099A710 /* M-E01-02.mp3 */; settings = {ASSET_TAGS = (); }; };
+		BA3414171BD8161E0099A710 /* M-E01-03.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = BA3414101BD8161E0099A710 /* M-E01-03.mp3 */; settings = {ASSET_TAGS = (); }; };
+		BA3414181BD8161E0099A710 /* M-E01-04.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = BA3414111BD8161E0099A710 /* M-E01-04.mp3 */; settings = {ASSET_TAGS = (); }; };
+		BA3414191BD8161E0099A710 /* M-E01-05.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = BA3414121BD8161E0099A710 /* M-E01-05.mp3 */; settings = {ASSET_TAGS = (); }; };
+		BA34141A1BD8161E0099A710 /* M-E01-06.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = BA3414131BD8161E0099A710 /* M-E01-06.mp3 */; settings = {ASSET_TAGS = (); }; };
+		BA34141B1BD8161E0099A710 /* NextTimeS1M3.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = BA3414141BD8161E0099A710 /* NextTimeS1M3.mp3 */; settings = {ASSET_TAGS = (); }; };
+		BA34141C1BD8161E0099A710 /* ZRS1M1v2.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = BA3414151BD8161E0099A710 /* ZRS1M1v2.mp3 */; settings = {ASSET_TAGS = (); }; };
 		BA36A8951BBBA79100E197E2 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BA36A8941BBBA79100E197E2 /* Images.xcassets */; settings = {ASSET_TAGS = (); }; };
-		BA4255F11BD15E39004B6DF9 /* M-E01-02.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = BA4255E41BD15E39004B6DF9 /* M-E01-02.mp3 */; settings = {ASSET_TAGS = (); }; };
-		BA4255F21BD15E39004B6DF9 /* M-E01-03.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = BA4255E51BD15E39004B6DF9 /* M-E01-03.mp3 */; settings = {ASSET_TAGS = (); }; };
-		BA4255F31BD15E39004B6DF9 /* M-E01-04.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = BA4255E61BD15E39004B6DF9 /* M-E01-04.mp3 */; settings = {ASSET_TAGS = (); }; };
-		BA4255F41BD15E39004B6DF9 /* M-E01-05.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = BA4255E71BD15E39004B6DF9 /* M-E01-05.mp3 */; settings = {ASSET_TAGS = (); }; };
-		BA4255F51BD15E39004B6DF9 /* M-E01-06.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = BA4255E81BD15E39004B6DF9 /* M-E01-06.mp3 */; settings = {ASSET_TAGS = (); }; };
-		BA4255F61BD15E39004B6DF9 /* NextTimeS1M3.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = BA4255E91BD15E39004B6DF9 /* NextTimeS1M3.mp3 */; settings = {ASSET_TAGS = (); }; };
-		BA4255F71BD15E39004B6DF9 /* ZRS1M1v2.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = BA4255EA1BD15E39004B6DF9 /* ZRS1M1v2.mp3 */; settings = {ASSET_TAGS = (); }; };
 		BA4255F81BD15E39004B6DF9 /* bleep-alert.m4a in Resources */ = {isa = PBXBuildFile; fileRef = BA4255EC1BD15E39004B6DF9 /* bleep-alert.m4a */; settings = {ASSET_TAGS = (); }; };
 		BA4255F91BD15E39004B6DF9 /* countdown-beep.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = BA4255ED1BD15E39004B6DF9 /* countdown-beep.mp3 */; settings = {ASSET_TAGS = (); }; };
 		BA4255FA1BD15E39004B6DF9 /* hardcore-lose.wav in Resources */ = {isa = PBXBuildFile; fileRef = BA4255EE1BD15E39004B6DF9 /* hardcore-lose.wav */; settings = {ASSET_TAGS = (); }; };
@@ -117,24 +110,17 @@
 		BA1F2FE71BBBB26300E22B7F /* Slt.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Slt.framework; path = ExperienceKit/Frameworks/Slt.framework; sourceTree = SOURCE_ROOT; };
 		BA28E2731BD4872500D3E04B /* knock_for_building_radio.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = knock_for_building_radio.mp3; sourceTree = "<group>"; };
 		BA2B43C71BBBAEF8007C2483 /* test_sweep.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = test_sweep.wav; sourceTree = "<group>"; };
-		BA2B43C81BBBAEF8007C2483 /* zombie_run1.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = zombie_run1.mp3; sourceTree = "<group>"; };
-		BA2B43C91BBBAEF8007C2483 /* zombie_run2.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = zombie_run2.mp3; sourceTree = "<group>"; };
-		BA2B43CA1BBBAEF8007C2483 /* zombie_run3.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = zombie_run3.mp3; sourceTree = "<group>"; };
-		BA2B43CB1BBBAEF8007C2483 /* zombie_run4.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = zombie_run4.mp3; sourceTree = "<group>"; };
-		BA2B43CC1BBBAEF8007C2483 /* zombie_run_interactive1.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = zombie_run_interactive1.mp3; sourceTree = "<group>"; };
-		BA2B43CD1BBBAEF8007C2483 /* zombie_run_interactive2.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = zombie_run_interactive2.mp3; sourceTree = "<group>"; };
-		BA2B43CE1BBBAEF8007C2483 /* zombie_run_interactive3.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = zombie_run_interactive3.mp3; sourceTree = "<group>"; };
 		BA2B43D91BBBAF23007C2483 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BA2B43E91BBBB042007C2483 /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Parse.framework; path = Frameworks/Parse.framework; sourceTree = "<group>"; };
 		BA2B43EB1BBBB06D007C2483 /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Bolts.framework; path = Frameworks/Bolts.framework; sourceTree = "<group>"; };
+		BA34140F1BD8161E0099A710 /* M-E01-02.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "M-E01-02.mp3"; sourceTree = "<group>"; };
+		BA3414101BD8161E0099A710 /* M-E01-03.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "M-E01-03.mp3"; sourceTree = "<group>"; };
+		BA3414111BD8161E0099A710 /* M-E01-04.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "M-E01-04.mp3"; sourceTree = "<group>"; };
+		BA3414121BD8161E0099A710 /* M-E01-05.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "M-E01-05.mp3"; sourceTree = "<group>"; };
+		BA3414131BD8161E0099A710 /* M-E01-06.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "M-E01-06.mp3"; sourceTree = "<group>"; };
+		BA3414141BD8161E0099A710 /* NextTimeS1M3.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = NextTimeS1M3.mp3; sourceTree = "<group>"; };
+		BA3414151BD8161E0099A710 /* ZRS1M1v2.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = ZRS1M1v2.mp3; sourceTree = "<group>"; };
 		BA36A8941BBBA79100E197E2 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = ZombieRunX/Images.xcassets; sourceTree = SOURCE_ROOT; };
-		BA4255E41BD15E39004B6DF9 /* M-E01-02.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "M-E01-02.mp3"; sourceTree = "<group>"; };
-		BA4255E51BD15E39004B6DF9 /* M-E01-03.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "M-E01-03.mp3"; sourceTree = "<group>"; };
-		BA4255E61BD15E39004B6DF9 /* M-E01-04.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "M-E01-04.mp3"; sourceTree = "<group>"; };
-		BA4255E71BD15E39004B6DF9 /* M-E01-05.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "M-E01-05.mp3"; sourceTree = "<group>"; };
-		BA4255E81BD15E39004B6DF9 /* M-E01-06.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "M-E01-06.mp3"; sourceTree = "<group>"; };
-		BA4255E91BD15E39004B6DF9 /* NextTimeS1M3.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = NextTimeS1M3.mp3; sourceTree = "<group>"; };
-		BA4255EA1BD15E39004B6DF9 /* ZRS1M1v2.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = ZRS1M1v2.mp3; sourceTree = "<group>"; };
 		BA4255EC1BD15E39004B6DF9 /* bleep-alert.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = "bleep-alert.m4a"; sourceTree = "<group>"; };
 		BA4255ED1BD15E39004B6DF9 /* countdown-beep.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "countdown-beep.mp3"; sourceTree = "<group>"; };
 		BA4255EE1BD15E39004B6DF9 /* hardcore-lose.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "hardcore-lose.wav"; sourceTree = "<group>"; };
@@ -299,13 +285,6 @@
 			children = (
 				BA28E2731BD4872500D3E04B /* knock_for_building_radio.mp3 */,
 				BA2B43C71BBBAEF8007C2483 /* test_sweep.wav */,
-				BA2B43CC1BBBAEF8007C2483 /* zombie_run_interactive1.mp3 */,
-				BA2B43CD1BBBAEF8007C2483 /* zombie_run_interactive2.mp3 */,
-				BA2B43CE1BBBAEF8007C2483 /* zombie_run_interactive3.mp3 */,
-				BA2B43C81BBBAEF8007C2483 /* zombie_run1.mp3 */,
-				BA2B43C91BBBAEF8007C2483 /* zombie_run2.mp3 */,
-				BA2B43CA1BBBAEF8007C2483 /* zombie_run3.mp3 */,
-				BA2B43CB1BBBAEF8007C2483 /* zombie_run4.mp3 */,
 				BA32A8051BCB3DB700316136 /* Zombies, Run! */,
 			);
 			name = Audio;
@@ -360,7 +339,7 @@
 		BA32A8051BCB3DB700316136 /* Zombies, Run! */ = {
 			isa = PBXGroup;
 			children = (
-				BA4255E31BD15E39004B6DF9 /* mission1 */,
+				BA34140E1BD8161E0099A710 /* M-E01 */,
 				BA4255EB1BD15E39004B6DF9 /* sfx */,
 			);
 			path = "Zombies, Run!";
@@ -397,18 +376,18 @@
 			name = "Third Party";
 			sourceTree = "<group>";
 		};
-		BA4255E31BD15E39004B6DF9 /* mission1 */ = {
+		BA34140E1BD8161E0099A710 /* M-E01 */ = {
 			isa = PBXGroup;
 			children = (
-				BA4255E41BD15E39004B6DF9 /* M-E01-02.mp3 */,
-				BA4255E51BD15E39004B6DF9 /* M-E01-03.mp3 */,
-				BA4255E61BD15E39004B6DF9 /* M-E01-04.mp3 */,
-				BA4255E71BD15E39004B6DF9 /* M-E01-05.mp3 */,
-				BA4255E81BD15E39004B6DF9 /* M-E01-06.mp3 */,
-				BA4255E91BD15E39004B6DF9 /* NextTimeS1M3.mp3 */,
-				BA4255EA1BD15E39004B6DF9 /* ZRS1M1v2.mp3 */,
+				BA34140F1BD8161E0099A710 /* M-E01-02.mp3 */,
+				BA3414101BD8161E0099A710 /* M-E01-03.mp3 */,
+				BA3414111BD8161E0099A710 /* M-E01-04.mp3 */,
+				BA3414121BD8161E0099A710 /* M-E01-05.mp3 */,
+				BA3414131BD8161E0099A710 /* M-E01-06.mp3 */,
+				BA3414141BD8161E0099A710 /* NextTimeS1M3.mp3 */,
+				BA3414151BD8161E0099A710 /* ZRS1M1v2.mp3 */,
 			);
-			path = mission1;
+			path = "M-E01";
 			sourceTree = "<group>";
 		};
 		BA4255EB1BD15E39004B6DF9 /* sfx */ = {
@@ -560,33 +539,26 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BA4255F51BD15E39004B6DF9 /* M-E01-06.mp3 in Resources */,
-				BA2B43D51BBBAEF8007C2483 /* zombie_run_interactive2.mp3 in Resources */,
+				BA34141C1BD8161E0099A710 /* ZRS1M1v2.mp3 in Resources */,
 				BA1F2FE41BBBB25700E22B7F /* AcousticModelEnglish.bundle in Resources */,
 				BA4255FC1BD15E39004B6DF9 /* zombie-horde-loop.mp3 in Resources */,
-				BA2B43D01BBBAEF8007C2483 /* zombie_run1.mp3 in Resources */,
-				BA4255F71BD15E39004B6DF9 /* ZRS1M1v2.mp3 in Resources */,
 				BA1F2FE51BBBB25700E22B7F /* AcousticModelSpanish.bundle in Resources */,
 				BA4255F81BD15E39004B6DF9 /* bleep-alert.m4a in Resources */,
+				BA3414171BD8161E0099A710 /* M-E01-03.mp3 in Resources */,
 				BA2B43CF1BBBAEF8007C2483 /* test_sweep.wav in Resources */,
-				BA2B43D21BBBAEF8007C2483 /* zombie_run3.mp3 in Resources */,
 				5241B5621BA0980000DBC6D3 /* ZombieRunX.xcdatamodeld in Resources */,
 				528C3A4D1B826734007C59FC /* Main.storyboard in Resources */,
+				BA3414181BD8161E0099A710 /* M-E01-04.mp3 in Resources */,
 				BA4255F91BD15E39004B6DF9 /* countdown-beep.mp3 in Resources */,
 				BA4255FB1BD15E39004B6DF9 /* proximity-pip.wav in Resources */,
-				BA2B43D41BBBAEF8007C2483 /* zombie_run_interactive1.mp3 in Resources */,
 				528C3A521B826734007C59FC /* LaunchScreen.xib in Resources */,
-				BA4255F21BD15E39004B6DF9 /* M-E01-03.mp3 in Resources */,
-				BA4255F61BD15E39004B6DF9 /* NextTimeS1M3.mp3 in Resources */,
-				BA2B43D61BBBAEF8007C2483 /* zombie_run_interactive3.mp3 in Resources */,
-				BA2B43D11BBBAEF8007C2483 /* zombie_run2.mp3 in Resources */,
-				BA2B43D31BBBAEF8007C2483 /* zombie_run4.mp3 in Resources */,
-				BA4255F41BD15E39004B6DF9 /* M-E01-05.mp3 in Resources */,
+				BA34141B1BD8161E0099A710 /* NextTimeS1M3.mp3 in Resources */,
+				BA3414161BD8161E0099A710 /* M-E01-02.mp3 in Resources */,
+				BA3414191BD8161E0099A710 /* M-E01-05.mp3 in Resources */,
 				BA36A8951BBBA79100E197E2 /* Images.xcassets in Resources */,
 				BA4255FA1BD15E39004B6DF9 /* hardcore-lose.wav in Resources */,
-				BA4255F11BD15E39004B6DF9 /* M-E01-02.mp3 in Resources */,
 				BA28E2741BD4872500D3E04B /* knock_for_building_radio.mp3 in Resources */,
-				BA4255F31BD15E39004B6DF9 /* M-E01-04.mp3 in Resources */,
+				BA34141A1BD8161E0099A710 /* M-E01-06.mp3 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -9,19 +9,24 @@
 import UIKit
 import Parse
 import MapKit
+import MediaPlayer
+
+// should implement an ExperienceManager delegate for events like silenceDidStart
 
 class MissionViewController: UIViewController,MKMapViewDelegate {
 
+    var experienceManager:ExperienceManager!
+    var musicPlayer:MPMusicPlayerController?
+    
     @IBOutlet weak var controlLabel: UIButton!
     @IBOutlet weak var mapView: MKMapView!
-    var experienceManager:ExperienceManager!
     @IBOutlet weak var nextMomentButton: UIButton!
     
     @IBAction func previousMoment(sender: AnyObject) {
         // FIX this requires too much knowledge of internals for another developer to use
         let currentMoment = self.experienceManager.currentStage?.currentMoment
         (currentMoment as? Sound)?.player?.stop()
-        (currentMoment as? Silence)?.player?.stop()
+//        (currentMoment as? Silence)?.player?.stop()
         
         if self.experienceManager.isPlaying == false {
             self.controlLabel.setTitle("Pause", forState: .Normal)
@@ -34,7 +39,7 @@ class MissionViewController: UIViewController,MKMapViewDelegate {
         // FIX this requires too much knowledge of internals for another developer to use
         let currentMoment = self.experienceManager.currentStage?.currentMoment
         (currentMoment as? Sound)?.player?.stop()
-        (currentMoment as? Silence)?.player?.stop()
+//        (currentMoment as? Silence)?.player?.stop()
         
         if self.experienceManager.isPlaying == false {
             self.controlLabel.setTitle("Pause", forState: .Normal)
@@ -65,36 +70,28 @@ class MissionViewController: UIViewController,MKMapViewDelegate {
         
         view.backgroundColor = UIColor(red:0.24, green:0.24, blue:0.25, alpha:1)
         
-        // initialize stages for experience manager <-- will later be done in a separate file most likely
+        // initialize stages for experience manager <-- will later be done in a separate file most likely - Scott
+        
+        // 11m23s of audio
+        let mission1Intro = Sound(fileName: "ZRS1M1v2")
+        let mission1Part02 = Sound(fileName: "M-E01-02")
+        let mission1Part03 = Sound(fileName: "M-E01-03")
+        let knockForBuildingInstruction = Sound(fileName: "knock_for_building_radio")
+        let waitForDoubleKnock = WaitForDoubleKnock(lengthInSeconds: 6.minutesToSeconds)
+        let mission1Part04 = Sound(fileName: "M-E01-04")
+        let mission1Part05 = Sound(fileName: "M-E01-05")
+        let mission1Part06 = Sound(fileName: "M-E01-06")
+        let mission2Preview = Sound(fileName: "NextTimeS1M3")
+        
+        
+        let stage1 = Stage(moments: [mission1Intro, mission1Part02, Silence(lengthInSeconds: 6.minutesToSeconds)], title: "Stage One")
+        let stage2 = Stage(moments: [mission1Part03, Silence(lengthInSeconds: 10), knockForBuildingInstruction, waitForDoubleKnock], title: "Stage Two")
+        let stage3 = Stage(moments: [mission1Part04, Silence(lengthInSeconds: 6.minutesToSeconds)], title: "Stage Three")
+        let stage4 = Stage(moments: [mission1Part05, Silence(lengthInSeconds: 6.minutesToSeconds)], title: "Stage Four")
+        let stage5 = Stage(moments: [mission1Part06, mission2Preview], title: "Stage Five")
 
-        // More audio files can be found in Zombies, Run! app package under Preload > Document Bundles > missions
-        
-        //stage 1
+        experienceManager = ExperienceManager(title: "S1M1: Jolly Alpha Five Niner", stages: [stage1, stage2, stage3, stage4, stage5])
 
-        let helicopter_scene = Sound(fileName:"zombie_run1", title: "Helicopter Scene")
-        let silence1 = Silence(lengthInSeconds: 5.minutesToSeconds)
-        let run_scene = Sound(fileName:"zombie_run2", title: "Run Scene")
-        let silence2 = Silence(lengthInSeconds: 5.minutesToSeconds)
-        
-        //stage 2
-        let hospital_scene = Sound(fileName: "zombie_run3", title: "Hospital Scene")
-        let silence3 = Silence(lengthInSeconds: 5.minutesToSeconds)
-        
-        // stage 3
-        let knockInstruction = Sound(fileName: "knock_for_building_radio")
-        let waitForKnocks = WaitForDoubleKnock(lengthInSeconds: 60)
-        
-        // stage 4 (final)
-        let silence10 = Silence(lengthInSeconds: 10)
-        let enterSafety = Sound(fileName:"zombie_run4", title: "Enter Safety")
-        
-        // experience (Mission)
-        let stage1 = Stage(moments: [helicopter_scene, silence1, run_scene, silence2], title: "Stage One")
-        let stage2 = Stage(moments: [hospital_scene, silence3], title: "Stage Two")
-        let stage3 = Stage(moments: [knockInstruction, waitForKnocks], title: "Stage Three")
-        let stage4 = Stage(moments: [silence10, enterSafety], title: "Final Stage")
-
-        experienceManager = ExperienceManager(title: "Mission 1: The Beginning", stages: [stage1, stage2, stage3, stage4])
 
         
         // Set up the map view

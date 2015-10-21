@@ -11,6 +11,7 @@ import AVFoundation
 import CoreLocation
 import Parse
 import CoreMotion
+import MediaPlayer
 
 
 class ExperienceManager: NSObject {
@@ -30,6 +31,8 @@ class ExperienceManager: NSObject {
     var dataManager: DataManager?  // should be optional whether their experience will collect data
     var experienceStarted = false
     var experience: Experience?
+//    var musicPlayer: MPMusicPlayerController?
+    
     var currentStage: Stage? {
         get { return stages[safe: currentStageIdx] }
     }
@@ -54,16 +57,9 @@ class ExperienceManager: NSObject {
             }
         }
         
-        // enable playing in background
+        // Temporary fix because loading of mission view controller stops music
         do {
-            try AVAudioSession.sharedInstance().setCategory(AVAudioSessionCategoryPlayback)
-            print("AVAudioSession Category Playback OK")
-            do {
-                try AVAudioSession.sharedInstance().setActive(true)
-                print("AVAudioSession is Active")
-            } catch let error as NSError {
-                print(error.localizedDescription)
-            }
+            try AVAudioSession.sharedInstance().setActive(false, withOptions: .NotifyOthersOnDeactivation)
         } catch let error as NSError {
             print(error.localizedDescription)
         }

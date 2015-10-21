@@ -38,9 +38,9 @@ class WaitForDoubleKnock: Silence, TSTapDetectorDelegate{
 //            print(error.localizedDescription)
 //            self.player = nil
 //        }
-        
-        self.player?.prepareToPlay()
-        self.player?.play()
+//        
+//        self.player?.prepareToPlay()
+//        self.player?.play()
         self.finished()
     }
     
