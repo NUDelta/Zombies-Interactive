@@ -47,6 +47,7 @@
 		BA4255FA1BD15E39004B6DF9 /* hardcore-lose.wav in Resources */ = {isa = PBXBuildFile; fileRef = BA4255EE1BD15E39004B6DF9 /* hardcore-lose.wav */; settings = {ASSET_TAGS = (); }; };
 		BA4255FB1BD15E39004B6DF9 /* proximity-pip.wav in Resources */ = {isa = PBXBuildFile; fileRef = BA4255EF1BD15E39004B6DF9 /* proximity-pip.wav */; settings = {ASSET_TAGS = (); }; };
 		BA4255FC1BD15E39004B6DF9 /* zombie-horde-loop.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = BA4255F01BD15E39004B6DF9 /* zombie-horde-loop.mp3 */; settings = {ASSET_TAGS = (); }; };
+		BA4F036C1BD95B2600792A6D /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA4F036B1BD95B2600792A6D /* Constants.swift */; settings = {ASSET_TAGS = (); }; };
 		BAC7CBF31BD41B3A0031E905 /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAC7CBF01BD41B3A0031E905 /* DataManager.swift */; settings = {ASSET_TAGS = (); }; };
 		BAC7CBF41BD41B3A0031E905 /* ExperienceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAC7CBF11BD41B3A0031E905 /* ExperienceManager.swift */; settings = {ASSET_TAGS = (); }; };
 		BAC7CBF51BD41B3A0031E905 /* Stage.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAC7CBF21BD41B3A0031E905 /* Stage.swift */; settings = {ASSET_TAGS = (); }; };
@@ -126,6 +127,7 @@
 		BA4255EE1BD15E39004B6DF9 /* hardcore-lose.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "hardcore-lose.wav"; sourceTree = "<group>"; };
 		BA4255EF1BD15E39004B6DF9 /* proximity-pip.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "proximity-pip.wav"; sourceTree = "<group>"; };
 		BA4255F01BD15E39004B6DF9 /* zombie-horde-loop.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "zombie-horde-loop.mp3"; sourceTree = "<group>"; };
+		BA4F036B1BD95B2600792A6D /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		BAC7CBF01BD41B3A0031E905 /* DataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DataManager.swift; path = ExperienceKit/DataManager.swift; sourceTree = "<group>"; };
 		BAC7CBF11BD41B3A0031E905 /* ExperienceManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ExperienceManager.swift; path = ExperienceKit/ExperienceManager.swift; sourceTree = "<group>"; };
 		BAC7CBF21BD41B3A0031E905 /* Stage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Stage.swift; path = ExperienceKit/Stage.swift; sourceTree = "<group>"; };
@@ -297,6 +299,7 @@
 				BAF68CC51BBF340200145698 /* Controllers */,
 				BA2B43D91BBBAF23007C2483 /* AppDelegate.swift */,
 				BA320E641BC828CE000E52EE /* ExperienceKit */,
+				BA4F036B1BD95B2600792A6D /* Constants.swift */,
 			);
 			name = Classes;
 			path = classes;
@@ -576,6 +579,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BA4F036C1BD95B2600792A6D /* Constants.swift in Sources */,
 				BAC7CBF51BD41B3A0031E905 /* Stage.swift in Sources */,
 				BA2B43E11BBBAF23007C2483 /* AppDelegate.swift in Sources */,
 				BAC7CC111BD41BEA0031E905 /* ARAudioRecognizer.m in Sources */,
@@ -683,6 +687,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
+				OTHER_SWIFT_FLAGS = "-D DEBUG";
 				PROVISIONING_PROFILE = "";
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";

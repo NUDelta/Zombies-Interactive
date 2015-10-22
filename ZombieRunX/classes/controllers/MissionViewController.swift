@@ -26,7 +26,6 @@ class MissionViewController: UIViewController,MKMapViewDelegate {
         // FIX this requires too much knowledge of internals for another developer to use
         let currentMoment = self.experienceManager.currentStage?.currentMoment
         (currentMoment as? Sound)?.player?.stop()
-//        (currentMoment as? Silence)?.player?.stop()
         
         if self.experienceManager.isPlaying == false {
             self.controlLabel.setTitle("Pause", forState: .Normal)
@@ -37,9 +36,9 @@ class MissionViewController: UIViewController,MKMapViewDelegate {
     
     @IBAction func nextMoment(sender: AnyObject) {
         // FIX this requires too much knowledge of internals for another developer to use
+        
         let currentMoment = self.experienceManager.currentStage?.currentMoment
         (currentMoment as? Sound)?.player?.stop()
-//        (currentMoment as? Silence)?.player?.stop()
         
         if self.experienceManager.isPlaying == false {
             self.controlLabel.setTitle("Pause", forState: .Normal)
@@ -53,7 +52,9 @@ class MissionViewController: UIViewController,MKMapViewDelegate {
             print("\nExperience started")
             self.experienceManager.start()
             self.controlLabel.setTitle("Pause", forState: .Normal)
+            #if DEBUG
             nextMomentButton.hidden = false
+            #endif
         } else if self.controlLabel.titleLabel!.text == "Resume" {
             print("  Experience resumed")
             self.experienceManager.play()
@@ -77,7 +78,7 @@ class MissionViewController: UIViewController,MKMapViewDelegate {
         let mission1Part02 = Sound(fileName: "M-E01-02")
         let mission1Part03 = Sound(fileName: "M-E01-03")
         let knockForBuildingInstruction = Sound(fileName: "knock_for_building_radio")
-        let waitForDoubleKnock = WaitForDoubleKnock(lengthInSeconds: 6.minutesToSeconds)
+        let waitForDoubleKnock = WaitForDoubleKnock(lengthInSeconds: 6.minutesToSeconds, dataLabel: "Tall Building")
         let mission1Part04 = Sound(fileName: "M-E01-04")
         let mission1Part05 = Sound(fileName: "M-E01-05")
         let mission1Part06 = Sound(fileName: "M-E01-06")
