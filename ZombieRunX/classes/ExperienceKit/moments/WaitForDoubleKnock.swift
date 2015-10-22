@@ -12,9 +12,11 @@ import CoreMotion
 class WaitForDoubleKnock: Silence, TSTapDetectorDelegate{
     
     var tapDetector: TSTapDetector?
+    var dataLabel: String
     
-    override init(lengthInSeconds: Float, interruptable:Bool=false, title:String?=nil){
-        super.init(lengthInSeconds: lengthInSeconds, interruptable:interruptable, title: title ?? "Wait For Knock")
+    init(lengthInSeconds: Float, interruptable:Bool=false, title:String?=nil, dataLabel:String){
+        self.dataLabel = dataLabel
+        super.init(lengthInSeconds: lengthInSeconds, interruptable:interruptable, title: title ?? "Record \(dataLabel)")
     }
     
     override func start() {
@@ -29,19 +31,7 @@ class WaitForDoubleKnock: Silence, TSTapDetectorDelegate{
     func didDetectKnock(detector: TSTapDetector!) {
         print("  detected double knock")
         
-        self.eventManager.trigger("foundPointOfInterest", information: ["trigger": "doubleKnock", "label": "tree"])
-        
-//        let pathToAudio = NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource("proximity-pip", ofType: "wav")!)
-//        do {
-//            self.player = try AVAudioPlayer(contentsOfURL: pathToAudio)
-//        } catch let error as NSError {
-//            print(error.localizedDescription)
-//            self.player = nil
-//        }
-//        
-//        self.player?.prepareToPlay()
-//        self.player?.play()
-        self.finished()
+        self.eventManager.trigger("foundPointOfInterest", information: ["trigger": "doubleKnock", "label": self.dataLabel])
     }
     
     override func finished() {

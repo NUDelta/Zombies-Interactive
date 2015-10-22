@@ -89,7 +89,7 @@ double normAll(double x, double y, double z) {
     float total = -0.22 + (0.03 * jounce) - (normedRotation * 0.08);
     float odds = 1 / (1 + exp(-total));
     //[self logitBoostKnock];
-    return odds > 0.51 && lastDoubleKnockTimeDifference > 1 && lastKnockTimeDifference > 0.1;
+    return odds > 0.50 && lastDoubleKnockTimeDifference > 1 && lastKnockTimeDifference > 0.1;
 }
 
 - (BOOL)satisfiesDoubleKnock

@@ -9,12 +9,10 @@
 import Foundation
 
 class DataMoment: Sound {
-    // use an enum for this?
     var dataTypes: [DataCollectionType]
     
     init(fileName:String, dataTypes:[DataCollectionType], interruptable:Bool=false, title:String?=nil){
         self.dataTypes = dataTypes
         super.init(fileName: fileName, interruptable: interruptable, title: title ?? fileName)
     }
-    
 }
