@@ -44,7 +44,6 @@ class SignUpLogInViewController: UIViewController {
                     
                     print("successfully signed up!")
                     dispatch_async(dispatch_get_main_queue(), { () -> Void in
-                        print("going to Home")
                         self.goToHome()
                     })
                 }
@@ -57,7 +56,6 @@ class SignUpLogInViewController: UIViewController {
     }
     
     func goToHome(){
-        print("goToHome()")
         //let storyboard:UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
         //let navigationController:UINavigationController = storyboard.instantiateInitialViewController() as! UINavigationController
         // go to home page

@@ -10,9 +10,8 @@ import Foundation
 import MediaPlayer
 
 class Sound: Moment, AVAudioPlayerDelegate{
-    /* Implement this as an AudioPlayer */
+    
     var fileName:String
-    //var playerItem:AVPlayerItem
     var player:AVAudioPlayer?
     
     init(fileName: String, interruptable:Bool=false, title:String?=nil){
@@ -46,6 +45,11 @@ class Sound: Moment, AVAudioPlayerDelegate{
         super.start()
         
         do {
+            let systemPlayer = MPMusicPlayerController.systemMusicPlayer()
+            if let _ = systemPlayer.nowPlayingItem {
+                systemPlayer.pause()
+            }
+            try AVAudioSession.sharedInstance().setCategory(AVAudioSessionCategoryPlayback)
             try AVAudioSession.sharedInstance().setActive(true)
         } catch let error as NSError {
             print(error.localizedDescription)
@@ -65,13 +69,7 @@ class Sound: Moment, AVAudioPlayerDelegate{
     
     override func finished() {
         super.finished()
-        player?.stop()
-        
-        do {
-            try AVAudioSession.sharedInstance().setActive(false, withOptions: .NotifyOthersOnDeactivation)
-        } catch let error as NSError {
-            print(error.localizedDescription)
-        }
+        self.player?.stop()
     }
     
 }

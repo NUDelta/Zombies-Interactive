@@ -14,15 +14,17 @@ import CoreMotion
 import MediaPlayer
 
 
+protocol ExperienceManagerDelegate {
+    func didFinishExperience()
+}
+
 class ExperienceManager: NSObject {
     
     /*
     Questions
     
-    We need to better parameterize the ExperienceManager and use parse keys constants, etc.
-    
+    Kit test-- can you make ZenWalk with this in 30 minutes?
     When we interrupt to collect data, how do we insert the moment?
-    
     */
     
     var isPlaying = false
@@ -31,7 +33,8 @@ class ExperienceManager: NSObject {
     var dataManager: DataManager?  // should be optional whether their experience will collect data
     var experienceStarted = false
     var experience: Experience?
-//    var musicPlayer: MPMusicPlayerController?
+    var delegate: ExperienceManagerDelegate?
+
     
     var currentStage: Stage? {
         get { return stages[safe: currentStageIdx] }
@@ -43,7 +46,7 @@ class ExperienceManager: NSObject {
         self.experience = Experience()
         self.experience?.title = title
         self.dataManager = DataManager(experience: self.experience!)
-        
+
         super.init()
         
         for stage in stages{
@@ -57,7 +60,7 @@ class ExperienceManager: NSObject {
             }
         }
         
-        // Temporary fix because loading of mission view controller stops music
+//        // Temporary fix because loading of mission view controller stops music
         do {
             try AVAudioSession.sharedInstance().setActive(false, withOptions: .NotifyOthersOnDeactivation)
         } catch let error as NSError {
@@ -115,6 +118,19 @@ class ExperienceManager: NSObject {
         self.experience?.dateCompleted = NSDate()
         self.experience?.completed = true
         self.experience?.saveInBackground()
+        
+        do {
+            try AVAudioSession.sharedInstance().setActive(false, withOptions: .NotifyOthersOnDeactivation)
+        } catch let error as NSError {
+            print(error.localizedDescription)
+        }
+        
+        delegate?.didFinishExperience()
+        
+        let systemPlayer = MPMusicPlayerController.systemMusicPlayer()
+        if let _ = systemPlayer.nowPlayingItem {
+            systemPlayer.play()
+        }
     }
 
     
