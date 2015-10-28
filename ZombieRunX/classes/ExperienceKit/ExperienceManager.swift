@@ -34,6 +34,8 @@ class ExperienceManager: NSObject {
     var experienceStarted = false
     var experience: Experience?
     var delegate: ExperienceManagerDelegate?
+    
+    var audioSession: AVAudioSession = AVAudioSession.sharedInstance()
 
     
     var currentStage: Stage? {
@@ -51,6 +53,8 @@ class ExperienceManager: NSObject {
         
         for stage in stages{
             stage.eventManager.listenTo("stageFinished", action: self.nextStage)
+            stage.eventManager.listenTo("startingSilence", action: self.setAVSessionForSilence)
+            stage.eventManager.listenTo("startingSound", action: self.setAVSessionForSound)
             
             if let dataManager = dataManager {
                 stage.eventManager.listenTo("dataMomentStarted", action: dataManager.startCollecting)
@@ -60,14 +64,49 @@ class ExperienceManager: NSObject {
             }
         }
         
-//        // Temporary fix because loading of mission view controller stops music
+        // Temporary fix because loading of mission view controller stops music
         do {
-            try AVAudioSession.sharedInstance().setActive(false, withOptions: .NotifyOthersOnDeactivation)
+            try self.audioSession.setCategory(AVAudioSessionCategoryPlayback, withOptions: .MixWithOthers)
+            try self.audioSession.setActive(false, withOptions: .NotifyOthersOnDeactivation)
         } catch let error as NSError {
             print(error.localizedDescription)
         }
     }
     
+    
+    func setAVSessionForSilence() {
+        MPMusicPlayerController.systemMusicPlayer().play()
+//        do {
+//            try self.audioSession.setCategory(AVAudioSessionCategoryPlayback, withOptions: .MixWithOthers)
+//            try self.audioSession.setActive(false, withOptions: .NotifyOthersOnDeactivation)
+//            
+//        } catch let error as NSError {
+//            print(error.localizedDescription)
+//        }
+    }
+    
+    func setAVSessionForSound() {
+        if self.audioSession.otherAudioPlaying {
+            MPMusicPlayerController.systemMusicPlayer().pause()
+        }
+        
+        // idea is to dynamically change options (single audio or mixing)
+        // this method is better because it works with Spotify, Pandora, etc.
+        // unfortunately the AVAudioSession API seems to be bugged
+        // setActive (true) only works when phone isn't locked, even though code runs
+        // might be because it's asynchronous? messes up really bad on radio static sound
+//        do {
+//            // this first line is only way to get rid of the .MixWithOthers option
+//            try self.audioSession.setCategory(AVAudioSessionCategoryMultiRoute)
+//            try self.audioSession.setCategory(AVAudioSessionCategoryPlayback)
+//            try self.audioSession.setActive(true)
+//            
+//            print("  Setting to not mix with others")
+//        } catch let error as NSError {
+//            print(error.localizedDescription)
+//        }
+        
+    }
     
     func start() {
         self.experience?.user = PFUser.currentUser()

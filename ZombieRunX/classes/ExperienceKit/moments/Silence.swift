@@ -16,6 +16,7 @@ class Silence: Moment{
     var startTime: NSDate = NSDate()
     var timeRemaining: NSTimeInterval
     var player:AVAudioPlayer?
+    var audioSession:AVAudioSession = AVAudioSession.sharedInstance()
     
     init(lengthInSeconds:Float, interruptable:Bool=false, title:String?=nil){
         self.lengthInSeconds = lengthInSeconds
@@ -36,22 +37,8 @@ class Silence: Moment{
 
     
     override func start() {
-        
-        do {
-            let systemPlayer = MPMusicPlayerController.systemMusicPlayer()
-            if let _ = systemPlayer.nowPlayingItem {
-                systemPlayer.play()
-            }
-            
-            try AVAudioSession.sharedInstance().setCategory(AVAudioSessionCategoryPlayback, withOptions: .MixWithOthers)
-            try AVAudioSession.sharedInstance().setActive(true)
-            
-        } catch let error as NSError {
-            print(error.localizedDescription)
-        }
-        
         self.startTime = NSDate()
-        
+        self.eventManager.trigger("startingSilence")
         super.start()
     }
     
@@ -63,6 +50,7 @@ class Silence: Moment{
             timer = NSTimer.scheduledTimerWithTimeInterval(timeRemaining, target: self, selector: Selector("finished"), userInfo: nil, repeats: false)
             self.startTime = NSDate()
         }
+        
         self.player?.play()
     }
     
@@ -75,8 +63,9 @@ class Silence: Moment{
     }
     
     override func finished() {
-        super.finished()
         timer.invalidate()
         self.player?.stop()
+        
+        super.finished()
     }
 }

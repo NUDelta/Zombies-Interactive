@@ -29,7 +29,7 @@
 
 - (id)init
 {
-    [[AVAudioSession sharedInstance] setCategory:AVAudioSessionCategoryPlayAndRecord error:nil];
+    [[AVAudioSession sharedInstance] setCategory:AVAudioSessionCategoryPlayAndRecord withOptions: AVAudioSessionCategoryOptionMixWithOthers error:nil];
     
     return [self initWithSensitivity:0.0
                            frequency:0.01];

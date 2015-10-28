@@ -20,11 +20,11 @@ class WaitForDoubleKnock: Silence, TSTapDetectorDelegate{
     }
     
     override func start() {
-        super.start()
         print("  Starting to listen for knock")
         self.tapDetector = TSTapDetector.init()
         self.tapDetector?.listener.collectMotionInformationWithInterval(10)
         self.tapDetector?.delegate = self
+        super.start()
     }
     
     // Knock detection callback

@@ -13,6 +13,7 @@ class Sound: Moment, AVAudioPlayerDelegate{
     
     var fileName:String
     var player:AVAudioPlayer?
+    var audioSession:AVAudioSession = AVAudioSession.sharedInstance()
     
     init(fileName: String, interruptable:Bool=false, title:String?=nil){
         self.fileName = fileName
@@ -41,20 +42,10 @@ class Sound: Moment, AVAudioPlayerDelegate{
         }
     }
     
+    
     override func start() {
+        self.eventManager.trigger("startingSound")
         super.start()
-        
-        do {
-            let systemPlayer = MPMusicPlayerController.systemMusicPlayer()
-            if let _ = systemPlayer.nowPlayingItem {
-                systemPlayer.pause()
-            }
-            try AVAudioSession.sharedInstance().setCategory(AVAudioSessionCategoryPlayback)
-            try AVAudioSession.sharedInstance().setActive(true)
-        } catch let error as NSError {
-            print(error.localizedDescription)
-        }
-        
     }
     
     override func play(){
@@ -63,13 +54,15 @@ class Sound: Moment, AVAudioPlayerDelegate{
     }
     
     override func pause(){
-        super.play()
+        super.pause()
         self.player?.pause()
     }
     
     override func finished() {
-        super.finished()
         self.player?.stop()
+        self.player?.prepareToPlay()
+        
+        super.finished()
     }
     
 }

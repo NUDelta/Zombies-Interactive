@@ -26,13 +26,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         // [Optional] Track statistics around application opens.
         PFAnalytics.trackAppOpenedWithLaunchOptions(launchOptions)
-        
-        do {
-            try AVAudioSession.sharedInstance().setCategory(AVAudioSessionCategoryPlayback, withOptions: .MixWithOthers)
-        } catch let e as NSError {
-            print(e.localizedDescription)
-        }
-        
+                
         
         //setup storyboard to display initial view
         let storyboard:UIStoryboard = UIStoryboard(name: "Main", bundle: nil)

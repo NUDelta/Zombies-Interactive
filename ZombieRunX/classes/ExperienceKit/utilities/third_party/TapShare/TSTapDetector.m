@@ -42,7 +42,7 @@ double normAll(double x, double y, double z) {
         lastKnockTime = 0;
         audioRecognized = NO;
         timeFromFirstKnock = [NSNumber numberWithFloat:fabs(deviceMotion.timestamp - lastKnockTime)];
-//        [self.recognizer stopRecorder];
+        [self.recognizer stopRecorder];
         [self.delegate didDetectKnock:self];
 //        NSLog(@"got a new knock");
     }
@@ -52,7 +52,7 @@ double normAll(double x, double y, double z) {
 //        NSLog(@"%f", normedAccel);
 //        NSLog(@"%f", normedRotation);
         lastKnockTime = deviceMotion.timestamp;
-//        [self.recognizer startRecorder];
+        [self.recognizer startRecorder];
     } else if (fabs(deviceMotion.timestamp - lastKnockTime) > 1) {
     }
 }

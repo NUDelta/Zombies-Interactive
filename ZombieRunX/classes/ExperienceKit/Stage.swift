@@ -28,10 +28,19 @@ class Stage: NSObject{
         super.init()
         for moment in moments{
             moment.eventManager.listenTo("nextMoment", action: self.nextMoment)
+            moment.eventManager.listenTo("startingSilence", action: self.startingSilence)
+            moment.eventManager.listenTo("startingSound", action: self.startingSound)
             moment.eventManager.listenTo("foundPointOfInterest", action: self.recordPointOfInterest)
         }
     }
     
+    func startingSound() {
+        self.eventManager.trigger("startingSound")
+    }
+    
+    func startingSilence() {
+        self.eventManager.trigger("startingSilence")
+    }
     
     func start() {
         print("\nStarting stage: " + self.title)
