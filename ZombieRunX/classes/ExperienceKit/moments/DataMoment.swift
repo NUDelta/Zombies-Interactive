@@ -8,11 +8,13 @@
 
 import Foundation
 
-class DataMoment: Sound {
+class DataMoment: Silence {
     var dataTypes: [DataCollectionType]
+    var dataLabel: String
     
-    init(fileName:String, dataTypes:[DataCollectionType], interruptable:Bool=false, title:String?=nil){
+    init(lengthInSeconds: Float, interruptable:Bool=false, title:String?=nil, dataLabel:String, dataTypes:[DataCollectionType]){
         self.dataTypes = dataTypes
-        super.init(fileName: fileName, interruptable: interruptable, title: title ?? fileName)
+        self.dataLabel = dataLabel
+        super.init(lengthInSeconds: lengthInSeconds, interruptable: interruptable, title: title ?? "Find \(dataLabel)")
     }
 }

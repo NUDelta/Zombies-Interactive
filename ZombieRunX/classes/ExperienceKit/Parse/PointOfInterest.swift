@@ -15,6 +15,7 @@ class PointOfInterest : PFObject, PFSubclassing {
     @NSManaged var location: PFGeoPoint?
     @NSManaged var trigger: String?
     @NSManaged var label: String?
+    @NSManaged var interaction: String?
     
     override class func initialize() {
         struct Static {

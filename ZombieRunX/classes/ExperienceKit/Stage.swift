@@ -61,8 +61,8 @@ class Stage: NSObject{
     
     func nextMoment() {
         
-        if let currentMoment = self.currentMoment as? DataMoment {
-            self.eventManager.trigger("dataMomentEnded", information: currentMoment.dataTypes)
+        if let _ = self.currentMoment as? DataMoment {
+            self.eventManager.trigger("dataMomentEnded")
         }
         
         // stop the current moment's audio here instead of ExperienceManager?
@@ -70,7 +70,8 @@ class Stage: NSObject{
         
         if self.currentMomentIdx < moments.count {
             if let currentMoment = self.currentMoment as? DataMoment {
-                self.eventManager.trigger("dataMomentStarted", information: currentMoment.dataTypes)
+                self.eventManager.trigger("dataMomentStarted",
+                    information: ["dataTypes": currentMoment.dataTypes.rawValues, "label": currentMoment.dataLabel, "interaction": currentMoment.title])
             }
             self.currentMoment?.start()
         } else {

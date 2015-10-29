@@ -16,9 +16,8 @@ class DataEvent : PFObject, PFSubclassing {
     @NSManaged var startDate: NSDate?
     @NSManaged var endDate: NSDate?
     @NSManaged var dataTypes: [String]?
-    
-    //@NSManaged var purpose: String?
-    // need labels of some sort to know what the purpose of collection is
+    @NSManaged var label: String?
+    @NSManaged var interaction: String?
     
     override class func initialize() {
         struct Static {

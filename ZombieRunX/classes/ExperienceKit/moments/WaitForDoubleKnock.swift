@@ -31,7 +31,7 @@ class WaitForDoubleKnock: Silence, TSTapDetectorDelegate{
     func didDetectKnock(detector: TSTapDetector!) {
         print("  detected double knock")
         
-        self.eventManager.trigger("foundPointOfInterest", information: ["trigger": "doubleKnock", "label": self.dataLabel])
+        self.eventManager.trigger("foundPointOfInterest", information: ["trigger": "double_knock", "label": self.dataLabel, "interaction": self.title])
     }
     
     override func finished() {

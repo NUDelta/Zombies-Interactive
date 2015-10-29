@@ -111,9 +111,11 @@ class ExperienceManager: NSObject {
     func start() {
         self.experience?.user = PFUser.currentUser()
         self.experience?.dateStarted = NSDate()
+        self.experience?.completed = false
         self.experience?.saveInBackground()
         experienceStarted = true
         
+        dataManager?.startUpdatingLocation()
         self.nextStage()
     }
     

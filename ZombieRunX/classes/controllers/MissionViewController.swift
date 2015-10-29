@@ -10,6 +10,7 @@ import UIKit
 import Parse
 import MapKit
 import MediaPlayer
+import CoreLocation
 
 // should implement an ExperienceManager delegate for events like silenceDidStart
 
@@ -68,6 +69,7 @@ class MissionViewController: UIViewController, MKMapViewDelegate, ExperienceMana
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        CLLocationManager().requestAlwaysAuthorization()
         
         view.backgroundColor = UIColor(red:0.24, green:0.24, blue:0.25, alpha:1)
         
@@ -77,23 +79,33 @@ class MissionViewController: UIViewController, MKMapViewDelegate, ExperienceMana
         let mission1Intro = Sound(fileName: "ZRS1M1v2")
         let mission1Part02 = Sound(fileName: "M-E01-02")
         let mission1Part03 = Sound(fileName: "M-E01-03")
+        
         let static1 = Sound(fileName: "radio_static")
-        let knockForBuildingInstruction = Sound(fileName: "knock_for_building")
+        let knockForBuildingsInstruction = Sound(fileName: "knock_for_building")
         let static2 = Sound(fileName: "radio_static")
-        let identifyBuildings = WaitForDoubleKnock(lengthInSeconds: 6.minutesToSeconds, dataLabel: "Tall Building")
+        let identifyBuildings = WaitForDoubleKnock(lengthInSeconds: 6.minutesToSeconds, title: "Identify Vantage Points", dataLabel: "tall_building")
         let static3 = Sound(fileName: "radio_static")
         let sendingScouts = Sound(fileName: "evaluating_vantage_points")
         let static4 = Sound(fileName: "radio_static")
+        
         let mission1Part04 = Sound(fileName: "M-E01-04")
         let mission1Part05 = Sound(fileName: "M-E01-05")
+        
+        let stopAtTree = Sound(fileName: "find_cover")
+        let stretchAtTree = DataMoment(lengthInSeconds: 90, title: "Get Cover and Stretch", dataLabel: "tree", dataTypes: [.Location])
+        let leaveCover = Sound(fileName: "leave_cover")
+        
         let mission1Part06 = Sound(fileName: "M-E01-06")
         let mission2Preview = Sound(fileName: "NextTimeS1M3")
         
-        
         let stage1 = Stage(moments: [mission1Intro, mission1Part02, Silence(lengthInSeconds: 6.minutesToSeconds)], title: "Stage One")
-        let stage2 = Stage(moments: [mission1Part03, Silence(lengthInSeconds: 10), static1, knockForBuildingInstruction, static2, identifyBuildings, static3, sendingScouts, static4], title: "Stage Two")
+        let stage2 = Stage(moments: [mission1Part03, Silence(lengthInSeconds: 10),
+                                    static1, knockForBuildingsInstruction, static2,
+                                    identifyBuildings, static3, sendingScouts, static4], title: "Stage Two")
         let stage3 = Stage(moments: [mission1Part04, Silence(lengthInSeconds: 6.minutesToSeconds)], title: "Stage Three")
-        let stage4 = Stage(moments: [mission1Part05, Silence(lengthInSeconds: 6.minutesToSeconds)], title: "Stage Four")
+        let stage4 = Stage(moments: [mission1Part05, Silence(lengthInSeconds: 3.minutesToSeconds),
+                                    stopAtTree, stretchAtTree, leaveCover,
+                                    Silence(lengthInSeconds: 3.minutesToSeconds)], title: "Stage Four")
         let stage5 = Stage(moments: [mission1Part06, mission2Preview], title: "Stage Five")
 
         experienceManager = ExperienceManager(title: "S1M1: Jolly Alpha Five Niner", stages: [stage1, stage2, stage3, stage4, stage5])
@@ -102,7 +114,7 @@ class MissionViewController: UIViewController, MKMapViewDelegate, ExperienceMana
         // Set up the map view
         mapView.delegate = self
         mapView.mapType = MKMapType.Standard
-        mapView.userTrackingMode = MKUserTrackingMode.FollowWithHeading
+        mapView.userTrackingMode = MKUserTrackingMode.Follow // don't use heading for now, annoying to always calibrate compass
         mapView.showsUserLocation = true
     }
 

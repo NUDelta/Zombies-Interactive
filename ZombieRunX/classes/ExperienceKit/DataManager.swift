@@ -17,11 +17,21 @@ enum DataCollectionType: String {
         Accel = "accel"
 }
 
+extension CollectionType where Generator.Element == DataCollectionType {
+    var rawValues: [String] {
+        return self.map {
+            (let dataType) -> String in
+            return dataType.rawValue
+        }
+    }
+}
+
 class DataManager : NSObject, CLLocationManagerDelegate {
     
     var experience: Experience?
 //    var motionManager = CMMotionManager()
     var locationManager = CLLocationManager()
+    var dataEvent: DataEvent?
     
     
     init(experience: Experience) {
@@ -42,6 +52,7 @@ class DataManager : NSObject, CLLocationManagerDelegate {
         if let infoDict = information as? [String : String] {
             pointOfInterest.trigger = infoDict["trigger"]
             pointOfInterest.label = infoDict["label"]
+            pointOfInterest.interaction = infoDict["interaction"]
         }
         pointOfInterest.experience = experience
         pointOfInterest.location = PFGeoPoint(location: locationManager.location)
@@ -50,15 +61,28 @@ class DataManager : NSObject, CLLocationManagerDelegate {
     
     
     func startCollecting(information:Any?){
-        if let dataTypes = information as? [DataCollectionType]{
+        self.dataEvent = DataEvent()
+        self.dataEvent?.experience = self.experience
+        self.dataEvent?.startDate = NSDate()
+        
+        if let infoDict = information as? [String : AnyObject],
+        dataTypes = infoDict["dataTypes"] as? [String],
+        interaction = infoDict["interaction"] as? String,
+        label = infoDict["label"] as? String {
+            self.dataEvent?.dataTypes = dataTypes
+            self.dataEvent?.interaction = interaction
+            self.dataEvent?.label = label
+            
             for dataType in dataTypes {
                 switch dataType {
                     // we may not actually check this one because location is always recording
                     //  in case we want to show them their path, etc.
-                case .Location:
-                    print("  recording \(dataType.rawValue)")
-                case .Accel:
-                    print("  recording \(dataType.rawValue)")
+                case DataCollectionType.Location.rawValue:
+                    print("  recording \(dataType)")
+                case DataCollectionType.Accel.rawValue:
+                    print("  recording \(dataType)")
+                default:
+                    print("data type does not exist")
                 }
             }
         }
@@ -66,6 +90,8 @@ class DataManager : NSObject, CLLocationManagerDelegate {
     
     
     func stopCollecting(){
+        self.dataEvent?.endDate = NSDate()
+        self.dataEvent?.saveInBackground()
         // just stop everything (except location)
         // we could save info on what exactly we were recording if necessary
         print("  no longer recording data")
@@ -82,6 +108,7 @@ class DataManager : NSObject, CLLocationManagerDelegate {
     
     func startUpdatingLocation() {
         self.locationManager.startUpdatingLocation()
+        print("starting location updates")
     }
     
     
