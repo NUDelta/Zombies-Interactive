@@ -59,6 +59,7 @@ class Sound: Moment, AVAudioPlayerDelegate{
     }
     
     override func finished() {
+        // TODO clean up for reuse
         self.player?.stop()
         self.player?.prepareToPlay()
         

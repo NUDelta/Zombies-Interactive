@@ -16,4 +16,8 @@ extension Array {
     subscript (safe index: Int) -> Element? {
         return indices ~= index ? self[index] : nil
     }
+    
+    func randomItemIndex() -> Int {
+        return Int(arc4random_uniform(UInt32(self.count)))
+    }
 }

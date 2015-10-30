@@ -37,10 +37,10 @@ class DataManager : NSObject, CLLocationManagerDelegate {
     init(experience: Experience) {
         super.init()
         
-        // Experience hasn't been saved at this point, so i'm not sure this pointer will work
         self.experience = experience
     
         self.locationManager.delegate = self
+        self.locationManager.distanceFilter = 1 // won't get update unless they moved 1 meter
         self.locationManager.desiredAccuracy = kCLLocationAccuracyBest
         self.locationManager.requestAlwaysAuthorization()
     }

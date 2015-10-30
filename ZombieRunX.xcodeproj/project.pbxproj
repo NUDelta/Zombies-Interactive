@@ -74,6 +74,7 @@
 		BAC7CC1D1BD41C1B0031E905 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAC7CC191BD41C1B0031E905 /* HomeViewController.swift */; };
 		BAC7CC1E1BD41C1B0031E905 /* MissionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAC7CC1A1BD41C1B0031E905 /* MissionViewController.swift */; };
 		BAC7CC1F1BD41C1B0031E905 /* SignUpLogInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAC7CC1B1BD41C1B0031E905 /* SignUpLogInViewController.swift */; };
+		BADA62341BE3F8F3004E3012 /* Interaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = BADA62331BE3F8F3004E3012 /* Interaction.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -163,6 +164,7 @@
 		BAC7CC1A1BD41C1B0031E905 /* MissionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MissionViewController.swift; path = controllers/MissionViewController.swift; sourceTree = "<group>"; };
 		BAC7CC1B1BD41C1B0031E905 /* SignUpLogInViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SignUpLogInViewController.swift; path = controllers/SignUpLogInViewController.swift; sourceTree = "<group>"; };
 		BAD2F21D1BC4A7F600576D03 /* OEBridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "OEBridging-Header.h"; sourceTree = "<group>"; };
+		BADA62331BE3F8F3004E3012 /* Interaction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Interaction.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -369,6 +371,7 @@
 				BA32A8121BCB5B9100316136 /* Moments */,
 				BAFED6341BC36D2800197581 /* Parse */,
 				BAC7CBF01BD41B3A0031E905 /* DataManager.swift */,
+				BADA62331BE3F8F3004E3012 /* Interaction.swift */,
 				BAC7CBF11BD41B3A0031E905 /* ExperienceManager.swift */,
 				BAC7CBF21BD41B3A0031E905 /* Stage.swift */,
 			);
@@ -625,6 +628,7 @@
 				BAC7CC111BD41BEA0031E905 /* ARAudioRecognizer.m in Sources */,
 				BAC7CC161BD41BF90031E905 /* TSCoreMotionListener.m in Sources */,
 				BAC7CC0D1BD41B870031E905 /* Events.swift in Sources */,
+				BADA62341BE3F8F3004E3012 /* Interaction.swift in Sources */,
 				BAC7CC071BD41B680031E905 /* Sound.swift in Sources */,
 				BAC7CC081BD41B680031E905 /* WaitForDoubleKnock.swift in Sources */,
 				BAC7CC061BD41B680031E905 /* Silence.swift in Sources */,

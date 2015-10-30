@@ -8,6 +8,7 @@
 
 import Foundation
 
+
 // Stage: a sub-experience comprised of moments
 class Stage: NSObject{
     var stageStarted = false
@@ -16,17 +17,46 @@ class Stage: NSObject{
     var currentMomentIdx = -1
     var title: String
     let eventManager = EventManager()
+    var interactionInsertionIndices: [Int]?
+    var interactionPool: [Interaction]?
     
     var currentMoment: Moment? {
         get { return moments[safe: currentMomentIdx] }
     }
     
     
-    init(moments: [Moment], title: String) {
+    init(moments: [Moment], title: String, interactionInsertionIndices:[Int]?=nil, interactionPool:[Interaction]?=nil) {
+        if interactionPool?.count < interactionInsertionIndices?.count {
+            fatalError("interactionInsertionPool must be larger than the number of interaction insertion indices, as none will be repeated")
+        }
+        
         self.moments = moments
         self.title = title
+        self.interactionPool = interactionPool
+        
+        // TODO go through interactionInsertionIndices, at each one insert a random interaction into the stage
+        // and then remove that interaction from the pool
+        // ExperienceManager needs to know which have been used as well in case the person wants the same options at multiple stages
+        if let insertionIndices = interactionInsertionIndices, _ = self.interactionPool  {
+            var numMomentsInserted = 0
+            for idx in insertionIndices {
+                let idxNew = idx + numMomentsInserted
+                let randomInteractionIdx = self.interactionPool!.randomItemIndex()
+                let randomInteraction = self.interactionPool!.removeAtIndex(randomInteractionIdx)
+                
+                // mark randomInteraction.title as used in experience
+                
+                self.moments = self.moments[0..<idxNew] + randomInteraction.moments + self.moments[idxNew..<self.moments.count]
+                numMomentsInserted += randomInteraction.moments.count
+                print(self.moments)
+            }
+        }
+        
+        
+        
+        
         super.init()
-        for moment in moments{
+        for moment in self.moments{
             moment.eventManager.listenTo("nextMoment", action: self.nextMoment)
             moment.eventManager.listenTo("startingSilence", action: self.startingSilence)
             moment.eventManager.listenTo("startingSound", action: self.startingSound)

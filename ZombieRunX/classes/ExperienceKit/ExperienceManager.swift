@@ -75,37 +75,17 @@ class ExperienceManager: NSObject {
     
     
     func setAVSessionForSilence() {
+        // don't try to play the system player if it's in simulator
+        #if (arch(i386) || arch(x86_64)) && os(iOS)
+        #else
         MPMusicPlayerController.systemMusicPlayer().play()
-//        do {
-//            try self.audioSession.setCategory(AVAudioSessionCategoryPlayback, withOptions: .MixWithOthers)
-//            try self.audioSession.setActive(false, withOptions: .NotifyOthersOnDeactivation)
-//            
-//        } catch let error as NSError {
-//            print(error.localizedDescription)
-//        }
+        #endif
     }
     
     func setAVSessionForSound() {
         if self.audioSession.otherAudioPlaying {
             MPMusicPlayerController.systemMusicPlayer().pause()
         }
-        
-        // idea is to dynamically change options (single audio or mixing)
-        // this method is better because it works with Spotify, Pandora, etc.
-        // unfortunately the AVAudioSession API seems to be bugged
-        // setActive (true) only works when phone isn't locked, even though code runs
-        // might be because it's asynchronous? messes up really bad on radio static sound
-//        do {
-//            // this first line is only way to get rid of the .MixWithOthers option
-//            try self.audioSession.setCategory(AVAudioSessionCategoryMultiRoute)
-//            try self.audioSession.setCategory(AVAudioSessionCategoryPlayback)
-//            try self.audioSession.setActive(true)
-//            
-//            print("  Setting to not mix with others")
-//        } catch let error as NSError {
-//            print(error.localizedDescription)
-//        }
-        
     }
     
     func start() {

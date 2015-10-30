@@ -11,7 +11,7 @@ import Foundation
 import AVFoundation
 import AudioToolbox
 
-class Moment: NSObject{
+class Moment: NSObject {
     
     /*
         Either give this more functionality or make it "abstract"?
@@ -25,6 +25,9 @@ class Moment: NSObject{
     var isPaused = true
     var title: String
     let eventManager = EventManager()
+    override var description:String {
+        return self.title
+    }
     
     init(interruptable:Bool=false, title: String){
         // WARNING: DO NOT INIT A Moment(), USE ONLY SUBCLASSES - need to find solution
@@ -51,12 +54,6 @@ class Moment: NSObject{
         
         self.eventManager.trigger("nextMoment")
     }
-    
-    /* add a toString method, not sure of how to do this,
-    but the method should return some info about the moment
-    that would be useful for data analysis. - scott
-    */
-    
 }
 
 
