@@ -76,35 +76,32 @@ class MissionViewController: UIViewController, MKMapViewDelegate, ExperienceMana
         // initialize stages for experience manager <-- will later be done in a separate file most likely - Scott
         
         // 11m23s of audio
-        let mission1Intro = Sound(fileName: "ZRS1M1v2")
-        let mission1Part02 = Sound(fileName: "M-E01-02")
-        let mission1Part03 = Sound(fileName: "M-E01-03")
+        let mission1Intro = Sound(fileNames: ["ZRS1M1v2"])
+        let mission1Part02 = Sound(fileNames: ["M-E01-02"])
+        let mission1Part03 = Sound(fileNames: ["M-E01-03"])
         
         // this is an interaction -- an array of moments?
         // but it should have a title as well to know if it's been used
         // could make it its own class to simplify for usage
         // but you still need to know how to add it to a stage with concatenation
-        let static1 = Sound(fileName: "radio_static")
-        let knockForBuildingsInstruction = Sound(fileName: "knock_for_building")
-        let static2 = Sound(fileName: "radio_static")
+
+        let knockForBuildingsInstruction = Sound(fileNames: ["radio_static", "knock_for_building", "radio_static"])
         let identifyBuildings = WaitForDoubleKnock(lengthInSeconds: 6.minutesToSeconds, title: "Identify Vantage Points", dataLabel: "tall_building")
-        let static3 = Sound(fileName: "radio_static")
-        let sendingScouts = Sound(fileName: "evaluating_vantage_points")
-        let static4 = Sound(fileName: "radio_static")
-        let knockForVantagePointsInteraction = Interaction(moments: [static1, knockForBuildingsInstruction, static2,
-            identifyBuildings, static3, sendingScouts, static4], title: "knockForVantagePointsInteraction")
+        let sendingScouts = Sound(fileNames: ["radio_static", "evaluating_vantage_points", "radio_static"])
+        let knockForVantagePointsInteraction = Interaction(moments: [knockForBuildingsInstruction,
+            identifyBuildings, sendingScouts], title: "knockForVantagePointsInteraction")
         
-        let mission1Part04 = Sound(fileName: "M-E01-04")
-        let mission1Part05 = Sound(fileName: "M-E01-05")
+        let mission1Part04 = Sound(fileNames: ["M-E01-04"])
+        let mission1Part05 = Sound(fileNames: ["M-E01-05"])
         
         // interaction
-        let stopAtTree = Sound(fileName: "find_cover")
+        let stopAtTree = Sound(fileNames: ["find_cover"])
         let stretchAtTree = DataMoment(lengthInSeconds: 90, title: "Get Cover and Stretch", dataLabel: "tree", dataTypes: [.Location])
-        let leaveCover = Sound(fileName: "leave_cover")
+        let leaveCover = Sound(fileNames: ["leave_cover"])
         let getCoverAtTreeInteraction = Interaction(moments: [stopAtTree, stretchAtTree, leaveCover], title: "getCoverAtTreeInteraction")
         
-        let mission1Part06 = Sound(fileName: "M-E01-06")
-        let mission2Preview = Sound(fileName: "NextTimeS1M3")
+        let mission1Part06 = Sound(fileNames: ["M-E01-06"])
+        let mission2Preview = Sound(fileNames: ["NextTimeS1M3"])
         
         let stage1 = Stage(moments: [mission1Intro, mission1Part02, Silence(lengthInSeconds: 6.minutesToSeconds)], title: "Stage One")
         let stage2 = Stage(moments: [mission1Part03, Silence(lengthInSeconds: 10)] + knockForVantagePointsInteraction.moments, title: "Stage Two")

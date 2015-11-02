@@ -11,14 +11,38 @@ import MediaPlayer
 
 class Sound: Moment, AVAudioPlayerDelegate{
     
-    var fileName:String
+    /// names of mp3 files, without extensions, that will be played in order
+    var fileNames:[String]
+    
     var player:AVAudioPlayer?
     var audioSession:AVAudioSession = AVAudioSession.sharedInstance()
+    var numFilesPlayed:Int = 0
     
-    init(fileName: String, interruptable:Bool=false, title:String?=nil){
-        self.fileName = fileName
+    init(fileNames: [String], interruptable:Bool=false, title:String?=nil){
+        self.fileNames = fileNames
+        super.init(interruptable:interruptable, title: title ?? fileNames.joinWithSeparator(">"))
         
-        let pathToAudio = NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource(fileName, ofType: "mp3")!)
+        setupNextAudioFile()
+    }
+    
+    func audioPlayerDidFinishPlaying(player: AVAudioPlayer, successfully flag: Bool) {
+        numFilesPlayed += 1
+        if numFilesPlayed == fileNames.count {
+            super.finished()
+        } else {
+            setupNextAudioFile()
+            self.player?.play()
+        }
+    }
+    
+    func audioPlayerDecodeErrorDidOccur(player: AVAudioPlayer, error: NSError?) {
+        if let error = error {
+            print(error.localizedDescription)
+        }
+    }
+    
+    func setupNextAudioFile() {
+        let pathToAudio = NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource(fileNames[numFilesPlayed], ofType: "mp3")!)
         
         do {
             self.player = try AVAudioPlayer(contentsOfURL: pathToAudio)
@@ -26,20 +50,9 @@ class Sound: Moment, AVAudioPlayerDelegate{
             print(error.localizedDescription)
             self.player = nil
         }
-        super.init(interruptable:interruptable, title: title ?? fileName)
         
         self.player?.delegate = self
         self.player?.prepareToPlay()
-    }
-    
-    func audioPlayerDidFinishPlaying(player: AVAudioPlayer, successfully flag: Bool) {
-        super.finished()
-    }
-    
-    func audioPlayerDecodeErrorDidOccur(player: AVAudioPlayer, error: NSError?) {
-        if let error = error {
-            print(error.localizedDescription)
-        }
     }
     
     
