@@ -9,9 +9,12 @@
 import Foundation
 import MediaPlayer
 
+/// A moment that does not play audio related to the experience. It expires after a specified length, during which the user's music will play.
 class Silence: Moment{
     
-    var lengthInSeconds: Float // seconds of silence
+    /// The length of the silence
+    var lengthInSeconds: Float
+    
     var timer = NSTimer()
     var startTime: NSDate = NSDate()
     var timeRemaining: NSTimeInterval

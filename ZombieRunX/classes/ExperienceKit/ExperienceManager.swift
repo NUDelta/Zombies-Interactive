@@ -13,11 +13,12 @@ import Parse
 import CoreMotion
 import MediaPlayer
 
-
+/// Protocol for suscribing to ExperienceManager events
 protocol ExperienceManagerDelegate {
     func didFinishExperience()
 }
 
+/// Contains all logic for playing the experience, saving data, etc. Implement ExperienceManagerDelegate protocol for more custom logic.
 class ExperienceManager: NSObject {
     
     /*
