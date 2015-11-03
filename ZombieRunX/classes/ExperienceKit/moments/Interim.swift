@@ -1,5 +1,5 @@
 //
-//  Silence.swift
+//  Interim.swift
 //  ZombieRunX
 //
 //  Created by Henry Spindell on 10/11/15.
@@ -9,10 +9,11 @@
 import Foundation
 import MediaPlayer
 
-/// A moment that does not play audio related to the experience. It expires after a specified length, during which the user's music will play.
-class Silence: Moment{
+/// A moment that does not play audio related to the experience. It expires after a specified length.
+/// The Interim class and all its subclasses play silent audio at all times in order to prevent the app from shutting down in the background.
+class Interim: Moment{
     
-    /// The length of the silence
+    /// The length of the interim period
     var lengthInSeconds: Float
     
     var timer = NSTimer()
@@ -21,10 +22,10 @@ class Silence: Moment{
     var player:AVAudioPlayer?
     var audioSession:AVAudioSession = AVAudioSession.sharedInstance()
     
-    init(lengthInSeconds:Float, interruptable:Bool=false, title:String?=nil){
+    init(title:String?=nil, lengthInSeconds:Float){
         self.lengthInSeconds = lengthInSeconds
         self.timeRemaining = NSTimeInterval(lengthInSeconds)
-        super.init(interruptable:interruptable, title: title ?? "Silence (\(lengthInSeconds) seconds)")
+        super.init(title: title ?? "Interim (\(lengthInSeconds) seconds)")
         
         let pathToAudio = NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource("silence", ofType: "mp3")!)
         
@@ -41,7 +42,7 @@ class Silence: Moment{
     
     override func start() {
         self.startTime = NSDate()
-        self.eventManager.trigger("startingSilence")
+        self.eventManager.trigger("startingInterim")
         super.start()
     }
     
@@ -49,7 +50,7 @@ class Silence: Moment{
         super.play()
         
         if timer.valid == false {
-            print("  \(timeRemaining) seconds remaining in silence")
+            print("  \(timeRemaining) seconds remaining in interim")
             timer = NSTimer.scheduledTimerWithTimeInterval(timeRemaining, target: self, selector: Selector("finished"), userInfo: nil, repeats: false)
             self.startTime = NSDate()
         }

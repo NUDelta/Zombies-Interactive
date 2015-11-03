@@ -11,7 +11,7 @@ import Foundation
 
 
 /// A moment that collects device data throughout its duration. Saves an associated DataEvent in Parse.
-class DataMoment: Silence {
+class DataMoment: Interim {
     /// The types of data that should be collected for the duration (i.e. Location, Motion)
     var dataTypes: [DataCollectionType]
     
@@ -29,6 +29,6 @@ class DataMoment: Silence {
         self.dataTypes = dataTypes
         self.dataLabel = dataLabel
         
-        super.init(lengthInSeconds: lengthInSeconds, interruptable: interruptable, title: title ?? "Find \(dataLabel)")
+        super.init(title: title ?? "Find \(dataLabel)", lengthInSeconds: lengthInSeconds)
     }
 }

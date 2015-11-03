@@ -86,7 +86,7 @@ class MissionViewController: UIViewController, MKMapViewDelegate, ExperienceMana
         // but you still need to know how to add it to a stage with concatenation
 
         let knockForBuildingsInstruction = Sound(fileNames: ["radio_static", "knock_for_building", "radio_static"])
-        let identifyBuildings = WaitForDoubleKnock(lengthInSeconds: 6.minutesToSeconds, title: "Identify Vantage Points", dataLabel: "tall_building")
+        let identifyBuildings = KnockListener(title: "Identify Vantage Points", lengthInSeconds: 6.minutesToSeconds, dataLabel: "tall_building", recordMultiple: true, requireDoubleKnock: true)
         let sendingScouts = Sound(fileNames: ["radio_static", "evaluating_vantage_points", "radio_static"])
         let knockForVantagePointsInteraction = Interaction(moments: [knockForBuildingsInstruction,
             identifyBuildings, sendingScouts], title: "knockForVantagePointsInteraction")
@@ -103,12 +103,12 @@ class MissionViewController: UIViewController, MKMapViewDelegate, ExperienceMana
         let mission1Part06 = Sound(fileNames: ["M-E01-06"])
         let mission2Preview = Sound(fileNames: ["NextTimeS1M3"])
         
-        let stage1 = Stage(moments: [mission1Intro, mission1Part02, Silence(lengthInSeconds: 6.minutesToSeconds)], title: "Stage One")
-        let stage2 = Stage(moments: [mission1Part03, Silence(lengthInSeconds: 10)] + knockForVantagePointsInteraction.moments, title: "Stage Two")
-        let stage3 = Stage(moments: [mission1Part04, Silence(lengthInSeconds: 6.minutesToSeconds)], title: "Stage Three")
-        let stage4 = Stage(moments: [mission1Part05, Silence(lengthInSeconds: 3.minutesToSeconds)] +
+        let stage1 = Stage(moments: [mission1Intro, mission1Part02, Interim(lengthInSeconds: 6.minutesToSeconds)], title: "Stage One")
+        let stage2 = Stage(moments: [mission1Part03, Interim(lengthInSeconds: 10)] + knockForVantagePointsInteraction.moments, title: "Stage Two")
+        let stage3 = Stage(moments: [mission1Part04, Interim(lengthInSeconds: 6.minutesToSeconds)], title: "Stage Three")
+        let stage4 = Stage(moments: [mission1Part05, Interim(lengthInSeconds: 3.minutesToSeconds)] +
                                     getCoverAtTreeInteraction.moments +
-                                    [Silence(lengthInSeconds: 3.minutesToSeconds)], title: "Stage Four")
+                                    [Interim(lengthInSeconds: 3.minutesToSeconds)], title: "Stage Four")
         let stage5 = Stage(moments: [mission1Part06, mission2Preview], title: "Stage Five")
 
         experienceManager = ExperienceManager(title: "S1M1: Jolly Alpha Five Niner", stages: [stage1, stage2, stage3, stage4, stage5])

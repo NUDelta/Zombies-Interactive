@@ -14,8 +14,12 @@ import CoreMotion
 import MediaPlayer
 
 /// Protocol for suscribing to ExperienceManager events
-protocol ExperienceManagerDelegate {
-    func didFinishExperience()
+@objc protocol ExperienceManagerDelegate {
+    optional func didBeginMoment()
+    optional func didFinishMoment()
+    optional func didBeginStage()
+    optional func didFinishStage()
+    optional func didFinishExperience()
 }
 
 /// Contains all logic for playing the experience, saving data, etc. Implement ExperienceManagerDelegate protocol for more custom logic.
@@ -31,7 +35,7 @@ class ExperienceManager: NSObject {
     var isPlaying = false
     var stages = [Stage]()
     var currentStageIdx = -1
-    var dataManager: DataManager?  // should be optional whether their experience will collect data
+    var dataManager: DataManager?  // should be optional whether their experience will collect data, especially location always
     var experienceStarted = false
     var experience: Experience?
     var delegate: ExperienceManagerDelegate?
@@ -54,7 +58,7 @@ class ExperienceManager: NSObject {
         
         for stage in stages{
             stage.eventManager.listenTo("stageFinished", action: self.nextStage)
-            stage.eventManager.listenTo("startingSilence", action: self.setAVSessionForSilence)
+            stage.eventManager.listenTo("startingInterim", action: self.setAVSessionForSilence)
             stage.eventManager.listenTo("startingSound", action: self.setAVSessionForSound)
             
             if let dataManager = dataManager {
@@ -74,7 +78,8 @@ class ExperienceManager: NSObject {
         }
     }
     
-    
+
+    // move some of this music logic to view controller, will likely be different for each app
     func setAVSessionForSilence() {
         // don't try to play the system player if it's in simulator
         #if (arch(i386) || arch(x86_64)) && os(iOS)
@@ -147,7 +152,7 @@ class ExperienceManager: NSObject {
             print(error.localizedDescription)
         }
         
-        delegate?.didFinishExperience()
+        delegate?.didFinishExperience?()
         
         let systemPlayer = MPMusicPlayerController.systemMusicPlayer()
         if let _ = systemPlayer.nowPlayingItem {

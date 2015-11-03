@@ -20,7 +20,7 @@ class Sound: Moment, AVAudioPlayerDelegate{
     
     init(fileNames: [String], interruptable:Bool=false, title:String?=nil){
         self.fileNames = fileNames
-        super.init(interruptable:interruptable, title: title ?? fileNames.joinWithSeparator(">"))
+        super.init(title: title ?? fileNames.joinWithSeparator(">"))
         
         setupNextAudioFile()
     }

@@ -8,6 +8,7 @@
 
 import Foundation
 
+/// Compositional class that logically groups a number of Moments together with a name
 class Interaction : NSObject {
     var moments: [Moment]
     var title: String

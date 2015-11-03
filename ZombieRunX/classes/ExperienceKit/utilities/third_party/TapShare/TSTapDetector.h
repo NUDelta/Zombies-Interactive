@@ -16,7 +16,7 @@
 
 @protocol TSTapDetectorDelegate <NSObject>
 
--(void)didDetectKnock:(TSTapDetector *)detector;
+-(void)didDetectKnock:(TSTapDetector *)detector isDouble:(BOOL)isDouble;
 
 @end
 

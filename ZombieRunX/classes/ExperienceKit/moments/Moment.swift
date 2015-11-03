@@ -21,7 +21,6 @@ class Moment: NSObject {
     */
     
     var momentStarted = false
-    var interruptable: Bool
     var isPaused = true
     var title: String
     let eventManager = EventManager()
@@ -29,9 +28,8 @@ class Moment: NSObject {
         return self.title
     }
     
-    init(interruptable:Bool=false, title: String){
+    init(title: String){
         // WARNING: DO NOT INIT A Moment(), USE ONLY SUBCLASSES - need to find solution
-        self.interruptable = interruptable
         self.title = title
     }
     
