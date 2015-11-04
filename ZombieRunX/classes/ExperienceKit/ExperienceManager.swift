@@ -62,8 +62,8 @@ class ExperienceManager: NSObject {
             stage.eventManager.listenTo("startingSound", action: self.setAVSessionForSound)
             
             if let dataManager = dataManager {
-                stage.eventManager.listenTo("dataMomentStarted", action: dataManager.startCollecting)
-                stage.eventManager.listenTo("dataMomentEnded", action: dataManager.stopCollecting)
+                stage.eventManager.listenTo("sensorCollectorStarted", action: dataManager.startCollecting)
+                stage.eventManager.listenTo("sensorCollectorEnded", action: dataManager.stopCollecting)
                 
                 stage.eventManager.listenTo("foundPointOfInterest", action: dataManager.recordPointOfInterest)
             }

@@ -9,6 +9,7 @@
 import Foundation
 import MediaPlayer
 
+/// A moment that just plays a one or more specified audio files and then finishes.
 class Sound: Moment, AVAudioPlayerDelegate{
     
     /// names of mp3 files, without extensions, that will be played in order

@@ -8,21 +8,20 @@
 
 import Foundation
 
-import AVFoundation
-import AudioToolbox
-
+/// A component that makes up part of a Stage; from an interaction with the user to collect data,
+/// to simple audio to advance the experience.
+/// DO NOT instantiate this class, instead, use one of its subclasses.
 class Moment: NSObject {
     
     /*
-        Either give this more functionality or make it "abstract"?
-        Why have a class where play() calls finished(), shouldn't let that be used
-
-
+        How do we prevent this from being initialized?
     */
+    
+    /// The title of the moment; its role or purpose within the experience
+    var title: String
     
     var momentStarted = false
     var isPaused = true
-    var title: String
     let eventManager = EventManager()
     override var description:String {
         return self.title

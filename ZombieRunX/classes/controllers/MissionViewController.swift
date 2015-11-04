@@ -96,7 +96,7 @@ class MissionViewController: UIViewController, MKMapViewDelegate, ExperienceMana
         
         // interaction
         let stopAtTree = Sound(fileNames: ["find_cover"])
-        let stretchAtTree = DataMoment(lengthInSeconds: 90, title: "Get Cover and Stretch", dataLabel: "tree", dataTypes: [.Location])
+        let stretchAtTree = SensorCollector(lengthInSeconds: 90, title: "Get Cover and Stretch", dataLabel: "tree", sensors: [.Location])
         let leaveCover = Sound(fileNames: ["leave_cover"])
         let getCoverAtTreeInteraction = Interaction(moments: [stopAtTree, stretchAtTree, leaveCover], title: "getCoverAtTreeInteraction")
         
@@ -132,6 +132,7 @@ class MissionViewController: UIViewController, MKMapViewDelegate, ExperienceMana
     }
     
     
+    // ExperienceManagerDelegate methods
     func didFinishExperience() {
         if let navController = self.navigationController {
             navController.popViewControllerAnimated(true)

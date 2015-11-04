@@ -9,7 +9,8 @@
 import Foundation
 import CoreMotion
 
-class KnockListener: Listener, TSTapDetectorDelegate{
+///
+class KnockListener: TriggerListener, TSTapDetectorDelegate {
     
     var tapDetector: TSTapDetector?
     var requireDoubleKnock: Bool
@@ -23,9 +24,24 @@ class KnockListener: Listener, TSTapDetectorDelegate{
     
     override func start() {
         self.tapDetector = TSTapDetector.init()
-        self.tapDetector?.listener.collectMotionInformationWithInterval(10)
         self.tapDetector?.delegate = self
         super.start()
+    }
+    
+    override func play() {
+        self.tapDetector?.listener.collectMotionInformationWithInterval(10)
+        super.play()
+    }
+    
+    override func pause() {
+        self.tapDetector?.listener.stopCollectingMotionInformation()
+        super.pause()
+    }
+    
+    override func finished() {
+        self.tapDetector?.listener.stopCollectingMotionInformation()
+        self.tapDetector?.recognizer.stopRecorder() // unnecessary?
+        super.finished()
     }
     
     // delegate method for tapDetector
@@ -42,13 +58,6 @@ class KnockListener: Listener, TSTapDetectorDelegate{
             print("  detected double knock")
             self.didReceiveTrigger()
         }
-    }
-    
-    
-    override func finished() {
-        self.tapDetector?.listener.stopCollectingMotionInformation()
-        self.tapDetector?.recognizer.stopRecorder() // unnecessary?
-        super.finished()
     }
     
 }

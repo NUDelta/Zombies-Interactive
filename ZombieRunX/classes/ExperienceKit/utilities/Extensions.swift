@@ -21,3 +21,12 @@ extension Array {
         return Int(arc4random_uniform(UInt32(self.count)))
     }
 }
+
+extension CollectionType where Generator.Element == Sensor {
+    var rawValues: [String] {
+        return self.map {
+            (let sensor) -> String in
+            return sensor.rawValue
+        }
+    }
+}

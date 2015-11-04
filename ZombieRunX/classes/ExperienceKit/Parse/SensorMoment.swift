@@ -1,17 +1,16 @@
 //
-//  DataEvent.swift
+//  SensorMoment.swift
 //  ZombieRunX
 //
-//  Created by Henry Spindell on 10/5/15.
-//  Copyright © 2015 Scott Cambo. All rights reserved.
+//  Created by Henry Spindell on 11/3/15.
+//  Copyright © 2015 Scott Cambo, Henry Spindell, & Delta Lab NU. All rights reserved.
 //
 
 import Foundation
 import Parse
 
 /// An index for a dataset from a SensorCollector moment.
-// TODO: rename to SensorMoment?
-class DataEvent : PFObject, PFSubclassing {
+class SensorMoment : PFObject, PFSubclassing {
     
     @NSManaged var experience: Experience?
     @NSManaged var startDate: NSDate?
@@ -30,7 +29,7 @@ class DataEvent : PFObject, PFSubclassing {
     }
     
     static func parseClassName() -> String {
-        return "DataEvent"
+        return "SensorMoment"
     }
     
 }

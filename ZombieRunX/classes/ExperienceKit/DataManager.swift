@@ -11,19 +11,11 @@ import CoreLocation
 import CoreMotion
 import Parse
 
-
-enum DataCollectionType: String {
+/// Sensor types that can be used to specify what kind of data to collect.
+/// Each type maps to a class in Parse, see DataEvent for more detail.
+enum Sensor: String {
     case Location = "location",
         Accel = "accel"
-}
-
-extension CollectionType where Generator.Element == DataCollectionType {
-    var rawValues: [String] {
-        return self.map {
-            (let dataType) -> String in
-            return dataType.rawValue
-        }
-    }
 }
 
 class DataManager : NSObject, CLLocationManagerDelegate {
@@ -66,21 +58,21 @@ class DataManager : NSObject, CLLocationManagerDelegate {
         self.dataEvent?.startDate = NSDate()
         
         if let infoDict = information as? [String : AnyObject],
-        dataTypes = infoDict["dataTypes"] as? [String],
+        sensors = infoDict["sensors"] as? [String],
         interaction = infoDict["interaction"] as? String,
         label = infoDict["label"] as? String {
-            self.dataEvent?.dataTypes = dataTypes
+            self.dataEvent?.sensors = sensors
             self.dataEvent?.interaction = interaction
             self.dataEvent?.label = label
             
-            for dataType in dataTypes {
-                switch dataType {
+            for sensor in sensors {
+                switch sensor {
                     // we may not actually check this one because location is always recording
                     //  in case we want to show them their path, etc.
-                case DataCollectionType.Location.rawValue:
-                    print("  recording \(dataType)")
-                case DataCollectionType.Accel.rawValue:
-                    print("  recording \(dataType)")
+                case Sensor.Location.rawValue:
+                    print("  recording \(sensor)")
+                case Sensor.Accel.rawValue:
+                    print("  recording \(sensor)")
                 default:
                     print("data type does not exist")
                 }

@@ -8,21 +8,28 @@
 
 import Foundation
 
+/// An enum that represents different gestures or actions that the user can take.
 enum Trigger: String {
     case Knock = "knock",
     DoubleKnock = "double_knock",
     Speech = "speech"
 }
 
-class Listener: Interim {
+/// A moment that listens for specified triggers (see Trigger) to imply some data point's existence.
+/// DO NOT instantiate this class, instead, use one of its subclasses.
+class TriggerListener: Interim {
     
-    // The thing whose presence/location is suggested upon trigger
+    /*
+        How do we prevent this from being initialized?
+    */
+    
+    /// The thing whose presence/location is suggested upon trigger
     var dataLabel: String
     
-    // The action or gesture
+    /// The action or gesture
     var trigger: Trigger
     
-    // Specifies whether or not the listener should listen for multiple triggers (true), or finish upon the first (false)
+    /// Specifies whether or not the listener should listen for multiple triggers (true), or finish upon the first (false)
     var recordMultiple: Bool
     
     init(title:String?=nil, lengthInSeconds: Float, dataLabel:String, trigger: Trigger, recordMultiple:Bool=false){
