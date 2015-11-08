@@ -111,11 +111,18 @@ class MissionViewController: UIViewController, MKMapViewDelegate, ExperienceMana
                                     [Interim(lengthInSeconds: 3.minutesToSeconds)], title: "Stage Four")
         let stage5 = Stage(moments: [mission1Part06, mission2Preview], title: "Stage Five")
 
-        experienceManager = ExperienceManager(title: "S1M1: Jolly Alpha Five Niner", stages: [stage1, stage2, stage3, stage4, stage5])
+//        experienceManager = ExperienceManager(title: "S1M1: Jolly Alpha Five Niner", stages: [stage1, stage2, stage3, stage4, stage5])
         
         // example of adding interactions chosen randomly into a designated part of the stage
 //        let stage1 = Stage(moments: [mission1Intro], title: "test", interactionInsertionIndices: [0,1], interactionPool: [knockForVantagePointsInteraction, getCoverAtTreeInteraction])
 //        experienceManager = ExperienceManager(title: "Testing Randomized Interactions", stages: [stage1])
+        
+        
+        // example of setting up the opportunity queue
+        let chickenShackLocation = CLLocationCoordinate2D(latitude: 42.052860617171845, longitude: -87.68747791910707)
+        let testRegion = CLCircularRegion(center: chickenShackLocation, radius: 20, identifier: "Chicken Shack")
+        experienceManager = ExperienceManager(title: "testing region based interactions", stages: [stage1, stage2, stage3, stage4, stage5],
+            regionBasedInteractions: [testRegion : getCoverAtTreeInteraction])
         
         
         experienceManager.delegate = self
@@ -123,7 +130,7 @@ class MissionViewController: UIViewController, MKMapViewDelegate, ExperienceMana
         // Set up the map view
         mapView.delegate = self
         mapView.mapType = MKMapType.Standard
-        mapView.userTrackingMode = MKUserTrackingMode.Follow // don't use heading for now, annoying to always calibrate compass
+        mapView.userTrackingMode = MKUserTrackingMode.Follow // don't use heading for now, annoying to always calibrate compass + UI unnecessary
         mapView.showsUserLocation = true
     }
 

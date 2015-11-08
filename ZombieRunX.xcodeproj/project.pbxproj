@@ -27,6 +27,7 @@
 		528E89E51B9DEE3400C5FC8E /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 528E89E41B9DEE3400C5FC8E /* Social.framework */; };
 		BA0736271BE9B69B00B9748A /* SpeechListener.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA0736261BE9B69B00B9748A /* SpeechListener.swift */; };
 		BA0736291BE9C12500B9748A /* SensorMoment.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA0736281BE9C12500B9748A /* SensorMoment.swift */; };
+		BA08C1261BEEF1F100540CEE /* OpportunityManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA08C1251BEEF1F100540CEE /* OpportunityManager.swift */; };
 		BA1545AF1BE194E8008590E4 /* evaluating_vantage_points.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = BA1545A91BE194E8008590E4 /* evaluating_vantage_points.mp3 */; };
 		BA1545B01BE194E8008590E4 /* knock_for_building.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = BA1545AA1BE194E8008590E4 /* knock_for_building.mp3 */; };
 		BA1545B11BE194E8008590E4 /* radio_static.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = BA1545AB1BE194E8008590E4 /* radio_static.mp3 */; };
@@ -112,6 +113,7 @@
 		528E89E41B9DEE3400C5FC8E /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
 		BA0736261BE9B69B00B9748A /* SpeechListener.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SpeechListener.swift; path = ExperienceKit/moments/SpeechListener.swift; sourceTree = "<group>"; };
 		BA0736281BE9C12500B9748A /* SensorMoment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SensorMoment.swift; path = ExperienceKit/Parse/SensorMoment.swift; sourceTree = "<group>"; };
+		BA08C1251BEEF1F100540CEE /* OpportunityManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = OpportunityManager.swift; path = ExperienceKit/OpportunityManager.swift; sourceTree = "<group>"; };
 		BA1545A91BE194E8008590E4 /* evaluating_vantage_points.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = evaluating_vantage_points.mp3; sourceTree = "<group>"; };
 		BA1545AA1BE194E8008590E4 /* knock_for_building.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = knock_for_building.mp3; sourceTree = "<group>"; };
 		BA1545AB1BE194E8008590E4 /* radio_static.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = radio_static.mp3; sourceTree = "<group>"; };
@@ -377,6 +379,7 @@
 				BAC7CBF01BD41B3A0031E905 /* DataManager.swift */,
 				BADA62331BE3F8F3004E3012 /* Interaction.swift */,
 				BAC7CBF11BD41B3A0031E905 /* ExperienceManager.swift */,
+				BA08C1251BEEF1F100540CEE /* OpportunityManager.swift */,
 				BAC7CBF21BD41B3A0031E905 /* Stage.swift */,
 			);
 			name = ExperienceKit;
@@ -654,6 +657,7 @@
 				BAC7CC0B1BD41B7C0031E905 /* Extensions.swift in Sources */,
 				BAC7CC1F1BD41C1B0031E905 /* SignUpLogInViewController.swift in Sources */,
 				BAC7CBF31BD41B3A0031E905 /* DataManager.swift in Sources */,
+				BA08C1261BEEF1F100540CEE /* OpportunityManager.swift in Sources */,
 				BAC7CBF41BD41B3A0031E905 /* ExperienceManager.swift in Sources */,
 				BAC7CBFB1BD41B4F0031E905 /* Experience.swift in Sources */,
 			);

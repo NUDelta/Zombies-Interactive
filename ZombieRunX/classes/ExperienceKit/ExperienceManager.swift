@@ -35,7 +35,10 @@ class ExperienceManager: NSObject {
     var isPlaying = false
     var stages = [Stage]()
     var currentStageIdx = -1
+    
     var dataManager: DataManager?  // should be optional whether their experience will collect data, especially location always
+    var opportunityManager: OpportunityManager?
+    
     var experienceStarted = false
     var experience: Experience?
     var delegate: ExperienceManagerDelegate?
@@ -48,11 +51,12 @@ class ExperienceManager: NSObject {
     }
     
     
-    init(title: String, stages: [Stage]) {
+    init(title: String, stages: [Stage], regionBasedInteractions: [CLRegion : Interaction]?=nil) {
         self.stages = stages
         self.experience = Experience()
         self.experience?.title = title
         self.dataManager = DataManager(experience: self.experience!)
+        self.opportunityManager = OpportunityManager(regionBasedInteractions: regionBasedInteractions ?? [:])
 
         super.init()
         
@@ -76,6 +80,7 @@ class ExperienceManager: NSObject {
         } catch let error as NSError {
             print(error.localizedDescription)
         }
+    
     }
     
 
@@ -102,13 +107,16 @@ class ExperienceManager: NSObject {
         experienceStarted = true
         
         dataManager?.startUpdatingLocation()
+        opportunityManager?.startMonitoringInteractionRegions()
         self.nextStage()
     }
     
     
     func play() {
-        dataManager?.startUpdatingLocation()
         isPlaying = true
+        
+        dataManager?.startUpdatingLocation()
+        opportunityManager?.startMonitoringInteractionRegions()
         
         if experienceStarted == false {
             self.start()
@@ -120,14 +128,14 @@ class ExperienceManager: NSObject {
     
     func pause() {
         dataManager?.stopUpdatingLocation()
-        isPlaying = false
+        opportunityManager?.stopMonitoringInteractionRegions()
         
+        isPlaying = false
         currentStage?.pause()
     }
     
     
     func nextStage() {
-        
         self.currentStageIdx++
 
         if self.currentStageIdx < stages.count {
@@ -141,6 +149,7 @@ class ExperienceManager: NSObject {
     func finishExperience() {
         print("\nFinished experience")
         dataManager?.stopUpdatingLocation()
+        opportunityManager?.stopMonitoringInteractionRegions()
         
         self.experience?.dateCompleted = NSDate()
         self.experience?.completed = true

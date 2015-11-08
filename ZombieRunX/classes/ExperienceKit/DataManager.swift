@@ -109,6 +109,7 @@ class DataManager : NSObject, CLLocationManagerDelegate {
     }
     
     
+    
     func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         let locationUpdate = LocationUpdate()
         locationUpdate.experience = self.experience
