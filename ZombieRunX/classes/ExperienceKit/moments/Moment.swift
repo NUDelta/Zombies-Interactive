@@ -29,6 +29,7 @@ class Moment: NSObject {
     
     init(title: String){
         // WARNING: DO NOT INIT A Moment(), USE ONLY SUBCLASSES - need to find solution
+        // check the caller
         self.title = title
     }
     
