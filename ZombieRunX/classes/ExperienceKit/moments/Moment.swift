@@ -20,6 +20,7 @@ class Moment: NSObject {
     /// The title of the moment; its role or purpose within the experience
     var title: String
     
+    var duration: Float = 0
     var momentStarted = false
     var isPaused = true
     let eventManager = EventManager()
@@ -36,6 +37,8 @@ class Moment: NSObject {
     func start(){
         print("  Starting moment: \(self.title)")
         momentStarted = true
+        // passed as string so it will conform to AnyObject
+        eventManager.trigger("startingMoment", information: ["duration": "\(duration)"])
         self.play()
     }
 

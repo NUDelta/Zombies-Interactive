@@ -53,15 +53,18 @@ class Stage: NSObject{
         }
         
         
-        
-        
         super.init()
         for moment in self.moments{
+            moment.eventManager.listenTo("startingMoment", action: self.startingMoment)
             moment.eventManager.listenTo("nextMoment", action: self.nextMoment)
             moment.eventManager.listenTo("startingInterim", action: self.startingInterim)
             moment.eventManager.listenTo("startingSound", action: self.startingSound)
             moment.eventManager.listenTo("foundPointOfInterest", action: self.recordPointOfInterest)
         }
+    }
+    
+    func startingMoment(information: Any?) {
+        self.eventManager.trigger("startingMoment", information: information)
     }
     
     func startingSound() {

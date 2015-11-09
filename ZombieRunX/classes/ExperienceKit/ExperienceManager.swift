@@ -23,7 +23,7 @@ import MediaPlayer
 }
 
 /// Contains all logic for playing the experience, saving data, etc. Implement ExperienceManagerDelegate protocol for more custom logic.
-class ExperienceManager: NSObject {
+class ExperienceManager: NSObject, OpportunityManagerDelegate {
     
     /*
     Questions
@@ -51,19 +51,24 @@ class ExperienceManager: NSObject {
     }
     
     
-    init(title: String, stages: [Stage], regionBasedInteractions: [CLRegion : Interaction]?=nil) {
+    init(title: String, stages: [Stage], regionBasedInteractions: [CLCircularRegion : Interaction]?=nil) {
         self.stages = stages
         self.experience = Experience()
         self.experience?.title = title
         self.dataManager = DataManager(experience: self.experience!)
         self.opportunityManager = OpportunityManager(regionBasedInteractions: regionBasedInteractions ?? [:])
-
+        
         super.init()
+        
+        opportunityManager?.delegate = self
         
         for stage in stages{
             stage.eventManager.listenTo("stageFinished", action: self.nextStage)
             stage.eventManager.listenTo("startingInterim", action: self.setAVSessionForSilence)
             stage.eventManager.listenTo("startingSound", action: self.setAVSessionForSound)
+            if let _ = opportunityManager {
+                stage.eventManager.listenTo("startingMoment", action: self.opportunityManager!.resetOpportunityTimer)
+            }
             
             if let dataManager = dataManager {
                 stage.eventManager.listenTo("sensorCollectorStarted", action: dataManager.startCollecting)
@@ -169,5 +174,13 @@ class ExperienceManager: NSObject {
         }
     }
 
+    
+    func attemptInsertInteraction() {
+        print("attempting to insert interaction dynamically")
+        if let om = opportunityManager {
+            print("Interaction queue: \(om.interactionQueue)")
+        }
+    }
+    
     
 }

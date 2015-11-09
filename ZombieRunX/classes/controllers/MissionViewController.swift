@@ -120,7 +120,7 @@ class MissionViewController: UIViewController, MKMapViewDelegate, ExperienceMana
         
         // example of setting up the opportunity queue
         let chickenShackLocation = CLLocationCoordinate2D(latitude: 42.052860617171845, longitude: -87.68747791910707)
-        let testRegion = CLCircularRegion(center: chickenShackLocation, radius: 20, identifier: "Chicken Shack")
+        let testRegion = CLCircularRegion(center: chickenShackLocation, radius: 2000, identifier: "Chicken Shack")
         experienceManager = ExperienceManager(title: "testing region based interactions", stages: [stage1, stage2, stage3, stage4, stage5],
             regionBasedInteractions: [testRegion : getCoverAtTreeInteraction])
         

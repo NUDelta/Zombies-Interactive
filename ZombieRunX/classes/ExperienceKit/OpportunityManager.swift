@@ -10,9 +10,10 @@ import Foundation
 import CoreLocation
 
 
-protocol OpportunityManagerDelegate {
+@objc protocol OpportunityManagerDelegate {
 
-    func didUpdateInteractionQueue()
+    optional func didUpdateInteractionQueue()
+    func attemptInsertInteraction()
 }
 
 class OpportunityManager: NSObject, CLLocationManagerDelegate {
@@ -24,17 +25,51 @@ class OpportunityManager: NSObject, CLLocationManagerDelegate {
     var interactionQueue: [Interaction] = []
     
     var locationManager = CLLocationManager()
-    var regionBasedInteractions = [CLRegion : Interaction]()
+    var regionBasedInteractions = [CLCircularRegion : Interaction]()
+    var delegate: OpportunityManagerDelegate?
+    var timer = NSTimer()
     
-    
-    init(regionBasedInteractions: [CLRegion : Interaction]) {
+    init(regionBasedInteractions: [CLCircularRegion : Interaction]) {
         self.regionBasedInteractions = regionBasedInteractions
     }
     
+    func resetOpportunityTimer(information: Any?) {
+        // FIXME this won't work as [String:AnyObject], even though it worked for datamanager?
+        if let infoDict = information as? [String : String],
+            durationString = infoDict["duration"],
+            duration = Float(durationString) {
+
+            if timer.valid {
+                timer.invalidate()
+            }
+            
+            let midDurationTime = duration/2 // TODO randomize this a bit
+            timer = NSTimer.scheduledTimerWithTimeInterval(NSTimeInterval(midDurationTime), target: self, selector: Selector("attemptInsertInteraction"), userInfo: nil, repeats: false)
+            print("will attempt to insert interaction in \(midDurationTime) seconds")
+        }
+    }
+    
+    func attemptInsertInteraction() {
+        if interactionQueue.count > 0 {
+            print("Attempting to insert an interaction")
+            delegate?.attemptInsertInteraction()
+        }
+    }
+    
+    func checkIfUserAlreadyInRegion(region: CLCircularRegion) {
+        if let loc = locationManager.location?.coordinate where region.containsCoordinate(loc) {
+            print("Already in \"\(region.identifier)\" region")
+            if let interaction = regionBasedInteractions[region] {
+                interactionQueue.append(interaction)
+            }
+        }
+    }
     
     func startMonitoringInteractionRegions() {
         for (region, _) in regionBasedInteractions {
+            print("starting to monitor region")
             locationManager.startMonitoringForRegion(region)
+            checkIfUserAlreadyInRegion(region)
         }
     }
     
@@ -47,13 +82,13 @@ class OpportunityManager: NSObject, CLLocationManagerDelegate {
     // LocationManager delegate methods
     func locationManager(manager: CLLocationManager, didEnterRegion region: CLRegion) {
         if region is CLCircularRegion {
-            print("Entered \"\(region.identifier)\"region")
+            print("Entered \"\(region.identifier)\" region")
         }
     }
     
     func locationManager(manager: CLLocationManager, didExitRegion region: CLRegion) {
         if region is CLCircularRegion {
-            print("Exited \"\(region.identifier)\"region")
+            print("Exited \"\(region.identifier)\" region")
         }
     }
     

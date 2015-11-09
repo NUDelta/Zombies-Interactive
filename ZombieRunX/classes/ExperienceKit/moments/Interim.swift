@@ -26,6 +26,7 @@ class Interim: Moment{
         self.lengthInSeconds = lengthInSeconds
         self.timeRemaining = NSTimeInterval(lengthInSeconds)
         super.init(title: title ?? "Interim (\(lengthInSeconds) seconds)")
+        self.duration = self.lengthInSeconds
         
         let pathToAudio = NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource("silence", ofType: "mp3")!)
         
@@ -72,4 +73,6 @@ class Interim: Moment{
         
         super.finished()
     }
+    
+    
 }

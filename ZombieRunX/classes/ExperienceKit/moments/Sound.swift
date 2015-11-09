@@ -22,8 +22,20 @@ class Sound: Moment, AVAudioPlayerDelegate{
     init(fileNames: [String], interruptable:Bool=false, title:String?=nil){
         self.fileNames = fileNames
         super.init(title: title ?? fileNames.joinWithSeparator(">"))
+        self.duration = calculateAudioDuration()
         
         setupNextAudioFile()
+    }
+    
+    func calculateAudioDuration() -> Float {
+        var totalDuration:Float = 0
+        
+        for path in fileNames {
+            let asset = AVURLAsset(URL: NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource(path, ofType: "mp3")!), options: nil)
+            let audioDuration = asset.duration
+            totalDuration += Float(CMTimeGetSeconds(audioDuration))
+        }
+        return totalDuration
     }
     
     func audioPlayerDidFinishPlaying(player: AVAudioPlayer, successfully flag: Bool) {
