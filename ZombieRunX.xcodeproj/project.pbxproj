@@ -54,8 +54,6 @@
 		BA4255FB1BD15E39004B6DF9 /* proximity-pip.wav in Resources */ = {isa = PBXBuildFile; fileRef = BA4255EF1BD15E39004B6DF9 /* proximity-pip.wav */; };
 		BA4255FC1BD15E39004B6DF9 /* zombie-horde-loop.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = BA4255F01BD15E39004B6DF9 /* zombie-horde-loop.mp3 */; };
 		BA4F036C1BD95B2600792A6D /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA4F036B1BD95B2600792A6D /* Constants.swift */; };
-		BA7BD4D31BF2CCCF0099671B /* do_a_backflip.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = BA7BD4D11BF2CCCF0099671B /* do_a_backflip.mp3 */; };
-		BA7BD4D41BF2CCCF0099671B /* yell_the_fword.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = BA7BD4D21BF2CCCF0099671B /* yell_the_fword.mp3 */; };
 		BA7D8A6D1BE838F80059A8A7 /* TriggerListener.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA7D8A6C1BE838F80059A8A7 /* TriggerListener.swift */; };
 		BA7D8A6F1BE842AE0059A8A7 /* KnockListener.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA7D8A6E1BE842AE0059A8A7 /* KnockListener.swift */; };
 		BA9890A31BDDB2D00037A615 /* silence.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = BA9890A21BDDB2D00037A615 /* silence.mp3 */; };
@@ -144,8 +142,6 @@
 		BA4255EF1BD15E39004B6DF9 /* proximity-pip.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "proximity-pip.wav"; sourceTree = "<group>"; };
 		BA4255F01BD15E39004B6DF9 /* zombie-horde-loop.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "zombie-horde-loop.mp3"; sourceTree = "<group>"; };
 		BA4F036B1BD95B2600792A6D /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
-		BA7BD4D11BF2CCCF0099671B /* do_a_backflip.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = do_a_backflip.mp3; sourceTree = "<group>"; };
-		BA7BD4D21BF2CCCF0099671B /* yell_the_fword.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = yell_the_fword.mp3; sourceTree = "<group>"; };
 		BA7D8A6C1BE838F80059A8A7 /* TriggerListener.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TriggerListener.swift; path = ExperienceKit/moments/TriggerListener.swift; sourceTree = "<group>"; };
 		BA7D8A6E1BE842AE0059A8A7 /* KnockListener.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = KnockListener.swift; path = ExperienceKit/moments/KnockListener.swift; sourceTree = "<group>"; };
 		BA9890A21BDDB2D00037A615 /* silence.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = silence.mp3; sourceTree = "<group>"; };
@@ -287,8 +283,6 @@
 		BA1545A71BE194E8008590E4 /* interactions */ = {
 			isa = PBXGroup;
 			children = (
-				BA7BD4D11BF2CCCF0099671B /* do_a_backflip.mp3 */,
-				BA7BD4D21BF2CCCF0099671B /* yell_the_fword.mp3 */,
 				BA1545A81BE194E8008590E4 /* building_knock */,
 				BA1545AB1BE194E8008590E4 /* radio_static.mp3 */,
 				BA1545AC1BE194E8008590E4 /* tree_stop */,
@@ -596,7 +590,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BA7BD4D31BF2CCCF0099671B /* do_a_backflip.mp3 in Resources */,
 				BA1545AF1BE194E8008590E4 /* evaluating_vantage_points.mp3 in Resources */,
 				BA34141C1BD8161E0099A710 /* ZRS1M1v2.mp3 in Resources */,
 				BA1545B11BE194E8008590E4 /* radio_static.mp3 in Resources */,
@@ -605,7 +598,6 @@
 				BA4255FC1BD15E39004B6DF9 /* zombie-horde-loop.mp3 in Resources */,
 				BA1F2FE51BBBB25700E22B7F /* AcousticModelSpanish.bundle in Resources */,
 				BA1545B21BE194E8008590E4 /* find_cover.mp3 in Resources */,
-				BA7BD4D41BF2CCCF0099671B /* yell_the_fword.mp3 in Resources */,
 				BA4255F81BD15E39004B6DF9 /* bleep-alert.m4a in Resources */,
 				BA3414171BD8161E0099A710 /* M-E01-03.mp3 in Resources */,
 				5241B5621BA0980000DBC6D3 /* ZombieRunX.xcdatamodeld in Resources */,

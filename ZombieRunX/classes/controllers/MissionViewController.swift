@@ -76,9 +76,9 @@ class MissionViewController: UIViewController, MKMapViewDelegate, ExperienceMana
         
         // 11m23s of audio
         let mission1Intro = Sound(fileNames: ["ZRS1M1v2"])
-//        let mission1Part02 = Sound(fileNames: ["M-E01-02"])
-//        let mission1Part03 = Sound(fileNames: ["M-E01-03"])
-//        
+        let mission1Part02 = Sound(fileNames: ["M-E01-02"])
+        let mission1Part03 = Sound(fileNames: ["M-E01-03"])
+//
 //        // this is an interaction -- an array of moments?
 //        // but it should have a title as well to know if it's been used
 //        // could make it its own class to simplify for usage
@@ -89,10 +89,10 @@ class MissionViewController: UIViewController, MKMapViewDelegate, ExperienceMana
         let sendingScouts = Sound(fileNames: ["radio_static", "evaluating_vantage_points", "radio_static"])
         //let knockForVantagePointsInteraction = Interaction(moments: [knockForBuildingsInstruction, identifyBuildings, sendingScouts], title: "Identify Vantage Points")
         let knockForBuildings = Interaction(moments: [knockForBuildingsInstruction], title: "Identify Vantage Points")
-//
-//        let mission1Part04 = Sound(fileNames: ["M-E01-04"])
-//        let mission1Part05 = Sound(fileNames: ["M-E01-05"])
-//        
+
+        let mission1Part04 = Sound(fileNames: ["M-E01-04"])
+        let mission1Part05 = Sound(fileNames: ["M-E01-05"])
+        
         // interaction
         let stopAtTree = Sound(fileNames: ["find_cover"])
         let stretchAtTree = SensorCollector(lengthInSeconds: 90, title: "Get Cover and Stretch", dataLabel: "tree", sensors: [.Location])
@@ -103,23 +103,21 @@ class MissionViewController: UIViewController, MKMapViewDelegate, ExperienceMana
         let doABackflip = Interaction(moments: [Sound(fileNames: ["do_a_backflip"])], title: "Do A Backflip!")
         let yellTheFWord = Interaction(moments: [Sound(fileNames: ["yell_the_fword"])], title: "Yell the F Word")
         
-//
-//        let mission1Part06 = Sound(fileNames: ["M-E01-06"])
-//        let mission2Preview = Sound(fileNames: ["NextTimeS1M3"])
-//        
-//        let stage1 = Stage(moments: [mission1Intro, mission1Part02, Interim(lengthInSeconds: 6.minutesToSeconds)], title: "Stage One")
-//        let stage2 = Stage(moments: [mission1Part03, Interim(lengthInSeconds: 10)] + knockForVantagePointsInteraction.moments, title: "Stage Two")
-//        let stage3 = Stage(moments: [mission1Part04, Interim(lengthInSeconds: 6.minutesToSeconds)], title: "Stage Three")
-//        let stage4 = Stage(moments: [mission1Part05, Interim(lengthInSeconds: 3.minutesToSeconds)] +
-//                                    getCoverAtTreeInteraction.moments +
-//                                    [Interim(lengthInSeconds: 3.minutesToSeconds)], title: "Stage Four")
-//        let stage5 = Stage(moments: [mission1Part06, mission2Preview], title: "Stage Five")
 
-//        experienceManager = ExperienceManager(title: "S1M1: Jolly Alpha Five Niner", stages: [stage1, stage2, stage3, stage4, stage5])
+        let mission1Part06 = Sound(fileNames: ["M-E01-06"])
+        let mission2Preview = Sound(fileNames: ["NextTimeS1M3"])
         
-        // example of adding interactions chosen randomly into a designated part of the stage
-//        let stage1 = Stage(moments: [mission1Intro], title: "test", interactionInsertionIndices: [0,1], interactionPool: [knockForVantagePointsInteraction, getCoverAtTreeInteraction])
-//        experienceManager = ExperienceManager(title: "Testing Randomized Interactions", stages: [stage1])
+        let stage1 = Stage(moments: [mission1Intro, mission1Part02, Interim(lengthInSeconds: 6.minutesToSeconds)], title: "Stage One")
+        let stage2 = Stage(moments: [mission1Part03, Interim(lengthInSeconds: 10)] + knockForBuildings.moments, title: "Stage Two")
+        let stage3 = Stage(moments: [mission1Part04, Interim(lengthInSeconds: 6.minutesToSeconds)], title: "Stage Three")
+        let stage4 = Stage(moments: [mission1Part05, Interim(lengthInSeconds: 3.minutesToSeconds)] +
+                                    getCoverAtTree.moments +
+                                    [Interim(lengthInSeconds: 3.minutesToSeconds)], title: "Stage Four")
+        let stage5 = Stage(moments: [mission1Part06, mission2Preview], title: "Stage Five")
+
+        experienceManager = ExperienceManager(title: "S1M1: Jolly Alpha Five Niner", stages: [stage1, stage2, stage3, stage4, stage5])
+        
+
         
         
         // RANDOM INTERACTION DEMO
@@ -133,17 +131,17 @@ class MissionViewController: UIViewController, MKMapViewDelegate, ExperienceMana
         
         
         // OPPORTUNITY QUEUE DEMO
-        let chickenShackLocation = CLLocationCoordinate2D(latitude: 42.052860617171845, longitude: -87.68747791910707)
-        let chickenShackRegion = CLCircularRegion(center: chickenShackLocation, radius: 2000, identifier: "Chicken Shack")
-        
-        let testStage = Stage(
-            moments: [Interim(isInterruptable: true, lengthInSeconds: 80), mission1Intro],
-            title: "Opportunity Queue Stage")
-
-        experienceManager = ExperienceManager(
-            title: "Sprint 3 Demo",
-            stages: [testStage],
-            regionBasedInteractions: [chickenShackRegion : getCoverAtTree])
+//        let chickenShackLocation = CLLocationCoordinate2D(latitude: 42.052860617171845, longitude: -87.68747791910707)
+//        let chickenShackRegion = CLCircularRegion(center: chickenShackLocation, radius: 2000, identifier: "Chicken Shack")
+//        
+//        let testStage = Stage(
+//            moments: [Interim(isInterruptable: true, lengthInSeconds: 80), mission1Intro],
+//            title: "Opportunity Queue Stage")
+//
+//        experienceManager = ExperienceManager(
+//            title: "Sprint 3 Demo",
+//            stages: [testStage],
+//            regionBasedInteractions: [chickenShackRegion : getCoverAtTree])
         
         
         experienceManager.delegate = self
