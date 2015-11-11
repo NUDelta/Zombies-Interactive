@@ -39,7 +39,7 @@ class DataManager : NSObject, CLLocationManagerDelegate {
     
     func recordPointOfInterest(information: Any?) {
         
-        print("  recording point of interest")
+        print("  Recording point of interest")
         let pointOfInterest = PointOfInterest()
         if let infoDict = information as? [String : String] {
             pointOfInterest.trigger = infoDict["trigger"]
@@ -74,7 +74,7 @@ class DataManager : NSObject, CLLocationManagerDelegate {
                 case Sensor.Accel.rawValue:
                     print("  recording \(sensor)")
                 default:
-                    print("data type does not exist")
+                    print("  data type does not exist")
                 }
             }
         }
@@ -86,7 +86,6 @@ class DataManager : NSObject, CLLocationManagerDelegate {
         self.dataEvent?.saveInBackground()
         // just stop everything (except location)
         // we could save info on what exactly we were recording if necessary
-        print("  no longer recording data")
     }
     
     
@@ -100,7 +99,6 @@ class DataManager : NSObject, CLLocationManagerDelegate {
     
     func startUpdatingLocation() {
         self.locationManager.startUpdatingLocation()
-        print("starting location updates")
     }
     
     

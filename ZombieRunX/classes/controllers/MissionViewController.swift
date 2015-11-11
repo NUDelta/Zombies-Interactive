@@ -50,12 +50,11 @@ class MissionViewController: UIViewController, MKMapViewDelegate, ExperienceMana
     
     @IBAction func controlButton(sender: AnyObject) {
         if let label = self.controlLabel.titleLabel?.text where label == "Start" {
-            print("\nExperience started")
             self.experienceManager.start()
             self.controlLabel.setTitle("Pause", forState: .Normal)
-            //#if DEBUG
+            #if DEBUG
             nextMomentButton.hidden = false
-            //#endif
+            #endif
         } else if self.controlLabel.titleLabel!.text == "Resume" {
             print("  Experience resumed")
             self.experienceManager.play()
@@ -77,39 +76,44 @@ class MissionViewController: UIViewController, MKMapViewDelegate, ExperienceMana
         
         // 11m23s of audio
         let mission1Intro = Sound(fileNames: ["ZRS1M1v2"])
-        let mission1Part02 = Sound(fileNames: ["M-E01-02"])
-        let mission1Part03 = Sound(fileNames: ["M-E01-03"])
-        
-        // this is an interaction -- an array of moments?
-        // but it should have a title as well to know if it's been used
-        // could make it its own class to simplify for usage
-        // but you still need to know how to add it to a stage with concatenation
-
+//        let mission1Part02 = Sound(fileNames: ["M-E01-02"])
+//        let mission1Part03 = Sound(fileNames: ["M-E01-03"])
+//        
+//        // this is an interaction -- an array of moments?
+//        // but it should have a title as well to know if it's been used
+//        // could make it its own class to simplify for usage
+//        // but you still need to know how to add it to a stage with concatenation
+//
         let knockForBuildingsInstruction = Sound(fileNames: ["radio_static", "knock_for_building", "radio_static"])
         let identifyBuildings = KnockListener(title: "Identify Vantage Points", lengthInSeconds: 6.minutesToSeconds, dataLabel: "tall_building", recordMultiple: true, requireDoubleKnock: true)
         let sendingScouts = Sound(fileNames: ["radio_static", "evaluating_vantage_points", "radio_static"])
-        let knockForVantagePointsInteraction = Interaction(moments: [knockForBuildingsInstruction,
-            identifyBuildings, sendingScouts], title: "knockForVantagePointsInteraction")
-        
-        let mission1Part04 = Sound(fileNames: ["M-E01-04"])
-        let mission1Part05 = Sound(fileNames: ["M-E01-05"])
-        
+        //let knockForVantagePointsInteraction = Interaction(moments: [knockForBuildingsInstruction, identifyBuildings, sendingScouts], title: "Identify Vantage Points")
+        let knockForBuildings = Interaction(moments: [knockForBuildingsInstruction], title: "Identify Vantage Points")
+//
+//        let mission1Part04 = Sound(fileNames: ["M-E01-04"])
+//        let mission1Part05 = Sound(fileNames: ["M-E01-05"])
+//        
         // interaction
         let stopAtTree = Sound(fileNames: ["find_cover"])
         let stretchAtTree = SensorCollector(lengthInSeconds: 90, title: "Get Cover and Stretch", dataLabel: "tree", sensors: [.Location])
         let leaveCover = Sound(fileNames: ["leave_cover"])
-        let getCoverAtTreeInteraction = Interaction(moments: [stopAtTree, stretchAtTree, leaveCover], title: "getCoverAtTreeInteraction")
+        //let getCoverAtTreeInteraction = Interaction(moments: [stopAtTree, stretchAtTree, leaveCover], title: "Cover At Tree")
+        let getCoverAtTree = Interaction(moments: [stopAtTree], title: "Cover At Tree")
         
-        let mission1Part06 = Sound(fileNames: ["M-E01-06"])
-        let mission2Preview = Sound(fileNames: ["NextTimeS1M3"])
+        let doABackflip = Interaction(moments: [Sound(fileNames: ["do_a_backflip"])], title: "Do A Backflip!")
+        let yellTheFWord = Interaction(moments: [Sound(fileNames: ["yell_the_fword"])], title: "Yell the F Word")
         
-        let stage1 = Stage(moments: [mission1Intro, mission1Part02, Interim(lengthInSeconds: 6.minutesToSeconds)], title: "Stage One")
-        let stage2 = Stage(moments: [mission1Part03, Interim(lengthInSeconds: 10)] + knockForVantagePointsInteraction.moments, title: "Stage Two")
-        let stage3 = Stage(moments: [mission1Part04, Interim(lengthInSeconds: 6.minutesToSeconds)], title: "Stage Three")
-        let stage4 = Stage(moments: [mission1Part05, Interim(lengthInSeconds: 3.minutesToSeconds)] +
-                                    getCoverAtTreeInteraction.moments +
-                                    [Interim(lengthInSeconds: 3.minutesToSeconds)], title: "Stage Four")
-        let stage5 = Stage(moments: [mission1Part06, mission2Preview], title: "Stage Five")
+//
+//        let mission1Part06 = Sound(fileNames: ["M-E01-06"])
+//        let mission2Preview = Sound(fileNames: ["NextTimeS1M3"])
+//        
+//        let stage1 = Stage(moments: [mission1Intro, mission1Part02, Interim(lengthInSeconds: 6.minutesToSeconds)], title: "Stage One")
+//        let stage2 = Stage(moments: [mission1Part03, Interim(lengthInSeconds: 10)] + knockForVantagePointsInteraction.moments, title: "Stage Two")
+//        let stage3 = Stage(moments: [mission1Part04, Interim(lengthInSeconds: 6.minutesToSeconds)], title: "Stage Three")
+//        let stage4 = Stage(moments: [mission1Part05, Interim(lengthInSeconds: 3.minutesToSeconds)] +
+//                                    getCoverAtTreeInteraction.moments +
+//                                    [Interim(lengthInSeconds: 3.minutesToSeconds)], title: "Stage Four")
+//        let stage5 = Stage(moments: [mission1Part06, mission2Preview], title: "Stage Five")
 
 //        experienceManager = ExperienceManager(title: "S1M1: Jolly Alpha Five Niner", stages: [stage1, stage2, stage3, stage4, stage5])
         
@@ -118,11 +122,28 @@ class MissionViewController: UIViewController, MKMapViewDelegate, ExperienceMana
 //        experienceManager = ExperienceManager(title: "Testing Randomized Interactions", stages: [stage1])
         
         
-        // example of setting up the opportunity queue
+        // RANDOM INTERACTION DEMO
+//        let testStage = Stage(
+//            moments: [Interim(lengthInSeconds: 10), mission1Intro, Interim(lengthInSeconds: 10)],
+//            title: "Random Interaction Stage",
+//            interactionInsertionIndices: [1,3],
+//            interactionPool: [getCoverAtTree, knockForBuildings, doABackflip, yellTheFWord])
+//        
+//        experienceManager = ExperienceManager(title: "Sprint 3 Demo", stages: [testStage])
+        
+        
+        // OPPORTUNITY QUEUE DEMO
         let chickenShackLocation = CLLocationCoordinate2D(latitude: 42.052860617171845, longitude: -87.68747791910707)
-        let testRegion = CLCircularRegion(center: chickenShackLocation, radius: 2000, identifier: "Chicken Shack")
-        experienceManager = ExperienceManager(title: "testing region based interactions", stages: [stage1, stage2, stage3, stage4, stage5],
-            regionBasedInteractions: [testRegion : getCoverAtTreeInteraction])
+        let chickenShackRegion = CLCircularRegion(center: chickenShackLocation, radius: 2000, identifier: "Chicken Shack")
+        
+        let testStage = Stage(
+            moments: [Interim(isInterruptable: true, lengthInSeconds: 80), mission1Intro],
+            title: "Opportunity Queue Stage")
+
+        experienceManager = ExperienceManager(
+            title: "Sprint 3 Demo",
+            stages: [testStage],
+            regionBasedInteractions: [chickenShackRegion : getCoverAtTree])
         
         
         experienceManager.delegate = self

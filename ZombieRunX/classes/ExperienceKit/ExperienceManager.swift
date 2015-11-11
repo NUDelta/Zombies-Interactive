@@ -29,7 +29,6 @@ class ExperienceManager: NSObject, OpportunityManagerDelegate {
     Questions
     
     Kit test-- can you make ZenWalk with this in 30 minutes?
-    When we interrupt to collect data, how do we insert the moment?
     */
     
     var isPlaying = false
@@ -42,6 +41,9 @@ class ExperienceManager: NSObject, OpportunityManagerDelegate {
     var experienceStarted = false
     var experience: Experience?
     var delegate: ExperienceManagerDelegate?
+    
+    /// Interactions that have been inserted either by the OpportunityManager or the random interaction allowance
+    var usedInteractions = [String]()
     
     var audioSession: AVAudioSession = AVAudioSession.sharedInstance()
 
@@ -66,6 +68,7 @@ class ExperienceManager: NSObject, OpportunityManagerDelegate {
             stage.eventManager.listenTo("stageFinished", action: self.nextStage)
             stage.eventManager.listenTo("startingInterim", action: self.setAVSessionForSilence)
             stage.eventManager.listenTo("startingSound", action: self.setAVSessionForSound)
+            stage.eventManager.listenTo("choseRandomInteraction", action: self.choseRandomInteractionHandler)
             if let _ = opportunityManager {
                 stage.eventManager.listenTo("startingMoment", action: self.opportunityManager!.resetOpportunityTimer)
             }
@@ -88,6 +91,14 @@ class ExperienceManager: NSObject, OpportunityManagerDelegate {
     
     }
     
+    // Handlers for events heard by the eventManager
+    func choseRandomInteractionHandler(information: Any?) {
+        if let infoDict = information as? [String:String],
+            interactionTitle = infoDict["interactionTitle"] {
+            usedInteractions.append(interactionTitle)
+            opportunityManager?.usedInteractions.append(interactionTitle) // usedInteractions is mirrored - is there a better solution?
+        }
+    }
 
     // move some of this music logic to view controller, will likely be different for each app
     func setAVSessionForSilence() {
@@ -105,15 +116,17 @@ class ExperienceManager: NSObject, OpportunityManagerDelegate {
     }
     
     func start() {
+        print("\nExperience started")
+        isPlaying = true
         self.experience?.user = PFUser.currentUser()
         self.experience?.dateStarted = NSDate()
         self.experience?.completed = false
         self.experience?.saveInBackground()
         experienceStarted = true
         
+        self.nextStage()
         dataManager?.startUpdatingLocation()
         opportunityManager?.startMonitoringInteractionRegions()
-        self.nextStage()
     }
     
     
@@ -176,9 +189,23 @@ class ExperienceManager: NSObject, OpportunityManagerDelegate {
 
     
     func attemptInsertInteraction() {
-        print("attempting to insert interaction dynamically")
-        if let om = opportunityManager {
-            print("Interaction queue: \(om.interactionQueue)")
+        if let om = opportunityManager where isPlaying {
+            if let stage = currentStage, moment = stage.currentMoment
+            where moment.isInterruptable {
+                if let interaction = om.interactionQueue.popLast() {
+                    stage.insertMomentsAtIndex(interaction.moments, idx: stage.currentMomentIdx + 1)
+                    usedInteractions.append(interaction.title)
+                    om.usedInteractions.append(interaction.title) // usedInteractions is mirrored - is there a better solution?
+                    moment.finished()
+                } else {
+                    print("-Error: attempted to pop interaction from empty queue\n------------------------------------------------------------")
+                }
+            } else {
+                print("-Current moment is not interruptable, cancelling attempt\n------------------------------------------------------------")
+            }
+            
+        } else {
+            print("-Experience is paused, cancelling attempt\n------------------------------------------------------------")
         }
     }
     

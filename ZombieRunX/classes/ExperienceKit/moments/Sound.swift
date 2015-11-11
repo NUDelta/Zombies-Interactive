@@ -19,9 +19,9 @@ class Sound: Moment, AVAudioPlayerDelegate{
     var audioSession:AVAudioSession = AVAudioSession.sharedInstance()
     var numFilesPlayed:Int = 0
     
-    init(fileNames: [String], interruptable:Bool=false, title:String?=nil){
+    init(fileNames: [String], isInterruptable:Bool=false, title:String?=nil){
         self.fileNames = fileNames
-        super.init(title: title ?? fileNames.joinWithSeparator(">"))
+        super.init(title: title ?? fileNames.joinWithSeparator(">"), isInterruptable: isInterruptable)
         self.duration = calculateAudioDuration()
         
         setupNextAudioFile()

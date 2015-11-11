@@ -11,6 +11,9 @@ import Foundation
 
 // Stage: a sub-experience comprised of moments
 class Stage: NSObject{
+    
+    // TODO: organize methods better
+    
     var stageStarted = false
     var isPlaying = false
     var moments:[Moment]
@@ -26,6 +29,7 @@ class Stage: NSObject{
     
     
     init(moments: [Moment], title: String, interactionInsertionIndices:[Int]?=nil, interactionPool:[Interaction]?=nil) {
+        
         if interactionPool?.count < interactionInsertionIndices?.count {
             fatalError("interactionInsertionPool must be larger than the number of interaction insertion indices, as none will be repeated")
         }
@@ -33,10 +37,21 @@ class Stage: NSObject{
         self.moments = moments
         self.title = title
         self.interactionPool = interactionPool
+        self.interactionInsertionIndices = interactionInsertionIndices
         
-        // TODO go through interactionInsertionIndices, at each one insert a random interaction into the stage
-        // and then remove that interaction from the pool
-        // ExperienceManager needs to know which have been used as well in case the person wants the same options at multiple stages
+        super.init()
+        
+        for moment in self.moments{
+            moment.eventManager.listenTo("startingMoment", action: self.startingMoment)
+            moment.eventManager.listenTo("nextMoment", action: self.nextMoment)
+            moment.eventManager.listenTo("startingInterim", action: self.startingInterim)
+            moment.eventManager.listenTo("startingSound", action: self.startingSound)
+            moment.eventManager.listenTo("foundPointOfInterest", action: self.recordPointOfInterest)
+        }
+    }
+    
+    func insertAnyRandomInteractions() {
+        // should this be done at runtime to allow for better "audibles"?
         if let insertionIndices = interactionInsertionIndices, _ = self.interactionPool  {
             var numMomentsInserted = 0
             for idx in insertionIndices {
@@ -44,22 +59,11 @@ class Stage: NSObject{
                 let randomInteractionIdx = self.interactionPool!.randomItemIndex()
                 let randomInteraction = self.interactionPool!.removeAtIndex(randomInteractionIdx)
                 
-                // mark randomInteraction.title as used in experience
-                
-                self.moments = self.moments[0..<idxNew] + randomInteraction.moments + self.moments[idxNew..<self.moments.count]
+                eventManager.trigger("choseRandomInteraction", information: ["interactionTitle": randomInteraction.title])
+                self.insertMomentsAtIndex(randomInteraction.moments, idx: idxNew)
                 numMomentsInserted += randomInteraction.moments.count
-                print(self.moments)
             }
-        }
-        
-        
-        super.init()
-        for moment in self.moments{
-            moment.eventManager.listenTo("startingMoment", action: self.startingMoment)
-            moment.eventManager.listenTo("nextMoment", action: self.nextMoment)
-            moment.eventManager.listenTo("startingInterim", action: self.startingInterim)
-            moment.eventManager.listenTo("startingSound", action: self.startingSound)
-            moment.eventManager.listenTo("foundPointOfInterest", action: self.recordPointOfInterest)
+            print(self.moments)
         }
     }
     
@@ -76,6 +80,7 @@ class Stage: NSObject{
     }
     
     func start() {
+        insertAnyRandomInteractions()
         print("\nStarting stage: " + self.title)
         stageStarted = true
         self.nextMoment()
@@ -121,5 +126,18 @@ class Stage: NSObject{
     func recordPointOfInterest(information: Any?) {
         self.eventManager.trigger("foundPointOfInterest", information: information)
     }
+    
+    func insertMomentsAtIndex(insertedMoments:[Moment], idx:Int) {
+        for moment in insertedMoments {
+            moment.eventManager.listenTo("startingMoment", action: self.startingMoment)
+            moment.eventManager.listenTo("nextMoment", action: self.nextMoment)
+            moment.eventManager.listenTo("startingInterim", action: self.startingInterim)
+            moment.eventManager.listenTo("startingSound", action: self.startingSound)
+            moment.eventManager.listenTo("foundPointOfInterest", action: self.recordPointOfInterest)
+        }
+        
+        self.moments = self.moments[0..<idx] + insertedMoments + self.moments[idx..<self.moments.count]
+    }
+    
 }
 

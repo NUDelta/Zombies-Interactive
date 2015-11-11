@@ -20,6 +20,10 @@ class Moment: NSObject {
     /// The title of the moment; its role or purpose within the experience
     var title: String
     
+    /// Whether or not this moment may be interrupted to dynamically insert 
+    /// an interaction from the OpportunityManager. Always defaults to false.
+    var isInterruptable: Bool
+    
     var duration: Float = 0
     var momentStarted = false
     var isPaused = true
@@ -28,10 +32,11 @@ class Moment: NSObject {
         return self.title
     }
     
-    init(title: String){
+    init(title: String, isInterruptable:Bool=false){
         // WARNING: DO NOT INIT A Moment(), USE ONLY SUBCLASSES - need to find solution
         // check the caller
         self.title = title
+        self.isInterruptable = isInterruptable
     }
     
     func start(){

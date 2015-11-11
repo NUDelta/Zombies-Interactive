@@ -32,11 +32,11 @@ class TriggerListener: Interim {
     /// Specifies whether or not the listener should listen for multiple triggers (true), or finish upon the first (false)
     var recordMultiple: Bool
     
-    init(title:String?=nil, lengthInSeconds: Float, dataLabel:String, trigger: Trigger, recordMultiple:Bool=false){
+    init(title:String?=nil, isInterruptable:Bool=false, lengthInSeconds: Float, dataLabel:String, trigger: Trigger, recordMultiple:Bool=false){
         self.dataLabel = dataLabel
         self.trigger = trigger
         self.recordMultiple = recordMultiple
-        super.init(title: title ?? "Listen for \(trigger.rawValue)", lengthInSeconds: lengthInSeconds)
+        super.init(title: title ?? "Listen for \(trigger.rawValue)", isInterruptable: isInterruptable, lengthInSeconds: lengthInSeconds)
     }
     
     override func start() {

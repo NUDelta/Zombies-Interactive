@@ -22,10 +22,10 @@ class Interim: Moment{
     var player:AVAudioPlayer?
     var audioSession:AVAudioSession = AVAudioSession.sharedInstance()
     
-    init(title:String?=nil, lengthInSeconds:Float){
+    init(title:String?=nil, isInterruptable:Bool=false, lengthInSeconds:Float){
         self.lengthInSeconds = lengthInSeconds
         self.timeRemaining = NSTimeInterval(lengthInSeconds)
-        super.init(title: title ?? "Interim (\(lengthInSeconds) seconds)")
+        super.init(title: title ?? "Interim (\(lengthInSeconds) seconds)", isInterruptable: isInterruptable)
         self.duration = self.lengthInSeconds
         
         let pathToAudio = NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource("silence", ofType: "mp3")!)
@@ -51,7 +51,7 @@ class Interim: Moment{
         super.play()
         
         if timer.valid == false {
-            print("  \(timeRemaining) seconds remaining in interim")
+            print("  \(round(timeRemaining)) seconds remaining in interim")
             timer = NSTimer.scheduledTimerWithTimeInterval(timeRemaining, target: self, selector: Selector("finished"), userInfo: nil, repeats: false)
             self.startTime = NSDate()
         }

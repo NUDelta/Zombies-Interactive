@@ -12,11 +12,11 @@ class SpeechListener: TriggerListener {
     
     var openEarsController : OpenEarsController
     
-    init(title:String?=nil, lengthInSeconds: Float, dataLabel:String, recordMultiple:Bool=false, wordsToRecognize: [String]){
+    init(title:String?=nil, isInterruptable:Bool=false, lengthInSeconds: Float, dataLabel:String, recordMultiple:Bool=false, wordsToRecognize: [String]){
         self.openEarsController = OpenEarsController(wordsToRecognize: wordsToRecognize)
         let trigger: Trigger = .Speech
         
-        super.init(title: title, lengthInSeconds: lengthInSeconds, dataLabel: dataLabel,
+        super.init(title: title, isInterruptable: isInterruptable, lengthInSeconds: lengthInSeconds, dataLabel: dataLabel,
             trigger: trigger, recordMultiple: recordMultiple)
     }
     

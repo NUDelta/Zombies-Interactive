@@ -15,10 +15,10 @@ class KnockListener: TriggerListener, TSTapDetectorDelegate {
     var tapDetector: TSTapDetector?
     var requireDoubleKnock: Bool
 
-    init(title:String?=nil, lengthInSeconds: Float, dataLabel:String, recordMultiple:Bool=false, requireDoubleKnock:Bool=false){
+    init(title:String?=nil, isInterruptable:Bool=false, lengthInSeconds: Float, dataLabel:String, recordMultiple:Bool=false, requireDoubleKnock:Bool=false){
         self.requireDoubleKnock = requireDoubleKnock
         let trigger: Trigger = self.requireDoubleKnock ? .DoubleKnock : .Knock
-        super.init(title: title, lengthInSeconds: lengthInSeconds, dataLabel: dataLabel,
+        super.init(title: title, isInterruptable: isInterruptable, lengthInSeconds: lengthInSeconds, dataLabel: dataLabel,
             trigger: trigger, recordMultiple: recordMultiple)
     }
     
