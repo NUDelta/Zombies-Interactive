@@ -74,38 +74,59 @@ class MissionViewController: UIViewController, MKMapViewDelegate, ExperienceMana
         
         // initialize stages for experience manager <-- will later be done in a separate file most likely - Scott
         
-        // 11m23s of audio
         let mission1Intro = Sound(fileNames: ["ZRS1M1v2"])
         let mission1Part02 = Sound(fileNames: ["M-E01-02"])
         let mission1Part03 = Sound(fileNames: ["M-E01-03"])
-//
-//        // this is an interaction -- an array of moments?
-//        // but it should have a title as well to know if it's been used
-//        // could make it its own class to simplify for usage
-//        // but you still need to know how to add it to a stage with concatenation
-//
-        let knockForBuildingsInstruction = Sound(fileNames: ["radio_static", "knock_for_building", "radio_static"])
-        let identifyBuildings = KnockListener(title: "Identify Vantage Points", lengthInSeconds: 6.minutesToSeconds, dataLabel: "tall_building", recordMultiple: true, requireDoubleKnock: true)
-        let sendingScouts = Sound(fileNames: ["radio_static", "evaluating_vantage_points", "radio_static"])
-        //let knockForVantagePointsInteraction = Interaction(moments: [knockForBuildingsInstruction, identifyBuildings, sendingScouts], title: "Identify Vantage Points")
-        let knockForBuildings = Interaction(moments: [knockForBuildingsInstruction], title: "Identify Vantage Points")
-
         let mission1Part04 = Sound(fileNames: ["M-E01-04"])
         let mission1Part05 = Sound(fileNames: ["M-E01-05"])
-        
-        // interaction
-        let stopAtTree = Sound(fileNames: ["find_cover"])
-        let stretchAtTree = SensorCollector(lengthInSeconds: 90, title: "Get Cover and Stretch", dataLabel: "tree", sensors: [.Location])
-        let leaveCover = Sound(fileNames: ["leave_cover"])
-        //let getCoverAtTreeInteraction = Interaction(moments: [stopAtTree, stretchAtTree, leaveCover], title: "Cover At Tree")
-        let getCoverAtTree = Interaction(moments: [stopAtTree], title: "Cover At Tree")
-        
-        let doABackflip = Interaction(moments: [Sound(fileNames: ["do_a_backflip"])], title: "Do A Backflip!")
-        let yellTheFWord = Interaction(moments: [Sound(fileNames: ["yell_the_fword"])], title: "Yell the F Word")
-        
-
         let mission1Part06 = Sound(fileNames: ["M-E01-06"])
         let mission2Preview = Sound(fileNames: ["NextTimeS1M3"])
+        
+        
+        // interactions
+        
+        // Identify vantage points
+        let identifyBuildings = KnockListener(title: "Identify Vantage Points",
+                                            lengthInSeconds: 6.minutesToSeconds,
+                                            dataLabel: "tall_building",
+                                            recordMultiple: true,
+                                            requireDoubleKnock: true)
+        let knockForBuildings = Interaction(moments: [Sound(fileNames: ["radio_static", "knock_for_building", "radio_static"]),
+                                                      identifyBuildings,
+                                                      Sound(fileNames: ["radio_static", "evaluating_vantage_points", "radio_static"])],
+                                            title: "Identify Vantage Points")
+        
+        // Find tree cover and stretch
+        let stretchAtTree = SensorCollector(lengthInSeconds: 90, title: "Get Cover and Stretch", dataLabel: "tree", sensors: [.Location])
+        let getCoverAtTree = Interaction(moments: [Sound(fileNames: ["find_cover"]),
+                                                   stretchAtTree,
+                                                   Sound(fileNames: ["leave_cover"])],
+                                         title: "Cover At Tree")
+        
+        // Take cover at known building
+        // TODO directional instruction tech
+        
+        // Avoid zombies by taking high route
+        // TODO set up altitude data saving
+        let monitorAltitude = SensorCollector(lengthInSeconds: 60, dataLabel: "hill", sensors: [.Location, .Altitude])
+        let takeHighRoute = Interaction(moments: [Sound(fileNames: ["radio_static", "high_route_1", "radio_static",]),
+                                                  monitorAltitude],
+                                        title: "Take High Route")
+        
+        // Go fast past the zombie hangout
+        let monitorSpeed = SensorCollector(lengthInSeconds: 20, dataLabel: "stop_sign", sensors: [.Location, .Speed])
+        let passZombieHotspot = Interaction(moments: [Sound(fileNames: ["radio_static", "stopsign_hotspot_1", "radio_static",]),
+                                                      monitorSpeed,
+                                                      Sound(fileNames: ["radio_static", "stopsign_hotspot_2", "radio_static",])],
+                                            title: "Pass Zombie Hotspot")
+        
+        // Find somewhere to sit and rest
+        let monitorStop = SensorCollector(lengthInSeconds: 20, dataLabel: "rest_place", sensors: [.Location, .Speed])
+        let findRestPlace = Interaction(moments: [Sound(fileNames: ["radio_static", "stopsign_hotspot_1", "radio_static",]),
+                                                  monitorStop,
+                                                  Sound(fileNames: ["radio_static", "stopsign_hotspot_2", "radio_static",])],
+                                        title: "Pass Zombie Hotspot")
+        
         
         let stage1 = Stage(moments: [mission1Intro, mission1Part02, Interim(lengthInSeconds: 6.minutesToSeconds)], title: "Stage One")
         let stage2 = Stage(moments: [mission1Part03, Interim(lengthInSeconds: 10)] + knockForBuildings.moments, title: "Stage Two")
@@ -121,6 +142,11 @@ class MissionViewController: UIViewController, MKMapViewDelegate, ExperienceMana
         
         
         // RANDOM INTERACTION DEMO
+        
+//        let doABackflip = Interaction(moments: [Sound(fileNames: ["do_a_backflip"])], title: "Do A Backflip!")
+//        let yellTheFWord = Interaction(moments: [Sound(fileNames: ["yell_the_fword"])], title: "Yell the F Word")
+//        
+
 //        let testStage = Stage(
 //            moments: [Interim(lengthInSeconds: 10), mission1Intro, Interim(lengthInSeconds: 10)],
 //            title: "Random Interaction Stage",

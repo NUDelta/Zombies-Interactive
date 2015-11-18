@@ -15,7 +15,9 @@ import Parse
 /// Each type maps to a class in Parse, see DataEvent for more detail.
 enum Sensor: String {
     case Location = "location",
-        Accel = "accel"
+        Accel = "accel",
+        Altitude = "altitude",
+        Speed = "speed"
 }
 
 class DataManager : NSObject, CLLocationManagerDelegate {
@@ -73,8 +75,12 @@ class DataManager : NSObject, CLLocationManagerDelegate {
                     print("  recording \(sensor)")
                 case Sensor.Accel.rawValue:
                     print("  recording \(sensor)")
+                case Sensor.Altitude.rawValue:
+                    print("  recording \(sensor)")
+                case Sensor.Speed.rawValue:
+                    print("  recording \(sensor)")
                 default:
-                    print("  data type does not exist")
+                    print("  data type \(sensor) does not exist")
                 }
             }
         }
