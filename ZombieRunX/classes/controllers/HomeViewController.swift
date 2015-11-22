@@ -21,8 +21,15 @@ class HomeViewController: UIViewController {
         super.didReceiveMemoryWarning()
     }
 
+
     @IBAction func missionsButton(sender: AnyObject) {
-        let vc:UIViewController = storyboard!.instantiateViewControllerWithIdentifier("MissionVC") 
-        self.navigationController!.pushViewController(vc, animated: true)
+        let vc:UIViewController = storyboard!.instantiateViewControllerWithIdentifier("MissionVC")
+        if let missionController = vc as? MissionViewController,
+        btn = sender as? UIButton,
+        missionTitle = btn.titleLabel?.text {
+            missionController.missionTitle = missionTitle
+            self.navigationController!.pushViewController(missionController, animated: true)
+        }
+        
     }
 }

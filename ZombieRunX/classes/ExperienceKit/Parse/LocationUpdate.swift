@@ -13,6 +13,8 @@ class LocationUpdate : PFObject, PFSubclassing {
     
     @NSManaged var experience: Experience?
     @NSManaged var location: PFGeoPoint?
+    @NSManaged var altitude: NSNumber?
+    @NSManaged var speed: NSNumber?
     
     override class func initialize() {
         struct Static {

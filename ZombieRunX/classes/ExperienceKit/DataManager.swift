@@ -90,18 +90,9 @@ class DataManager : NSObject, CLLocationManagerDelegate {
     func stopCollecting(){
         self.dataEvent?.endDate = NSDate()
         self.dataEvent?.saveInBackground()
-        // just stop everything (except location)
-        // we could save info on what exactly we were recording if necessary
     }
     
     
-    // Event data management (things that happens instantaneously)
-    
-    
-    // Motion data management
-    
-    
-    // Location data management
     
     func startUpdatingLocation() {
         self.locationManager.startUpdatingLocation()
@@ -118,6 +109,8 @@ class DataManager : NSObject, CLLocationManagerDelegate {
         let locationUpdate = LocationUpdate()
         locationUpdate.experience = self.experience
         locationUpdate.location = PFGeoPoint(location: locations[0])
+        locationUpdate.altitude = locations[0].altitude
+        locationUpdate.speed = locations[0].speed
         locationUpdate.saveInBackground()
     }
 

@@ -28,15 +28,24 @@
 		BA0736271BE9B69B00B9748A /* SpeechListener.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA0736261BE9B69B00B9748A /* SpeechListener.swift */; };
 		BA0736291BE9C12500B9748A /* SensorMoment.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA0736281BE9C12500B9748A /* SensorMoment.swift */; };
 		BA08C1261BEEF1F100540CEE /* OpportunityManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA08C1251BEEF1F100540CEE /* OpportunityManager.swift */; };
-		BA1545AF1BE194E8008590E4 /* evaluating_vantage_points.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = BA1545A91BE194E8008590E4 /* evaluating_vantage_points.mp3 */; };
-		BA1545B01BE194E8008590E4 /* knock_for_building.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = BA1545AA1BE194E8008590E4 /* knock_for_building.mp3 */; };
-		BA1545B11BE194E8008590E4 /* radio_static.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = BA1545AB1BE194E8008590E4 /* radio_static.mp3 */; };
-		BA1545B21BE194E8008590E4 /* find_cover.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = BA1545AD1BE194E8008590E4 /* find_cover.mp3 */; };
-		BA1545B31BE194E8008590E4 /* leave_cover.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = BA1545AE1BE194E8008590E4 /* leave_cover.mp3 */; };
 		BA1F2FDA1BBBB17C00E22B7F /* OpenEars.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BA1F2FD81BBBB17C00E22B7F /* OpenEars.framework */; };
 		BA1F2FDB1BBBB17C00E22B7F /* Slt.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BA1F2FD91BBBB17C00E22B7F /* Slt.framework */; };
 		BA1F2FE41BBBB25700E22B7F /* AcousticModelEnglish.bundle in Resources */ = {isa = PBXBuildFile; fileRef = BA1F2FE21BBBB25700E22B7F /* AcousticModelEnglish.bundle */; };
 		BA1F2FE51BBBB25700E22B7F /* AcousticModelSpanish.bundle in Resources */ = {isa = PBXBuildFile; fileRef = BA1F2FE31BBBB25700E22B7F /* AcousticModelSpanish.bundle */; };
+		BA26C43B1C017B7500A2D095 /* cover_at_building_1.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = BA26C4281C017B7500A2D095 /* cover_at_building_1.mp3 */; };
+		BA26C43C1C017B7500A2D095 /* cover_at_building_cancel.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = BA26C4291C017B7500A2D095 /* cover_at_building_cancel.mp3 */; };
+		BA26C43D1C017B7500A2D095 /* cover_at_building_found.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = BA26C42A1C017B7500A2D095 /* cover_at_building_found.mp3 */; };
+		BA26C43E1C017B7500A2D095 /* cover_at_building_found_2.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = BA26C42B1C017B7500A2D095 /* cover_at_building_found_2.mp3 */; };
+		BA26C43F1C017B7500A2D095 /* find_rest_1.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = BA26C42D1C017B7500A2D095 /* find_rest_1.mp3 */; };
+		BA26C4401C017B7500A2D095 /* find_rest_2.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = BA26C42E1C017B7500A2D095 /* find_rest_2.mp3 */; };
+		BA26C4411C017B7500A2D095 /* high_route_1.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = BA26C4301C017B7500A2D095 /* high_route_1.mp3 */; };
+		BA26C4421C017B7500A2D095 /* radio_static.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = BA26C4311C017B7500A2D095 /* radio_static.mp3 */; };
+		BA26C4431C017B7500A2D095 /* stopsign_hotspot_1.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = BA26C4331C017B7500A2D095 /* stopsign_hotspot_1.mp3 */; };
+		BA26C4441C017B7500A2D095 /* stopsign_hotspot_2.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = BA26C4341C017B7500A2D095 /* stopsign_hotspot_2.mp3 */; };
+		BA26C4451C017B7500A2D095 /* find_cover.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = BA26C4361C017B7500A2D095 /* find_cover.mp3 */; };
+		BA26C4461C017B7500A2D095 /* leave_cover.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = BA26C4371C017B7500A2D095 /* leave_cover.mp3 */; };
+		BA26C4471C017B7500A2D095 /* vantage_points_1.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = BA26C4391C017B7500A2D095 /* vantage_points_1.mp3 */; };
+		BA26C4481C017B7500A2D095 /* vantage_points_2.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = BA26C43A1C017B7500A2D095 /* vantage_points_2.mp3 */; };
 		BA2B43E11BBBAF23007C2483 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA2B43D91BBBAF23007C2483 /* AppDelegate.swift */; };
 		BA2B43EA1BBBB042007C2483 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BA2B43E91BBBB042007C2483 /* Parse.framework */; };
 		BA2B43EC1BBBB06D007C2483 /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BA2B43EB1BBBB06D007C2483 /* Bolts.framework */; };
@@ -114,17 +123,26 @@
 		BA0736261BE9B69B00B9748A /* SpeechListener.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SpeechListener.swift; path = ExperienceKit/moments/SpeechListener.swift; sourceTree = "<group>"; };
 		BA0736281BE9C12500B9748A /* SensorMoment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SensorMoment.swift; path = ExperienceKit/Parse/SensorMoment.swift; sourceTree = "<group>"; };
 		BA08C1251BEEF1F100540CEE /* OpportunityManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = OpportunityManager.swift; path = ExperienceKit/OpportunityManager.swift; sourceTree = "<group>"; };
-		BA1545A91BE194E8008590E4 /* evaluating_vantage_points.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = evaluating_vantage_points.mp3; sourceTree = "<group>"; };
-		BA1545AA1BE194E8008590E4 /* knock_for_building.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = knock_for_building.mp3; sourceTree = "<group>"; };
-		BA1545AB1BE194E8008590E4 /* radio_static.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = radio_static.mp3; sourceTree = "<group>"; };
-		BA1545AD1BE194E8008590E4 /* find_cover.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = find_cover.mp3; sourceTree = "<group>"; };
-		BA1545AE1BE194E8008590E4 /* leave_cover.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = leave_cover.mp3; sourceTree = "<group>"; };
 		BA1F2FD81BBBB17C00E22B7F /* OpenEars.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenEars.framework; path = ExperienceKit/Frameworks/OpenEars.framework; sourceTree = "<group>"; };
 		BA1F2FD91BBBB17C00E22B7F /* Slt.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Slt.framework; path = ExperienceKit/Frameworks/Slt.framework; sourceTree = "<group>"; };
 		BA1F2FE21BBBB25700E22B7F /* AcousticModelEnglish.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = AcousticModelEnglish.bundle; path = ExperienceKit/Bundles/AcousticModelEnglish.bundle; sourceTree = SOURCE_ROOT; };
 		BA1F2FE31BBBB25700E22B7F /* AcousticModelSpanish.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = AcousticModelSpanish.bundle; path = ExperienceKit/Bundles/AcousticModelSpanish.bundle; sourceTree = SOURCE_ROOT; };
 		BA1F2FE61BBBB26300E22B7F /* OpenEars.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenEars.framework; path = ExperienceKit/Frameworks/OpenEars.framework; sourceTree = SOURCE_ROOT; };
 		BA1F2FE71BBBB26300E22B7F /* Slt.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Slt.framework; path = ExperienceKit/Frameworks/Slt.framework; sourceTree = SOURCE_ROOT; };
+		BA26C4281C017B7500A2D095 /* cover_at_building_1.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = cover_at_building_1.mp3; sourceTree = "<group>"; };
+		BA26C4291C017B7500A2D095 /* cover_at_building_cancel.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = cover_at_building_cancel.mp3; sourceTree = "<group>"; };
+		BA26C42A1C017B7500A2D095 /* cover_at_building_found.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = cover_at_building_found.mp3; sourceTree = "<group>"; };
+		BA26C42B1C017B7500A2D095 /* cover_at_building_found_2.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = cover_at_building_found_2.mp3; sourceTree = "<group>"; };
+		BA26C42D1C017B7500A2D095 /* find_rest_1.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = find_rest_1.mp3; sourceTree = "<group>"; };
+		BA26C42E1C017B7500A2D095 /* find_rest_2.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = find_rest_2.mp3; sourceTree = "<group>"; };
+		BA26C4301C017B7500A2D095 /* high_route_1.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = high_route_1.mp3; sourceTree = "<group>"; };
+		BA26C4311C017B7500A2D095 /* radio_static.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = radio_static.mp3; sourceTree = "<group>"; };
+		BA26C4331C017B7500A2D095 /* stopsign_hotspot_1.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = stopsign_hotspot_1.mp3; sourceTree = "<group>"; };
+		BA26C4341C017B7500A2D095 /* stopsign_hotspot_2.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = stopsign_hotspot_2.mp3; sourceTree = "<group>"; };
+		BA26C4361C017B7500A2D095 /* find_cover.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = find_cover.mp3; sourceTree = "<group>"; };
+		BA26C4371C017B7500A2D095 /* leave_cover.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = leave_cover.mp3; sourceTree = "<group>"; };
+		BA26C4391C017B7500A2D095 /* vantage_points_1.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = vantage_points_1.mp3; sourceTree = "<group>"; };
+		BA26C43A1C017B7500A2D095 /* vantage_points_2.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = vantage_points_2.mp3; sourceTree = "<group>"; };
 		BA2B43D91BBBAF23007C2483 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BA2B43E91BBBB042007C2483 /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Parse.framework; path = Frameworks/Parse.framework; sourceTree = "<group>"; };
 		BA2B43EB1BBBB06D007C2483 /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Bolts.framework; path = Frameworks/Bolts.framework; sourceTree = "<group>"; };
@@ -280,34 +298,6 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		BA1545A71BE194E8008590E4 /* interactions */ = {
-			isa = PBXGroup;
-			children = (
-				BA1545A81BE194E8008590E4 /* building_knock */,
-				BA1545AB1BE194E8008590E4 /* radio_static.mp3 */,
-				BA1545AC1BE194E8008590E4 /* tree_stop */,
-			);
-			path = interactions;
-			sourceTree = "<group>";
-		};
-		BA1545A81BE194E8008590E4 /* building_knock */ = {
-			isa = PBXGroup;
-			children = (
-				BA1545A91BE194E8008590E4 /* evaluating_vantage_points.mp3 */,
-				BA1545AA1BE194E8008590E4 /* knock_for_building.mp3 */,
-			);
-			path = building_knock;
-			sourceTree = "<group>";
-		};
-		BA1545AC1BE194E8008590E4 /* tree_stop */ = {
-			isa = PBXGroup;
-			children = (
-				BA1545AD1BE194E8008590E4 /* find_cover.mp3 */,
-				BA1545AE1BE194E8008590E4 /* leave_cover.mp3 */,
-			);
-			path = tree_stop;
-			sourceTree = "<group>";
-		};
 		BA1F2FE01BBBB23F00E22B7F /* Bundles */ = {
 			isa = PBXGroup;
 			children = (
@@ -326,10 +316,79 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		BA26C4261C017B7500A2D095 /* interactions */ = {
+			isa = PBXGroup;
+			children = (
+				BA26C4271C017B7500A2D095 /* cover_at_building */,
+				BA26C42C1C017B7500A2D095 /* find_rest */,
+				BA26C42F1C017B7500A2D095 /* high_route */,
+				BA26C4311C017B7500A2D095 /* radio_static.mp3 */,
+				BA26C4321C017B7500A2D095 /* stopsign_hotspot */,
+				BA26C4351C017B7500A2D095 /* tree_stop */,
+				BA26C4381C017B7500A2D095 /* vantage_points */,
+			);
+			path = interactions;
+			sourceTree = "<group>";
+		};
+		BA26C4271C017B7500A2D095 /* cover_at_building */ = {
+			isa = PBXGroup;
+			children = (
+				BA26C4281C017B7500A2D095 /* cover_at_building_1.mp3 */,
+				BA26C4291C017B7500A2D095 /* cover_at_building_cancel.mp3 */,
+				BA26C42A1C017B7500A2D095 /* cover_at_building_found.mp3 */,
+				BA26C42B1C017B7500A2D095 /* cover_at_building_found_2.mp3 */,
+			);
+			path = cover_at_building;
+			sourceTree = "<group>";
+		};
+		BA26C42C1C017B7500A2D095 /* find_rest */ = {
+			isa = PBXGroup;
+			children = (
+				BA26C42D1C017B7500A2D095 /* find_rest_1.mp3 */,
+				BA26C42E1C017B7500A2D095 /* find_rest_2.mp3 */,
+			);
+			path = find_rest;
+			sourceTree = "<group>";
+		};
+		BA26C42F1C017B7500A2D095 /* high_route */ = {
+			isa = PBXGroup;
+			children = (
+				BA26C4301C017B7500A2D095 /* high_route_1.mp3 */,
+			);
+			path = high_route;
+			sourceTree = "<group>";
+		};
+		BA26C4321C017B7500A2D095 /* stopsign_hotspot */ = {
+			isa = PBXGroup;
+			children = (
+				BA26C4331C017B7500A2D095 /* stopsign_hotspot_1.mp3 */,
+				BA26C4341C017B7500A2D095 /* stopsign_hotspot_2.mp3 */,
+			);
+			path = stopsign_hotspot;
+			sourceTree = "<group>";
+		};
+		BA26C4351C017B7500A2D095 /* tree_stop */ = {
+			isa = PBXGroup;
+			children = (
+				BA26C4361C017B7500A2D095 /* find_cover.mp3 */,
+				BA26C4371C017B7500A2D095 /* leave_cover.mp3 */,
+			);
+			path = tree_stop;
+			sourceTree = "<group>";
+		};
+		BA26C4381C017B7500A2D095 /* vantage_points */ = {
+			isa = PBXGroup;
+			children = (
+				BA26C4391C017B7500A2D095 /* vantage_points_1.mp3 */,
+				BA26C43A1C017B7500A2D095 /* vantage_points_2.mp3 */,
+			);
+			path = vantage_points;
+			sourceTree = "<group>";
+		};
 		BA2B43C61BBBAEF8007C2483 /* Audio */ = {
 			isa = PBXGroup;
 			children = (
-				BA1545A71BE194E8008590E4 /* interactions */,
+				BA26C4261C017B7500A2D095 /* interactions */,
 				BA9890A21BDDB2D00037A615 /* silence.mp3 */,
 				BA32A8051BCB3DB700316136 /* Zombies, Run! */,
 			);
@@ -590,29 +649,38 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BA1545AF1BE194E8008590E4 /* evaluating_vantage_points.mp3 in Resources */,
+				BA26C4481C017B7500A2D095 /* vantage_points_2.mp3 in Resources */,
 				BA34141C1BD8161E0099A710 /* ZRS1M1v2.mp3 in Resources */,
-				BA1545B11BE194E8008590E4 /* radio_static.mp3 in Resources */,
-				BA1545B01BE194E8008590E4 /* knock_for_building.mp3 in Resources */,
 				BA1F2FE41BBBB25700E22B7F /* AcousticModelEnglish.bundle in Resources */,
 				BA4255FC1BD15E39004B6DF9 /* zombie-horde-loop.mp3 in Resources */,
 				BA1F2FE51BBBB25700E22B7F /* AcousticModelSpanish.bundle in Resources */,
-				BA1545B21BE194E8008590E4 /* find_cover.mp3 in Resources */,
+				BA26C4471C017B7500A2D095 /* vantage_points_1.mp3 in Resources */,
+				BA26C4421C017B7500A2D095 /* radio_static.mp3 in Resources */,
 				BA4255F81BD15E39004B6DF9 /* bleep-alert.m4a in Resources */,
 				BA3414171BD8161E0099A710 /* M-E01-03.mp3 in Resources */,
+				BA26C4401C017B7500A2D095 /* find_rest_2.mp3 in Resources */,
 				5241B5621BA0980000DBC6D3 /* ZombieRunX.xcdatamodeld in Resources */,
 				528C3A4D1B826734007C59FC /* Main.storyboard in Resources */,
 				BA9890A31BDDB2D00037A615 /* silence.mp3 in Resources */,
+				BA26C4441C017B7500A2D095 /* stopsign_hotspot_2.mp3 in Resources */,
+				BA26C43B1C017B7500A2D095 /* cover_at_building_1.mp3 in Resources */,
+				BA26C43D1C017B7500A2D095 /* cover_at_building_found.mp3 in Resources */,
+				BA26C43F1C017B7500A2D095 /* find_rest_1.mp3 in Resources */,
+				BA26C4451C017B7500A2D095 /* find_cover.mp3 in Resources */,
+				BA26C4461C017B7500A2D095 /* leave_cover.mp3 in Resources */,
 				BA3414181BD8161E0099A710 /* M-E01-04.mp3 in Resources */,
+				BA26C4431C017B7500A2D095 /* stopsign_hotspot_1.mp3 in Resources */,
 				BA4255F91BD15E39004B6DF9 /* countdown-beep.mp3 in Resources */,
 				BA4255FB1BD15E39004B6DF9 /* proximity-pip.wav in Resources */,
-				BA1545B31BE194E8008590E4 /* leave_cover.mp3 in Resources */,
 				528C3A521B826734007C59FC /* LaunchScreen.xib in Resources */,
 				BA34141B1BD8161E0099A710 /* NextTimeS1M3.mp3 in Resources */,
+				BA26C43C1C017B7500A2D095 /* cover_at_building_cancel.mp3 in Resources */,
 				BA3414161BD8161E0099A710 /* M-E01-02.mp3 in Resources */,
 				BA3414191BD8161E0099A710 /* M-E01-05.mp3 in Resources */,
 				BA36A8951BBBA79100E197E2 /* Images.xcassets in Resources */,
+				BA26C43E1C017B7500A2D095 /* cover_at_building_found_2.mp3 in Resources */,
 				BA4255FA1BD15E39004B6DF9 /* hardcore-lose.wav in Resources */,
+				BA26C4411C017B7500A2D095 /* high_route_1.mp3 in Resources */,
 				BA34141A1BD8161E0099A710 /* M-E01-06.mp3 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

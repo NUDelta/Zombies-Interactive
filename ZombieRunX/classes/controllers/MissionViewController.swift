@@ -16,6 +16,7 @@ import CoreLocation
 
 class MissionViewController: UIViewController, MKMapViewDelegate, ExperienceManagerDelegate {
 
+    var missionTitle: String = "Jolly Alpha Five Niner"
     var experienceManager:ExperienceManager!
     var musicPlayer:MPMusicPlayerController?
     
@@ -72,7 +73,6 @@ class MissionViewController: UIViewController, MKMapViewDelegate, ExperienceMana
         
         view.backgroundColor = UIColor(red:0.24, green:0.24, blue:0.25, alpha:1)
         
-        // initialize stages for experience manager <-- will later be done in a separate file most likely - Scott
         
         let mission1Intro = Sound(fileNames: ["ZRS1M1v2"])
         let mission1Part02 = Sound(fileNames: ["M-E01-02"])
@@ -83,7 +83,7 @@ class MissionViewController: UIViewController, MKMapViewDelegate, ExperienceMana
         let mission2Preview = Sound(fileNames: ["NextTimeS1M3"])
         
         
-        // interactions
+        // Interaction definitions
         
         // Identify vantage points
         let identifyBuildings = KnockListener(title: "Identify Vantage Points",
@@ -91,9 +91,9 @@ class MissionViewController: UIViewController, MKMapViewDelegate, ExperienceMana
                                             dataLabel: "tall_building",
                                             recordMultiple: true,
                                             requireDoubleKnock: true)
-        let knockForBuildings = Interaction(moments: [Sound(fileNames: ["radio_static", "knock_for_building", "radio_static"]),
+        let knockForBuildings = Interaction(moments: [Sound(fileNames: ["radio_static", "vantage_points_1", "radio_static"]),
                                                       identifyBuildings,
-                                                      Sound(fileNames: ["radio_static", "evaluating_vantage_points", "radio_static"])],
+                                                      Sound(fileNames: ["radio_static", "vantage_points_2", "radio_static"])],
                                             title: "Identify Vantage Points")
         
         // Find tree cover and stretch
@@ -122,22 +122,29 @@ class MissionViewController: UIViewController, MKMapViewDelegate, ExperienceMana
         
         // Find somewhere to sit and rest
         let monitorStop = SensorCollector(lengthInSeconds: 20, dataLabel: "rest_place", sensors: [.Location, .Speed])
-        let findRestPlace = Interaction(moments: [Sound(fileNames: ["radio_static", "stopsign_hotspot_1", "radio_static",]),
+        let findRestPlace = Interaction(moments: [Sound(fileNames: ["radio_static", "find_rest_1", "radio_static",]),
                                                   monitorStop,
-                                                  Sound(fileNames: ["radio_static", "stopsign_hotspot_2", "radio_static",])],
+                                                  Sound(fileNames: ["radio_static", "find_rest_2", "radio_static",])],
                                         title: "Pass Zombie Hotspot")
         
-        
-        let stage1 = Stage(moments: [mission1Intro, mission1Part02, Interim(lengthInSeconds: 6.minutesToSeconds)], title: "Stage One")
-        let stage2 = Stage(moments: [mission1Part03, Interim(lengthInSeconds: 10)] + knockForBuildings.moments, title: "Stage Two")
-        let stage3 = Stage(moments: [mission1Part04, Interim(lengthInSeconds: 6.minutesToSeconds)], title: "Stage Three")
-        let stage4 = Stage(moments: [mission1Part05, Interim(lengthInSeconds: 3.minutesToSeconds)] +
-                                    getCoverAtTree.moments +
-                                    [Interim(lengthInSeconds: 3.minutesToSeconds)], title: "Stage Four")
-        let stage5 = Stage(moments: [mission1Part06, mission2Preview], title: "Stage Five")
+        // Construct the experience based on selected mission
+        var stages: [Stage] = []
+        if missionTitle == "M1: Jolly Alpha Five Niner (38 min)" {
+            let stage1 = Stage(moments: [mission1Intro, mission1Part02, Interim(lengthInSeconds: 6.minutesToSeconds)], title: "Stage One")
+            let stage2 = Stage(moments: [mission1Part03, Interim(lengthInSeconds: 10)] + knockForBuildings.moments, title: "Stage Two")
+            let stage3 = Stage(moments: [mission1Part04, Interim(lengthInSeconds: 6.minutesToSeconds)], title: "Stage Three")
+            let stage4 = Stage(moments: [mission1Part05, Interim(lengthInSeconds: 3.minutesToSeconds)] +
+                getCoverAtTree.moments +
+                [Interim(lengthInSeconds: 3.minutesToSeconds)], title: "Stage Four")
+            let stage5 = Stage(moments: [mission1Part06, mission2Preview], title: "Stage Five")
+            stages = [stage1, stage2, stage3, stage4, stage5]
+            
+        } else {
+            let testStage = Stage(moments: takeHighRoute.moments + passZombieHotspot.moments + findRestPlace.moments, title: "Test Stage")
+            stages = [testStage]
+        }
 
-        experienceManager = ExperienceManager(title: "S1M1: Jolly Alpha Five Niner", stages: [stage1, stage2, stage3, stage4, stage5])
-        
+        experienceManager = ExperienceManager(title: missionTitle, stages: stages)
 
         
         
