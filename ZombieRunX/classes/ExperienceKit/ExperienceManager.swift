@@ -20,6 +20,7 @@ import MediaPlayer
     optional func didBeginStage()
     optional func didFinishStage()
     optional func didFinishExperience()
+    optional func didAddDestination(destLocation: CLLocationCoordinate2D, destinationName: String)
 }
 
 /// Contains all logic for playing the experience, saving data, etc. Implement ExperienceManagerDelegate protocol for more custom logic.
@@ -58,6 +59,7 @@ class ExperienceManager: NSObject, OpportunityManagerDelegate {
         self.experience = Experience()
         self.experience?.title = title
         self.dataManager = DataManager(experience: self.experience!)
+        print(regionBasedInteractions?.count)
         self.opportunityManager = OpportunityManager(regionBasedInteractions: regionBasedInteractions ?? [:])
         
         super.init()
@@ -192,10 +194,13 @@ class ExperienceManager: NSObject, OpportunityManagerDelegate {
         if let om = opportunityManager where isPlaying {
             if let stage = currentStage, moment = stage.currentMoment
             where moment.isInterruptable {
-                if let interaction = om.interactionQueue.popLast() {
-                    stage.insertMomentsAtIndex(interaction.moments, idx: stage.currentMomentIdx + 1)
-                    usedInteractions.append(interaction.title)
-                    om.usedInteractions.append(interaction.title) // usedInteractions is mirrored - is there a better solution?
+                if let regionInteractionPair = om.interactionQueue.popLast() {
+                    stage.insertMomentsAtIndex(regionInteractionPair.interaction.moments, idx: stage.currentMomentIdx + 1)
+                    usedInteractions.append(regionInteractionPair.interaction.title)
+                    om.usedInteractions.append(regionInteractionPair.interaction.title) // usedInteractions is mirrored - is there a better solution?
+                    
+                    delegate?.didAddDestination?(regionInteractionPair.region.center, destinationName: regionInteractionPair.region.identifier)
+                    
                     moment.finished()
                 } else {
                     print("-Error: attempted to pop interaction from empty queue\n------------------------------------------------------------")

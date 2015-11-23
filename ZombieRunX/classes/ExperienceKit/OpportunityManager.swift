@@ -16,6 +16,15 @@ import CoreLocation
     func attemptInsertInteraction()
 }
 
+struct RegionInteractionPair: Equatable {
+    var interaction:Interaction
+    var region: CLCircularRegion
+}
+
+func ==(lhs: RegionInteractionPair, rhs: RegionInteractionPair) -> Bool {
+    return lhs.interaction == rhs.interaction
+}
+
 class OpportunityManager: NSObject, CLLocationManagerDelegate {
     
     // TODO: don't add/play the same interactions twice (if you run in a circle, for example)
@@ -23,7 +32,7 @@ class OpportunityManager: NSObject, CLLocationManagerDelegate {
     //       how are things popped? the first thing that is in the queue?
     //       things are added to queue once in a region, and removed once the region is left
 
-    var interactionQueue: [Interaction] = []
+    var interactionQueue: [RegionInteractionPair] = []
     var usedInteractions: [String] = []
     
     var locationManager = CLLocationManager()
@@ -62,29 +71,33 @@ class OpportunityManager: NSObject, CLLocationManagerDelegate {
     }
     
     func checkIfUserAlreadyInRegion(region: CLCircularRegion) {
+        print(region)
         if let loc = locationManager.location?.coordinate where region.containsCoordinate(loc) {
             print("------------------------------------------------------------\nOPPORTUNITY MANAGER:\nCurrently in \"\(region.identifier)\" region")
             if let interaction = regionBasedInteractions[region] {
-                pushInteractionIfNew(interaction)
+                pushInteractionIfNew(RegionInteractionPair(interaction: interaction, region: region))
             }
             print("------------------------------------------------------------")
         }
     }
     
     
-    func pushInteractionIfNew(interaction: Interaction) {
-        if usedInteractions.contains(interaction.title) == false &&
-            interactionQueue.contains(interaction) == false {
-            interactionQueue.append(interaction)
-            print("Adding \(interaction.title) interaction to the queue")
+    func pushInteractionIfNew(regionInteractionPair: RegionInteractionPair) {
+        if usedInteractions.contains(regionInteractionPair.interaction.title) == false &&
+            interactionQueue.contains(regionInteractionPair) == false {
+            interactionQueue.append(regionInteractionPair)
+            print("Adding \(regionInteractionPair.interaction.title) interaction to the queue")
         } else {
-            print("Did not add \(interaction.title) to the queue because it was used or in the queue previously")
+            print("Did not add \(regionInteractionPair.interaction.title) to the queue because it was used or in the queue previously")
         }
     }
     
     // Another option: don't even monitor for regions we already did interactions for
     func startMonitoringInteractionRegions() {
+        print("starting bleg blag")
+        print(regionBasedInteractions.count)
         for (region, _) in regionBasedInteractions {
+            print("blahghe")
             locationManager.startMonitoringForRegion(region)
             checkIfUserAlreadyInRegion(region)
         }
@@ -101,7 +114,7 @@ class OpportunityManager: NSObject, CLLocationManagerDelegate {
         print("------------------------------------------------------------\nOPPORTUNITY MANAGER:\nEntered \"\(region.identifier)\" region")
         if let r = region as? CLCircularRegion,
             interaction = regionBasedInteractions[r] {
-            pushInteractionIfNew(interaction)
+            pushInteractionIfNew(RegionInteractionPair(interaction: interaction, region: r))
         }
         print("------------------------------------------------------------")
     }
@@ -109,7 +122,7 @@ class OpportunityManager: NSObject, CLLocationManagerDelegate {
     func locationManager(manager: CLLocationManager, didExitRegion region: CLRegion) {
         print("------------------------------------------------------------\nOPPORTUNITY MANAGER:\nExited \"\(region.identifier)\" region")
         if let r = region as? CLCircularRegion, interaction = regionBasedInteractions[r],
-        idx = interactionQueue.indexOf(interaction) {
+        idx = interactionQueue.indexOf(RegionInteractionPair(interaction: interaction, region: r)) {
             interactionQueue.removeAtIndex(idx)
             print("Removed \(interaction.title) interaction from queue")
         }

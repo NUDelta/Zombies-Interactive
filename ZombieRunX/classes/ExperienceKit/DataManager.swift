@@ -106,11 +106,12 @@ class DataManager : NSObject, CLLocationManagerDelegate {
     
     
     func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        let currentLocation = locations[0]
         let locationUpdate = LocationUpdate()
         locationUpdate.experience = self.experience
-        locationUpdate.location = PFGeoPoint(location: locations[0])
-        locationUpdate.altitude = locations[0].altitude
-        locationUpdate.speed = locations[0].speed
+        locationUpdate.location = PFGeoPoint(location: currentLocation)
+        locationUpdate.altitude = currentLocation.altitude
+        locationUpdate.speed = currentLocation.speed
         locationUpdate.saveInBackground()
     }
 

@@ -20,6 +20,8 @@ class MissionViewController: UIViewController, MKMapViewDelegate, ExperienceMana
     var experienceManager:ExperienceManager!
     var musicPlayer:MPMusicPlayerController?
     
+    var currentAnnotation: MKAnnotation?
+    
     @IBOutlet weak var controlLabel: UIButton!
     @IBOutlet weak var mapView: MKMapView!
     @IBOutlet weak var nextMomentButton: UIButton!
@@ -74,6 +76,15 @@ class MissionViewController: UIViewController, MKMapViewDelegate, ExperienceMana
         view.backgroundColor = UIColor(red:0.24, green:0.24, blue:0.25, alpha:1)
         
         
+        // regions -- should be pulled from Parse in the future, probably
+        // get only "verified" ones
+        let chickenShackLocation = CLLocationCoordinate2D(latitude: 42.052860617171845, longitude: -87.68747791910707)
+        let chickenShackRegion = CLCircularRegion(center: chickenShackLocation, radius: 300, identifier: "Chicken Shack")
+        
+        let techLocation = CLLocationCoordinate2D(latitude: 42.052860617171845, longitude: -87.68747791910707)
+        let techRegion = CLCircularRegion(center: techLocation, radius: 300, identifier: "Tech Institute")
+        
+        
         let mission1Intro = Sound(fileNames: ["ZRS1M1v2"])
         let mission1Part02 = Sound(fileNames: ["M-E01-02"])
         let mission1Part03 = Sound(fileNames: ["M-E01-03"])
@@ -105,6 +116,7 @@ class MissionViewController: UIViewController, MKMapViewDelegate, ExperienceMana
         
         // Take cover at known building
         // TODO directional instruction tech
+        // for now, just put a pin on their map
         
         // Avoid zombies by taking high route
         // TODO set up altitude data saving
@@ -140,11 +152,18 @@ class MissionViewController: UIViewController, MKMapViewDelegate, ExperienceMana
             stages = [stage1, stage2, stage3, stage4, stage5]
             
         } else {
-            let testStage = Stage(moments: takeHighRoute.moments + passZombieHotspot.moments + findRestPlace.moments, title: "Test Stage")
+//            let testStage = Stage(moments: takeHighRoute.moments + passZombieHotspot.moments + findRestPlace.moments, title: "Test Stage")
+//            stages = [testStage]
+            
+            // OPPORTUNITY QUEUE DEMO
+            let testStage = Stage(
+                moments: [Interim(isInterruptable: true, lengthInSeconds: 20), mission1Intro],
+                title: "Opportunity Queue Stage")
+            
             stages = [testStage]
         }
 
-        experienceManager = ExperienceManager(title: missionTitle, stages: stages)
+        experienceManager = ExperienceManager(title: missionTitle, stages: stages, regionBasedInteractions: [chickenShackRegion : getCoverAtTree])
 
         
         
@@ -163,18 +182,10 @@ class MissionViewController: UIViewController, MKMapViewDelegate, ExperienceMana
 //        experienceManager = ExperienceManager(title: "Sprint 3 Demo", stages: [testStage])
         
         
-        // OPPORTUNITY QUEUE DEMO
-//        let chickenShackLocation = CLLocationCoordinate2D(latitude: 42.052860617171845, longitude: -87.68747791910707)
-//        let chickenShackRegion = CLCircularRegion(center: chickenShackLocation, radius: 2000, identifier: "Chicken Shack")
-//        
-//        let testStage = Stage(
-//            moments: [Interim(isInterruptable: true, lengthInSeconds: 80), mission1Intro],
-//            title: "Opportunity Queue Stage")
-//
-//        experienceManager = ExperienceManager(
-//            title: "Sprint 3 Demo",
-//            stages: [testStage],
-//            regionBasedInteractions: [chickenShackRegion : getCoverAtTree])
+
+        
+        
+        
         
         
         experienceManager.delegate = self
@@ -182,7 +193,7 @@ class MissionViewController: UIViewController, MKMapViewDelegate, ExperienceMana
         // Set up the map view
         mapView.delegate = self
         mapView.mapType = MKMapType.Standard
-        mapView.userTrackingMode = MKUserTrackingMode.Follow // don't use heading for now, annoying to always calibrate compass + UI unnecessary
+        mapView.userTrackingMode = MKUserTrackingMode.FollowWithHeading // don't use heading for now, annoying to always calibrate compass + UI unnecessary
         mapView.showsUserLocation = true
     }
 
@@ -190,13 +201,42 @@ class MissionViewController: UIViewController, MKMapViewDelegate, ExperienceMana
         super.didReceiveMemoryWarning()
     }
     
+    func addObjectToMap(objectLocation: CLLocationCoordinate2D, annotationTitle: String) {
+        // for now, assume it won't be so far away that
+        // it isn't on the map (don't worry about changing view region)
+        
+        if let currentAnnotation = currentAnnotation {
+            mapView.removeAnnotation(currentAnnotation)
+        }
+        
+        let objectAnnotation = MKPointAnnotation()
+        objectAnnotation.coordinate = objectLocation
+        objectAnnotation.title = annotationTitle
+        mapView.addAnnotation(objectAnnotation)
+        mapView.selectAnnotation(objectAnnotation, animated: false)
+        
+        currentAnnotation = objectAnnotation
+    }
+    
     
     // ExperienceManagerDelegate methods
+    func didFinishStage() {
+        if let currentAnnotation = currentAnnotation {
+            mapView.removeAnnotation(currentAnnotation)
+        }
+    }
+    
     func didFinishExperience() {
         if let navController = self.navigationController {
             navController.popViewControllerAnimated(true)
         }
     }
+    
+    func didAddDestination(destLocation: CLLocationCoordinate2D, destinationName: String) {
+        addObjectToMap(destLocation, annotationTitle: destinationName)
+    }
+    
+
 
 }
 
