@@ -60,6 +60,14 @@ class Moment: NSObject {
         
         self.eventManager.trigger("nextMoment")
     }
+    
+    /// Sets the moment to a state where it can be reused again to save memory
+    // could be changed to prepare()
+    // currently can't be used because the event listener sets multiple triggers
+    // for the same object and it screws up everything
+//    func reset() {
+//    
+//    }
 }
 
 

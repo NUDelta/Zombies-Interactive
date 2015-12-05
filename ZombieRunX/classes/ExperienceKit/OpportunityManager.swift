@@ -71,7 +71,6 @@ class OpportunityManager: NSObject, CLLocationManagerDelegate {
     }
     
     func checkIfUserAlreadyInRegion(region: CLCircularRegion) {
-        print(region)
         if let loc = locationManager.location?.coordinate where region.containsCoordinate(loc) {
             print("------------------------------------------------------------\nOPPORTUNITY MANAGER:\nCurrently in \"\(region.identifier)\" region")
             if let interaction = regionBasedInteractions[region] {
@@ -94,10 +93,7 @@ class OpportunityManager: NSObject, CLLocationManagerDelegate {
     
     // Another option: don't even monitor for regions we already did interactions for
     func startMonitoringInteractionRegions() {
-        print("starting bleg blag")
-        print(regionBasedInteractions.count)
         for (region, _) in regionBasedInteractions {
-            print("blahghe")
             locationManager.startMonitoringForRegion(region)
             checkIfUserAlreadyInRegion(region)
         }

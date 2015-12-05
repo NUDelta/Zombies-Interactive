@@ -41,13 +41,18 @@ class Stage: NSObject{
         
         super.init()
         
-        for moment in self.moments{
+        for moment in self.moments {
             moment.eventManager.listenTo("startingMoment", action: self.startingMoment)
-            moment.eventManager.listenTo("nextMoment", action: self.nextMoment)
+            moment.eventManager.listenTo("nextMoment", action: self.test)
             moment.eventManager.listenTo("startingInterim", action: self.startingInterim)
             moment.eventManager.listenTo("startingSound", action: self.startingSound)
             moment.eventManager.listenTo("foundPointOfInterest", action: self.recordPointOfInterest)
         }
+    }
+    
+    func test() {
+        print("nextMoment triggered")
+        nextMoment()
     }
     
     func insertAnyRandomInteractions() {
@@ -63,7 +68,7 @@ class Stage: NSObject{
                 self.insertMomentsAtIndex(randomInteraction.moments, idx: idxNew)
                 numMomentsInserted += randomInteraction.moments.count
             }
-            print(self.moments)
+            print("\nInteractions inserted at random:\n\(self.moments)")
         }
     }
     

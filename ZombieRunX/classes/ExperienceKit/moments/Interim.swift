@@ -74,5 +74,10 @@ class Interim: Moment{
         super.finished()
     }
     
+//    override func reset() {
+//        super.reset()
+//        timeRemaining = NSTimeInterval(lengthInSeconds)
+//    }
+    
     
 }

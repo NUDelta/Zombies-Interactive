@@ -322,14 +322,6 @@
                                     <constraint firstAttribute="width" secondItem="hZL-90-NIV" secondAttribute="height" multiplier="5:2" id="urQ-QH-2qC"/>
                                 </constraints>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="M2" translatesAutoresizingMaskIntoConstraints="NO" id="qVI-cI-HJf">
-                                <rect key="frame" x="0.0" y="267" width="320" height="128"/>
-                                <animations/>
-                                <color key="backgroundColor" red="0.78282828280000005" green="0.23860895539999999" blue="0.13653605499999999" alpha="1" colorSpace="calibratedRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" secondItem="qVI-cI-HJf" secondAttribute="height" multiplier="5:2" id="Nhb-Vt-WzE"/>
-                                </constraints>
-                            </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1EZ-tM-fTU">
                                 <rect key="frame" x="0.0" y="192" width="320" height="75"/>
                                 <animations/>
@@ -341,7 +333,7 @@
                                     <constraint firstAttribute="height" constant="50" id="lfp-87-9kX"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <state key="normal" title="M1: Jolly Alpha Five Niner (38 min)">
+                                <state key="normal" title="Intel Team Missions (&lt;15min)">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -356,54 +348,21 @@
                                     <action selector="missionsButton:" destination="B83-kc-EzL" eventType="touchUpInside" id="f6z-Yu-flq"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iBG-NQ-I9f">
-                                <rect key="frame" x="0.0" y="395" width="320" height="75"/>
-                                <animations/>
-                                <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="35" id="7OE-Mg-a9Z"/>
-                                    <constraint firstAttribute="height" constant="50" id="8Bs-oZ-s0U"/>
-                                    <constraint firstAttribute="width" constant="320" id="Wav-pz-8pm"/>
-                                    <constraint firstAttribute="height" constant="75" id="WmN-SX-BZd"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <state key="normal" title="M2: Distraction (35 min)">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <variation key="default">
-                                    <mask key="constraints">
-                                        <exclude reference="Wav-pz-8pm"/>
-                                        <exclude reference="7OE-Mg-a9Z"/>
-                                        <exclude reference="8Bs-oZ-s0U"/>
-                                    </mask>
-                                </variation>
-                                <connections>
-                                    <action selector="missionsButton:" destination="B83-kc-EzL" eventType="touchUpInside" id="Zxw-9g-9Ea"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="trailingMargin" secondItem="qVI-cI-HJf" secondAttribute="trailing" constant="-16" id="5ZF-yV-FBy"/>
                             <constraint firstAttribute="centerX" secondItem="1EZ-tM-fTU" secondAttribute="centerX" id="7nM-Ro-xMi"/>
                             <constraint firstAttribute="leadingMargin" secondItem="1EZ-tM-fTU" secondAttribute="leading" constant="16" id="Fat-dL-Oat"/>
-                            <constraint firstItem="qVI-cI-HJf" firstAttribute="width" secondItem="qVI-cI-HJf" secondAttribute="height" multiplier="5:2" id="Ivj-iE-Pht"/>
                             <constraint firstItem="1EZ-tM-fTU" firstAttribute="top" secondItem="hZL-90-NIV" secondAttribute="bottom" id="M0s-Eg-HDt"/>
-                            <constraint firstItem="qVI-cI-HJf" firstAttribute="top" secondItem="1EZ-tM-fTU" secondAttribute="bottom" id="TYW-bn-AGy"/>
-                            <constraint firstItem="iBG-NQ-I9f" firstAttribute="leading" secondItem="3XY-Bi-L1F" secondAttribute="leadingMargin" constant="-16" id="Uts-oY-dv8"/>
                             <constraint firstAttribute="trailingMargin" secondItem="1EZ-tM-fTU" secondAttribute="trailing" constant="-16" id="VjS-JK-wOs"/>
                             <constraint firstItem="A2q-G4-38J" firstAttribute="top" secondItem="1EZ-tM-fTU" secondAttribute="bottom" constant="162" id="XER-e6-wma"/>
-                            <constraint firstItem="qVI-cI-HJf" firstAttribute="leading" secondItem="3XY-Bi-L1F" secondAttribute="leadingMargin" constant="-16" id="Z9V-we-npD"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="iBG-NQ-I9f" secondAttribute="trailing" constant="-16" id="c6P-KW-UJh"/>
                             <constraint firstAttribute="leadingMargin" secondItem="1EZ-tM-fTU" secondAttribute="leading" constant="-20" id="cSo-xY-Vxz"/>
                             <constraint firstAttribute="trailingMargin" secondItem="hZL-90-NIV" secondAttribute="trailing" constant="-16" id="fYv-nQ-vBh"/>
                             <constraint firstItem="1EZ-tM-fTU" firstAttribute="top" secondItem="VXi-vT-o9f" secondAttribute="bottom" constant="8" symbolic="YES" id="gU2-vm-Ubc"/>
                             <constraint firstAttribute="centerX" secondItem="1EZ-tM-fTU" secondAttribute="centerX" id="i85-MM-we6"/>
                             <constraint firstItem="hZL-90-NIV" firstAttribute="top" secondItem="VXi-vT-o9f" secondAttribute="bottom" id="mzk-1G-Zys"/>
                             <constraint firstItem="hZL-90-NIV" firstAttribute="leading" secondItem="3XY-Bi-L1F" secondAttribute="leadingMargin" constant="-16" id="o7B-oJ-qZt"/>
-                            <constraint firstItem="iBG-NQ-I9f" firstAttribute="top" secondItem="qVI-cI-HJf" secondAttribute="bottom" id="pi9-M8-Qmg"/>
                             <constraint firstAttribute="trailingMargin" secondItem="1EZ-tM-fTU" secondAttribute="trailing" constant="-20" id="rQb-XM-1cZ"/>
                         </constraints>
                         <variation key="default">
@@ -446,6 +405,5 @@
     </scenes>
     <resources>
         <image name="M1" width="640" height="370"/>
-        <image name="M2" width="640" height="370"/>
     </resources>
 </document>

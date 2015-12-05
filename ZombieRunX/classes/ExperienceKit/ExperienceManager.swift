@@ -26,12 +26,6 @@ import MediaPlayer
 /// Contains all logic for playing the experience, saving data, etc. Implement ExperienceManagerDelegate protocol for more custom logic.
 class ExperienceManager: NSObject, OpportunityManagerDelegate {
     
-    /*
-    Questions
-    
-    Kit test-- can you make ZenWalk with this in 30 minutes?
-    */
-    
     var isPlaying = false
     var stages = [Stage]()
     var currentStageIdx = -1
@@ -59,12 +53,13 @@ class ExperienceManager: NSObject, OpportunityManagerDelegate {
         self.experience = Experience()
         self.experience?.title = title
         self.dataManager = DataManager(experience: self.experience!)
-        print(regionBasedInteractions?.count)
-        self.opportunityManager = OpportunityManager(regionBasedInteractions: regionBasedInteractions ?? [:])
         
         super.init()
         
-        opportunityManager?.delegate = self
+        if let rbis = regionBasedInteractions where rbis.count > 0 {
+            self.opportunityManager = OpportunityManager(regionBasedInteractions: rbis)
+            opportunityManager?.delegate = self
+        }
         
         for stage in stages{
             stage.eventManager.listenTo("stageFinished", action: self.nextStage)
