@@ -71,6 +71,11 @@ class MissionViewController: UIViewController, MKMapViewDelegate, ExperienceMana
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.navigationItem.hidesBackButton = true
+        let newBackButton = UIBarButtonItem(title: "Back", style: UIBarButtonItemStyle.Plain, target: self, action: "back:")
+        self.navigationItem.leftBarButtonItem = newBackButton;
+        
+        
         CLLocationManager().requestAlwaysAuthorization()
         
         view.backgroundColor = UIColor(red:0.24, green:0.24, blue:0.25, alpha:1)
@@ -160,21 +165,24 @@ class MissionViewController: UIViewController, MKMapViewDelegate, ExperienceMana
             
         case "Intel Team Missions (<15min)":
             // Demos all of the interactions
-            //intel_missions_intro
             let allInteractions = [knockForBuildings, getCoverAtTree, takeHighRoute, passZombieHotspot, findRestPlace]
             
             var transitions = [Sound]()
             for var i=0; i < allInteractions.count; i++ {
                 transitions.append(Sound(fileNames: ["vignette_transition"]))
             }
-            let stage1 = Stage(moments: [Sound(fileNames: ["intel_team_intro"])] + transitions,
+            
+            let stage1 = Stage(moments: [Sound(fileNames: ["radio_static", "intel_team_intro", "radio_static"])] +
+                                        transitions +
+                                        [Sound(fileNames: ["radio_static", "intel_missions_end", "radio_static"])],
                                 title: "All Interaction Stage",
                                 interactionInsertionIndices: [2,3,4,5,6],
                                 interactionPool: allInteractions)
             
+            
             stages = [stage1]
             
-            //https://www.youtube.com/watch?v=vClu9SCxHhI&spfreload=10
+            // Zombie music: https://www.youtube.com/watch?v=vClu9SCxHhI&spfreload=10
             
             break
             
@@ -223,6 +231,31 @@ class MissionViewController: UIViewController, MKMapViewDelegate, ExperienceMana
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
+    
+    func back(sender: UIBarButtonItem) {
+        // Perform your custom actions
+        // ...
+        // Go back to the previous ViewController
+        if self.experienceManager.currentStageIdx > -1 {
+            let refreshAlert = UIAlertController(title: "Are you sure?", message: "This will end the mission. All progress will be lost.", preferredStyle: UIAlertControllerStyle.Alert)
+        
+            refreshAlert.addAction(UIAlertAction(title: "Exit Mission", style: .Destructive , handler: { (action: UIAlertAction!) in
+                self.experienceManager.pause()
+                self.navigationController?.popViewControllerAnimated(true)
+            }))
+        
+            refreshAlert.addAction(UIAlertAction(title: "Cancel", style: .Default, handler: { (action: UIAlertAction!) in
+                print("Handle Cancel Logic here")
+            }))
+    
+        
+            presentViewController(refreshAlert, animated: true, completion: nil)
+        } else {
+            self.navigationController?.popViewControllerAnimated(true)
+        }
+        
+    }
+    
     
     func addObjectToMap(objectLocation: CLLocationCoordinate2D, annotationTitle: String) {
         // for now, assume it won't be so far away that
