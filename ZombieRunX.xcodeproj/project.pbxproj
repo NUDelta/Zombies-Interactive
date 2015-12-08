@@ -90,6 +90,8 @@
 		BAC7CC1E1BD41C1B0031E905 /* MissionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAC7CC1A1BD41C1B0031E905 /* MissionViewController.swift */; };
 		BAC7CC1F1BD41C1B0031E905 /* SignUpLogInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAC7CC1B1BD41C1B0031E905 /* SignUpLogInViewController.swift */; };
 		BADA62341BE3F8F3004E3012 /* Interaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = BADA62331BE3F8F3004E3012 /* Interaction.swift */; };
+		BAE596701C175E8700541604 /* Requirement.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAE5966F1C175E8700541604 /* Requirement.swift */; };
+		BAE596721C17635D00541604 /* Context.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAE596711C17635D00541604 /* Context.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -195,6 +197,8 @@
 		BAC7CC1B1BD41C1B0031E905 /* SignUpLogInViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SignUpLogInViewController.swift; path = controllers/SignUpLogInViewController.swift; sourceTree = "<group>"; };
 		BAD2F21D1BC4A7F600576D03 /* OEBridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "OEBridging-Header.h"; sourceTree = "<group>"; };
 		BADA62331BE3F8F3004E3012 /* Interaction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Interaction.swift; sourceTree = "<group>"; };
+		BAE5966F1C175E8700541604 /* Requirement.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Requirement.swift; path = ExperienceKit/Requirement.swift; sourceTree = "<group>"; };
+		BAE596711C17635D00541604 /* Context.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Context.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -446,8 +450,10 @@
 				BAFED6341BC36D2800197581 /* Parse */,
 				BAC7CBF01BD41B3A0031E905 /* DataManager.swift */,
 				BADA62331BE3F8F3004E3012 /* Interaction.swift */,
+				BAE5966F1C175E8700541604 /* Requirement.swift */,
 				BAC7CBF11BD41B3A0031E905 /* ExperienceManager.swift */,
 				BA08C1251BEEF1F100540CEE /* OpportunityManager.swift */,
+				BAE596711C17635D00541604 /* Context.swift */,
 				BAC7CBF21BD41B3A0031E905 /* Stage.swift */,
 			);
 			name = ExperienceKit;
@@ -712,10 +718,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				BA4F036C1BD95B2600792A6D /* Constants.swift in Sources */,
+				BAE596701C175E8700541604 /* Requirement.swift in Sources */,
 				BAC7CBF51BD41B3A0031E905 /* Stage.swift in Sources */,
 				BA2B43E11BBBAF23007C2483 /* AppDelegate.swift in Sources */,
 				BAC7CC111BD41BEA0031E905 /* ARAudioRecognizer.m in Sources */,
 				BAC7CC161BD41BF90031E905 /* TSCoreMotionListener.m in Sources */,
+				BAE596721C17635D00541604 /* Context.swift in Sources */,
 				BAC7CC0D1BD41B870031E905 /* Events.swift in Sources */,
 				BADA62341BE3F8F3004E3012 /* Interaction.swift in Sources */,
 				BAC7CC071BD41B680031E905 /* Sound.swift in Sources */,

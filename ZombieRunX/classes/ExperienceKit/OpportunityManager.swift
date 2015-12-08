@@ -37,37 +37,57 @@ class OpportunityManager: NSObject, CLLocationManagerDelegate {
     
     var locationManager = CLLocationManager()
     var regionBasedInteractions = [CLCircularRegion : Interaction]()
-    var delegate: OpportunityManagerDelegate?
-    var timer = NSTimer()
+
     
     init(regionBasedInteractions: [CLCircularRegion : Interaction]) {
         self.regionBasedInteractions = regionBasedInteractions
     }
     
-    func resetOpportunityTimer(information: Any?) {
-        // FIXME this won't work as [String:AnyObject], even though it worked for datamanager?
-        if let infoDict = information as? [String : String],
-            durationString = infoDict["duration"],
-            duration = Float(durationString) {
-
-            if timer.valid {
-                timer.invalidate()
-            }
-            
-            let midDurationTime = duration/2 // TODO randomize this a bit
-            timer = NSTimer.scheduledTimerWithTimeInterval(NSTimeInterval(midDurationTime), target: self, selector: Selector("attemptInsertInteraction"), userInfo: nil, repeats: false)
-            print("------------------------------------------------------------\nOPPORTUNITY MANAGER:\nWill attempt to insert interaction in \(round(midDurationTime)) seconds\n------------------------------------------------------------")
-        }
-    }
-    
-    func attemptInsertInteraction() {
-        print("------------------------------------------------------------\nOPPORTUNITY MANAGER:\nAttempting to insert an interaction from queue...")
-        if interactionQueue.count > 0 {
-            delegate?.attemptInsertInteraction()
-        } else {
-            print("Interaction queue is empty, cancelling attempt\n------------------------------------------------------------")
+    func contextSatisfiesInteraction(context: Context, interaction: Interaction) -> Bool {
+        if interaction.requirement == nil {
+            return false
         }
         
+        // could change this to "score" the interaction by how close it is to satisfying
+        // somewhere else a function could map all interaction scores from this fn into a priority queue
+        let req = interaction.requirement!
+        
+        for condition in req.conditions {
+            switch condition {
+            case .MaxSpeed:
+                if let maxSpeed = req.speed
+                where context.speed > maxSpeed {
+                    return false
+                }
+                break
+            case .MinSpeed:
+                if let minSpeed = req.speed
+                where context.speed < minSpeed {
+                    return false
+                }
+                break
+            case .TimeElapsed:
+                if let necessaryTimeElapsed = req.time
+                where context.timeElapsed < necessaryTimeElapsed {
+                    return false
+                }
+                break
+                
+            case .TimeRemaining:
+                if let timeNeeded = req.time
+                where context.timeRemaining < timeNeeded {
+                    return false
+                }
+                break
+            default:
+                // some condition is not handled, we'll assume it isn't met
+                return false
+                break
+            
+            }
+        }
+        
+        return true
     }
     
     func checkIfUserAlreadyInRegion(region: CLCircularRegion) {
@@ -80,7 +100,7 @@ class OpportunityManager: NSObject, CLLocationManagerDelegate {
         }
     }
     
-    
+    // TODO should be generalized to any interaction, not just region-based ones
     func pushInteractionIfNew(regionInteractionPair: RegionInteractionPair) {
         if usedInteractions.contains(regionInteractionPair.interaction.title) == false &&
             interactionQueue.contains(regionInteractionPair) == false {
@@ -132,4 +152,39 @@ class OpportunityManager: NSObject, CLLocationManagerDelegate {
     func locationManager(manager: CLLocationManager, didFailWithError error: NSError) {
         print("------------------------------------------------------------\nCLLocationManager failed with the following error: \(error)\n------------------------------------------------------------")
     }
+    
+    
+    
+    
+    // TODO THIS LOGIC BELOW SHOULD BE ELSEWHERE
+    
+    var delegate: OpportunityManagerDelegate?
+    var timer = NSTimer()
+    
+    func resetOpportunityTimer(information: Any?) {
+        // FIXME this won't work as [String:AnyObject], even though it worked for datamanager?
+        if let infoDict = information as? [String : String],
+            durationString = infoDict["duration"],
+            duration = Float(durationString) {
+                
+                if timer.valid {
+                    timer.invalidate()
+                }
+                
+                let midDurationTime = duration/2 // TODO randomize this a bit
+                timer = NSTimer.scheduledTimerWithTimeInterval(NSTimeInterval(midDurationTime), target: self, selector: Selector("attemptInsertInteraction"), userInfo: nil, repeats: false)
+                print("------------------------------------------------------------\nOPPORTUNITY MANAGER:\nWill attempt to insert interaction in \(round(midDurationTime)) seconds\n------------------------------------------------------------")
+        }
+    }
+    
+    func attemptInsertInteraction() {
+        print("------------------------------------------------------------\nOPPORTUNITY MANAGER:\nAttempting to insert an interaction from queue...")
+        if interactionQueue.count > 0 {
+            delegate?.attemptInsertInteraction()
+        } else {
+            print("Interaction queue is empty, cancelling attempt\n------------------------------------------------------------")
+        }
+        
+    }
+    
 }

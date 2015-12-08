@@ -13,9 +13,11 @@ import Foundation
 class Interaction : NSObject {
     var moments: [Moment]
     var title: String
+    var requirement: Requirement?
     
-    init(moments: [Moment], title: String) {
+    init(moments: [Moment], title: String, requirement: Requirement?=nil) {
         self.moments = moments
         self.title = title
+        self.requirement = requirement
     }
 }
