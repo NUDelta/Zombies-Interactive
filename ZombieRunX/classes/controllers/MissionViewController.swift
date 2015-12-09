@@ -207,33 +207,6 @@ class MissionViewController: UIViewController, MKMapViewDelegate, ExperienceMana
         }
         
         
-
-
-
-         // OPPORTUNITY QUEUE DEMO
-//        let testStage = Stage(
-//                moments: [Interim(isInterruptable: true, lengthInSeconds: 20), mission1Intro],
-//                title: "Opportunity Queue Stage")
-//
-//            stages = [testStage]
-        
-        //        experienceManager = ExperienceManager(title: missionTitle, stages: stages, regionBasedInteractions: [chickenShackRegion : getCoverAtTree, techRegion : getCoverAtTree])
-        
-        // RANDOM INTERACTION DEMO
-        
-//        let doABackflip = Interaction(moments: [Sound(fileNames: ["do_a_backflip"])], title: "Do A Backflip!")
-//        let yellTheFWord = Interaction(moments: [Sound(fileNames: ["yell_the_fword"])], title: "Yell the F Word")
-//        
-
-//        let testStage = Stage(
-//            moments: [Interim(lengthInSeconds: 10), mission1Intro, Interim(lengthInSeconds: 10)],
-//            title: "Random Interaction Stage",
-//            interactionInsertionIndices: [1,3],
-//            interactionPool: [getCoverAtTree, knockForBuildings, doABackflip, yellTheFWord])
-//        
-//        experienceManager = ExperienceManager(title: "Sprint 3 Demo", stages: [testStage])
-        
-        
         experienceManager.delegate = self
 
         // Set up the map view
