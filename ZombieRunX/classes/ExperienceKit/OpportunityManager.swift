@@ -42,8 +42,7 @@ class OpportunityManager: NSObject {
             return nil
         }
         
-        interactionPool.removeAtIndex(highestScoreIdx)
-        return interactionPool[highestScoreIdx]
+        return interactionPool.removeAtIndex(highestScoreIdx)
     }
     
     
@@ -71,14 +70,14 @@ class OpportunityManager: NSObject {
                 }
                 break
             case .TimeElapsed:
-                if let necessaryTimeElapsed = req.time
+                if let necessaryTimeElapsed = req.seconds
                 where context.timeElapsed < necessaryTimeElapsed {
                     return 0
                 }
                 break
                 
             case .TimeRemaining:
-                if let timeNeeded = req.time
+                if let timeNeeded = req.seconds
                 where context.timeRemaining < timeNeeded {
                     return 0
                 }

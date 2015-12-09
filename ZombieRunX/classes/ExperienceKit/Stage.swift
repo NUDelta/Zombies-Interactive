@@ -42,18 +42,14 @@ class Stage: NSObject{
         super.init()
         
         for moment in self.moments {
-            moment.eventManager.listenTo("startingMoment", action: self.startingMoment)
-            moment.eventManager.listenTo("nextMoment", action: self.test)
-            moment.eventManager.listenTo("startingInterim", action: self.startingInterim)
-            moment.eventManager.listenTo("startingSound", action: self.startingSound)
-            moment.eventManager.listenTo("foundPointOfInterest", action: self.recordPointOfInterest)
+            moment.eventManager.listenTo("startingMoment", action: startingMoment)
+            moment.eventManager.listenTo("nextMoment", action: nextMoment)
+            moment.eventManager.listenTo("startingInterim", action: startingInterim)
+            moment.eventManager.listenTo("startingSound", action: startingSound)
+            moment.eventManager.listenTo("foundPointOfInterest", action: recordPointOfInterest)
         }
     }
     
-    func test() {
-        print("nextMoment triggered")
-        nextMoment()
-    }
     
     func insertAnyRandomInteractions() {
         // should this be done at runtime to allow for better "audibles"?
@@ -80,8 +76,8 @@ class Stage: NSObject{
         self.eventManager.trigger("startingSound")
     }
     
-    func startingInterim() {
-        self.eventManager.trigger("startingInterim")
+    func startingInterim(information: Any?) {
+        self.eventManager.trigger("startingInterim", information: information)
     }
     
     func start() {

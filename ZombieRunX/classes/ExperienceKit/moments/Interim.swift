@@ -43,8 +43,8 @@ class Interim: Moment{
     
     override func start() {
         self.startTime = NSDate()
-        self.eventManager.trigger("startingInterim")
         super.start()
+        self.eventManager.trigger("startingInterim", information: ["duration": "\(duration)"])
     }
     
     override func play() {

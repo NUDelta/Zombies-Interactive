@@ -10,19 +10,20 @@ import Foundation
 import CoreLocation
 
 enum Condition {
-    case MinSpeed, MaxSpeed, TimeRemaining, TimeElapsed, InRegion
+    case MinSpeed, MaxSpeed, TimeElapsed, TimeRemaining, InRegion
+    // time elapsed and remaining refer to experience time, not real time (which would include pauses, etc.)
 }
 
 class Requirement : NSObject {
     var conditions: [Condition]
     var speed: CLLocationSpeed?
-    var time: NSTimeInterval?
+    var seconds: NSTimeInterval?
     var region: CLCircularRegion?
     
-    init(conditions:[Condition], speed:CLLocationSpeed?=nil, time:NSTimeInterval?=nil, region:CLCircularRegion?=nil) {
+    init(conditions:[Condition], speed:CLLocationSpeed?=nil, seconds:NSTimeInterval?=nil, region:CLCircularRegion?=nil) {
         self.conditions = conditions
         self.speed = speed
-        self.time = time
+        self.seconds = seconds
         self.region = region
     }
     

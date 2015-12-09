@@ -38,8 +38,10 @@ class ExperienceManager: NSObject, OpportunityManagerDelegate {
     var experience: Experience?
     var delegate: ExperienceManagerDelegate?
     
-    
     var audioSession: AVAudioSession = AVAudioSession.sharedInstance()
+    
+    var opportunityTimer = NSTimer()
+    
     
     var currentStage: Stage? {
         get { return stages[safe: currentStageIdx] }
@@ -56,18 +58,22 @@ class ExperienceManager: NSObject, OpportunityManagerDelegate {
     }
     
     
-    init(title: String, stages: [Stage], regionBasedInteractions: [CLCircularRegion : Interaction]?=nil) {
+    init(title: String, stages: [Stage], interactionPool: [Interaction]?=nil) {
         self.stages = stages
         self.experience = Experience()
         self.experience?.title = title
         self.dataManager = DataManager(experience: self.experience!)
+        if let _ = interactionPool {
+            opportunityManager = OpportunityManager(interactionPool: interactionPool!)
+        }
+        
         
         super.init()
         
         for stage in stages{
-            stage.eventManager.listenTo("stageFinished", action: self.nextStage)
-            stage.eventManager.listenTo("startingInterim", action: self.setAVSessionForSilence)
-            stage.eventManager.listenTo("startingSound", action: self.setAVSessionForSound)
+            stage.eventManager.listenTo("stageFinished", action: nextStage)
+            stage.eventManager.listenTo("startingInterim", action: handleInterimStart)
+            stage.eventManager.listenTo("startingSound", action: handleSoundStart)
             
             if let dataManager = dataManager {
                 stage.eventManager.listenTo("sensorCollectorStarted", action: dataManager.startCollecting)
@@ -87,6 +93,16 @@ class ExperienceManager: NSObject, OpportunityManagerDelegate {
     
     }
     
+    func handleInterimStart(information: Any?) {
+        setAVSessionForSilence()
+        if let _ = opportunityManager {
+            resetOpportunityTimer(information)
+        }
+    }
+    
+    func handleSoundStart(information: Any?) {
+        setAVSessionForSound()
+    }
 
     // move some of this music logic to view controller, will likely be different for each app
     func setAVSessionForSilence() {
@@ -170,30 +186,41 @@ class ExperienceManager: NSObject, OpportunityManagerDelegate {
             systemPlayer.play()
         }
     }
+    
+    
+    func resetOpportunityTimer(information: Any?) {
+        // FIXME this won't work as [String:AnyObject], even though it worked for datamanager?
+        if let infoDict = information as? [String : String],
+        durationString = infoDict["duration"],
+        duration = Float(durationString) {
+                
+            if opportunityTimer.valid {
+                opportunityTimer.invalidate()
+            }
+                
+            let midDurationTime = duration/2 // TODO randomize this a bit?
+            opportunityTimer = NSTimer.scheduledTimerWithTimeInterval(NSTimeInterval(midDurationTime), target: self, selector: Selector("attemptInsertInteraction"), userInfo: nil, repeats: false)
+            print("  Opportunity check in \(round(midDurationTime)) seconds")
+        }
+    }
 
     
     func attemptInsertInteraction() {
-        if let om = opportunityManager where isPlaying {
-            if let stage = currentStage, moment = stage.currentMoment
-            where moment.isInterruptable {
-                if let interaction = om.getBestFitInteraction(currentContext) {
-                    stage.insertMomentsAtIndex(interaction.moments, idx: stage.currentMomentIdx + 1)
-                    
-                    // add pin on map if it's location
-                    //delegate?.didAddDestination?(regionInteractionPair.region.center, destinationName: regionInteractionPair.region.identifier)
-                    
-                    moment.finished()
-                } else {
-                    print("-Error: attempted to pop interaction from empty queue\n------------------------------------------------------------")
-                }
-            } else {
-                print("-Current moment is not interruptable, cancelling attempt\n------------------------------------------------------------")
-            }
+        print("  Checking opportunity...")
+        if let om = opportunityManager,
+        stage = currentStage,
+        moment = stage.currentMoment,
+        interaction = om.getBestFitInteraction(currentContext)
+        where isPlaying && moment.isInterruptable {
+            print("  Inserting interaction '\(interaction.title)'.")
+            stage.insertMomentsAtIndex(interaction.moments, idx: stage.currentMomentIdx + 1)
             
+            // add pin on map if it's location based
+            //delegate?.didAddDestination?(interaction.requirement.region.center, destinationName: interaction.requirement.region.identifier)
+            
+            moment.finished()
         } else {
-            print("-Experience is paused, cancelling attempt\n------------------------------------------------------------")
+            print("  No interactions fit the current context.")
         }
     }
-    
-    
 }

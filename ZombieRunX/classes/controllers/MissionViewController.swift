@@ -81,13 +81,13 @@ class MissionViewController: UIViewController, MKMapViewDelegate, ExperienceMana
         view.backgroundColor = UIColor(red:0.24, green:0.24, blue:0.25, alpha:1)
         
         
-//        // regions -- should be pulled from Parse in the future, probably
-//        // get only "verified" ones
-//        let chickenShackLocation = CLLocationCoordinate2D(latitude: 42.052860617171845, longitude: -87.68747791910707)
-//        let chickenShackRegion = CLCircularRegion(center: chickenShackLocation, radius: 300, identifier: "Chicken Shack")
-//        
-//        let techLocation = CLLocationCoordinate2D(latitude: 42.057789, longitude: -87.676150)
-//        let techRegion = CLCircularRegion(center: techLocation, radius: 1000, identifier: "Tech Institute")
+        // regions -- should be pulled from Parse in the future, probably
+        // get only "verified" ones
+        let chickenShackLocation = CLLocationCoordinate2D(latitude: 42.052860617171845, longitude: -87.68747791910707)
+        let chickenShackRegion = CLCircularRegion(center: chickenShackLocation, radius: 300, identifier: "Chicken Shack")
+        
+        let techLocation = CLLocationCoordinate2D(latitude: 42.057789, longitude: -87.676150)
+        let techRegion = CLCircularRegion(center: techLocation, radius: 1000, identifier: "Tech Institute")
         
         
         let mission1Intro = Sound(fileNames: ["ZRS1M1v2"])
@@ -107,10 +107,12 @@ class MissionViewController: UIViewController, MKMapViewDelegate, ExperienceMana
                                             dataLabel: "tall_building",
                                             recordMultiple: true,
                                             requireDoubleKnock: true)
+        let knockForBuildingsRequirement = Requirement(conditions: [.TimeElapsed], seconds: -1)
         let knockForBuildings = Interaction(moments: [Sound(fileNames: ["radio_static", "vantage_points_1", "radio_static"]),
                                                       identifyBuildings,
                                                       Sound(fileNames: ["radio_static", "vantage_points_2", "radio_static"])],
-                                            title: "Identify Vantage Points")
+                                            title: "Identify Vantage Points",
+                                            requirement: knockForBuildingsRequirement)
         
         // Find tree cover and stretch
         let stretchAtTree = SensorCollector(lengthInSeconds: 90, title: "Get Cover and Stretch", dataLabel: "tree", sensors: [.Location])
@@ -145,6 +147,8 @@ class MissionViewController: UIViewController, MKMapViewDelegate, ExperienceMana
                                                   Sound(fileNames: ["radio_static", "find_rest_2", "radio_static",])],
                                         title: "Pass Zombie Hotspot")
         
+        let allInteractions = [knockForBuildings, getCoverAtTree, takeHighRoute, passZombieHotspot, findRestPlace]
+        
         // Construct the experience based on selected mission
         var stages: [Stage] = []
         switch missionTitle {
@@ -158,6 +162,7 @@ class MissionViewController: UIViewController, MKMapViewDelegate, ExperienceMana
             let stage5 = Stage(moments: [mission1Part06, mission2Preview], title: "Stage Five")
             stages = [stage1, stage2, stage3, stage4, stage5]
             
+            experienceManager = ExperienceManager(title: missionTitle, stages: stages)
             break
             
         case "M2: Distraction (35 min)":
@@ -165,7 +170,6 @@ class MissionViewController: UIViewController, MKMapViewDelegate, ExperienceMana
             
         case "Intel Team Missions (<15min)":
             // Demos all of the interactions
-            let allInteractions = [knockForBuildings, getCoverAtTree, takeHighRoute, passZombieHotspot, findRestPlace]
             
             var transitions = [Sound]()
             for var i=0; i < allInteractions.count; i++ {
@@ -184,14 +188,25 @@ class MissionViewController: UIViewController, MKMapViewDelegate, ExperienceMana
             
             // Zombie music: https://www.youtube.com/watch?v=vClu9SCxHhI&spfreload=10
             
+            experienceManager = ExperienceManager(title: missionTitle, stages: stages)
+            
+            break
+            
+        case "Opportunity Test":
+            let stage1 = Stage(moments: [Sound(fileNames: ["vignette_transition"]), Interim(isInterruptable: true, lengthInSeconds: 20)],
+                title: "Opportunity Context Test")
+            stages = [stage1]
+            
+            experienceManager = ExperienceManager(title: missionTitle, stages: stages, interactionPool: [knockForBuildings])
             break
             
         default:
+            experienceManager = ExperienceManager(title: missionTitle, stages: stages)
             break
         
         }
         
-        experienceManager = ExperienceManager(title: missionTitle, stages: stages)
+        
 
 
 
