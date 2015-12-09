@@ -30,21 +30,29 @@ class ExperienceManager: NSObject, OpportunityManagerDelegate {
     var stages = [Stage]()
     var currentStageIdx = -1
     
-    var dataManager: DataManager?  // should be optional whether their experience will collect data, especially location always
+    // should be optional whether their experience will collect data, especially location always
+    var dataManager: DataManager?
     var opportunityManager: OpportunityManager?
     
     var experienceStarted = false
     var experience: Experience?
     var delegate: ExperienceManagerDelegate?
     
-    /// Interactions that have been inserted either by the OpportunityManager or the random interaction allowance
-    var usedInteractions = [String]()
     
     var audioSession: AVAudioSession = AVAudioSession.sharedInstance()
-
     
     var currentStage: Stage? {
         get { return stages[safe: currentStageIdx] }
+    }
+    
+    var currentContext: Context {
+        get {
+            return Context(
+                        timeElapsed: 0, // TODO implement time elapsed
+                        timeRemaining: 0, // TODO estimate time remaining based on time elapsed and total time (precalculated)
+                        speed: dataManager?.currentLocation?.speed,
+                        location: dataManager?.currentLocation?.coordinate)
+        }
     }
     
     
@@ -56,19 +64,10 @@ class ExperienceManager: NSObject, OpportunityManagerDelegate {
         
         super.init()
         
-        if let rbis = regionBasedInteractions where rbis.count > 0 {
-            self.opportunityManager = OpportunityManager(regionBasedInteractions: rbis)
-            opportunityManager?.delegate = self
-        }
-        
         for stage in stages{
             stage.eventManager.listenTo("stageFinished", action: self.nextStage)
             stage.eventManager.listenTo("startingInterim", action: self.setAVSessionForSilence)
             stage.eventManager.listenTo("startingSound", action: self.setAVSessionForSound)
-            stage.eventManager.listenTo("choseRandomInteraction", action: self.choseRandomInteractionHandler)
-            if let _ = opportunityManager {
-                stage.eventManager.listenTo("startingMoment", action: self.opportunityManager!.resetOpportunityTimer)
-            }
             
             if let dataManager = dataManager {
                 stage.eventManager.listenTo("sensorCollectorStarted", action: dataManager.startCollecting)
@@ -88,14 +87,6 @@ class ExperienceManager: NSObject, OpportunityManagerDelegate {
     
     }
     
-    // Handlers for events heard by the eventManager
-    func choseRandomInteractionHandler(information: Any?) {
-        if let infoDict = information as? [String:String],
-            interactionTitle = infoDict["interactionTitle"] {
-            usedInteractions.append(interactionTitle)
-            opportunityManager?.usedInteractions.append(interactionTitle) // usedInteractions is mirrored - is there a better solution?
-        }
-    }
 
     // move some of this music logic to view controller, will likely be different for each app
     func setAVSessionForSilence() {
@@ -123,7 +114,6 @@ class ExperienceManager: NSObject, OpportunityManagerDelegate {
         
         self.nextStage()
         dataManager?.startUpdatingLocation()
-        opportunityManager?.startMonitoringInteractionRegions()
     }
     
     
@@ -131,7 +121,6 @@ class ExperienceManager: NSObject, OpportunityManagerDelegate {
         isPlaying = true
         
         dataManager?.startUpdatingLocation()
-        opportunityManager?.startMonitoringInteractionRegions()
         
         if experienceStarted == false {
             self.start()
@@ -143,7 +132,6 @@ class ExperienceManager: NSObject, OpportunityManagerDelegate {
     
     func pause() {
         dataManager?.stopUpdatingLocation()
-        opportunityManager?.stopMonitoringInteractionRegions()
         
         isPlaying = false
         currentStage?.pause()
@@ -164,7 +152,6 @@ class ExperienceManager: NSObject, OpportunityManagerDelegate {
     func finishExperience() {
         print("\nFinished experience")
         dataManager?.stopUpdatingLocation()
-        opportunityManager?.stopMonitoringInteractionRegions()
         
         self.experience?.dateCompleted = NSDate()
         self.experience?.completed = true
@@ -189,12 +176,11 @@ class ExperienceManager: NSObject, OpportunityManagerDelegate {
         if let om = opportunityManager where isPlaying {
             if let stage = currentStage, moment = stage.currentMoment
             where moment.isInterruptable {
-                if let regionInteractionPair = om.interactionQueue.popLast() {
-                    stage.insertMomentsAtIndex(regionInteractionPair.interaction.moments, idx: stage.currentMomentIdx + 1)
-                    usedInteractions.append(regionInteractionPair.interaction.title)
-                    om.usedInteractions.append(regionInteractionPair.interaction.title) // usedInteractions is mirrored - is there a better solution?
+                if let interaction = om.getBestFitInteraction(currentContext) {
+                    stage.insertMomentsAtIndex(interaction.moments, idx: stage.currentMomentIdx + 1)
                     
-                    delegate?.didAddDestination?(regionInteractionPair.region.center, destinationName: regionInteractionPair.region.identifier)
+                    // add pin on map if it's location
+                    //delegate?.didAddDestination?(regionInteractionPair.region.center, destinationName: regionInteractionPair.region.identifier)
                     
                     moment.finished()
                 } else {

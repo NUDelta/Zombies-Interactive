@@ -26,6 +26,7 @@ class DataManager : NSObject, CLLocationManagerDelegate {
 //    var motionManager = CMMotionManager()
     var locationManager = CLLocationManager()
     var dataEvent: DataEvent?
+    var currentLocation: CLLocation?
     
     
     init(experience: Experience) {
@@ -104,14 +105,13 @@ class DataManager : NSObject, CLLocationManagerDelegate {
     }
     
     
-    
     func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        let currentLocation = locations[0]
+        currentLocation = locations[0]
         let locationUpdate = LocationUpdate()
         locationUpdate.experience = self.experience
         locationUpdate.location = PFGeoPoint(location: currentLocation)
-        locationUpdate.altitude = currentLocation.altitude
-        locationUpdate.speed = currentLocation.speed
+        locationUpdate.altitude = currentLocation!.altitude
+        locationUpdate.speed = currentLocation!.speed
         locationUpdate.saveInBackground()
     }
 
