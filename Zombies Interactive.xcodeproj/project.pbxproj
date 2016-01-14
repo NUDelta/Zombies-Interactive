@@ -1,0 +1,895 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		5241B5621BA0980000DBC6D3 /* ZombieRunX.xcdatamodeld in Resources */ = {isa = PBXBuildFile; fileRef = 528C3A461B826734007C59FC /* ZombieRunX.xcdatamodeld */; };
+		5241B5711BA0E87400DBC6D3 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5241B5701BA0E87400DBC6D3 /* AudioToolbox.framework */; };
+		5241B5731BA0E88100DBC6D3 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5241B5721BA0E88100DBC6D3 /* AVFoundation.framework */; };
+		528C3A481B826734007C59FC /* ZombieRunX.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 528C3A461B826734007C59FC /* ZombieRunX.xcdatamodeld */; };
+		528C3A4D1B826734007C59FC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 528C3A4B1B826734007C59FC /* Main.storyboard */; };
+		528C3A521B826734007C59FC /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 528C3A501B826734007C59FC /* LaunchScreen.xib */; };
+		528E89D11B9DEDCC00C5FC8E /* Accounts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 528E89D01B9DEDCC00C5FC8E /* Accounts.framework */; };
+		528E89D31B9DEDD500C5FC8E /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 528E89D21B9DEDD500C5FC8E /* CFNetwork.framework */; };
+		528E89D51B9DEDDE00C5FC8E /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 528E89D41B9DEDDE00C5FC8E /* CoreGraphics.framework */; };
+		528E89D71B9DEDE700C5FC8E /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 528E89D61B9DEDE700C5FC8E /* CoreLocation.framework */; };
+		528E89D91B9DEDEF00C5FC8E /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 528E89D81B9DEDEF00C5FC8E /* QuartzCore.framework */; };
+		528E89DB1B9DEDF700C5FC8E /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 528E89DA1B9DEDF700C5FC8E /* Security.framework */; };
+		528E89DF1B9DEE0700C5FC8E /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 528E89DE1B9DEE0700C5FC8E /* SystemConfiguration.framework */; };
+		528E89E11B9DEE1100C5FC8E /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 528E89E01B9DEE1100C5FC8E /* libz.dylib */; };
+		528E89E31B9DEE1A00C5FC8E /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 528E89E21B9DEE1A00C5FC8E /* libsqlite3.dylib */; };
+		528E89E51B9DEE3400C5FC8E /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 528E89E41B9DEE3400C5FC8E /* Social.framework */; };
+		BA0736271BE9B69B00B9748A /* SpeechListener.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA0736261BE9B69B00B9748A /* SpeechListener.swift */; };
+		BA0736291BE9C12500B9748A /* SensorMoment.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA0736281BE9C12500B9748A /* SensorMoment.swift */; };
+		BA1F2FDA1BBBB17C00E22B7F /* OpenEars.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BA1F2FD81BBBB17C00E22B7F /* OpenEars.framework */; };
+		BA1F2FDB1BBBB17C00E22B7F /* Slt.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BA1F2FD91BBBB17C00E22B7F /* Slt.framework */; };
+		BA1F2FE41BBBB25700E22B7F /* AcousticModelEnglish.bundle in Resources */ = {isa = PBXBuildFile; fileRef = BA1F2FE21BBBB25700E22B7F /* AcousticModelEnglish.bundle */; };
+		BA1F2FE51BBBB25700E22B7F /* AcousticModelSpanish.bundle in Resources */ = {isa = PBXBuildFile; fileRef = BA1F2FE31BBBB25700E22B7F /* AcousticModelSpanish.bundle */; };
+		BA26C43B1C017B7500A2D095 /* cover_at_building_1.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = BA26C4281C017B7500A2D095 /* cover_at_building_1.mp3 */; };
+		BA26C43C1C017B7500A2D095 /* cover_at_building_cancel.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = BA26C4291C017B7500A2D095 /* cover_at_building_cancel.mp3 */; };
+		BA26C43D1C017B7500A2D095 /* cover_at_building_found.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = BA26C42A1C017B7500A2D095 /* cover_at_building_found.mp3 */; };
+		BA26C43E1C017B7500A2D095 /* cover_at_building_found_2.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = BA26C42B1C017B7500A2D095 /* cover_at_building_found_2.mp3 */; };
+		BA26C43F1C017B7500A2D095 /* find_rest_1.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = BA26C42D1C017B7500A2D095 /* find_rest_1.mp3 */; };
+		BA26C4401C017B7500A2D095 /* find_rest_2.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = BA26C42E1C017B7500A2D095 /* find_rest_2.mp3 */; };
+		BA26C4411C017B7500A2D095 /* high_route_1.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = BA26C4301C017B7500A2D095 /* high_route_1.mp3 */; };
+		BA26C4421C017B7500A2D095 /* radio_static.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = BA26C4311C017B7500A2D095 /* radio_static.mp3 */; };
+		BA26C4431C017B7500A2D095 /* stopsign_hotspot_1.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = BA26C4331C017B7500A2D095 /* stopsign_hotspot_1.mp3 */; };
+		BA26C4441C017B7500A2D095 /* stopsign_hotspot_2.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = BA26C4341C017B7500A2D095 /* stopsign_hotspot_2.mp3 */; };
+		BA26C4451C017B7500A2D095 /* find_cover.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = BA26C4361C017B7500A2D095 /* find_cover.mp3 */; };
+		BA26C4461C017B7500A2D095 /* leave_cover.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = BA26C4371C017B7500A2D095 /* leave_cover.mp3 */; };
+		BA26C4471C017B7500A2D095 /* vantage_points_1.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = BA26C4391C017B7500A2D095 /* vantage_points_1.mp3 */; };
+		BA26C4481C017B7500A2D095 /* vantage_points_2.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = BA26C43A1C017B7500A2D095 /* vantage_points_2.mp3 */; };
+		BA2B43E11BBBAF23007C2483 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA2B43D91BBBAF23007C2483 /* AppDelegate.swift */; };
+		BA2B43EA1BBBB042007C2483 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BA2B43E91BBBB042007C2483 /* Parse.framework */; };
+		BA2B43EC1BBBB06D007C2483 /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BA2B43EB1BBBB06D007C2483 /* Bolts.framework */; };
+		BA3414161BD8161E0099A710 /* M-E01-02.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = BA34140F1BD8161E0099A710 /* M-E01-02.mp3 */; };
+		BA3414171BD8161E0099A710 /* M-E01-03.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = BA3414101BD8161E0099A710 /* M-E01-03.mp3 */; };
+		BA3414181BD8161E0099A710 /* M-E01-04.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = BA3414111BD8161E0099A710 /* M-E01-04.mp3 */; };
+		BA3414191BD8161E0099A710 /* M-E01-05.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = BA3414121BD8161E0099A710 /* M-E01-05.mp3 */; };
+		BA34141A1BD8161E0099A710 /* M-E01-06.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = BA3414131BD8161E0099A710 /* M-E01-06.mp3 */; };
+		BA34141B1BD8161E0099A710 /* NextTimeS1M3.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = BA3414141BD8161E0099A710 /* NextTimeS1M3.mp3 */; };
+		BA34141C1BD8161E0099A710 /* ZRS1M1v2.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = BA3414151BD8161E0099A710 /* ZRS1M1v2.mp3 */; };
+		BA36A8951BBBA79100E197E2 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BA36A8941BBBA79100E197E2 /* Images.xcassets */; };
+		BA4255F81BD15E39004B6DF9 /* bleep-alert.m4a in Resources */ = {isa = PBXBuildFile; fileRef = BA4255EC1BD15E39004B6DF9 /* bleep-alert.m4a */; };
+		BA4255F91BD15E39004B6DF9 /* countdown-beep.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = BA4255ED1BD15E39004B6DF9 /* countdown-beep.mp3 */; };
+		BA4255FA1BD15E39004B6DF9 /* hardcore-lose.wav in Resources */ = {isa = PBXBuildFile; fileRef = BA4255EE1BD15E39004B6DF9 /* hardcore-lose.wav */; };
+		BA4255FB1BD15E39004B6DF9 /* proximity-pip.wav in Resources */ = {isa = PBXBuildFile; fileRef = BA4255EF1BD15E39004B6DF9 /* proximity-pip.wav */; };
+		BA4255FC1BD15E39004B6DF9 /* zombie-horde-loop.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = BA4255F01BD15E39004B6DF9 /* zombie-horde-loop.mp3 */; };
+		BA48F6321C13912B00AF3D24 /* intel_team_intro.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = BA48F6311C13912B00AF3D24 /* intel_team_intro.mp3 */; };
+		BA4F036C1BD95B2600792A6D /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA4F036B1BD95B2600792A6D /* Constants.swift */; };
+		BA630CC21C41AD7D004CDB0E /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA630CBF1C41AD7D004CDB0E /* DataManager.swift */; };
+		BA630CC31C41AD7D004CDB0E /* ExperienceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA630CC01C41AD7D004CDB0E /* ExperienceManager.swift */; };
+		BA630CC41C41AD7D004CDB0E /* OpportunityManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA630CC11C41AD7D004CDB0E /* OpportunityManager.swift */; };
+		BA630CC61C41AD8F004CDB0E /* Context.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA630CC51C41AD8F004CDB0E /* Context.swift */; };
+		BA630CC81C41ADA1004CDB0E /* Interaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA630CC71C41ADA1004CDB0E /* Interaction.swift */; };
+		BA7D8A6D1BE838F80059A8A7 /* TriggerListener.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA7D8A6C1BE838F80059A8A7 /* TriggerListener.swift */; };
+		BA7D8A6F1BE842AE0059A8A7 /* KnockListener.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA7D8A6E1BE842AE0059A8A7 /* KnockListener.swift */; };
+		BA87E0A51C13A9C80014BD8A /* vignette_transition.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = BA87E0A41C13A9C80014BD8A /* vignette_transition.mp3 */; };
+		BA87E0A71C13AE620014BD8A /* intel_missions_end.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = BA87E0A61C13AE620014BD8A /* intel_missions_end.mp3 */; };
+		BA9890A31BDDB2D00037A615 /* silence.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = BA9890A21BDDB2D00037A615 /* silence.mp3 */; };
+		BAC7CBF51BD41B3A0031E905 /* Stage.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAC7CBF21BD41B3A0031E905 /* Stage.swift */; };
+		BAC7CBFA1BD41B4F0031E905 /* DataEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAC7CBF61BD41B4F0031E905 /* DataEvent.swift */; };
+		BAC7CBFB1BD41B4F0031E905 /* Experience.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAC7CBF71BD41B4F0031E905 /* Experience.swift */; };
+		BAC7CBFC1BD41B4F0031E905 /* LocationUpdate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAC7CBF81BD41B4F0031E905 /* LocationUpdate.swift */; };
+		BAC7CBFD1BD41B4F0031E905 /* PointOfInterest.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAC7CBF91BD41B4F0031E905 /* PointOfInterest.swift */; };
+		BAC7CC041BD41B680031E905 /* SensorCollector.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAC7CBFE1BD41B680031E905 /* SensorCollector.swift */; };
+		BAC7CC051BD41B680031E905 /* Moment.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAC7CBFF1BD41B680031E905 /* Moment.swift */; };
+		BAC7CC061BD41B680031E905 /* Interim.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAC7CC001BD41B680031E905 /* Interim.swift */; };
+		BAC7CC071BD41B680031E905 /* Sound.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAC7CC011BD41B680031E905 /* Sound.swift */; };
+		BAC7CC0B1BD41B7C0031E905 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAC7CC0A1BD41B7C0031E905 /* Extensions.swift */; };
+		BAC7CC0D1BD41B870031E905 /* Events.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAC7CC0C1BD41B870031E905 /* Events.swift */; };
+		BAC7CC1C1BD41C1B0031E905 /* ActuationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAC7CC181BD41C1B0031E905 /* ActuationController.swift */; };
+		BAC7CC1D1BD41C1B0031E905 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAC7CC191BD41C1B0031E905 /* HomeViewController.swift */; };
+		BAC7CC1E1BD41C1B0031E905 /* MissionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAC7CC1A1BD41C1B0031E905 /* MissionViewController.swift */; };
+		BAC7CC1F1BD41C1B0031E905 /* SignUpLogInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAC7CC1B1BD41C1B0031E905 /* SignUpLogInViewController.swift */; };
+		BAE596701C175E8700541604 /* Requirement.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAE5966F1C175E8700541604 /* Requirement.swift */; };
+		BAFF26971C4735C50032078D /* ARAudioRecognizer.m in Sources */ = {isa = PBXBuildFile; fileRef = BAFF26911C4735C50032078D /* ARAudioRecognizer.m */; };
+		BAFF26981C4735C50032078D /* TSCoreMotionListener.m in Sources */ = {isa = PBXBuildFile; fileRef = BAFF26941C4735C50032078D /* TSCoreMotionListener.m */; };
+		BAFF26991C4735C50032078D /* TSTapDetector.m in Sources */ = {isa = PBXBuildFile; fileRef = BAFF26961C4735C50032078D /* TSTapDetector.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		5241B5701BA0E87400DBC6D3 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
+		5241B5721BA0E88100DBC6D3 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		528C3A3F1B826734007C59FC /* Zombies Interactive.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Zombies Interactive.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		528C3A431B826734007C59FC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		528C3A471B826734007C59FC /* ZombieRunX.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = ZombieRunX.xcdatamodel; sourceTree = "<group>"; };
+		528C3A4C1B826734007C59FC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		528C3A511B826734007C59FC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
+		528C3A5C1B826734007C59FC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		528C3A5D1B826734007C59FC /* ZombieRunXTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZombieRunXTests.swift; sourceTree = "<group>"; };
+		528E89D01B9DEDCC00C5FC8E /* Accounts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accounts.framework; path = System/Library/Frameworks/Accounts.framework; sourceTree = SDKROOT; };
+		528E89D21B9DEDD500C5FC8E /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
+		528E89D41B9DEDDE00C5FC8E /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		528E89D61B9DEDE700C5FC8E /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		528E89D81B9DEDEF00C5FC8E /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		528E89DA1B9DEDF700C5FC8E /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		528E89DE1B9DEE0700C5FC8E /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		528E89E01B9DEE1100C5FC8E /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
+		528E89E21B9DEE1A00C5FC8E /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
+		528E89E41B9DEE3400C5FC8E /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
+		BA0736261BE9B69B00B9748A /* SpeechListener.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SpeechListener.swift; path = ExperienceKit/moments/SpeechListener.swift; sourceTree = "<group>"; };
+		BA0736281BE9C12500B9748A /* SensorMoment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SensorMoment.swift; path = ExperienceKit/Parse/SensorMoment.swift; sourceTree = "<group>"; };
+		BA1F2FD81BBBB17C00E22B7F /* OpenEars.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenEars.framework; path = ExperienceKit/Frameworks/OpenEars.framework; sourceTree = "<group>"; };
+		BA1F2FD91BBBB17C00E22B7F /* Slt.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Slt.framework; path = ExperienceKit/Frameworks/Slt.framework; sourceTree = "<group>"; };
+		BA1F2FE21BBBB25700E22B7F /* AcousticModelEnglish.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = AcousticModelEnglish.bundle; path = ExperienceKit/Bundles/AcousticModelEnglish.bundle; sourceTree = SOURCE_ROOT; };
+		BA1F2FE31BBBB25700E22B7F /* AcousticModelSpanish.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = AcousticModelSpanish.bundle; path = ExperienceKit/Bundles/AcousticModelSpanish.bundle; sourceTree = SOURCE_ROOT; };
+		BA1F2FE61BBBB26300E22B7F /* OpenEars.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenEars.framework; path = ExperienceKit/Frameworks/OpenEars.framework; sourceTree = SOURCE_ROOT; };
+		BA1F2FE71BBBB26300E22B7F /* Slt.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Slt.framework; path = ExperienceKit/Frameworks/Slt.framework; sourceTree = SOURCE_ROOT; };
+		BA26C4281C017B7500A2D095 /* cover_at_building_1.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = cover_at_building_1.mp3; sourceTree = "<group>"; };
+		BA26C4291C017B7500A2D095 /* cover_at_building_cancel.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = cover_at_building_cancel.mp3; sourceTree = "<group>"; };
+		BA26C42A1C017B7500A2D095 /* cover_at_building_found.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = cover_at_building_found.mp3; sourceTree = "<group>"; };
+		BA26C42B1C017B7500A2D095 /* cover_at_building_found_2.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = cover_at_building_found_2.mp3; sourceTree = "<group>"; };
+		BA26C42D1C017B7500A2D095 /* find_rest_1.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = find_rest_1.mp3; sourceTree = "<group>"; };
+		BA26C42E1C017B7500A2D095 /* find_rest_2.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = find_rest_2.mp3; sourceTree = "<group>"; };
+		BA26C4301C017B7500A2D095 /* high_route_1.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = high_route_1.mp3; sourceTree = "<group>"; };
+		BA26C4311C017B7500A2D095 /* radio_static.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = radio_static.mp3; sourceTree = "<group>"; };
+		BA26C4331C017B7500A2D095 /* stopsign_hotspot_1.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = stopsign_hotspot_1.mp3; sourceTree = "<group>"; };
+		BA26C4341C017B7500A2D095 /* stopsign_hotspot_2.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = stopsign_hotspot_2.mp3; sourceTree = "<group>"; };
+		BA26C4361C017B7500A2D095 /* find_cover.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = find_cover.mp3; sourceTree = "<group>"; };
+		BA26C4371C017B7500A2D095 /* leave_cover.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = leave_cover.mp3; sourceTree = "<group>"; };
+		BA26C4391C017B7500A2D095 /* vantage_points_1.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = vantage_points_1.mp3; sourceTree = "<group>"; };
+		BA26C43A1C017B7500A2D095 /* vantage_points_2.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = vantage_points_2.mp3; sourceTree = "<group>"; };
+		BA2B43D91BBBAF23007C2483 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		BA2B43E91BBBB042007C2483 /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Parse.framework; path = Frameworks/Parse.framework; sourceTree = "<group>"; };
+		BA2B43EB1BBBB06D007C2483 /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Bolts.framework; path = Frameworks/Bolts.framework; sourceTree = "<group>"; };
+		BA34140F1BD8161E0099A710 /* M-E01-02.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "M-E01-02.mp3"; sourceTree = "<group>"; };
+		BA3414101BD8161E0099A710 /* M-E01-03.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "M-E01-03.mp3"; sourceTree = "<group>"; };
+		BA3414111BD8161E0099A710 /* M-E01-04.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "M-E01-04.mp3"; sourceTree = "<group>"; };
+		BA3414121BD8161E0099A710 /* M-E01-05.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "M-E01-05.mp3"; sourceTree = "<group>"; };
+		BA3414131BD8161E0099A710 /* M-E01-06.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "M-E01-06.mp3"; sourceTree = "<group>"; };
+		BA3414141BD8161E0099A710 /* NextTimeS1M3.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = NextTimeS1M3.mp3; sourceTree = "<group>"; };
+		BA3414151BD8161E0099A710 /* ZRS1M1v2.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = ZRS1M1v2.mp3; sourceTree = "<group>"; };
+		BA36A8941BBBA79100E197E2 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = "Zombies Interactive/Images.xcassets"; sourceTree = SOURCE_ROOT; };
+		BA4255EC1BD15E39004B6DF9 /* bleep-alert.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = "bleep-alert.m4a"; sourceTree = "<group>"; };
+		BA4255ED1BD15E39004B6DF9 /* countdown-beep.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "countdown-beep.mp3"; sourceTree = "<group>"; };
+		BA4255EE1BD15E39004B6DF9 /* hardcore-lose.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "hardcore-lose.wav"; sourceTree = "<group>"; };
+		BA4255EF1BD15E39004B6DF9 /* proximity-pip.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "proximity-pip.wav"; sourceTree = "<group>"; };
+		BA4255F01BD15E39004B6DF9 /* zombie-horde-loop.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "zombie-horde-loop.mp3"; sourceTree = "<group>"; };
+		BA48F6311C13912B00AF3D24 /* intel_team_intro.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = intel_team_intro.mp3; sourceTree = "<group>"; };
+		BA4F036B1BD95B2600792A6D /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Constants.swift; path = classes/Constants.swift; sourceTree = "<group>"; };
+		BA630CBF1C41AD7D004CDB0E /* DataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
+		BA630CC01C41AD7D004CDB0E /* ExperienceManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExperienceManager.swift; sourceTree = "<group>"; };
+		BA630CC11C41AD7D004CDB0E /* OpportunityManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OpportunityManager.swift; sourceTree = "<group>"; };
+		BA630CC51C41AD8F004CDB0E /* Context.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Context.swift; path = ExperienceKit/Context.swift; sourceTree = "<group>"; };
+		BA630CC71C41ADA1004CDB0E /* Interaction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Interaction.swift; path = ExperienceKit/Interaction.swift; sourceTree = "<group>"; };
+		BA7D8A6C1BE838F80059A8A7 /* TriggerListener.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TriggerListener.swift; path = ExperienceKit/moments/TriggerListener.swift; sourceTree = "<group>"; };
+		BA7D8A6E1BE842AE0059A8A7 /* KnockListener.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = KnockListener.swift; path = ExperienceKit/moments/KnockListener.swift; sourceTree = "<group>"; };
+		BA87E0A41C13A9C80014BD8A /* vignette_transition.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = vignette_transition.mp3; sourceTree = "<group>"; };
+		BA87E0A61C13AE620014BD8A /* intel_missions_end.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = intel_missions_end.mp3; sourceTree = "<group>"; };
+		BA9890A21BDDB2D00037A615 /* silence.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = silence.mp3; sourceTree = "<group>"; };
+		BAC7CBF21BD41B3A0031E905 /* Stage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Stage.swift; path = ExperienceKit/Stage.swift; sourceTree = "<group>"; };
+		BAC7CBF61BD41B4F0031E905 /* DataEvent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DataEvent.swift; path = ExperienceKit/Parse/DataEvent.swift; sourceTree = "<group>"; };
+		BAC7CBF71BD41B4F0031E905 /* Experience.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Experience.swift; path = ExperienceKit/Parse/Experience.swift; sourceTree = "<group>"; };
+		BAC7CBF81BD41B4F0031E905 /* LocationUpdate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LocationUpdate.swift; path = ExperienceKit/Parse/LocationUpdate.swift; sourceTree = "<group>"; };
+		BAC7CBF91BD41B4F0031E905 /* PointOfInterest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PointOfInterest.swift; path = ExperienceKit/Parse/PointOfInterest.swift; sourceTree = "<group>"; };
+		BAC7CBFE1BD41B680031E905 /* SensorCollector.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SensorCollector.swift; path = ExperienceKit/moments/SensorCollector.swift; sourceTree = "<group>"; };
+		BAC7CBFF1BD41B680031E905 /* Moment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Moment.swift; path = ExperienceKit/moments/Moment.swift; sourceTree = "<group>"; };
+		BAC7CC001BD41B680031E905 /* Interim.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Interim.swift; path = ExperienceKit/moments/Interim.swift; sourceTree = "<group>"; };
+		BAC7CC011BD41B680031E905 /* Sound.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Sound.swift; path = ExperienceKit/moments/Sound.swift; sourceTree = "<group>"; };
+		BAC7CC0A1BD41B7C0031E905 /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Extensions.swift; path = ExperienceKit/utilities/Extensions.swift; sourceTree = "<group>"; };
+		BAC7CC0C1BD41B870031E905 /* Events.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Events.swift; path = ExperienceKit/utilities/third_party/Events.swift; sourceTree = "<group>"; };
+		BAC7CC181BD41C1B0031E905 /* ActuationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ActuationController.swift; path = controllers/ActuationController.swift; sourceTree = "<group>"; };
+		BAC7CC191BD41C1B0031E905 /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HomeViewController.swift; path = controllers/HomeViewController.swift; sourceTree = "<group>"; };
+		BAC7CC1A1BD41C1B0031E905 /* MissionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MissionViewController.swift; path = controllers/MissionViewController.swift; sourceTree = "<group>"; };
+		BAC7CC1B1BD41C1B0031E905 /* SignUpLogInViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SignUpLogInViewController.swift; path = controllers/SignUpLogInViewController.swift; sourceTree = "<group>"; };
+		BAD2F21D1BC4A7F600576D03 /* OEBridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "OEBridging-Header.h"; sourceTree = "<group>"; };
+		BAE5966F1C175E8700541604 /* Requirement.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Requirement.swift; path = ExperienceKit/Requirement.swift; sourceTree = "<group>"; };
+		BAFF26901C4735C50032078D /* ARAudioRecognizer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ARAudioRecognizer.h; sourceTree = "<group>"; };
+		BAFF26911C4735C50032078D /* ARAudioRecognizer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ARAudioRecognizer.m; sourceTree = "<group>"; };
+		BAFF26921C4735C50032078D /* ARAudioRecognizerDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ARAudioRecognizerDelegate.h; sourceTree = "<group>"; };
+		BAFF26931C4735C50032078D /* TSCoreMotionListener.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TSCoreMotionListener.h; sourceTree = "<group>"; };
+		BAFF26941C4735C50032078D /* TSCoreMotionListener.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TSCoreMotionListener.m; sourceTree = "<group>"; };
+		BAFF26951C4735C50032078D /* TSTapDetector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TSTapDetector.h; sourceTree = "<group>"; };
+		BAFF26961C4735C50032078D /* TSTapDetector.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TSTapDetector.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		528C3A3C1B826734007C59FC /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BA1F2FDA1BBBB17C00E22B7F /* OpenEars.framework in Frameworks */,
+				BA1F2FDB1BBBB17C00E22B7F /* Slt.framework in Frameworks */,
+				BA2B43EC1BBBB06D007C2483 /* Bolts.framework in Frameworks */,
+				BA2B43EA1BBBB042007C2483 /* Parse.framework in Frameworks */,
+				5241B5731BA0E88100DBC6D3 /* AVFoundation.framework in Frameworks */,
+				5241B5711BA0E87400DBC6D3 /* AudioToolbox.framework in Frameworks */,
+				528E89E51B9DEE3400C5FC8E /* Social.framework in Frameworks */,
+				528E89D11B9DEDCC00C5FC8E /* Accounts.framework in Frameworks */,
+				528E89E31B9DEE1A00C5FC8E /* libsqlite3.dylib in Frameworks */,
+				528E89E11B9DEE1100C5FC8E /* libz.dylib in Frameworks */,
+				528E89DF1B9DEE0700C5FC8E /* SystemConfiguration.framework in Frameworks */,
+				528E89DB1B9DEDF700C5FC8E /* Security.framework in Frameworks */,
+				528E89D91B9DEDEF00C5FC8E /* QuartzCore.framework in Frameworks */,
+				528E89D71B9DEDE700C5FC8E /* CoreLocation.framework in Frameworks */,
+				528E89D51B9DEDDE00C5FC8E /* CoreGraphics.framework in Frameworks */,
+				528E89D31B9DEDD500C5FC8E /* CFNetwork.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		5241B5741BA1C8F400DBC6D3 /* ExperienceKit */ = {
+			isa = PBXGroup;
+			children = (
+				BA1F2FE01BBBB23F00E22B7F /* Bundles */,
+				BA1F2FE11BBBB24C00E22B7F /* Frameworks */,
+			);
+			name = ExperienceKit;
+			path = Framework;
+			sourceTree = "<group>";
+		};
+		528C3A361B826734007C59FC = {
+			isa = PBXGroup;
+			children = (
+				528C3A411B826734007C59FC /* Zombies Interactive */,
+				528C3A5A1B826734007C59FC /* ZombieRunXTests */,
+				5241B5741BA1C8F400DBC6D3 /* ExperienceKit */,
+				BA2B43E81BBBAFA5007C2483 /* Frameworks */,
+				528C3A401B826734007C59FC /* Products */,
+				528E89E01B9DEE1100C5FC8E /* libz.dylib */,
+				528E89E21B9DEE1A00C5FC8E /* libsqlite3.dylib */,
+			);
+			sourceTree = "<group>";
+		};
+		528C3A401B826734007C59FC /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				528C3A3F1B826734007C59FC /* Zombies Interactive.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		528C3A411B826734007C59FC /* Zombies Interactive */ = {
+			isa = PBXGroup;
+			children = (
+				BA4F036B1BD95B2600792A6D /* Constants.swift */,
+				BA2B43D71BBBAF23007C2483 /* Classes */,
+				BA2B43C61BBBAEF8007C2483 /* Audio */,
+				BA36A8941BBBA79100E197E2 /* Images.xcassets */,
+				528C3A4B1B826734007C59FC /* Main.storyboard */,
+				528C3A501B826734007C59FC /* LaunchScreen.xib */,
+				528C3A461B826734007C59FC /* ZombieRunX.xcdatamodeld */,
+				528C3A421B826734007C59FC /* Supporting Files */,
+				BAD2F21D1BC4A7F600576D03 /* OEBridging-Header.h */,
+			);
+			path = "Zombies Interactive";
+			sourceTree = "<group>";
+		};
+		528C3A421B826734007C59FC /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				528C3A431B826734007C59FC /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		528C3A5A1B826734007C59FC /* ZombieRunXTests */ = {
+			isa = PBXGroup;
+			children = (
+				528C3A5D1B826734007C59FC /* ZombieRunXTests.swift */,
+				528C3A5B1B826734007C59FC /* Supporting Files */,
+			);
+			path = ZombieRunXTests;
+			sourceTree = SOURCE_ROOT;
+		};
+		528C3A5B1B826734007C59FC /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				528C3A5C1B826734007C59FC /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		BA1F2FE01BBBB23F00E22B7F /* Bundles */ = {
+			isa = PBXGroup;
+			children = (
+				BA1F2FE21BBBB25700E22B7F /* AcousticModelEnglish.bundle */,
+				BA1F2FE31BBBB25700E22B7F /* AcousticModelSpanish.bundle */,
+			);
+			name = Bundles;
+			sourceTree = "<group>";
+		};
+		BA1F2FE11BBBB24C00E22B7F /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				BA1F2FE61BBBB26300E22B7F /* OpenEars.framework */,
+				BA1F2FE71BBBB26300E22B7F /* Slt.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		BA26C4261C017B7500A2D095 /* interactions */ = {
+			isa = PBXGroup;
+			children = (
+				BA87E0A61C13AE620014BD8A /* intel_missions_end.mp3 */,
+				BA87E0A41C13A9C80014BD8A /* vignette_transition.mp3 */,
+				BA48F6311C13912B00AF3D24 /* intel_team_intro.mp3 */,
+				BA26C4271C017B7500A2D095 /* cover_at_building */,
+				BA26C42C1C017B7500A2D095 /* find_rest */,
+				BA26C42F1C017B7500A2D095 /* high_route */,
+				BA26C4311C017B7500A2D095 /* radio_static.mp3 */,
+				BA26C4321C017B7500A2D095 /* stopsign_hotspot */,
+				BA26C4351C017B7500A2D095 /* tree_stop */,
+				BA26C4381C017B7500A2D095 /* vantage_points */,
+			);
+			path = interactions;
+			sourceTree = "<group>";
+		};
+		BA26C4271C017B7500A2D095 /* cover_at_building */ = {
+			isa = PBXGroup;
+			children = (
+				BA26C4281C017B7500A2D095 /* cover_at_building_1.mp3 */,
+				BA26C4291C017B7500A2D095 /* cover_at_building_cancel.mp3 */,
+				BA26C42A1C017B7500A2D095 /* cover_at_building_found.mp3 */,
+				BA26C42B1C017B7500A2D095 /* cover_at_building_found_2.mp3 */,
+			);
+			path = cover_at_building;
+			sourceTree = "<group>";
+		};
+		BA26C42C1C017B7500A2D095 /* find_rest */ = {
+			isa = PBXGroup;
+			children = (
+				BA26C42D1C017B7500A2D095 /* find_rest_1.mp3 */,
+				BA26C42E1C017B7500A2D095 /* find_rest_2.mp3 */,
+			);
+			path = find_rest;
+			sourceTree = "<group>";
+		};
+		BA26C42F1C017B7500A2D095 /* high_route */ = {
+			isa = PBXGroup;
+			children = (
+				BA26C4301C017B7500A2D095 /* high_route_1.mp3 */,
+			);
+			path = high_route;
+			sourceTree = "<group>";
+		};
+		BA26C4321C017B7500A2D095 /* stopsign_hotspot */ = {
+			isa = PBXGroup;
+			children = (
+				BA26C4331C017B7500A2D095 /* stopsign_hotspot_1.mp3 */,
+				BA26C4341C017B7500A2D095 /* stopsign_hotspot_2.mp3 */,
+			);
+			path = stopsign_hotspot;
+			sourceTree = "<group>";
+		};
+		BA26C4351C017B7500A2D095 /* tree_stop */ = {
+			isa = PBXGroup;
+			children = (
+				BA26C4361C017B7500A2D095 /* find_cover.mp3 */,
+				BA26C4371C017B7500A2D095 /* leave_cover.mp3 */,
+			);
+			path = tree_stop;
+			sourceTree = "<group>";
+		};
+		BA26C4381C017B7500A2D095 /* vantage_points */ = {
+			isa = PBXGroup;
+			children = (
+				BA26C4391C017B7500A2D095 /* vantage_points_1.mp3 */,
+				BA26C43A1C017B7500A2D095 /* vantage_points_2.mp3 */,
+			);
+			path = vantage_points;
+			sourceTree = "<group>";
+		};
+		BA2B43C61BBBAEF8007C2483 /* Audio */ = {
+			isa = PBXGroup;
+			children = (
+				BA26C4261C017B7500A2D095 /* interactions */,
+				BA9890A21BDDB2D00037A615 /* silence.mp3 */,
+				BA32A8051BCB3DB700316136 /* Zombies, Run! */,
+			);
+			name = Audio;
+			path = audio;
+			sourceTree = "<group>";
+		};
+		BA2B43D71BBBAF23007C2483 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				BAF68CC51BBF340200145698 /* Controllers */,
+				BA2B43D91BBBAF23007C2483 /* AppDelegate.swift */,
+				BA320E641BC828CE000E52EE /* ExperienceKit */,
+			);
+			name = Classes;
+			path = classes;
+			sourceTree = "<group>";
+		};
+		BA2B43E81BBBAFA5007C2483 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				BA1F2FD81BBBB17C00E22B7F /* OpenEars.framework */,
+				BA1F2FD91BBBB17C00E22B7F /* Slt.framework */,
+				BA2B43EB1BBBB06D007C2483 /* Bolts.framework */,
+				BA2B43E91BBBB042007C2483 /* Parse.framework */,
+				5241B5721BA0E88100DBC6D3 /* AVFoundation.framework */,
+				5241B5701BA0E87400DBC6D3 /* AudioToolbox.framework */,
+				528E89E41B9DEE3400C5FC8E /* Social.framework */,
+				528E89DE1B9DEE0700C5FC8E /* SystemConfiguration.framework */,
+				528E89DA1B9DEDF700C5FC8E /* Security.framework */,
+				528E89D81B9DEDEF00C5FC8E /* QuartzCore.framework */,
+				528E89D61B9DEDE700C5FC8E /* CoreLocation.framework */,
+				528E89D41B9DEDDE00C5FC8E /* CoreGraphics.framework */,
+				528E89D21B9DEDD500C5FC8E /* CFNetwork.framework */,
+				528E89D01B9DEDCC00C5FC8E /* Accounts.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		BA320E641BC828CE000E52EE /* ExperienceKit */ = {
+			isa = PBXGroup;
+			children = (
+				BA32A8131BCB5BC800316136 /* Utilities */,
+				BA32A8121BCB5B9100316136 /* Moments */,
+				BAFED6341BC36D2800197581 /* Parse */,
+				BA630CBE1C41AD7D004CDB0E /* Managers */,
+				BA630CC71C41ADA1004CDB0E /* Interaction.swift */,
+				BAE5966F1C175E8700541604 /* Requirement.swift */,
+				BA630CC51C41AD8F004CDB0E /* Context.swift */,
+				BAC7CBF21BD41B3A0031E905 /* Stage.swift */,
+			);
+			name = ExperienceKit;
+			path = "Zombies Interactive/classes";
+			sourceTree = SOURCE_ROOT;
+		};
+		BA32A8051BCB3DB700316136 /* Zombies, Run! */ = {
+			isa = PBXGroup;
+			children = (
+				BA34140E1BD8161E0099A710 /* M-E01 */,
+				BA4255EB1BD15E39004B6DF9 /* sfx */,
+			);
+			path = "Zombies, Run!";
+			sourceTree = "<group>";
+		};
+		BA32A8121BCB5B9100316136 /* Moments */ = {
+			isa = PBXGroup;
+			children = (
+				BAC7CBFE1BD41B680031E905 /* SensorCollector.swift */,
+				BAC7CBFF1BD41B680031E905 /* Moment.swift */,
+				BAC7CC001BD41B680031E905 /* Interim.swift */,
+				BAC7CC011BD41B680031E905 /* Sound.swift */,
+				BA7D8A6C1BE838F80059A8A7 /* TriggerListener.swift */,
+				BA7D8A6E1BE842AE0059A8A7 /* KnockListener.swift */,
+				BA0736261BE9B69B00B9748A /* SpeechListener.swift */,
+			);
+			name = Moments;
+			sourceTree = "<group>";
+		};
+		BA32A8131BCB5BC800316136 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				BA32A8141BCB5BDA00316136 /* Third Party */,
+				BAC7CC0A1BD41B7C0031E905 /* Extensions.swift */,
+			);
+			name = Utilities;
+			sourceTree = "<group>";
+		};
+		BA32A8141BCB5BDA00316136 /* Third Party */ = {
+			isa = PBXGroup;
+			children = (
+				BAFF268E1C4735C50032078D /* TapShare */,
+				BAC7CC0C1BD41B870031E905 /* Events.swift */,
+			);
+			name = "Third Party";
+			sourceTree = "<group>";
+		};
+		BA34140E1BD8161E0099A710 /* M-E01 */ = {
+			isa = PBXGroup;
+			children = (
+				BA34140F1BD8161E0099A710 /* M-E01-02.mp3 */,
+				BA3414101BD8161E0099A710 /* M-E01-03.mp3 */,
+				BA3414111BD8161E0099A710 /* M-E01-04.mp3 */,
+				BA3414121BD8161E0099A710 /* M-E01-05.mp3 */,
+				BA3414131BD8161E0099A710 /* M-E01-06.mp3 */,
+				BA3414141BD8161E0099A710 /* NextTimeS1M3.mp3 */,
+				BA3414151BD8161E0099A710 /* ZRS1M1v2.mp3 */,
+			);
+			path = "M-E01";
+			sourceTree = "<group>";
+		};
+		BA4255EB1BD15E39004B6DF9 /* sfx */ = {
+			isa = PBXGroup;
+			children = (
+				BA4255EC1BD15E39004B6DF9 /* bleep-alert.m4a */,
+				BA4255ED1BD15E39004B6DF9 /* countdown-beep.mp3 */,
+				BA4255EE1BD15E39004B6DF9 /* hardcore-lose.wav */,
+				BA4255EF1BD15E39004B6DF9 /* proximity-pip.wav */,
+				BA4255F01BD15E39004B6DF9 /* zombie-horde-loop.mp3 */,
+			);
+			path = sfx;
+			sourceTree = "<group>";
+		};
+		BA630CBE1C41AD7D004CDB0E /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+				BA630CBF1C41AD7D004CDB0E /* DataManager.swift */,
+				BA630CC01C41AD7D004CDB0E /* ExperienceManager.swift */,
+				BA630CC11C41AD7D004CDB0E /* OpportunityManager.swift */,
+			);
+			name = Managers;
+			path = ExperienceKit/managers;
+			sourceTree = "<group>";
+		};
+		BAF68CC51BBF340200145698 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				BAC7CC181BD41C1B0031E905 /* ActuationController.swift */,
+				BAC7CC191BD41C1B0031E905 /* HomeViewController.swift */,
+				BAC7CC1A1BD41C1B0031E905 /* MissionViewController.swift */,
+				BAC7CC1B1BD41C1B0031E905 /* SignUpLogInViewController.swift */,
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
+		BAFED6341BC36D2800197581 /* Parse */ = {
+			isa = PBXGroup;
+			children = (
+				BAC7CBF61BD41B4F0031E905 /* DataEvent.swift */,
+				BA0736281BE9C12500B9748A /* SensorMoment.swift */,
+				BAC7CBF71BD41B4F0031E905 /* Experience.swift */,
+				BAC7CBF81BD41B4F0031E905 /* LocationUpdate.swift */,
+				BAC7CBF91BD41B4F0031E905 /* PointOfInterest.swift */,
+			);
+			name = Parse;
+			sourceTree = "<group>";
+		};
+		BAFF268E1C4735C50032078D /* TapShare */ = {
+			isa = PBXGroup;
+			children = (
+				BAFF268F1C4735C50032078D /* ARAudioRecognizer */,
+				BAFF26931C4735C50032078D /* TSCoreMotionListener.h */,
+				BAFF26941C4735C50032078D /* TSCoreMotionListener.m */,
+				BAFF26951C4735C50032078D /* TSTapDetector.h */,
+				BAFF26961C4735C50032078D /* TSTapDetector.m */,
+			);
+			name = TapShare;
+			path = ExperienceKit/utilities/third_party/TapShare;
+			sourceTree = "<group>";
+		};
+		BAFF268F1C4735C50032078D /* ARAudioRecognizer */ = {
+			isa = PBXGroup;
+			children = (
+				BAFF26901C4735C50032078D /* ARAudioRecognizer.h */,
+				BAFF26911C4735C50032078D /* ARAudioRecognizer.m */,
+				BAFF26921C4735C50032078D /* ARAudioRecognizerDelegate.h */,
+			);
+			path = ARAudioRecognizer;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		528C3A3E1B826734007C59FC /* Zombies Interactive */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 528C3A611B826734007C59FC /* Build configuration list for PBXNativeTarget "Zombies Interactive" */;
+			buildPhases = (
+				528C3A3B1B826734007C59FC /* Sources */,
+				528C3A3C1B826734007C59FC /* Frameworks */,
+				528C3A3D1B826734007C59FC /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Zombies Interactive";
+			productName = ZombieRunX;
+			productReference = 528C3A3F1B826734007C59FC /* Zombies Interactive.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		528C3A371B826734007C59FC /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftMigration = 0700;
+				LastSwiftUpdateCheck = 0700;
+				LastUpgradeCheck = 0700;
+				ORGANIZATIONNAME = "Scott Cambo, Henry Spindell, & Delta Lab NU";
+				TargetAttributes = {
+					528C3A3E1B826734007C59FC = {
+						CreatedOnToolsVersion = 6.4;
+						DevelopmentTeam = W4E2C6X642;
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
+							com.apple.InAppPurchase = {
+								enabled = 0;
+							};
+						};
+					};
+				};
+			};
+			buildConfigurationList = 528C3A3A1B826734007C59FC /* Build configuration list for PBXProject "Zombies Interactive" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 528C3A361B826734007C59FC;
+			productRefGroup = 528C3A401B826734007C59FC /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				528C3A3E1B826734007C59FC /* Zombies Interactive */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		528C3A3D1B826734007C59FC /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BA87E0A51C13A9C80014BD8A /* vignette_transition.mp3 in Resources */,
+				BA26C4481C017B7500A2D095 /* vantage_points_2.mp3 in Resources */,
+				BA34141C1BD8161E0099A710 /* ZRS1M1v2.mp3 in Resources */,
+				BA1F2FE41BBBB25700E22B7F /* AcousticModelEnglish.bundle in Resources */,
+				BA4255FC1BD15E39004B6DF9 /* zombie-horde-loop.mp3 in Resources */,
+				BA1F2FE51BBBB25700E22B7F /* AcousticModelSpanish.bundle in Resources */,
+				BA26C4471C017B7500A2D095 /* vantage_points_1.mp3 in Resources */,
+				BA26C4421C017B7500A2D095 /* radio_static.mp3 in Resources */,
+				BA48F6321C13912B00AF3D24 /* intel_team_intro.mp3 in Resources */,
+				BA4255F81BD15E39004B6DF9 /* bleep-alert.m4a in Resources */,
+				BA3414171BD8161E0099A710 /* M-E01-03.mp3 in Resources */,
+				BA26C4401C017B7500A2D095 /* find_rest_2.mp3 in Resources */,
+				5241B5621BA0980000DBC6D3 /* ZombieRunX.xcdatamodeld in Resources */,
+				528C3A4D1B826734007C59FC /* Main.storyboard in Resources */,
+				BA9890A31BDDB2D00037A615 /* silence.mp3 in Resources */,
+				BA26C4441C017B7500A2D095 /* stopsign_hotspot_2.mp3 in Resources */,
+				BA26C43B1C017B7500A2D095 /* cover_at_building_1.mp3 in Resources */,
+				BA26C43D1C017B7500A2D095 /* cover_at_building_found.mp3 in Resources */,
+				BA26C43F1C017B7500A2D095 /* find_rest_1.mp3 in Resources */,
+				BA26C4451C017B7500A2D095 /* find_cover.mp3 in Resources */,
+				BA26C4461C017B7500A2D095 /* leave_cover.mp3 in Resources */,
+				BA3414181BD8161E0099A710 /* M-E01-04.mp3 in Resources */,
+				BA26C4431C017B7500A2D095 /* stopsign_hotspot_1.mp3 in Resources */,
+				BA4255F91BD15E39004B6DF9 /* countdown-beep.mp3 in Resources */,
+				BA4255FB1BD15E39004B6DF9 /* proximity-pip.wav in Resources */,
+				528C3A521B826734007C59FC /* LaunchScreen.xib in Resources */,
+				BA87E0A71C13AE620014BD8A /* intel_missions_end.mp3 in Resources */,
+				BA34141B1BD8161E0099A710 /* NextTimeS1M3.mp3 in Resources */,
+				BA26C43C1C017B7500A2D095 /* cover_at_building_cancel.mp3 in Resources */,
+				BA3414161BD8161E0099A710 /* M-E01-02.mp3 in Resources */,
+				BA3414191BD8161E0099A710 /* M-E01-05.mp3 in Resources */,
+				BA36A8951BBBA79100E197E2 /* Images.xcassets in Resources */,
+				BA26C43E1C017B7500A2D095 /* cover_at_building_found_2.mp3 in Resources */,
+				BA4255FA1BD15E39004B6DF9 /* hardcore-lose.wav in Resources */,
+				BA26C4411C017B7500A2D095 /* high_route_1.mp3 in Resources */,
+				BA34141A1BD8161E0099A710 /* M-E01-06.mp3 in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		528C3A3B1B826734007C59FC /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BA4F036C1BD95B2600792A6D /* Constants.swift in Sources */,
+				BA630CC21C41AD7D004CDB0E /* DataManager.swift in Sources */,
+				BAE596701C175E8700541604 /* Requirement.swift in Sources */,
+				BAC7CBF51BD41B3A0031E905 /* Stage.swift in Sources */,
+				BA2B43E11BBBAF23007C2483 /* AppDelegate.swift in Sources */,
+				BAC7CC0D1BD41B870031E905 /* Events.swift in Sources */,
+				BAC7CC071BD41B680031E905 /* Sound.swift in Sources */,
+				BAC7CC061BD41B680031E905 /* Interim.swift in Sources */,
+				BA7D8A6F1BE842AE0059A8A7 /* KnockListener.swift in Sources */,
+				BAFF26981C4735C50032078D /* TSCoreMotionListener.m in Sources */,
+				BA630CC81C41ADA1004CDB0E /* Interaction.swift in Sources */,
+				BA7D8A6D1BE838F80059A8A7 /* TriggerListener.swift in Sources */,
+				BAC7CC1D1BD41C1B0031E905 /* HomeViewController.swift in Sources */,
+				BA630CC41C41AD7D004CDB0E /* OpportunityManager.swift in Sources */,
+				BAC7CBFA1BD41B4F0031E905 /* DataEvent.swift in Sources */,
+				BA630CC61C41AD8F004CDB0E /* Context.swift in Sources */,
+				BAC7CC051BD41B680031E905 /* Moment.swift in Sources */,
+				BA0736291BE9C12500B9748A /* SensorMoment.swift in Sources */,
+				BAC7CC041BD41B680031E905 /* SensorCollector.swift in Sources */,
+				BA0736271BE9B69B00B9748A /* SpeechListener.swift in Sources */,
+				BAC7CBFC1BD41B4F0031E905 /* LocationUpdate.swift in Sources */,
+				BAFF26971C4735C50032078D /* ARAudioRecognizer.m in Sources */,
+				528C3A481B826734007C59FC /* ZombieRunX.xcdatamodeld in Sources */,
+				BAC7CC1C1BD41C1B0031E905 /* ActuationController.swift in Sources */,
+				BAFF26991C4735C50032078D /* TSTapDetector.m in Sources */,
+				BAC7CC1E1BD41C1B0031E905 /* MissionViewController.swift in Sources */,
+				BAC7CBFD1BD41B4F0031E905 /* PointOfInterest.swift in Sources */,
+				BA630CC31C41AD7D004CDB0E /* ExperienceManager.swift in Sources */,
+				BAC7CC0B1BD41B7C0031E905 /* Extensions.swift in Sources */,
+				BAC7CC1F1BD41C1B0031E905 /* SignUpLogInViewController.swift in Sources */,
+				BAC7CBFB1BD41B4F0031E905 /* Experience.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		528C3A4B1B826734007C59FC /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				528C3A4C1B826734007C59FC /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		528C3A501B826734007C59FC /* LaunchScreen.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				528C3A511B826734007C59FC /* Base */,
+			);
+			name = LaunchScreen.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		528C3A5F1B826734007C59FC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_BITCODE = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				OTHER_SWIFT_FLAGS = "-D DEBUG";
+				PROVISIONING_PROFILE = "";
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				USER_HEADER_SEARCH_PATHS = "${PROJECT_DIR}/Zombies\\ Interactive/classes/ExperienceKit/utilities/third_party/**";
+			};
+			name = Debug;
+		};
+		528C3A601B826734007C59FC /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Northwestern University";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Northwestern University";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_BITCODE = NO;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PROVISIONING_PROFILE = "228df4d3-4dc3-45b4-9b57-f30e5c4da934";
+				SDKROOT = iphoneos;
+				USER_HEADER_SEARCH_PATHS = "${PROJECT_DIR}/Zombies\\ Interactive/classes/ExperienceKit/utilities/third_party/**";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		528C3A621B826734007C59FC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/**",
+				);
+				INFOPLIST_FILE = "Zombies Interactive/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "edu.northwestern.delta.$(PRODUCT_NAME:rfc1034identifier)";
+				PRODUCT_NAME = "Zombies Interactive";
+				SWIFT_OBJC_BRIDGING_HEADER = "./Zombies Interactive/OEBridging-Header.h";
+			};
+			name = Debug;
+		};
+		528C3A631B826734007C59FC /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Northwestern University";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/**",
+				);
+				INFOPLIST_FILE = "Zombies Interactive/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "edu.northwestern.delta.$(PRODUCT_NAME:rfc1034identifier)";
+				PRODUCT_NAME = "Zombies Interactive";
+				SWIFT_OBJC_BRIDGING_HEADER = "./Zombies Interactive/OEBridging-Header.h";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		528C3A3A1B826734007C59FC /* Build configuration list for PBXProject "Zombies Interactive" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				528C3A5F1B826734007C59FC /* Debug */,
+				528C3A601B826734007C59FC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		528C3A611B826734007C59FC /* Build configuration list for PBXNativeTarget "Zombies Interactive" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				528C3A621B826734007C59FC /* Debug */,
+				528C3A631B826734007C59FC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		528C3A461B826734007C59FC /* ZombieRunX.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				528C3A471B826734007C59FC /* ZombieRunX.xcdatamodel */,
+			);
+			currentVersion = 528C3A471B826734007C59FC /* ZombieRunX.xcdatamodel */;
+			path = ZombieRunX.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = 528C3A371B826734007C59FC /* Project object */;
+}
