@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="15C50" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="X5E-dJ-7wN">
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
@@ -9,7 +10,7 @@
         <!--Sign Up Log In View Controller-->
         <scene sceneID="15A-fX-kP2">
             <objects>
-                <viewController storyboardIdentifier="SignUpVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="HXI-dv-0Wu" customClass="SignUpLogInViewController" customModule="ZombieRunX" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SignUpVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="HXI-dv-0Wu" customClass="SignUpLogInViewController" customModule="Zombies_Interactive" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="iO7-VM-oba"/>
                         <viewControllerLayoutGuide type="bottom" id="48D-4m-11j"/>
@@ -18,8 +19,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="54e-LA-L0j">
-                                <rect key="frame" x="58" y="162" width="208" height="30"/>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="54e-LA-L0j">
+                                <rect key="frame" x="58" y="161" width="208" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="99" id="Jjd-x1-UKK"/>
                                 </constraints>
@@ -31,8 +32,8 @@
                                     </mask>
                                 </variation>
                             </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="N5o-2Z-Nxl">
-                                <rect key="frame" x="58" y="240" width="208" height="30"/>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="N5o-2Z-Nxl">
+                                <rect key="frame" x="58" y="239" width="208" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="85" id="eYU-fh-o2G"/>
                                 </constraints>
@@ -44,8 +45,8 @@
                                     </mask>
                                 </variation>
                             </textField>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Password" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="erk-55-Pm6">
-                                <rect key="frame" x="58" y="211" width="74" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Password" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="erk-55-Pm6">
+                                <rect key="frame" x="58" y="210" width="74" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="21" id="5mS-M0-z3j"/>
                                 </constraints>
@@ -53,7 +54,7 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Email" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MMz-uB-Tly">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Email" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MMz-uB-Tly">
                                 <rect key="frame" x="58" y="133" width="41" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="41" id="biD-b1-4IG"/>
@@ -69,9 +70,27 @@
                                     </mask>
                                 </variation>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="viT-nz-4f2">
-                                <rect key="frame" x="54" y="292" width="216" height="35"/>
-                                <color key="backgroundColor" red="0.17164543015476014" green="0.56632341395151509" blue="0.20804824657651311" alpha="1" colorSpace="calibratedRGB"/>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xAb-Pp-pcm">
+                                <rect key="frame" x="58" y="293" width="208" height="35"/>
+                                <color key="backgroundColor" red="0.1716454302" green="0.56632341399999997" blue="0.20804824659999999" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="19"/>
+                                <state key="normal" title="Log In">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="loginButton:" destination="HXI-dv-0Wu" eventType="touchUpInside" id="IHA-7Y-Gyk"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Zombies Interactive" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HHq-6Y-gnw">
+                                <rect key="frame" x="45" y="41" width="235" height="36"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                <color key="textColor" red="0.23584445127614098" green="0.8603614267676768" blue="0.58203058616952486" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="viT-nz-4f2">
+                                <rect key="frame" x="58" y="344" width="208" height="35"/>
+                                <color key="backgroundColor" red="0.0" green="0.50196081400000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="19"/>
                                 <state key="normal" title="Sign Up">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -81,15 +100,10 @@
                                     <action selector="submitButton:" destination="HXI-dv-0Wu" eventType="touchUpInside" id="IH9-ap-bip"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Zombies Interactive" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HHq-6Y-gnw">
-                                <rect key="frame" x="45" y="41" width="235" height="36"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
-                                <color key="textColor" red="0.23584445127614098" green="0.8603614267676768" blue="0.58203058616952486" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="viT-nz-4f2" firstAttribute="width" secondItem="xAb-Pp-pcm" secondAttribute="width" id="391-Pq-fLj"/>
                             <constraint firstAttribute="trailingMargin" secondItem="HHq-6Y-gnw" secondAttribute="trailing" constant="62" id="4FA-6f-Pug"/>
                             <constraint firstAttribute="trailingMargin" secondItem="viT-nz-4f2" secondAttribute="trailing" constant="34" id="4gw-Tc-7vz"/>
                             <constraint firstAttribute="trailingMargin" secondItem="viT-nz-4f2" secondAttribute="trailing" constant="85" id="5G7-vQ-7rQ"/>
@@ -100,12 +114,17 @@
                             <constraint firstAttribute="trailingMargin" secondItem="N5o-2Z-Nxl" secondAttribute="trailing" constant="38" id="FHZ-Lg-58V"/>
                             <constraint firstItem="HHq-6Y-gnw" firstAttribute="top" secondItem="iO7-VM-oba" secondAttribute="bottom" constant="21" id="FQx-nd-2Fj"/>
                             <constraint firstItem="erk-55-Pm6" firstAttribute="top" secondItem="54e-LA-L0j" secondAttribute="bottom" constant="19" id="IGu-e5-6HQ"/>
+                            <constraint firstItem="xAb-Pp-pcm" firstAttribute="leading" secondItem="jwD-N6-pCf" secondAttribute="leadingMargin" constant="38" id="J1Z-hM-gak"/>
                             <constraint firstItem="MMz-uB-Tly" firstAttribute="top" secondItem="HHq-6Y-gnw" secondAttribute="bottom" constant="56" id="JyZ-VW-HX4"/>
                             <constraint firstAttribute="trailingMargin" secondItem="HHq-6Y-gnw" secondAttribute="trailing" constant="62" id="KQt-hR-unI"/>
                             <constraint firstItem="54e-LA-L0j" firstAttribute="top" secondItem="MMz-uB-Tly" secondAttribute="bottom" constant="8" symbolic="YES" id="Kvg-eZ-6cv"/>
                             <constraint firstItem="HHq-6Y-gnw" firstAttribute="leading" secondItem="MMz-uB-Tly" secondAttribute="trailing" constant="-20" id="LKn-kI-hXI"/>
                             <constraint firstItem="N5o-2Z-Nxl" firstAttribute="top" secondItem="erk-55-Pm6" secondAttribute="bottom" constant="8" id="LNN-j4-lmW"/>
+                            <constraint firstItem="viT-nz-4f2" firstAttribute="width" secondItem="xAb-Pp-pcm" secondAttribute="width" id="Mpo-EG-nhh"/>
+                            <constraint firstItem="xAb-Pp-pcm" firstAttribute="trailing" secondItem="N5o-2Z-Nxl" secondAttribute="trailing" id="Osi-we-aak"/>
                             <constraint firstItem="erk-55-Pm6" firstAttribute="leading" secondItem="jwD-N6-pCf" secondAttribute="leadingMargin" constant="42" id="QEC-YU-Pw2"/>
+                            <constraint firstItem="xAb-Pp-pcm" firstAttribute="top" secondItem="N5o-2Z-Nxl" secondAttribute="bottom" constant="24" id="RL4-qG-kbo"/>
+                            <constraint firstItem="viT-nz-4f2" firstAttribute="top" secondItem="xAb-Pp-pcm" secondAttribute="bottom" constant="15" id="ULi-7k-lMS"/>
                             <constraint firstItem="viT-nz-4f2" firstAttribute="leading" secondItem="jwD-N6-pCf" secondAttribute="leadingMargin" constant="86" id="V59-PE-bXo"/>
                             <constraint firstAttribute="trailingMargin" secondItem="HHq-6Y-gnw" secondAttribute="trailing" constant="24" id="Vek-Ia-BDB"/>
                             <constraint firstItem="HHq-6Y-gnw" firstAttribute="leading" secondItem="jwD-N6-pCf" secondAttribute="leadingMargin" constant="29" id="cAF-lF-BZn"/>
@@ -114,11 +133,14 @@
                             <constraint firstItem="HHq-6Y-gnw" firstAttribute="leading" secondItem="MMz-uB-Tly" secondAttribute="trailing" constant="4" id="gMx-tG-Rfj"/>
                             <constraint firstItem="HHq-6Y-gnw" firstAttribute="leading" secondItem="jwD-N6-pCf" secondAttribute="leadingMargin" constant="63" id="i84-sn-PYx"/>
                             <constraint firstItem="54e-LA-L0j" firstAttribute="top" secondItem="MMz-uB-Tly" secondAttribute="bottom" constant="8" id="iHa-Ce-54O"/>
+                            <constraint firstItem="xAb-Pp-pcm" firstAttribute="leading" secondItem="N5o-2Z-Nxl" secondAttribute="leading" id="mvk-ak-BdO"/>
                             <constraint firstItem="viT-nz-4f2" firstAttribute="leading" secondItem="jwD-N6-pCf" secondAttribute="leadingMargin" constant="38" id="nJc-sP-AA8"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="xAb-Pp-pcm" secondAttribute="trailing" constant="26" id="nSl-1n-c24"/>
                             <constraint firstItem="54e-LA-L0j" firstAttribute="leading" secondItem="jwD-N6-pCf" secondAttribute="leadingMargin" constant="42" id="nUL-4H-QIP"/>
                             <constraint firstItem="erk-55-Pm6" firstAttribute="top" secondItem="54e-LA-L0j" secondAttribute="bottom" constant="19" id="nru-rr-ZgJ"/>
                             <constraint firstItem="MMz-uB-Tly" firstAttribute="leading" secondItem="jwD-N6-pCf" secondAttribute="leadingMargin" constant="42" id="rEx-LZ-aip"/>
                             <constraint firstItem="viT-nz-4f2" firstAttribute="centerX" secondItem="jwD-N6-pCf" secondAttribute="centerX" id="vPs-3L-l1e"/>
+                            <constraint firstItem="viT-nz-4f2" firstAttribute="centerX" secondItem="xAb-Pp-pcm" secondAttribute="centerX" id="vqr-J8-lSq"/>
                             <constraint firstItem="MMz-uB-Tly" firstAttribute="top" secondItem="iO7-VM-oba" secondAttribute="bottom" constant="113" id="x4Z-de-ScQ"/>
                             <constraint firstAttribute="trailingMargin" secondItem="54e-LA-L0j" secondAttribute="trailing" constant="38" id="yrA-tE-O82"/>
                         </constraints>
@@ -136,8 +158,14 @@
                                 <exclude reference="x4Z-de-ScQ"/>
                                 <exclude reference="Kvg-eZ-6cv"/>
                                 <exclude reference="nru-rr-ZgJ"/>
+                                <exclude reference="J1Z-hM-gak"/>
+                                <exclude reference="nSl-1n-c24"/>
+                                <exclude reference="4gw-Tc-7vz"/>
                                 <exclude reference="5G7-vQ-7rQ"/>
+                                <exclude reference="6Ql-ad-vR1"/>
+                                <exclude reference="Mpo-EG-nhh"/>
                                 <exclude reference="V59-PE-bXo"/>
+                                <exclude reference="nJc-sP-AA8"/>
                                 <exclude reference="vPs-3L-l1e"/>
                             </mask>
                         </variation>
@@ -155,7 +183,7 @@
         <!--Mission View Controller-->
         <scene sceneID="ufC-wZ-h7g">
             <objects>
-                <viewController storyboardIdentifier="MissionVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="vXZ-lx-hvc" customClass="MissionViewController" customModule="ZombieRunX" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="MissionVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="vXZ-lx-hvc" customClass="MissionViewController" customModule="Zombies_Interactive" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="jyV-Pf-zRb"/>
                         <viewControllerLayoutGuide type="bottom" id="2fi-mo-0CV"/>
@@ -292,7 +320,7 @@
         <!--Home View Controller-->
         <scene sceneID="1IH-jK-WUk">
             <objects>
-                <viewController storyboardIdentifier="HomeVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="B83-kc-EzL" customClass="HomeViewController" customModule="ZombieRunX" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="HomeVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="B83-kc-EzL" customClass="HomeViewController" customModule="Zombies_Interactive" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="VXi-vT-o9f"/>
                         <viewControllerLayoutGuide type="bottom" id="A2q-G4-38J"/>

@@ -85,7 +85,7 @@
 		BAC7CC1C1BD41C1B0031E905 /* ActuationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAC7CC181BD41C1B0031E905 /* ActuationController.swift */; };
 		BAC7CC1D1BD41C1B0031E905 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAC7CC191BD41C1B0031E905 /* HomeViewController.swift */; };
 		BAC7CC1E1BD41C1B0031E905 /* MissionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAC7CC1A1BD41C1B0031E905 /* MissionViewController.swift */; };
-		BAC7CC1F1BD41C1B0031E905 /* SignUpLogInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAC7CC1B1BD41C1B0031E905 /* SignUpLogInViewController.swift */; };
+		BAC7CC1F1BD41C1B0031E905 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAC7CC1B1BD41C1B0031E905 /* SignUpViewController.swift */; };
 		BAE596701C175E8700541604 /* Requirement.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAE5966F1C175E8700541604 /* Requirement.swift */; };
 		BAFF26971C4735C50032078D /* ARAudioRecognizer.m in Sources */ = {isa = PBXBuildFile; fileRef = BAFF26911C4735C50032078D /* ARAudioRecognizer.m */; };
 		BAFF26981C4735C50032078D /* TSCoreMotionListener.m in Sources */ = {isa = PBXBuildFile; fileRef = BAFF26941C4735C50032078D /* TSCoreMotionListener.m */; };
@@ -176,7 +176,7 @@
 		BAC7CC181BD41C1B0031E905 /* ActuationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ActuationController.swift; path = controllers/ActuationController.swift; sourceTree = "<group>"; };
 		BAC7CC191BD41C1B0031E905 /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HomeViewController.swift; path = controllers/HomeViewController.swift; sourceTree = "<group>"; };
 		BAC7CC1A1BD41C1B0031E905 /* MissionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MissionViewController.swift; path = controllers/MissionViewController.swift; sourceTree = "<group>"; };
-		BAC7CC1B1BD41C1B0031E905 /* SignUpLogInViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SignUpLogInViewController.swift; path = controllers/SignUpLogInViewController.swift; sourceTree = "<group>"; };
+		BAC7CC1B1BD41C1B0031E905 /* SignUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SignUpViewController.swift; path = controllers/SignUpViewController.swift; sourceTree = "<group>"; };
 		BAD2F21D1BC4A7F600576D03 /* OEBridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "OEBridging-Header.h"; sourceTree = "<group>"; };
 		BAE5966F1C175E8700541604 /* Requirement.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Requirement.swift; path = ExperienceKit/Requirement.swift; sourceTree = "<group>"; };
 		BAFF26901C4735C50032078D /* ARAudioRecognizer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ARAudioRecognizer.h; sourceTree = "<group>"; };
@@ -520,7 +520,7 @@
 				BAC7CC181BD41C1B0031E905 /* ActuationController.swift */,
 				BAC7CC191BD41C1B0031E905 /* HomeViewController.swift */,
 				BAC7CC1A1BD41C1B0031E905 /* MissionViewController.swift */,
-				BAC7CC1B1BD41C1B0031E905 /* SignUpLogInViewController.swift */,
+				BAC7CC1B1BD41C1B0031E905 /* SignUpViewController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -703,7 +703,7 @@
 				BAC7CBFD1BD41B4F0031E905 /* PointOfInterest.swift in Sources */,
 				BA630CC31C41AD7D004CDB0E /* ExperienceManager.swift in Sources */,
 				BAC7CC0B1BD41B7C0031E905 /* Extensions.swift in Sources */,
-				BAC7CC1F1BD41C1B0031E905 /* SignUpLogInViewController.swift in Sources */,
+				BAC7CC1F1BD41C1B0031E905 /* SignUpViewController.swift in Sources */,
 				BAC7CBFB1BD41B4F0031E905 /* Experience.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
