@@ -100,8 +100,6 @@
 		528C3A471B826734007C59FC /* ZombieRunX.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = ZombieRunX.xcdatamodel; sourceTree = "<group>"; };
 		528C3A4C1B826734007C59FC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		528C3A511B826734007C59FC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
-		528C3A5C1B826734007C59FC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		528C3A5D1B826734007C59FC /* ZombieRunXTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZombieRunXTests.swift; sourceTree = "<group>"; };
 		528E89D01B9DEDCC00C5FC8E /* Accounts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accounts.framework; path = System/Library/Frameworks/Accounts.framework; sourceTree = SDKROOT; };
 		528E89D21B9DEDD500C5FC8E /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
 		528E89D41B9DEDDE00C5FC8E /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -229,7 +227,6 @@
 			isa = PBXGroup;
 			children = (
 				528C3A411B826734007C59FC /* Zombies Interactive */,
-				528C3A5A1B826734007C59FC /* ZombieRunXTests */,
 				5241B5741BA1C8F400DBC6D3 /* ExperienceKit */,
 				BA2B43E81BBBAFA5007C2483 /* Frameworks */,
 				528C3A401B826734007C59FC /* Products */,
@@ -266,23 +263,6 @@
 			isa = PBXGroup;
 			children = (
 				528C3A431B826734007C59FC /* Info.plist */,
-			);
-			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		528C3A5A1B826734007C59FC /* ZombieRunXTests */ = {
-			isa = PBXGroup;
-			children = (
-				528C3A5D1B826734007C59FC /* ZombieRunXTests.swift */,
-				528C3A5B1B826734007C59FC /* Supporting Files */,
-			);
-			path = ZombieRunXTests;
-			sourceTree = SOURCE_ROOT;
-		};
-		528C3A5B1B826734007C59FC /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-				528C3A5C1B826734007C59FC /* Info.plist */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";

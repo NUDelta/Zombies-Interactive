@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 import Parse
 
-class SignUpLogInViewController: UIViewController {
+class SignUpLogInViewController: UIViewController, UITextFieldDelegate {
     
     @IBOutlet weak var emailBox: UITextField!
     @IBOutlet weak var passwordBox: UITextField!
@@ -19,6 +19,12 @@ class SignUpLogInViewController: UIViewController {
     override func viewDidLoad(){
         super.viewDidLoad()
         view.backgroundColor = UIColor(red:0.24, green:0.24, blue:0.25, alpha:1)
+        
+        
+        emailBox.returnKeyType = .Done
+        passwordBox.returnKeyType = .Done
+        emailBox.delegate = self
+        passwordBox.delegate = self
     }
     
     override func didReceiveMemoryWarning() {
@@ -118,4 +124,10 @@ class SignUpLogInViewController: UIViewController {
         let vc:UIViewController = storyboard!.instantiateViewControllerWithIdentifier("HomeVC") 
         self.navigationController!.pushViewController(vc, animated: true)
     }
+    
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
+        self.view.endEditing(true)
+        return false
+    }
+    
 }

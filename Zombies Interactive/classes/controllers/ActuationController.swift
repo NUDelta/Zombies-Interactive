@@ -13,6 +13,7 @@ https://github.com/DharmeshKheni/OpenEars-with-Swift-/blob/master/SpeechToText/V
 
 import Foundation
 
+
 var lmPath: String!
 var dicPath: String!
 var words: Array<String> = []
