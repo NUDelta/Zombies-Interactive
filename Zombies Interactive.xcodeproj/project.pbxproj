@@ -60,6 +60,8 @@
 		BA4255FB1BD15E39004B6DF9 /* proximity-pip.wav in Resources */ = {isa = PBXBuildFile; fileRef = BA4255EF1BD15E39004B6DF9 /* proximity-pip.wav */; };
 		BA4255FC1BD15E39004B6DF9 /* zombie-horde-loop.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = BA4255F01BD15E39004B6DF9 /* zombie-horde-loop.mp3 */; };
 		BA48F6321C13912B00AF3D24 /* intel_team_intro.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = BA48F6311C13912B00AF3D24 /* intel_team_intro.mp3 */; };
+		BA4987C81C4B066C009E6056 /* CollectorWithSound.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA4987C71C4B066C009E6056 /* CollectorWithSound.swift */; };
+		BA4987CA1C4B1151009E6056 /* TriggerListenerWithSound.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA4987C91C4B1151009E6056 /* TriggerListenerWithSound.swift */; };
 		BA4F036C1BD95B2600792A6D /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA4F036B1BD95B2600792A6D /* Constants.swift */; };
 		BA630CC21C41AD7D004CDB0E /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA630CBF1C41AD7D004CDB0E /* DataManager.swift */; };
 		BA630CC31C41AD7D004CDB0E /* ExperienceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA630CC01C41AD7D004CDB0E /* ExperienceManager.swift */; };
@@ -149,6 +151,8 @@
 		BA4255EF1BD15E39004B6DF9 /* proximity-pip.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "proximity-pip.wav"; sourceTree = "<group>"; };
 		BA4255F01BD15E39004B6DF9 /* zombie-horde-loop.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "zombie-horde-loop.mp3"; sourceTree = "<group>"; };
 		BA48F6311C13912B00AF3D24 /* intel_team_intro.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = intel_team_intro.mp3; sourceTree = "<group>"; };
+		BA4987C71C4B066C009E6056 /* CollectorWithSound.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectorWithSound.swift; sourceTree = "<group>"; };
+		BA4987C91C4B1151009E6056 /* TriggerListenerWithSound.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TriggerListenerWithSound.swift; path = ExperienceKit/moments/TriggerListenerWithSound.swift; sourceTree = "<group>"; };
 		BA4F036B1BD95B2600792A6D /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Constants.swift; path = classes/Constants.swift; sourceTree = "<group>"; };
 		BA630CBF1C41AD7D004CDB0E /* DataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
 		BA630CC01C41AD7D004CDB0E /* ExperienceManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExperienceManager.swift; sourceTree = "<group>"; };
@@ -429,10 +433,12 @@
 			isa = PBXGroup;
 			children = (
 				BAC7CBFE1BD41B680031E905 /* SensorCollector.swift */,
+				BA4987C71C4B066C009E6056 /* CollectorWithSound.swift */,
 				BAC7CBFF1BD41B680031E905 /* Moment.swift */,
 				BAC7CC001BD41B680031E905 /* Interim.swift */,
 				BAC7CC011BD41B680031E905 /* Sound.swift */,
 				BA7D8A6C1BE838F80059A8A7 /* TriggerListener.swift */,
+				BA4987C91C4B1151009E6056 /* TriggerListenerWithSound.swift */,
 				BA7D8A6E1BE842AE0059A8A7 /* KnockListener.swift */,
 				BA0736261BE9B69B00B9748A /* SpeechListener.swift */,
 			);
@@ -663,6 +669,7 @@
 				BAC7CC071BD41B680031E905 /* Sound.swift in Sources */,
 				BAC7CC061BD41B680031E905 /* Interim.swift in Sources */,
 				BA7D8A6F1BE842AE0059A8A7 /* KnockListener.swift in Sources */,
+				BA4987CA1C4B1151009E6056 /* TriggerListenerWithSound.swift in Sources */,
 				BAFF26981C4735C50032078D /* TSCoreMotionListener.m in Sources */,
 				BA630CC81C41ADA1004CDB0E /* Interaction.swift in Sources */,
 				BA7D8A6D1BE838F80059A8A7 /* TriggerListener.swift in Sources */,
@@ -685,6 +692,7 @@
 				BAC7CC0B1BD41B7C0031E905 /* Extensions.swift in Sources */,
 				BAC7CC1F1BD41C1B0031E905 /* SignUpViewController.swift in Sources */,
 				BAC7CBFB1BD41B4F0031E905 /* Experience.swift in Sources */,
+				BA4987C81C4B066C009E6056 /* CollectorWithSound.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

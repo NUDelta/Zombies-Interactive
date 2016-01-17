@@ -200,6 +200,12 @@ class MissionViewController: UIViewController, MKMapViewDelegate, ExperienceMana
             experienceManager = ExperienceManager(title: missionTitle, stages: stages, interactionPool: [knockForBuildings])
             break
             
+        case "CollectorWithSound":
+            let stage1 = Stage(moments: [CollectorWithSound(fileNames: ["intel_team_intro", "intel_missions_end"], additionalTime: 10, title: "TESTCOLLECT", dataLabel: "bongotron", sensors: [.Speed])], title: "Stage 1")
+            
+            experienceManager = ExperienceManager(title: "CollectorWithSound Test", stages: [stage1])
+            break
+            
         default:
             experienceManager = ExperienceManager(title: missionTitle, stages: stages)
             break

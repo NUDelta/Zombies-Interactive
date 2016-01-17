@@ -100,7 +100,10 @@ class Stage: NSObject{
     
     func nextMoment() {
         
+        // TODO this is sloppy checking types, fix this
         if let _ = self.currentMoment as? SensorCollector {
+            self.eventManager.trigger("sensorCollectorEnded")
+        } else if let _ = self.currentMoment as? CollectorWithSound {
             self.eventManager.trigger("sensorCollectorEnded")
         }
         
@@ -109,6 +112,9 @@ class Stage: NSObject{
         
         if self.currentMomentIdx < moments.count {
             if let currentMoment = self.currentMoment as? SensorCollector {
+                self.eventManager.trigger("sensorCollectorStarted",
+                    information: ["sensors": currentMoment.sensors.rawValues, "label": currentMoment.dataLabel, "interaction": currentMoment.title])
+            } else if let currentMoment = self.currentMoment as? CollectorWithSound {
                 self.eventManager.trigger("sensorCollectorStarted",
                     information: ["sensors": currentMoment.sensors.rawValues, "label": currentMoment.dataLabel, "interaction": currentMoment.title])
             }
