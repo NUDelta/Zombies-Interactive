@@ -16,7 +16,7 @@ import CoreLocation
 
 class MissionViewController: UIViewController, MKMapViewDelegate, ExperienceManagerDelegate {
 
-    var missionTitle: String = "Jolly Alpha Five Niner"
+    var missionTitle: String = ""
     var experienceManager:ExperienceManager!
     var musicPlayer:MPMusicPlayerController?
     
@@ -119,7 +119,7 @@ class MissionViewController: UIViewController, MKMapViewDelegate, ExperienceMana
         let getCoverAtTree = Interaction(moments: [Sound(fileNames: ["find_cover"]),
                                                    stretchAtTree,
                                                    Sound(fileNames: ["leave_cover"])],
-                                         title: "Investigate Tech!")
+                                         title: "Get to Cover!")
         
         // Take cover at known building
         // TODO directional instruction tech
@@ -128,7 +128,7 @@ class MissionViewController: UIViewController, MKMapViewDelegate, ExperienceMana
         
         // Avoid zombies by taking high route
         // TODO set up altitude data saving
-        let monitorAltitude = SensorCollector(lengthInSeconds: 60, dataLabel: "hill", sensors: [.Location, .Altitude])
+        let monitorAltitude = SensorCollector(lengthInSeconds: 150, dataLabel: "high_point", sensors: [.Location, .Altitude])
         let takeHighRoute = Interaction(moments: [Sound(fileNames: ["radio_static", "high_route_1", "radio_static",]),
                                                   monitorAltitude],
                                         title: "Take High Route")
@@ -152,23 +152,27 @@ class MissionViewController: UIViewController, MKMapViewDelegate, ExperienceMana
         // Construct the experience based on selected mission
         var stages: [Stage] = []
         switch missionTitle {
-        case "M1: Jolly Alpha Five Niner (38 min)":
-            let stage1 = Stage(moments: [mission1Intro, mission1Part02, Interim(lengthInSeconds: 6.minutesToSeconds)], title: "Stage One")
-            let stage2 = Stage(moments: [mission1Part03, Interim(lengthInSeconds: 10)] + knockForBuildings.moments, title: "Stage Two")
-            let stage3 = Stage(moments: [mission1Part04, Interim(lengthInSeconds: 6.minutesToSeconds)], title: "Stage Three")
+        case "M1: Jolly Alpha Five Niner (30-35 min)":
+            let stage1 = Stage(moments: [mission1Intro, mission1Part02,
+                                        Interim(lengthInSeconds: 3.minutesToSeconds),
+                                        Sound(fileNames: ["radio_static", "intel_team_intro", "radio_static"]),
+                                        Interim(lengthInSeconds: 3.minutesToSeconds)],
+                               title: "Stage One")
+            let stage2 = Stage(moments: [mission1Part03, Interim(lengthInSeconds: 10)] + takeHighRoute.moments,
+                               title: "Stage Two")
+            let stage3 = Stage(moments: [mission1Part04, Interim(lengthInSeconds: 5.minutesToSeconds)], title: "Stage Three")
             let stage4 = Stage(moments: [mission1Part05, Interim(lengthInSeconds: 3.minutesToSeconds)] +
-                getCoverAtTree.moments +
-                [Interim(lengthInSeconds: 3.minutesToSeconds)], title: "Stage Four")
+                                        passZombieHotspot.moments +
+                                        [Interim(lengthInSeconds: 3.minutesToSeconds)],
+                               title: "Stage Four")
             let stage5 = Stage(moments: [mission1Part06, mission2Preview], title: "Stage Five")
             stages = [stage1, stage2, stage3, stage4, stage5]
             
             experienceManager = ExperienceManager(title: missionTitle, stages: stages)
             break
             
-        case "M2: Distraction (35 min)":
-            break
-            
-        case "Intel Team Missions (<15min)":
+
+        case "Intel Team Missions 1 (<15min)":
             // Demos all of the interactions
             
             var transitions = [Sound]()
@@ -192,20 +196,6 @@ class MissionViewController: UIViewController, MKMapViewDelegate, ExperienceMana
             
             break
             
-        case "Opportunity Test":
-            let stage1 = Stage(moments: [Sound(fileNames: ["vignette_transition"]), Interim(isInterruptable: true, lengthInSeconds: 20)],
-                title: "Opportunity Context Test")
-            stages = [stage1]
-            
-            experienceManager = ExperienceManager(title: missionTitle, stages: stages, interactionPool: [knockForBuildings])
-            break
-            
-        case "CollectorWithSound":
-            let stage1 = Stage(moments: [CollectorWithSound(fileNames: ["intel_team_intro", "intel_missions_end"], additionalTime: 10, title: "TESTCOLLECT", dataLabel: "bongotron", sensors: [.Speed])], title: "Stage 1")
-            
-            experienceManager = ExperienceManager(title: "CollectorWithSound Test", stages: [stage1])
-            break
-            
         default:
             experienceManager = ExperienceManager(title: missionTitle, stages: stages)
             break
@@ -227,9 +217,7 @@ class MissionViewController: UIViewController, MKMapViewDelegate, ExperienceMana
     }
     
     func back(sender: UIBarButtonItem) {
-        // Perform your custom actions
-        // ...
-        // Go back to the previous ViewController
+
         if self.experienceManager.currentStageIdx > -1 {
             let refreshAlert = UIAlertController(title: "Are you sure?", message: "This will end the mission. All progress will be lost.", preferredStyle: UIAlertControllerStyle.Alert)
         

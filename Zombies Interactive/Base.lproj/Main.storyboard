@@ -305,7 +305,7 @@
                                     <constraint firstAttribute="height" constant="50" id="lfp-87-9kX"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <state key="normal" title="CollectorWithSound">
+                                <state key="normal" title="M1: Jolly Alpha Five Niner (30-35 min)">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -320,20 +320,37 @@
                                     <action selector="missionsButton:" destination="B83-kc-EzL" eventType="touchUpInside" id="f6z-Yu-flq"/>
                                 </connections>
                             </button>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" usesAttributedText="YES" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dhK-9y-E3l">
+                                <rect key="frame" x="16" y="275" width="288" height="285"/>
+                                <attributedString key="attributedText">
+                                    <fragment>
+                                        <string key="content">Note about music: While the app is not playing audio related to the mission, you will hear music from your own library. For this reason we suggest selecting a running playlist from your Music app before you start the mission. This will not work with Spotify (yet), sorry!</string>
+                                        <attributes>
+                                            <color key="NSColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                            <font key="NSFont" size="17" name="HelveticaNeue-Medium"/>
+                                        </attributes>
+                                    </fragment>
+                                </attributedString>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="dhK-9y-E3l" firstAttribute="leading" secondItem="3XY-Bi-L1F" secondAttribute="leadingMargin" id="44s-cm-vzg"/>
                             <constraint firstAttribute="centerX" secondItem="1EZ-tM-fTU" secondAttribute="centerX" id="7nM-Ro-xMi"/>
                             <constraint firstAttribute="leadingMargin" secondItem="1EZ-tM-fTU" secondAttribute="leading" constant="16" id="Fat-dL-Oat"/>
                             <constraint firstItem="1EZ-tM-fTU" firstAttribute="top" secondItem="hZL-90-NIV" secondAttribute="bottom" id="M0s-Eg-HDt"/>
                             <constraint firstAttribute="trailingMargin" secondItem="1EZ-tM-fTU" secondAttribute="trailing" constant="-16" id="VjS-JK-wOs"/>
+                            <constraint firstItem="A2q-G4-38J" firstAttribute="top" secondItem="dhK-9y-E3l" secondAttribute="bottom" constant="8" symbolic="YES" id="WAR-g3-mjy"/>
                             <constraint firstItem="A2q-G4-38J" firstAttribute="top" secondItem="1EZ-tM-fTU" secondAttribute="bottom" constant="162" id="XER-e6-wma"/>
                             <constraint firstAttribute="leadingMargin" secondItem="1EZ-tM-fTU" secondAttribute="leading" constant="-20" id="cSo-xY-Vxz"/>
                             <constraint firstAttribute="trailingMargin" secondItem="hZL-90-NIV" secondAttribute="trailing" constant="-16" id="fYv-nQ-vBh"/>
                             <constraint firstItem="1EZ-tM-fTU" firstAttribute="top" secondItem="VXi-vT-o9f" secondAttribute="bottom" constant="8" symbolic="YES" id="gU2-vm-Ubc"/>
                             <constraint firstAttribute="centerX" secondItem="1EZ-tM-fTU" secondAttribute="centerX" id="i85-MM-we6"/>
+                            <constraint firstItem="dhK-9y-E3l" firstAttribute="top" secondItem="1EZ-tM-fTU" secondAttribute="bottom" constant="8" symbolic="YES" id="mjX-PM-NWX"/>
                             <constraint firstItem="hZL-90-NIV" firstAttribute="top" secondItem="VXi-vT-o9f" secondAttribute="bottom" id="mzk-1G-Zys"/>
                             <constraint firstItem="hZL-90-NIV" firstAttribute="leading" secondItem="3XY-Bi-L1F" secondAttribute="leadingMargin" constant="-16" id="o7B-oJ-qZt"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="dhK-9y-E3l" secondAttribute="trailing" id="pLc-Vn-cyo"/>
                             <constraint firstAttribute="trailingMargin" secondItem="1EZ-tM-fTU" secondAttribute="trailing" constant="-20" id="rQb-XM-1cZ"/>
                         </constraints>
                         <variation key="default">

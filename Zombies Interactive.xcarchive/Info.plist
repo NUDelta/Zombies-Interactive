@@ -5,9 +5,9 @@
 	<key>ApplicationProperties</key>
 	<dict>
 		<key>ApplicationPath</key>
-		<string>Applications/ZombieRunX.app</string>
+		<string>Applications/Zombies Interactive.app</string>
 		<key>CFBundleIdentifier</key>
-		<string>edu.northwestern.delta.ZombieRunX</string>
+		<string>edu.northwestern.delta.Zombies-Interactive</string>
 		<key>CFBundleShortVersionString</key>
 		<string>1.0</string>
 		<key>CFBundleVersion</key>
@@ -18,10 +18,10 @@
 	<key>ArchiveVersion</key>
 	<integer>2</integer>
 	<key>CreationDate</key>
-	<date>2015-12-07T22:13:10Z</date>
+	<date>2016-01-21T00:31:18Z</date>
 	<key>Name</key>
-	<string>ZombieRunX</string>
+	<string>Zombies Interactive</string>
 	<key>SchemeName</key>
-	<string>ZombieRunX</string>
+	<string>Zombies Interactive</string>
 </dict>
 </plist>
