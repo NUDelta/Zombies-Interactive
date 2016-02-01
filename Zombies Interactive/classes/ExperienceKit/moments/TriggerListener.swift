@@ -47,7 +47,7 @@ class TriggerListener: Interim {
 
     func didReceiveTrigger() {
         print("  received \(trigger) trigger")
-        self.eventManager.trigger("foundPointOfInterest", information: ["trigger": trigger.rawValue, "label": dataLabel, "interaction": title])
+        self.eventManager.trigger("foundWorldObject", information: ["trigger": trigger.rawValue, "label": dataLabel, "interaction": title])
         if recordMultiple == false {
             self.finished()
         }

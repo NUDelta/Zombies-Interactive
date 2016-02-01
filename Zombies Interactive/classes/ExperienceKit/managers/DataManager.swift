@@ -40,18 +40,19 @@ class DataManager : NSObject, CLLocationManagerDelegate {
         self.locationManager.requestAlwaysAuthorization()
     }
     
-    func recordPointOfInterest(information: Any?) {
+    func recordWorldObject(information: Any?) {
         
-        print("  Recording point of interest")
-        let pointOfInterest = PointOfInterest()
+        print("  Recording world object")
+        let worldObject = WorldObject()
         if let infoDict = information as? [String : String] {
-            pointOfInterest.trigger = infoDict["trigger"]
-            pointOfInterest.label = infoDict["label"]
-            pointOfInterest.interaction = infoDict["interaction"]
+            worldObject.trigger = infoDict["trigger"]
+            worldObject.label = infoDict["label"]
+            worldObject.interaction = infoDict["interaction"]
         }
-        pointOfInterest.experience = experience
-        pointOfInterest.location = PFGeoPoint(location: locationManager.location)
-        pointOfInterest.saveInBackground()
+        worldObject.experience = experience
+        worldObject.location = PFGeoPoint(location: locationManager.location)
+        worldObject.verified = true
+        worldObject.saveInBackground()
     }
     
     

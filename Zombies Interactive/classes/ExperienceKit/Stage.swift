@@ -46,7 +46,7 @@ class Stage: NSObject{
             moment.eventManager.listenTo("nextMoment", action: nextMoment)
             moment.eventManager.listenTo("startingInterim", action: startingInterim)
             moment.eventManager.listenTo("startingSound", action: startingSound)
-            moment.eventManager.listenTo("foundPointOfInterest", action: recordPointOfInterest)
+            moment.eventManager.listenTo("foundWorldObject", action: recordWorldObject)
         }
     }
     
@@ -130,8 +130,8 @@ class Stage: NSObject{
         self.nextMoment()
     }
     
-    func recordPointOfInterest(information: Any?) {
-        self.eventManager.trigger("foundPointOfInterest", information: information)
+    func recordWorldObject(information: Any?) {
+        self.eventManager.trigger("foundWorldObject", information: information)
     }
     
     func insertMomentsAtIndex(insertedMoments:[Moment], idx:Int) {
@@ -140,7 +140,7 @@ class Stage: NSObject{
             moment.eventManager.listenTo("nextMoment", action: self.nextMoment)
             moment.eventManager.listenTo("startingInterim", action: self.startingInterim)
             moment.eventManager.listenTo("startingSound", action: self.startingSound)
-            moment.eventManager.listenTo("foundPointOfInterest", action: self.recordPointOfInterest)
+            moment.eventManager.listenTo("foundWorldObject", action: self.recordWorldObject)
         }
         
         self.moments = self.moments[0..<idx] + insertedMoments + self.moments[idx..<self.moments.count]
