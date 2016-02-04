@@ -134,7 +134,7 @@ class MissionViewController: UIViewController, MKMapViewDelegate, ExperienceMana
                                         title: "Take High Route")
         
         // Go fast past the zombie hangout
-        let monitorSpeed = SensorCollector(lengthInSeconds: 20, dataLabel: "stop_sign", sensors: [.Location, .Speed])
+        let monitorSpeed = SensorCollector(lengthInSeconds: 30, dataLabel: "stop_sign", sensors: [.Location, .Speed])
         let passZombieHotspot = Interaction(moments: [Sound(fileNames: ["radio_static", "stopsign_hotspot_1", "radio_static",]),
                                                       monitorSpeed,
                                                       Sound(fileNames: ["radio_static", "stopsign_hotspot_2", "radio_static",])],
@@ -168,7 +168,9 @@ class MissionViewController: UIViewController, MKMapViewDelegate, ExperienceMana
             let stage5 = Stage(moments: [mission1Part06, mission2Preview], title: "Stage Five")
             stages = [stage1, stage2, stage3, stage4, stage5]
             
-            experienceManager = ExperienceManager(title: missionTitle, stages: stages)
+
+            
+            experienceManager = ExperienceManager(title: missionTitle, stages: stages, interactionPool: [interactions])
             break
             
 

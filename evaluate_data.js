@@ -1,4 +1,17 @@
 // Script for identifying objects in "speed up/slow down" interactions
+Array.prototype.average = function () {
+    var sum = 0, j = 0; 
+   for (var i = 0; i < this.length, isFinite(this[i]); i++) { 
+          sum += parseFloat(this[i]); ++j; 
+    } 
+   return j ? sum / j : 0; 
+}
+
+Array.prototype.sum = Array.prototype.sum || function() {
+  return this.reduce(function(sum, a) { return sum + Number(a) }, 0);
+}
+//====================================
+
 var plotly = require('plotly')("hspindell","obeoge4ez8")
 var Parse = require('parse/node');
 
@@ -24,22 +37,24 @@ var LocationUpdate = Parse.Object.extend("LocationUpdate");
 var WorldObject = Parse.Object.extend("WorldObject");
 
 // ===========================================================
+var CLUSTER_DISTANCE = 0.01; // miles
 
 var query = new Parse.Query(DataEvent);
-var interaction = "Find stop_sign"
+var interactionTitle = "Find fire_hydrant"
 // query.ascending("updatedAt");
-// query.equalTo("interaction", interaction);
-var dataEventId = "askFhUnedq";
-var experienceId;
+// query.equalTo("interaction", interactionTitle);
+var dataEventId = "oHPAFRIej5";
+var experienceId = "OiK94zj74d";
 var dataLabel;
 
-query.equalTo("objectId", "askFhUnedq");
+query.equalTo("objectId", dataEventId);
+
 
 query.find({
   success:function(dataEvents) {
     for (var i=0; i<dataEvents.length; i++) {
       experience = dataEvents[0].get("experience");
-      dataLabel = dataEvents[0].get("dataLabel");
+      dataLabel = dataEvents[0].get("label");
       
       var dataQuery = new Parse.Query(LocationUpdate);
       dataQuery.equalTo("experience", dataEvents[i].get("experience"));
@@ -55,7 +70,7 @@ query.find({
           accels = [];
           speeds = [];
           
-          if(locationUpdates.length < 22){
+          if(locationUpdates.length < 20){
             return;
           }
           
@@ -84,75 +99,15 @@ query.find({
             speeds.push(speed);
           }
 
-          // graph acceleration over time
-          var accelLine = {
-            x: times,
-            y: accels,
-            type: 'line',
-            name: "acceleration (m/s/s)",
-          };
-          
-          var speedLine = {
-            x: times,
-            y: speeds,
-            type: 'line',
-            name: "speed (m/s)",
-          };
-          
-          var data = [accelLine, speedLine];
-          var fname = interaction + "_" + locationUpdates[0].get("experience").id;
-          // TODO for filename, use experienceID-interaction combo
-          var layout = {
-            title: interaction + " (Exp. " + locationUpdates[0].get("experience").id + ")",
-            xaxis: {
-              title:"timestamp",
-              titlefont: {
-                family: "Courier New, monospace",
-                size: 18,
-                color: "#7f7f7f"
-              }
-            }
-          };
-          var graphOptions = {layout: layout, filename: fname, fileopt: "overwrite"};
-          plotly.plot(data, graphOptions, function (err, msg) {
-          	if (err) return console.log(err);
-          	console.log(msg);
-          });
-          
-          //TODO
-          // var CLUSTER_DISTANCE = 0.01; // miles
-          // // use algorithm to find index i of accel change
-          // var candidateIdx = 0;
-          // var candidateLocation = locationUpdates[candidateIdx].get("location");
-          //
-          // var worldObjectQuery = new Parse.Query(WorldObject);
-          // // query WorldObject for object in very close proximity
-          // worldObjectQuery.withinMiles("location", candidateLocation, CLUSTER_DISTANCE);
-          // worldObjectQuery.equalTo("dataLabel", dataLabel);
-          //
-          // // FIXME will there be scope issues with the variables used, such as candidateLocation?
-          // worldObjectQuery.find({
-          //   success: function(worldObjects) {
-          //     if(worldObjects.length == 0) {
-          //       var worldObject = new WorldObject();
-          //       worldObject.set("location", candidateLocation);
-          //       worldObject.set("experience", experience);
-          //       worldObject.set("interaction", interaction);
-          //       worldObject.set("verified", false);
-          //       worldObject.save(null, {
-          //         success: function(worldObject) {
-          //           alert('New WorldObject created with objectId: ' + worldObject.id);
-          //         },
-          //         error: function(worldObject, error) {
-          //           alert('Failed to create new WorldObject, with error code: ' + error.message);
-          //         }
-          //       });
-          //     }
-          //   },
-          //   error: function(error) {
-          //     alert("Error: " + error.code + " " + error.message);
-          //   }
-          // });
+          var candidateIdx = findSlowdownPoint(times,accels,speeds,locationUpdates);
+          if (candidateIdx != -1) {
+            console.log("Found WorldObject candidate...");
+            var candidateLocation = locationUpdates[candidateIdx].get("location");
+            plotSpeedOverTime(times,accels,speeds, candidateIdx, experienceId,interactionTitle);
+            saveWorldObject(candidateLocation,dataLabel,CLUSTER_DISTANCE,experienceId, interactionTitle);
+          } else {
+            console.log("Did not find WorldObject candidate from this DataEvent.");
+          }
         }
       })
     }
@@ -167,16 +122,113 @@ function getTimeString(d){
   
   return [hour,minutes,seconds,milliSeconds].join(':')
 }
-// for each dataEvent in dataEvents
-
-  // query all LocationUpdates between dataEvent.startDate and dataEvent.endDate
-
-  // for each locationUpdate in locationUpdates
-    // print location
-    // print speed
 
 
-    // save these pairs and graph them? (Plotly)
-    // time, lat, lon, speed
-    // any way to see location on a map as well (or a reason to)?
+function findSlowdownPoint(times, accels, speeds, locationUpdates){
+  // 3 seconds is 4 data points
+  var intervalSize = 4;
+  var intervalAvgSpeeds = [];
+  
+  var lastIntervalSum = speeds.slice(0,intervalSize).sum();
+  intervalAvgSpeeds.push(lastIntervalSum/intervalSize);
+  for(var i=1; i<(locationUpdates.length + 1 - intervalSize); i++) {
+    var intervalSum = lastIntervalSum - speeds[i-1] + speeds[i+intervalSize-1];
+    intervalAvgSpeeds.push(intervalSum/intervalSize);
+    lastIntervalSum = intervalSum;
+  }
 
+  var slowedDownLastInterval = false;
+  for(var i=1;i<intervalAvgSpeeds.length;i++) {
+    // if runner is going faster or equal speed as last interval
+    if( (intervalAvgSpeeds[i] - intervalAvgSpeeds[i-1]) >= -0.) {
+      slowedDownLastInterval = false;
+    } else if (slowedDownLastInterval == false) { // if runner has slowed down now but hadn't slowed down previously
+      slowedDownLastInterval = true;
+    } else { // if runner has slowed down two intervals in a row
+      console.log("Slowed down two intervals in a row");
+      console.log(i-1);
+      console.log(intervalAvgSpeeds[i-1]);
+      // i-1 was the first index we noticed a decrease
+      return i-1;
+    }
+  }
+  return -1;
+}
+
+function saveWorldObject(candidateLocation, dataLabel, clusterDistance, experienceId, interactionTitle) {
+  var worldObjectQuery = new Parse.Query(WorldObject);
+  // query WorldObject for object in very close proximity
+  worldObjectQuery.withinMiles("location", candidateLocation, clusterDistance);
+  worldObjectQuery.equalTo("label", dataLabel);
+  worldObjectQuery.find({
+    success: function(worldObjects) {
+      if(worldObjects.length == 0) {
+        var worldObject = new WorldObject();
+        worldObject.set("label", dataLabel);
+        worldObject.set("location", candidateLocation);
+        worldObject.set("experience", experienceId);
+        worldObject.set("interaction", interactionTitle);
+        worldObject.set("verified", false);
+        worldObject.save(null, {
+          success: function(worldObject) {
+            console.log('New WorldObject created with objectId: ' + worldObject.id);
+          },
+          error: function(worldObject, error) {
+            console.log('Failed to create new WorldObject, with error code: ' + error.message);
+          }
+        });
+      } else {
+        console.log("Did not save new WorldObject: Object with same label and close location already exists");
+      }
+    },
+    error: function(error) {
+      console.log("Error: " + error.code + " " + error.message);
+    }
+  });
+}
+
+function plotSpeedOverTime(times, accels, speeds, objectIdx, experienceId, interactionTitle){
+  // graph acceleration over time
+  var accelLine = {
+    x: times,
+    y: accels,
+    type: 'line',
+    name: "acceleration (m/s/s)",
+  };
+  
+  var speedLine = {
+    x: times,
+    y: speeds,
+    type: 'line',
+    name: "speed (m/s)",
+  };
+  
+  var objectLine = {
+    x: [times[objectIdx],times[objectIdx]],
+    y: [accels[objectIdx], speeds[objectIdx]],
+    mode: "markers",
+    type: 'scatter',
+    name: "object presence",
+  };
+  
+  var data = [accelLine, speedLine, objectLine];
+  var fname = interactionTitle + "_" + experienceId;
+  
+  // TODO for filename, use experienceID-interaction combo
+  var layout = {
+    title: interactionTitle + " (Exp. " + experienceId + ")",
+    xaxis: {
+      title:"timestamp",
+      titlefont: {
+        family: "Courier New, monospace",
+        size: 18,
+        color: "#7f7f7f"
+      }
+    }
+  };
+  var graphOptions = {layout: layout, filename: fname, fileopt: "overwrite"};
+  plotly.plot(data, graphOptions, function (err, msg) {
+  	if (err) return console.log(err);
+  	console.log(msg);
+  });
+}
