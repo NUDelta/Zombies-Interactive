@@ -112,6 +112,7 @@ class Stage: NSObject{
         
         if self.currentMomentIdx < moments.count {
             if let currentMoment = self.currentMoment as? SensorCollector {
+                print("starting sensor collector")
                 self.eventManager.trigger("sensorCollectorStarted",
                     information: ["sensors": currentMoment.sensors.rawValues, "label": currentMoment.dataLabel, "interaction": currentMoment.title])
             } else if let currentMoment = self.currentMoment as? CollectorWithSound {
@@ -131,6 +132,7 @@ class Stage: NSObject{
     }
     
     func recordWorldObject(information: Any?) {
+        print(" stage.recordWorldObject called")
         self.eventManager.trigger("foundWorldObject", information: information)
     }
     

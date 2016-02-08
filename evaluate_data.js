@@ -43,8 +43,8 @@ var query = new Parse.Query(DataEvent);
 var interactionTitle = "Find fire_hydrant"
 // query.ascending("updatedAt");
 // query.equalTo("interaction", interactionTitle);
-var dataEventId = "oHPAFRIej5";
-var experienceId = "OiK94zj74d";
+var dataEventId = "ja5rHDFNyG";
+var experienceId = "ZgVEYsAmo4";
 var dataLabel;
 
 query.equalTo("objectId", dataEventId);
@@ -125,8 +125,9 @@ function getTimeString(d){
 
 
 function findSlowdownPoint(times, accels, speeds, locationUpdates){
+  // TODO fake-extend data to allow for more windows
   // 3 seconds is 4 data points
-  var intervalSize = 4;
+  var intervalSize = 2;
   var intervalAvgSpeeds = [];
   
   var lastIntervalSum = speeds.slice(0,intervalSize).sum();

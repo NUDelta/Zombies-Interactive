@@ -166,11 +166,14 @@ class MissionViewController: UIViewController, MKMapViewDelegate, ExperienceMana
                                         [Interim(lengthInSeconds: 3.minutesToSeconds)],
                                title: "Stage Four")
             let stage5 = Stage(moments: [mission1Part06, mission2Preview], title: "Stage Five")
-            stages = [stage1, stage2, stage3, stage4, stage5]
+            
+            let stopTest = Stage(moments: [SensorCollector(lengthInSeconds: 20, dataLabel: "TESTDATA", sensors: [.MotionActivity])], title: "Motion Activity")
+            stages = [stopTest]
+//            stages = [stage1, stage2, stage3, stage4, stage5]
             
 
             
-            experienceManager = ExperienceManager(title: missionTitle, stages: stages, interactionPool: [interactions])
+            experienceManager = ExperienceManager(title: missionTitle, stages: stages)
             break
             
 

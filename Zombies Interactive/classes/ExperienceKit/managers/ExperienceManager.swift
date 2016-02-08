@@ -79,7 +79,7 @@ class ExperienceManager: NSObject, OpportunityManagerDelegate {
                 stage.eventManager.listenTo("sensorCollectorStarted", action: dataManager.startCollecting)
                 stage.eventManager.listenTo("sensorCollectorEnded", action: dataManager.stopCollecting)
                 
-                stage.eventManager.listenTo("foundWorldObject", action: dataManager.recordWorldObject)
+//                stage.eventManager.listenTo("foundWorldObject", action: dataManager.recordWorldObject)
             }
         }
         

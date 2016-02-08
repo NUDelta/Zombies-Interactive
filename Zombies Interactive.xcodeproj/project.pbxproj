@@ -89,6 +89,7 @@
 		BAC7CC1E1BD41C1B0031E905 /* MissionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAC7CC1A1BD41C1B0031E905 /* MissionViewController.swift */; };
 		BAC7CC1F1BD41C1B0031E905 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAC7CC1B1BD41C1B0031E905 /* SignUpViewController.swift */; };
 		BAE596701C175E8700541604 /* Requirement.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAE5966F1C175E8700541604 /* Requirement.swift */; };
+		BAFA26A71C65540F000EA65C /* MotionActivityUpdate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAFA26A61C65540F000EA65C /* MotionActivityUpdate.swift */; };
 		BAFF26971C4735C50032078D /* ARAudioRecognizer.m in Sources */ = {isa = PBXBuildFile; fileRef = BAFF26911C4735C50032078D /* ARAudioRecognizer.m */; };
 		BAFF26981C4735C50032078D /* TSCoreMotionListener.m in Sources */ = {isa = PBXBuildFile; fileRef = BAFF26941C4735C50032078D /* TSCoreMotionListener.m */; };
 		BAFF26991C4735C50032078D /* TSTapDetector.m in Sources */ = {isa = PBXBuildFile; fileRef = BAFF26961C4735C50032078D /* TSTapDetector.m */; };
@@ -181,6 +182,7 @@
 		BAC7CC1B1BD41C1B0031E905 /* SignUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SignUpViewController.swift; path = controllers/SignUpViewController.swift; sourceTree = "<group>"; };
 		BAD2F21D1BC4A7F600576D03 /* OEBridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "OEBridging-Header.h"; sourceTree = "<group>"; };
 		BAE5966F1C175E8700541604 /* Requirement.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Requirement.swift; path = ExperienceKit/Requirement.swift; sourceTree = "<group>"; };
+		BAFA26A61C65540F000EA65C /* MotionActivityUpdate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MotionActivityUpdate.swift; path = ExperienceKit/Parse/MotionActivityUpdate.swift; sourceTree = "<group>"; };
 		BAFF26901C4735C50032078D /* ARAudioRecognizer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ARAudioRecognizer.h; sourceTree = "<group>"; };
 		BAFF26911C4735C50032078D /* ARAudioRecognizer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ARAudioRecognizer.m; sourceTree = "<group>"; };
 		BAFF26921C4735C50032078D /* ARAudioRecognizerDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ARAudioRecognizerDelegate.h; sourceTree = "<group>"; };
@@ -518,6 +520,7 @@
 				BA0736281BE9C12500B9748A /* SensorMoment.swift */,
 				BAC7CBF71BD41B4F0031E905 /* Experience.swift */,
 				BAC7CBF81BD41B4F0031E905 /* LocationUpdate.swift */,
+				BAFA26A61C65540F000EA65C /* MotionActivityUpdate.swift */,
 				BAC7CBF91BD41B4F0031E905 /* WorldObject.swift */,
 			);
 			name = Parse;
@@ -677,6 +680,7 @@
 				BAC7CC1D1BD41C1B0031E905 /* HomeViewController.swift in Sources */,
 				BA630CC41C41AD7D004CDB0E /* OpportunityManager.swift in Sources */,
 				BAC7CBFA1BD41B4F0031E905 /* DataEvent.swift in Sources */,
+				BAFA26A71C65540F000EA65C /* MotionActivityUpdate.swift in Sources */,
 				BA630CC61C41AD8F004CDB0E /* Context.swift in Sources */,
 				BAC7CC051BD41B680031E905 /* Moment.swift in Sources */,
 				BA0736291BE9C12500B9748A /* SensorMoment.swift in Sources */,
