@@ -147,6 +147,23 @@ class MissionViewController: UIViewController, MKMapViewDelegate, ExperienceMana
                                                   Sound(fileNames: ["radio_static", "find_rest_2", "radio_static",])],
                                         title: "Pass Zombie Hotspot")
         
+        
+        
+        
+        
+        // SPRINTING INTERACTIONS (2/8/16)
+        let findHydrantInstruct = CollectorWithSound(fileNames: ["radio_static", "our_monitors_show", "radio_static"], additionalTime: 20, dataLabel: "fire_hydrant", sensors: [.Location, .Speed])
+        let findFireHydrant = Interaction(moments: [findHydrantInstruct, Sound(fileNames: ["you've_thrown_off"])], title: "Sprint to hydrant")
+        
+
+        let passTenTreesInstruct = CollectorWithSound(fileNames: ["radio_static", "weve_noticed_increased", "radio_static"], additionalTime: 20, dataLabel: "tree", sensors: [.Location, .Speed])
+        let passTenTrees = Interaction(moments: [passTenTreesInstruct, Sound(fileNames: ["you_should_be"])], title: "Sprint past ten trees")
+        
+        let sprintToBuildingInstruct = CollectorWithSound(fileNames: ["radio_static", "the_radars_on", "radio_static"], additionalTime: 20, dataLabel: "tall_building", sensors: [.Location, .Speed])
+        let sprintToBuilding = Interaction(moments: [sprintToBuildingInstruct, Sound(fileNames: ["building_confirmed"])], title: "Sprint to tall building")
+        //
+        
+        
         let allInteractions = [knockForBuildings, getCoverAtTree, takeHighRoute, passZombieHotspot, findRestPlace]
         
         // Construct the experience based on selected mission
