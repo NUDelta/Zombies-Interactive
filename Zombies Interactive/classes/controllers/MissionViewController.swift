@@ -26,8 +26,6 @@ class MissionViewController: UIViewController, MKMapViewDelegate, ExperienceMana
     
     var currentMomentIsInterim: Bool = false
     
-    var volumeView = MPVolumeView()
-    var volumeViewSlider: UISlider?
     
     
     @IBOutlet weak var controlLabel: UIButton!
@@ -253,16 +251,6 @@ class MissionViewController: UIViewController, MKMapViewDelegate, ExperienceMana
             try self.audioSession.setActive(false, withOptions: .NotifyOthersOnDeactivation)
         } catch let error as NSError {
             print(error.localizedDescription)
-        }
-        
-        for subview in volumeView.subviews {
-            if (subview as UIView).description.rangeOfString("MPVolumeSlider") != nil {
-                if let v = subview as? UISlider {
-                    volumeViewSlider = v
-                    break
-                }
-                
-            }
         }
         
     }
