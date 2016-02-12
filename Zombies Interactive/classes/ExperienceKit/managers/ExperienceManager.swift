@@ -19,6 +19,8 @@ import MediaPlayer
     optional func didFinishMoment()
     optional func didBeginInterim()
     optional func didFinishInterim()
+    optional func didBeginSound()
+    optional func didFinishSound()
     optional func didBeginStage()
     optional func didFinishStage()
     optional func didFinishExperience()
@@ -39,8 +41,6 @@ class ExperienceManager: NSObject, OpportunityManagerDelegate {
     var experienceStarted = false
     var experience: Experience?
     var delegate: ExperienceManagerDelegate?
-    
-    var audioSession: AVAudioSession = AVAudioSession.sharedInstance()
     
     var opportunityTimer = NSTimer()
     
@@ -86,16 +86,13 @@ class ExperienceManager: NSObject, OpportunityManagerDelegate {
         }
         
         // Temporary fix because loading of mission view controller stops music
-        do {
-            try self.audioSession.setCategory(AVAudioSessionCategoryPlayback, withOptions: .MixWithOthers)
-            try self.audioSession.setActive(false, withOptions: .NotifyOthersOnDeactivation)
-        } catch let error as NSError {
-            print(error.localizedDescription)
-        }
+
     
     }
     
     func handleInterimStart(information: Any?) {
+        delegate?.didBeginInterim?()
+        
         setAVSessionForSilence()
         if let _ = opportunityManager {
             resetOpportunityTimer(information)
@@ -103,22 +100,17 @@ class ExperienceManager: NSObject, OpportunityManagerDelegate {
     }
     
     func handleSoundStart(information: Any?) {
+        delegate?.didBeginSound?()
         setAVSessionForSound()
     }
 
     // move some of this music logic to view controller, will likely be different for each app
     func setAVSessionForSilence() {
-        // don't try to play the system player if it's in simulator
-        #if (arch(i386) || arch(x86_64)) && os(iOS)
-        #else
-        MPMusicPlayerController.systemMusicPlayer().play()
-        #endif
+
     }
     
     func setAVSessionForSound() {
-        if self.audioSession.otherAudioPlaying {
-            MPMusicPlayerController.systemMusicPlayer().pause()
-        }
+
     }
     
     func start() {
@@ -174,19 +166,8 @@ class ExperienceManager: NSObject, OpportunityManagerDelegate {
         self.experience?.dateCompleted = NSDate()
         self.experience?.completed = true
         self.experience?.saveInBackground()
-        
-        do {
-            try AVAudioSession.sharedInstance().setActive(false, withOptions: .NotifyOthersOnDeactivation)
-        } catch let error as NSError {
-            print(error.localizedDescription)
-        }
-        
+  
         delegate?.didFinishExperience?()
-        
-        let systemPlayer = MPMusicPlayerController.systemMusicPlayer()
-        if let _ = systemPlayer.nowPlayingItem {
-            systemPlayer.play()
-        }
     }
     
     

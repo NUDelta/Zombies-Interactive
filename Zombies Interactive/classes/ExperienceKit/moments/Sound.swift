@@ -16,7 +16,6 @@ class Sound: Moment, AVAudioPlayerDelegate{
     var fileNames:[String]
     
     var player:AVAudioPlayer?
-    var audioSession:AVAudioSession = AVAudioSession.sharedInstance()
     var numFilesPlayed:Int = 0
     
     init(fileNames: [String], isInterruptable:Bool=false, title:String?=nil){

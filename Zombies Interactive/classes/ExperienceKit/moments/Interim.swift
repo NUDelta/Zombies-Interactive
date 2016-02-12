@@ -20,7 +20,6 @@ class Interim: Moment{
     var startTime: NSDate = NSDate()
     var timeRemaining: NSTimeInterval
     var player:AVAudioPlayer?
-    var audioSession:AVAudioSession = AVAudioSession.sharedInstance()
     
     init(title:String?=nil, isInterruptable:Bool=false, lengthInSeconds:Float){
         self.lengthInSeconds = lengthInSeconds

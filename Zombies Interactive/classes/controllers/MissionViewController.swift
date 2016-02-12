@@ -20,8 +20,12 @@ class MissionViewController: UIViewController, MKMapViewDelegate, ExperienceMana
     var musicOn: Bool = true
     var experienceManager:ExperienceManager!
     var musicPlayer:MPMusicPlayerController?
+    var audioSession: AVAudioSession = AVAudioSession.sharedInstance()
     
     var currentAnnotation: MKAnnotation?
+    
+    var currentMomentIsInterim: Bool = false
+    
     
     @IBOutlet weak var controlLabel: UIButton!
     @IBOutlet weak var mapView: MKMapView!
@@ -62,10 +66,16 @@ class MissionViewController: UIViewController, MKMapViewDelegate, ExperienceMana
         } else if self.controlLabel.titleLabel!.text == "Resume" {
             print("  Experience resumed")
             self.experienceManager.play()
+            if musicOn && currentMomentIsInterim {
+                MPMusicPlayerController.systemMusicPlayer().play()
+            }
             self.controlLabel.setTitle("Pause", forState: .Normal)
         } else {
             print("  Experience paused")
             self.experienceManager.pause()
+            if audioSession.otherAudioPlaying {
+                MPMusicPlayerController.systemMusicPlayer().pause()
+            }
             self.controlLabel.setTitle("Resume", forState: .Normal)
         }
     }
@@ -185,9 +195,9 @@ class MissionViewController: UIViewController, MKMapViewDelegate, ExperienceMana
                                title: "Stage Four")
             let stage5 = Stage(moments: [mission1Part06, mission2Preview], title: "Stage Five")
             
-            let stopTest = Stage(moments: [SensorCollector(lengthInSeconds: 20, dataLabel: "TESTDATA", sensors: [.MotionActivity])], title: "Motion Activity")
-            stages = [stopTest]
-//            stages = [stage1, stage2, stage3, stage4, stage5]
+//            let stopTest = Stage(moments: [SensorCollector(lengthInSeconds: 20, dataLabel: "TESTDATA", sensors: [.MotionActivity])], title: "Motion Activity")
+//            stages = [stopTest]
+            stages = [stage1, stage2, stage3, stage4, stage5]
             
 
             
@@ -233,6 +243,14 @@ class MissionViewController: UIViewController, MKMapViewDelegate, ExperienceMana
         mapView.mapType = MKMapType.Standard
         mapView.userTrackingMode = MKUserTrackingMode.FollowWithHeading // don't use heading for now, annoying to always calibrate compass + UI unnecessary
         mapView.showsUserLocation = true
+        
+
+        do {
+            try self.audioSession.setCategory(AVAudioSessionCategoryPlayback, withOptions: .MixWithOthers)
+            try self.audioSession.setActive(false, withOptions: .NotifyOthersOnDeactivation)
+        } catch let error as NSError {
+            print(error.localizedDescription)
+        }
     }
 
     override func didReceiveMemoryWarning() {
@@ -288,6 +306,17 @@ class MissionViewController: UIViewController, MKMapViewDelegate, ExperienceMana
     }
     
     func didFinishExperience() {
+        do {
+            try AVAudioSession.sharedInstance().setActive(false, withOptions: .NotifyOthersOnDeactivation)
+        } catch let error as NSError {
+            print(error.localizedDescription)
+        }
+        
+        let systemPlayer = MPMusicPlayerController.systemMusicPlayer()
+        if let _ = systemPlayer.nowPlayingItem {
+            systemPlayer.play()
+        }
+        
         if let navController = self.navigationController {
             navController.popViewControllerAnimated(true)
         }
@@ -298,5 +327,23 @@ class MissionViewController: UIViewController, MKMapViewDelegate, ExperienceMana
         addObjectToMap(destLocation, annotationTitle: destinationName)
     }
     
+    
+    func didBeginInterim() {
+        currentMomentIsInterim = true
+        // don't try to play the system player if it's in simulator
+        #if (arch(i386) || arch(x86_64)) && os(iOS)
+        #else
+            if musicOn {
+                MPMusicPlayerController.systemMusicPlayer().play()
+            }
+        #endif
+    }
+    
+    func didBeginSound() {
+        currentMomentIsInterim = false
+        if audioSession.otherAudioPlaying {
+            MPMusicPlayerController.systemMusicPlayer().pause()
+        }
+    }
 }
 
