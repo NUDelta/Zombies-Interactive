@@ -16,7 +16,7 @@ import CoreLocation
 
 class MissionViewController: UIViewController, MKMapViewDelegate, ExperienceManagerDelegate {
 
-    var missionTitle: String = ""
+    var missionTitle: String = "MISSION 50"
     var experienceManager:ExperienceManager!
     var musicPlayer:MPMusicPlayerController?
     
