@@ -17,6 +17,8 @@ import MediaPlayer
 @objc protocol ExperienceManagerDelegate {
     optional func didBeginMoment()
     optional func didFinishMoment()
+    optional func didBeginInterim()
+    optional func didFinishInterim()
     optional func didBeginStage()
     optional func didFinishStage()
     optional func didFinishExperience()

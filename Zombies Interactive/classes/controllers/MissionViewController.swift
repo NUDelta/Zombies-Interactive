@@ -17,6 +17,7 @@ import CoreLocation
 class MissionViewController: UIViewController, MKMapViewDelegate, ExperienceManagerDelegate {
 
     var missionTitle: String = ""
+    var musicOn: Bool = true
     var experienceManager:ExperienceManager!
     var musicPlayer:MPMusicPlayerController?
     
@@ -291,6 +292,7 @@ class MissionViewController: UIViewController, MKMapViewDelegate, ExperienceMana
             navController.popViewControllerAnimated(true)
         }
     }
+    
     
     func didAddDestination(destLocation: CLLocationCoordinate2D, destinationName: String) {
         addObjectToMap(destLocation, annotationTitle: destinationName)
