@@ -84,8 +84,6 @@ class ExperienceManager: NSObject, OpportunityManagerDelegate {
 //                stage.eventManager.listenTo("foundWorldObject", action: dataManager.recordWorldObject)
             }
         }
-        
-        // Temporary fix because loading of mission view controller stops music
 
     
     }
@@ -93,7 +91,6 @@ class ExperienceManager: NSObject, OpportunityManagerDelegate {
     func handleInterimStart(information: Any?) {
         delegate?.didBeginInterim?()
         
-        setAVSessionForSilence()
         if let _ = opportunityManager {
             resetOpportunityTimer(information)
         }
@@ -101,17 +98,8 @@ class ExperienceManager: NSObject, OpportunityManagerDelegate {
     
     func handleSoundStart(information: Any?) {
         delegate?.didBeginSound?()
-        setAVSessionForSound()
     }
 
-    // move some of this music logic to view controller, will likely be different for each app
-    func setAVSessionForSilence() {
-
-    }
-    
-    func setAVSessionForSound() {
-
-    }
     
     func start() {
         print("\nExperience started")

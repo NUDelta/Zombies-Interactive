@@ -7,10 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		5241B5621BA0980000DBC6D3 /* ZombieRunX.xcdatamodeld in Resources */ = {isa = PBXBuildFile; fileRef = 528C3A461B826734007C59FC /* ZombieRunX.xcdatamodeld */; };
+		5241B5621BA0980000DBC6D3 /* Zombies-Interactive.xcdatamodeld in Resources */ = {isa = PBXBuildFile; fileRef = 528C3A461B826734007C59FC /* Zombies-Interactive.xcdatamodeld */; };
 		5241B5711BA0E87400DBC6D3 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5241B5701BA0E87400DBC6D3 /* AudioToolbox.framework */; };
 		5241B5731BA0E88100DBC6D3 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5241B5721BA0E88100DBC6D3 /* AVFoundation.framework */; };
-		528C3A481B826734007C59FC /* ZombieRunX.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 528C3A461B826734007C59FC /* ZombieRunX.xcdatamodeld */; };
+		528C3A481B826734007C59FC /* Zombies-Interactive.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 528C3A461B826734007C59FC /* Zombies-Interactive.xcdatamodeld */; };
 		528C3A4D1B826734007C59FC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 528C3A4B1B826734007C59FC /* Main.storyboard */; };
 		528C3A521B826734007C59FC /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 528C3A501B826734007C59FC /* LaunchScreen.xib */; };
 		528E89D11B9DEDCC00C5FC8E /* Accounts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 528E89D01B9DEDCC00C5FC8E /* Accounts.framework */; };
@@ -106,7 +106,7 @@
 		5241B5721BA0E88100DBC6D3 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		528C3A3F1B826734007C59FC /* Zombies Interactive.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Zombies Interactive.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		528C3A431B826734007C59FC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		528C3A471B826734007C59FC /* ZombieRunX.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = ZombieRunX.xcdatamodel; sourceTree = "<group>"; };
+		528C3A471B826734007C59FC /* Zombies-Interactive.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "Zombies-Interactive.xcdatamodel"; sourceTree = "<group>"; };
 		528C3A4C1B826734007C59FC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		528C3A511B826734007C59FC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		528E89D01B9DEDCC00C5FC8E /* Accounts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accounts.framework; path = System/Library/Frameworks/Accounts.framework; sourceTree = SDKROOT; };
@@ -270,7 +270,7 @@
 				BA36A8941BBBA79100E197E2 /* Images.xcassets */,
 				528C3A4B1B826734007C59FC /* Main.storyboard */,
 				528C3A501B826734007C59FC /* LaunchScreen.xib */,
-				528C3A461B826734007C59FC /* ZombieRunX.xcdatamodeld */,
+				528C3A461B826734007C59FC /* Zombies-Interactive.xcdatamodeld */,
 				528C3A421B826734007C59FC /* Supporting Files */,
 				BAD2F21D1BC4A7F600576D03 /* OEBridging-Header.h */,
 			);
@@ -671,7 +671,7 @@
 				BA4A6B841C6E885B0064CF83 /* find_rest_2.mp3 in Resources */,
 				BA4255F81BD15E39004B6DF9 /* bleep-alert.m4a in Resources */,
 				BA3414171BD8161E0099A710 /* M-E01-03.mp3 in Resources */,
-				5241B5621BA0980000DBC6D3 /* ZombieRunX.xcdatamodeld in Resources */,
+				5241B5621BA0980000DBC6D3 /* Zombies-Interactive.xcdatamodeld in Resources */,
 				528C3A4D1B826734007C59FC /* Main.storyboard in Resources */,
 				BA9890A31BDDB2D00037A615 /* silence.mp3 in Resources */,
 				BA4A6B8F1C6E885B0064CF83 /* find_cover.mp3 in Resources */,
@@ -736,7 +736,7 @@
 				BA0736271BE9B69B00B9748A /* SpeechListener.swift in Sources */,
 				BAC7CBFC1BD41B4F0031E905 /* LocationUpdate.swift in Sources */,
 				BAFF26971C4735C50032078D /* ARAudioRecognizer.m in Sources */,
-				528C3A481B826734007C59FC /* ZombieRunX.xcdatamodeld in Sources */,
+				528C3A481B826734007C59FC /* Zombies-Interactive.xcdatamodeld in Sources */,
 				BAC7CC1C1BD41C1B0031E905 /* ActuationController.swift in Sources */,
 				BAFF26991C4735C50032078D /* TSTapDetector.m in Sources */,
 				BAC7CC1E1BD41C1B0031E905 /* MissionViewController.swift in Sources */,
@@ -919,13 +919,13 @@
 /* End XCConfigurationList section */
 
 /* Begin XCVersionGroup section */
-		528C3A461B826734007C59FC /* ZombieRunX.xcdatamodeld */ = {
+		528C3A461B826734007C59FC /* Zombies-Interactive.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
-				528C3A471B826734007C59FC /* ZombieRunX.xcdatamodel */,
+				528C3A471B826734007C59FC /* Zombies-Interactive.xcdatamodel */,
 			);
-			currentVersion = 528C3A471B826734007C59FC /* ZombieRunX.xcdatamodel */;
-			path = ZombieRunX.xcdatamodeld;
+			currentVersion = 528C3A471B826734007C59FC /* Zombies-Interactive.xcdatamodel */;
+			path = "Zombies-Interactive.xcdatamodeld";
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
 		};

@@ -26,6 +26,9 @@ class MissionViewController: UIViewController, MKMapViewDelegate, ExperienceMana
     
     var currentMomentIsInterim: Bool = false
     
+    var volumeView = MPVolumeView()
+    var volumeViewSlider: UISlider?
+    
     
     @IBOutlet weak var controlLabel: UIButton!
     @IBOutlet weak var mapView: MKMapView!
@@ -67,14 +70,14 @@ class MissionViewController: UIViewController, MKMapViewDelegate, ExperienceMana
             print("  Experience resumed")
             self.experienceManager.play()
             if musicOn && currentMomentIsInterim {
-                MPMusicPlayerController.systemMusicPlayer().play()
+                playMusic()
             }
             self.controlLabel.setTitle("Pause", forState: .Normal)
         } else {
             print("  Experience paused")
             self.experienceManager.pause()
             if audioSession.otherAudioPlaying {
-                MPMusicPlayerController.systemMusicPlayer().pause()
+                pauseMusic()
             }
             self.controlLabel.setTitle("Resume", forState: .Normal)
         }
@@ -251,6 +254,17 @@ class MissionViewController: UIViewController, MKMapViewDelegate, ExperienceMana
         } catch let error as NSError {
             print(error.localizedDescription)
         }
+        
+        for subview in volumeView.subviews {
+            if (subview as UIView).description.rangeOfString("MPVolumeSlider") != nil {
+                if let v = subview as? UISlider {
+                    volumeViewSlider = v
+                    break
+                }
+                
+            }
+        }
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -322,6 +336,15 @@ class MissionViewController: UIViewController, MKMapViewDelegate, ExperienceMana
         }
     }
     
+    func pauseMusic() {
+        // TODO fade out?
+        MPMusicPlayerController.systemMusicPlayer().pause()
+    }
+    
+    func playMusic() {
+        // TODO fade in?
+        MPMusicPlayerController.systemMusicPlayer().play()
+    }
     
     func didAddDestination(destLocation: CLLocationCoordinate2D, destinationName: String) {
         addObjectToMap(destLocation, annotationTitle: destinationName)
@@ -334,15 +357,15 @@ class MissionViewController: UIViewController, MKMapViewDelegate, ExperienceMana
         #if (arch(i386) || arch(x86_64)) && os(iOS)
         #else
             if musicOn {
-                MPMusicPlayerController.systemMusicPlayer().play()
+                playMusic()
             }
         #endif
     }
     
     func didBeginSound() {
         currentMomentIsInterim = false
-        if audioSession.otherAudioPlaying {
-            MPMusicPlayerController.systemMusicPlayer().pause()
+        if musicOn && audioSession.otherAudioPlaying {
+            pauseMusic()
         }
     }
 }
