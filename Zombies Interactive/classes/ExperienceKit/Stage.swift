@@ -112,7 +112,6 @@ class Stage: NSObject{
         
         if self.currentMomentIdx < moments.count {
             if let currentMoment = self.currentMoment as? SensorCollector {
-                print("starting sensor collector")
                 self.eventManager.trigger("sensorCollectorStarted",
                     information: ["sensors": currentMoment.sensors.rawValues, "label": currentMoment.dataLabel, "interaction": currentMoment.title])
             } else if let currentMoment = self.currentMoment as? CollectorWithSound {

@@ -59,7 +59,6 @@ class DataManager : NSObject, CLLocationManagerDelegate {
     
     
     func startCollecting(information:Any?){
-        print("datamanager->starting collecting")
         self.dataEvent = DataEvent()
         self.dataEvent?.experience = self.experience
         self.dataEvent?.startDate = NSDate()
@@ -106,6 +105,7 @@ class DataManager : NSObject, CLLocationManagerDelegate {
     
     
     func stopCollecting(){
+        print("  stopped recording data")
         self.motionActivityManager.stopActivityUpdates()
         self.dataEvent?.endDate = NSDate()
         self.dataEvent?.saveInBackground()

@@ -85,33 +85,25 @@ class MissionViewController: UIViewController, MKMapViewDelegate, ExperienceMana
         super.viewDidLoad()
         self.navigationItem.hidesBackButton = true
         let newBackButton = UIBarButtonItem(title: "Back", style: UIBarButtonItemStyle.Plain, target: self, action: "back:")
-        self.navigationItem.leftBarButtonItem = newBackButton;
-        
-        
-        CLLocationManager().requestAlwaysAuthorization()
-        
+        self.navigationItem.leftBarButtonItem = newBackButton
         view.backgroundColor = UIColor(red:0.24, green:0.24, blue:0.25, alpha:1)
+        CLLocationManager().requestAlwaysAuthorization()
         
         
         // regions -- should be pulled from Parse in the future, probably
         // get only "verified" ones
-        let chickenShackLocation = CLLocationCoordinate2D(latitude: 42.052860617171845, longitude: -87.68747791910707)
-        let chickenShackRegion = CLCircularRegion(center: chickenShackLocation, radius: 300, identifier: "Chicken Shack")
+//        let chickenShackLocation = CLLocationCoordinate2D(latitude: 42.052860617171845, longitude: -87.68747791910707)
+//        let chickenShackRegion = CLCircularRegion(center: chickenShackLocation, radius: 300, identifier: "Chicken Shack")
+//        
+//        let techLocation = CLLocationCoordinate2D(latitude: 42.057789, longitude: -87.676150)
+//        let techRegion = CLCircularRegion(center: techLocation, radius: 1000, identifier: "Tech Institute")
         
-        let techLocation = CLLocationCoordinate2D(latitude: 42.057789, longitude: -87.676150)
-        let techRegion = CLCircularRegion(center: techLocation, radius: 1000, identifier: "Tech Institute")
-        
-        
-        let mission1Intro = Sound(fileNames: ["ZRS1M1v2"])
-        let mission1Part02 = Sound(fileNames: ["M-E01-02"])
-        let mission1Part03 = Sound(fileNames: ["M-E01-03"])
-        let mission1Part04 = Sound(fileNames: ["M-E01-04"])
-        let mission1Part05 = Sound(fileNames: ["M-E01-05"])
-        let mission1Part06 = Sound(fileNames: ["M-E01-06"])
-        let mission2Preview = Sound(fileNames: ["NextTimeS1M3"])
-        
-        
-        // Interaction definitions
+  
+        /*
+        *
+        *  MARK: Interaction definitions
+        *
+        */
         
         // Identify vantage points
         let identifyBuildings = KnockListener(title: "Identify Vantage Points",
@@ -159,48 +151,52 @@ class MissionViewController: UIViewController, MKMapViewDelegate, ExperienceMana
                                                   Sound(fileNames: ["radio_static", "find_rest_2", "radio_static",])],
                                         title: "Pass Zombie Hotspot")
         
+        /*
+        *
+        * MARK: Sprinting interactions
+        *   
+        */
         
-        
-        
-        
-        // SPRINTING INTERACTIONS (2/8/16)
-        let findHydrantInstruct = CollectorWithSound(fileNames: ["radio_static", "our_monitors_show", "radio_static"], additionalTime: 20, dataLabel: "fire_hydrant", sensors: [.Location, .Speed])
-        let findFireHydrant = Interaction(moments: [findHydrantInstruct, Sound(fileNames: ["you've_thrown_off"])], title: "Sprint to hydrant")
+        let findHydrantInstruct = Sound(fileNames: ["radio_static", "our_monitors_show", "radio_static"])
+        let findHydrantCollector = SensorCollector(lengthInSeconds: 20, dataLabel: "fire_hydrant", sensors: [.Location, .Speed])
+        let findFireHydrant = Interaction(moments: [findHydrantInstruct, findHydrantCollector, Sound(fileNames: ["radio_static", "you've_thrown_off","radio_static"])], title: "Sprint to hydrant")
         
 
-        let passTenTreesInstruct = CollectorWithSound(fileNames: ["radio_static", "weve_noticed_increased", "radio_static"], additionalTime: 20, dataLabel: "tree", sensors: [.Location, .Speed])
-        let passTenTrees = Interaction(moments: [passTenTreesInstruct, Sound(fileNames: ["you_should_be"])], title: "Sprint past ten trees")
+        let passTenTreesInstruct = Sound(fileNames: ["radio_static", "weve_noticed_increased", "radio_static"])
+        let passTenTreesCollector = SensorCollector(lengthInSeconds: 20, dataLabel: "tree", sensors: [.Location, .Speed])
+        let passTenTrees = Interaction(moments: [passTenTreesInstruct, passTenTreesCollector, Sound(fileNames: ["radio_static","you_should_be","radio_static"])], title: "Sprint past ten trees")
         
-        let sprintToBuildingInstruct = CollectorWithSound(fileNames: ["radio_static", "the_radars_on", "radio_static"], additionalTime: 20, dataLabel: "tall_building", sensors: [.Location, .Speed])
-        let sprintToBuilding = Interaction(moments: [sprintToBuildingInstruct, Sound(fileNames: ["building_confirmed"])], title: "Sprint to tall building")
-        //
+        let sprintToBuildingInstruct = Sound(fileNames: ["radio_static", "the_radars_on", "radio_static"])
+        let sprintToBuildingCollector = SensorCollector(lengthInSeconds: 20, dataLabel: "tall_building", sensors: [.Location, .Speed])
+        let sprintToBuilding = Interaction(moments: [sprintToBuildingInstruct, sprintToBuildingCollector, Sound(fileNames: ["radio_static","building_confirmed","radio_static"])], title: "Sprint to tall building")
+        
+        let sprintingInteractions = [findFireHydrant, sprintToBuilding, passTenTrees]
         
         
-        let allInteractions = [knockForBuildings, getCoverAtTree, takeHighRoute, passZombieHotspot, findRestPlace]
+        let allInteractions = [knockForBuildings, getCoverAtTree, takeHighRoute, passZombieHotspot, findRestPlace] + sprintingInteractions
+        
         
         // Construct the experience based on selected mission
         var stages: [Stage] = []
         switch missionTitle {
-        case "M1: Jolly Alpha Five Niner (30-35 min)":
-            let stage1 = Stage(moments: [mission1Intro, mission1Part02,
-                                        Interim(lengthInSeconds: 3.minutesToSeconds),
-                                        Sound(fileNames: ["radio_static", "intel_team_intro", "radio_static"]),
-                                        Interim(lengthInSeconds: 3.minutesToSeconds)],
-                               title: "Stage One")
-            let stage2 = Stage(moments: [mission1Part03, Interim(lengthInSeconds: 10)] + takeHighRoute.moments,
-                               title: "Stage Two")
-            let stage3 = Stage(moments: [mission1Part04, Interim(lengthInSeconds: 5.minutesToSeconds)], title: "Stage Three")
-            let stage4 = Stage(moments: [mission1Part05, Interim(lengthInSeconds: 3.minutesToSeconds)] +
-                                        passZombieHotspot.moments +
-                                        [Interim(lengthInSeconds: 3.minutesToSeconds)],
-                               title: "Stage Four")
-            let stage5 = Stage(moments: [mission1Part06, mission2Preview], title: "Stage Five")
-            
-//            let stopTest = Stage(moments: [SensorCollector(lengthInSeconds: 20, dataLabel: "TESTDATA", sensors: [.MotionActivity])], title: "Motion Activity")
-//            stages = [stopTest]
-            stages = [stage1, stage2, stage3, stage4, stage5]
-            
+        case "S1M16: Scouting Mission (~45 min)":
 
+            /*
+            *
+            * MARK: mission construction
+            *
+            */
+            // http://zombiesrun.wikia.com/wiki/Scouting_Mission#
+            let stage1 = Stage(moments: [Sound(fileNames: ["S1M16_1"]), Interim(lengthInSeconds: 2.minutesToSeconds), Interim(lengthInSeconds: 120)],
+                title: "Scouting", interactionInsertionIndices: [2], interactionPool: sprintingInteractions)
+            let stage2 = Stage(moments: [Sound(fileNames: ["S1M16_2"]), Interim(lengthInSeconds: 2.minutesToSeconds), Interim(lengthInSeconds: 120)], title: "No More Eyes", interactionInsertionIndices: [2], interactionPool: sprintingInteractions)
+            let stage3 = Stage(moments: [Sound(fileNames: ["S1M16_3"]), Interim(lengthInSeconds: 2.minutesToSeconds), Interim(lengthInSeconds: 120)], title: "Gunshots", interactionInsertionIndices: [2], interactionPool: sprintingInteractions)
+            let stage4 = Stage(moments: [Sound(fileNames: ["S1M16_4"]), Interim(lengthInSeconds: 5.minutesToSeconds)], title: "A Mystery")
+            let stage5 = Stage(moments: [Sound(fileNames: ["S1M16_5"]), Interim(lengthInSeconds: 5.minutesToSeconds)], title: "Swift Exit")
+            let stage6 = Stage(moments: [Sound(fileNames: ["S1M16_6"]), Interim(lengthInSeconds: 5.minutesToSeconds)], title: "Pursuit")
+            let stage7 = Stage(moments: [Sound(fileNames: ["S1M16_7", "S1M16_8", "mission_completed"])], title: "Debrief")
+
+            stages = [stage1, stage2, stage3, stage4, stage5, stage6, stage7]
             
             experienceManager = ExperienceManager(title: missionTitle, stages: stages)
             break
