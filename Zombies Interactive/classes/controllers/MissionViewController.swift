@@ -26,11 +26,15 @@ class MissionViewController: UIViewController, MKMapViewDelegate, ExperienceMana
     
     var currentMomentIsInterim: Bool = false
     
-    
+    let pedometer = CMPedometer()
+    var startDate: NSDate!
+    var missionComplete: Bool = false
     
     @IBOutlet weak var controlLabel: UIButton!
     @IBOutlet weak var mapView: MKMapView!
     @IBOutlet weak var nextMomentButton: UIButton!
+    @IBOutlet weak var timeElapsedLabel: UILabel!
+    @IBOutlet weak var stepsTakenLabel: UILabel!
     
     @IBAction func previousMoment(sender: AnyObject) {
         // FIX this requires too much knowledge of internals for another developer to use
@@ -64,6 +68,23 @@ class MissionViewController: UIViewController, MKMapViewDelegate, ExperienceMana
             #if DEBUG
             nextMomentButton.hidden = false
             #endif
+            startDate = NSDate()
+            let timer = NSTimer.scheduledTimerWithTimeInterval(1.0, target: self, selector: Selector("updateTimeElapsed"), userInfo: nil, repeats: true)
+            
+            if(CMPedometer.isStepCountingAvailable()){
+                pedometer.startPedometerUpdatesFromDate(startDate) {
+                    (data: CMPedometerData?, error) -> Void in
+                    dispatch_async(dispatch_get_main_queue(), { () -> Void in
+                        if(error == nil){
+                            if let distance = data?.distance {
+                                self.stepsTakenLabel.text = String(format: "Estimated %.2f miles traveled", distance.toMiles)
+                            }
+                        }
+                    })   
+                }
+            }
+
+            
         } else if self.controlLabel.titleLabel!.text == "Resume" {
             print("  Experience resumed")
             self.experienceManager.play()
@@ -71,7 +92,7 @@ class MissionViewController: UIViewController, MKMapViewDelegate, ExperienceMana
                 playMusic()
             }
             self.controlLabel.setTitle("Pause", forState: .Normal)
-        } else {
+        } else if self.controlLabel.titleLabel!.text == "Pause" {
             print("  Experience paused")
             self.experienceManager.pause()
             if audioSession.otherAudioPlaying {
@@ -81,12 +102,26 @@ class MissionViewController: UIViewController, MKMapViewDelegate, ExperienceMana
         }
     }
     
+    func secondsToHoursMinutesSeconds (seconds : Int) -> (Int, Int, Int) {
+        return (seconds / 3600, (seconds % 3600) / 60, (seconds % 3600) % 60)
+    }
+    
+    func updateTimeElapsed() {
+        let (h,m,s) = secondsToHoursMinutesSeconds(Int(NSDate().timeIntervalSinceDate(startDate)))
+        timeElapsedLabel.text = "\(h)h \(m)m \(s)s elapsed"
+        
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationItem.hidesBackButton = true
         let newBackButton = UIBarButtonItem(title: "Back", style: UIBarButtonItemStyle.Plain, target: self, action: "back:")
         self.navigationItem.leftBarButtonItem = newBackButton
         view.backgroundColor = UIColor(red:0.24, green:0.24, blue:0.25, alpha:1)
+        
+        // we don't need it now, but this line prompts the user to give permissions
+        // so it doesn't come up later on when the phone is in their pocket
+        CMMotionActivityManager().stopActivityUpdates()
         CLLocationManager().requestAlwaysAuthorization()
         
         
@@ -238,7 +273,7 @@ class MissionViewController: UIViewController, MKMapViewDelegate, ExperienceMana
         // Set up the map view
         mapView.delegate = self
         mapView.mapType = MKMapType.Standard
-        mapView.userTrackingMode = MKUserTrackingMode.FollowWithHeading // don't use heading for now, annoying to always calibrate compass + UI unnecessary
+        mapView.userTrackingMode = MKUserTrackingMode.Follow // don't use heading for now, annoying to always calibrate compass + UI unnecessary
         mapView.showsUserLocation = true
         
 
@@ -257,7 +292,8 @@ class MissionViewController: UIViewController, MKMapViewDelegate, ExperienceMana
     
     func back(sender: UIBarButtonItem) {
 
-        if self.experienceManager.currentStageIdx > -1 {
+        if self.experienceManager.currentStageIdx > -1 && missionComplete == false {
+            
             let refreshAlert = UIAlertController(title: "Are you sure?", message: "This will end the mission. All progress will be lost.", preferredStyle: UIAlertControllerStyle.Alert)
         
             refreshAlert.addAction(UIAlertAction(title: "Exit Mission", style: .Destructive , handler: { (action: UIAlertAction!) in
@@ -315,9 +351,12 @@ class MissionViewController: UIViewController, MKMapViewDelegate, ExperienceMana
             systemPlayer.play()
         }
         
-        if let navController = self.navigationController {
-            navController.popViewControllerAnimated(true)
-        }
+        controlLabel.setTitle("Mission Complete", forState: .Normal)
+        missionComplete = true
+        
+//        if let navController = self.navigationController {
+//            navController.popViewControllerAnimated(true)
+//        }
     }
     
     func pauseMusic() {

@@ -193,14 +193,29 @@
                                     <action selector="controlButton:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="wvQ-1v-fuf"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0h 0m 0s elapsed" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rFQ-zn-MXr">
+                                <rect key="frame" x="16" y="390" width="178" height="27"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Estimated 0 miles traveled" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="57M-HO-7m7">
+                                <rect key="frame" x="16" y="425" width="259" height="26"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="TD2-NT-Tqh" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" constant="-20" id="1Ud-x4-RMH"/>
                             <constraint firstItem="yVR-oT-Kmv" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" constant="203" id="59w-JL-8Gm"/>
+                            <constraint firstItem="rFQ-zn-MXr" firstAttribute="top" secondItem="yVR-oT-Kmv" secondAttribute="bottom" constant="8" symbolic="YES" id="7x5-bE-YPj"/>
                             <constraint firstAttribute="trailingMargin" secondItem="yVR-oT-Kmv" secondAttribute="trailing" constant="-16" id="8EW-4d-2nb"/>
                             <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="yVR-oT-Kmv" secondAttribute="bottom" constant="103" id="9v0-hG-32c"/>
+                            <constraint firstItem="57M-HO-7m7" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" id="BSl-7Y-4za"/>
                             <constraint firstAttribute="centerY" secondItem="yVR-oT-Kmv" secondAttribute="centerY" id="Deb-gx-edh"/>
+                            <constraint firstItem="rFQ-zn-MXr" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" id="E9g-Ua-wGB"/>
                             <constraint firstItem="yVR-oT-Kmv" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" constant="-16" id="Eqr-y1-fJg"/>
                             <constraint firstItem="yVR-oT-Kmv" firstAttribute="top" secondItem="TD2-NT-Tqh" secondAttribute="bottom" constant="149" id="FNa-KY-rU0"/>
                             <constraint firstAttribute="centerY" secondItem="yVR-oT-Kmv" secondAttribute="centerY" id="GcP-aM-E3e"/>
@@ -213,6 +228,7 @@
                             <constraint firstAttribute="centerY" secondItem="yVR-oT-Kmv" secondAttribute="centerY" id="ORE-Ne-4LN"/>
                             <constraint firstItem="TD2-NT-Tqh" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" id="P3L-K5-feH"/>
                             <constraint firstAttribute="centerX" secondItem="yVR-oT-Kmv" secondAttribute="centerX" id="P8H-91-vtF"/>
+                            <constraint firstItem="57M-HO-7m7" firstAttribute="top" secondItem="rFQ-zn-MXr" secondAttribute="bottom" constant="8" symbolic="YES" id="Pu9-z7-ppK"/>
                             <constraint firstAttribute="leadingMargin" secondItem="isc-GM-YcT" secondAttribute="leading" id="UTU-NJ-9VR"/>
                             <constraint firstAttribute="trailingMargin" secondItem="yVR-oT-Kmv" secondAttribute="trailing" constant="227" id="Ui6-lb-Z9A"/>
                             <constraint firstAttribute="centerX" secondItem="yVR-oT-Kmv" secondAttribute="centerX" id="VAt-U8-uEn"/>
@@ -270,6 +286,8 @@
                         <outlet property="controlLabel" destination="yVR-oT-Kmv" id="fTu-no-axg"/>
                         <outlet property="mapView" destination="TD2-NT-Tqh" id="QQ9-UU-XAw"/>
                         <outlet property="nextMomentButton" destination="Z7h-kp-mr1" id="UHF-mG-Tay"/>
+                        <outlet property="stepsTakenLabel" destination="57M-HO-7m7" id="EQm-xR-UFj"/>
+                        <outlet property="timeElapsedLabel" destination="rFQ-zn-MXr" id="Iuv-kW-67f"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
@@ -304,6 +322,9 @@
                             </textView>
                             <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="4DT-pU-5EW">
                                 <rect key="frame" x="255" y="307" width="51" height="31"/>
+                                <connections>
+                                    <action selector="musicSwitched:" destination="B83-kc-EzL" eventType="valueChanged" id="y6r-jc-Cwl"/>
+                                </connections>
                             </switch>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Play my Music during the run" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FgD-6J-jyX">
                                 <rect key="frame" x="16" y="313" width="222" height="20"/>
@@ -397,6 +418,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="bnX-6K-b9C"/>
                     <connections>
+                        <outlet property="musicNotice" destination="dhK-9y-E3l" id="jpz-Is-o4i"/>
                         <outlet property="musicSwitch" destination="4DT-pU-5EW" id="OsF-iF-wMo"/>
                     </connections>
                 </viewController>

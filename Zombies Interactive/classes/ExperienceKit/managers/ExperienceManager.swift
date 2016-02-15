@@ -76,6 +76,7 @@ class ExperienceManager: NSObject, OpportunityManagerDelegate {
             stage.eventManager.listenTo("stageFinished", action: nextStage)
             stage.eventManager.listenTo("startingInterim", action: handleInterimStart)
             stage.eventManager.listenTo("startingSound", action: handleSoundStart)
+            stage.eventManager.listenTo("choseRandomInteraction", action: updateInteractionPool)
             
             if let dataManager = dataManager {
                 stage.eventManager.listenTo("sensorCollectorStarted", action: dataManager.startCollecting)
@@ -98,6 +99,24 @@ class ExperienceManager: NSObject, OpportunityManagerDelegate {
     
     func handleSoundStart(information: Any?) {
         delegate?.didBeginSound?()
+    }
+    
+    func updateInteractionPool(information: Any?) {
+
+        if let infoDict = information as? [String : String],
+            interactionTitle = infoDict["interactionTitle"] {
+            print("  removing \(interactionTitle) from pool")
+                
+            // remove this interaction from potentially being included in  future stages
+            for stage in stages {
+                if let idx = stage.interactionPool?.indexOf({ (interaction) -> Bool in
+                    return interaction.title == interactionTitle
+                }) {
+                    stage.interactionPool?.removeAtIndex(idx)
+                }
+            }
+        
+        }
     }
 
     
