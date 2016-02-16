@@ -192,18 +192,21 @@ class MissionViewController: UIViewController, MKMapViewDelegate, ExperienceMana
         *   
         */
         
-        let findHydrantInstruct = Sound(fileNames: ["radio_static", "our_monitors_show", "radio_static"])
-        let findHydrantCollector = SensorCollector(lengthInSeconds: 20, dataLabel: "fire_hydrant", sensors: [.Location, .Speed])
-        let findFireHydrant = Interaction(moments: [findHydrantInstruct, findHydrantCollector, Sound(fileNames: ["radio_static", "you've_thrown_off","radio_static"])], title: "Sprint to hydrant")
+//        let findHydrantInstruct = Sound(fileNames: ["radio_static", "our_monitors_show", "radio_static"])
+//        let findHydrantCollector = SensorCollector(lengthInSeconds: 20, dataLabel: "fire_hydrant", sensors: [.Location, .Speed])
+        let findHydrantInstructCollector = CollectorWithSound(fileNames: ["radio_static", "our_monitors_show", "radio_static"], additionalTime: 20, dataLabel: "fire_hydrant", sensors: [.Location, .Speed])
+        let findFireHydrant = Interaction(moments: [findHydrantInstructCollector, Sound(fileNames: ["radio_static", "you've_thrown_off","radio_static"])], title: "Sprint to hydrant")
         
 
-        let passTenTreesInstruct = Sound(fileNames: ["radio_static", "weve_noticed_increased", "radio_static"])
-        let passTenTreesCollector = SensorCollector(lengthInSeconds: 20, dataLabel: "tree", sensors: [.Location, .Speed])
-        let passTenTrees = Interaction(moments: [passTenTreesInstruct, passTenTreesCollector, Sound(fileNames: ["radio_static","you_should_be","radio_static"])], title: "Sprint past ten trees")
+//        let passTenTreesInstruct = Sound(fileNames: ["radio_static", "weve_noticed_increased", "radio_static"])
+//        let passTenTreesCollector = SensorCollector(lengthInSeconds: 20, dataLabel: "tree", sensors: [.Location, .Speed])
+        let passTenTreesInstructCollector = CollectorWithSound(fileNames: ["radio_static", "weve_noticed_increased", "radio_static"], additionalTime: 20, dataLabel: "tree", sensors: [.Location, .Speed])
+        let passTenTrees = Interaction(moments: [passTenTreesInstructCollector, Sound(fileNames: ["radio_static","you_should_be","radio_static"])], title: "Sprint past ten trees")
         
-        let sprintToBuildingInstruct = Sound(fileNames: ["radio_static", "the_radars_on", "radio_static"])
-        let sprintToBuildingCollector = SensorCollector(lengthInSeconds: 20, dataLabel: "tall_building", sensors: [.Location, .Speed])
-        let sprintToBuilding = Interaction(moments: [sprintToBuildingInstruct, sprintToBuildingCollector, Sound(fileNames: ["radio_static","building_confirmed","radio_static"])], title: "Sprint to tall building")
+//        let sprintToBuildingInstruct = Sound(fileNames: ["radio_static", "the_radars_on", "radio_static"])
+//        let sprintToBuildingCollector = SensorCollector(lengthInSeconds: 20, dataLabel: "tall_building", sensors: [.Location, .Speed])
+        let sprintToBuildingInstructCollector = CollectorWithSound(fileNames: ["radio_static", "the_radars_on", "radio_static"], additionalTime: 20, dataLabel: "tall_building", sensors: [.Location, .Speed])
+        let sprintToBuilding = Interaction(moments: [sprintToBuildingInstructCollector, Sound(fileNames: ["radio_static","building_confirmed","radio_static"])], title: "Sprint to tall building")
         
         let sprintingInteractions = [findFireHydrant, sprintToBuilding, passTenTrees]
         
