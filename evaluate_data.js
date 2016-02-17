@@ -40,11 +40,11 @@ var WorldObject = Parse.Object.extend("WorldObject");
 var CLUSTER_DISTANCE = 0.01; // miles
 
 var query = new Parse.Query(DataEvent);
-var interactionTitle = "Find fire_hydrant"
+var interactionTitle = "Find tree"
 // query.ascending("updatedAt");
 // query.equalTo("interaction", interactionTitle);
-var dataEventId = "ja5rHDFNyG";
-var experienceId = "ZgVEYsAmo4";
+var dataEventId = "iUEm83q1RJ";
+var experienceId = "bwllMvLGUg";
 var dataLabel;
 
 query.equalTo("objectId", dataEventId);
@@ -70,7 +70,7 @@ query.find({
           accels = [];
           speeds = [];
           
-          if(locationUpdates.length < 20){
+          if(locationUpdates.length < 10){
             return;
           }
           
@@ -124,10 +124,15 @@ function getTimeString(d){
 }
 
 
+// TODO make slowdown require a significant slowdown by some threshold, not just any
+// maybe determined by earlier
 function findSlowdownPoint(times, accels, speeds, locationUpdates){
-  // TODO fake-extend data to allow for more windows
+  // TODO fake-extend speed data to allow for more windows
+  // accel[end:end+intervalSize] = 0
+  // speed[end:end+intervalSize] = speed[end]
+  
   // 3 seconds is 4 data points
-  var intervalSize = 2;
+  var intervalSize = 3;
   var intervalAvgSpeeds = [];
   
   var lastIntervalSum = speeds.slice(0,intervalSize).sum();
@@ -139,6 +144,8 @@ function findSlowdownPoint(times, accels, speeds, locationUpdates){
   }
 
   var slowedDownLastInterval = false;
+  var foundSlowdownPoint = false;
+  maxSpeedSlowdownIdx = 0;
   for(var i=1;i<intervalAvgSpeeds.length;i++) {
     // if runner is going faster or equal speed as last interval
     if( (intervalAvgSpeeds[i] - intervalAvgSpeeds[i-1]) >= -0.) {
@@ -149,11 +156,16 @@ function findSlowdownPoint(times, accels, speeds, locationUpdates){
       console.log("Slowed down two intervals in a row");
       console.log(i-1);
       console.log(intervalAvgSpeeds[i-1]);
+      
       // i-1 was the first index we noticed a decrease
-      return i-1;
+      // see if it's the fastest slowdown starting point we've found
+      if(speeds[i-1] >= speeds[maxSpeedSlowdownIdx]) {
+        foundSlowdownPoint = true;
+        maxSpeedSlowdownIdx = i-1;
+      }
     }
   }
-  return -1;
+  return foundSlowdownPoint ? maxSpeedSlowdownIdx : -1;
 }
 
 function saveWorldObject(candidateLocation, dataLabel, clusterDistance, experienceId, interactionTitle) {
