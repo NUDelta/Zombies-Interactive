@@ -42,7 +42,9 @@ class CollectorWithSound : Sound {
             
             if additionalTime > 0 {
                 timer = NSTimer.scheduledTimerWithTimeInterval(additionalTime, target: self, selector: Selector("finished"), userInfo: nil, repeats: false)
-            
+                fileNames.append("silence")
+                setupNextAudioFile()
+                self.player?.play()
             } else {
                 super.finished()
             }
