@@ -327,7 +327,7 @@
                                 </connections>
                             </switch>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Play my Music during the run" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FgD-6J-jyX">
-                                <rect key="frame" x="16" y="313" width="222" height="20"/>
+                                <rect key="frame" x="16" y="313" width="222" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -364,9 +364,16 @@
                                     <action selector="missionsButton:" destination="B83-kc-EzL" eventType="touchUpInside" id="f6z-Yu-flq"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Play" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5X0-dE-NAC">
+                                <rect key="frame" x="144" y="275" width="32" height="20"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.40000000600000002" green="0.80000001190000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="5X0-dE-NAC" firstAttribute="bottom" secondItem="1EZ-tM-fTU" secondAttribute="bottom" constant="-4" id="3Yt-F7-uDb"/>
                             <constraint firstItem="dhK-9y-E3l" firstAttribute="leading" secondItem="3XY-Bi-L1F" secondAttribute="leadingMargin" constant="-4" id="44s-cm-vzg"/>
                             <constraint firstItem="4DT-pU-5EW" firstAttribute="top" secondItem="dhK-9y-E3l" secondAttribute="bottom" constant="8" symbolic="YES" id="5eS-EI-c7I"/>
                             <constraint firstItem="4DT-pU-5EW" firstAttribute="top" secondItem="1EZ-tM-fTU" secondAttribute="bottom" constant="8" id="6Fo-ov-ZbH"/>
@@ -385,6 +392,7 @@
                             <constraint firstItem="A2q-G4-38J" firstAttribute="top" secondItem="1EZ-tM-fTU" secondAttribute="bottom" constant="162" id="XER-e6-wma"/>
                             <constraint firstItem="A2q-G4-38J" firstAttribute="top" secondItem="dhK-9y-E3l" secondAttribute="bottom" constant="8" symbolic="YES" id="b4q-Gu-zBD"/>
                             <constraint firstAttribute="leadingMargin" secondItem="1EZ-tM-fTU" secondAttribute="leading" constant="-20" id="cSo-xY-Vxz"/>
+                            <constraint firstItem="5X0-dE-NAC" firstAttribute="centerX" secondItem="1EZ-tM-fTU" secondAttribute="centerX" id="cWu-O0-gxV"/>
                             <constraint firstAttribute="trailingMargin" secondItem="hZL-90-NIV" secondAttribute="trailing" constant="-16" id="fYv-nQ-vBh"/>
                             <constraint firstItem="A2q-G4-38J" firstAttribute="top" secondItem="4DT-pU-5EW" secondAttribute="bottom" constant="8" symbolic="YES" id="gOv-fb-zid"/>
                             <constraint firstItem="1EZ-tM-fTU" firstAttribute="top" secondItem="VXi-vT-o9f" secondAttribute="bottom" constant="8" symbolic="YES" id="gU2-vm-Ubc"/>
