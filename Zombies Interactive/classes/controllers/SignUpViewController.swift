@@ -36,10 +36,10 @@ class SignUpLogInViewController: UIViewController, UITextFieldDelegate {
     @IBAction func loginButton(sender: AnyObject) {
         if (self.emailBox.text?.characters.count > 0) && (self.passwordBox.text?.characters.count > 0){
             
-            let email = self.emailBox.text!
+            let username = self.emailBox.text!
             let pwd = self.passwordBox.text!
             
-            PFUser.logInWithUsernameInBackground(email, password:pwd) {
+            PFUser.logInWithUsernameInBackground(username, password:pwd) {
                 (user: PFUser?, error: NSError?) -> Void in
                 if user != nil {
                     

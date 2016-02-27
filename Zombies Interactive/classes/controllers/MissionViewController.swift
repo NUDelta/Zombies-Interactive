@@ -141,24 +141,24 @@ class MissionViewController: UIViewController, MKMapViewDelegate, ExperienceMana
         */
         
         // Identify vantage points
-        let identifyBuildings = KnockListener(title: "Identify Vantage Points",
-                                            lengthInSeconds: 2.minutesToSeconds,
-                                            dataLabel: "tall_building",
-                                            recordMultiple: true,
-                                            requireDoubleKnock: true)
-        let knockForBuildingsRequirement = Requirement(conditions: [.TimeElapsed], seconds: -1)
-        let knockForBuildings = Interaction(moments: [Sound(fileNames: ["radio_static", "vantage_points_1", "radio_static"]),
-                                                      identifyBuildings,
-                                                      Sound(fileNames: ["radio_static", "vantage_points_2", "radio_static"])],
-                                            title: "Identify Vantage Points",
-                                            requirement: knockForBuildingsRequirement)
-        
-        // Find tree cover and stretch
-        let stretchAtTree = SensorCollector(lengthInSeconds: 90, title: "Get Cover and Stretch", dataLabel: "tree", sensors: [.Location])
-        let getCoverAtTree = Interaction(moments: [Sound(fileNames: ["find_cover"]),
-                                                   stretchAtTree,
-                                                   Sound(fileNames: ["leave_cover"])],
-                                         title: "Get to Cover!")
+//        let identifyBuildings = KnockListener(title: "Identify Vantage Points",
+//                                            lengthInSeconds: 2.minutesToSeconds,
+//                                            dataLabel: "tall_building",
+//                                            recordMultiple: true,
+//                                            requireDoubleKnock: true)
+//        let knockForBuildingsRequirement = Requirement(conditions: [.TimeElapsed], seconds: -1)
+//        let knockForBuildings = Interaction(moments: [Sound(fileNames: ["radio_static", "vantage_points_1", "radio_static"]),
+//                                                      identifyBuildings,
+//                                                      Sound(fileNames: ["radio_static", "vantage_points_2", "radio_static"])],
+//                                            title: "Identify Vantage Points",
+//                                            requirement: knockForBuildingsRequirement)
+//        
+//        // Find tree cover and stretch
+//        let stretchAtTree = SensorCollector(lengthInSeconds: 90, title: "Get Cover and Stretch", dataLabel: "tree", sensors: [.Location])
+//        let getCoverAtTree = Interaction(moments: [Sound(fileNames: ["find_cover"]),
+//                                                   stretchAtTree,
+//                                                   Sound(fileNames: ["leave_cover"])],
+//                                         title: "Get to Cover!")
         
         // Take cover at known building
         // TODO directional instruction tech
@@ -167,24 +167,24 @@ class MissionViewController: UIViewController, MKMapViewDelegate, ExperienceMana
         
         // Avoid zombies by taking high route
         // TODO set up altitude data saving
-        let monitorAltitude = SensorCollector(lengthInSeconds: 150, dataLabel: "high_point", sensors: [.Location, .Altitude])
-        let takeHighRoute = Interaction(moments: [Sound(fileNames: ["radio_static", "high_route_1", "radio_static",]),
-                                                  monitorAltitude],
-                                        title: "Take High Route")
-        
-        // Go fast past the zombie hangout
-        let monitorSpeed = SensorCollector(lengthInSeconds: 30, dataLabel: "stop_sign", sensors: [.Location, .Speed])
-        let passZombieHotspot = Interaction(moments: [Sound(fileNames: ["radio_static", "stopsign_hotspot_1", "radio_static",]),
-                                                      monitorSpeed,
-                                                      Sound(fileNames: ["radio_static", "stopsign_hotspot_2", "radio_static",])],
-                                            title: "Pass Zombie Hotspot")
-        
-        // Find somewhere to sit and rest
-        let monitorStop = SensorCollector(lengthInSeconds: 20, dataLabel: "rest_place", sensors: [.Location, .Speed])
-        let findRestPlace = Interaction(moments: [Sound(fileNames: ["radio_static", "find_rest_1", "radio_static",]),
-                                                  monitorStop,
-                                                  Sound(fileNames: ["radio_static", "find_rest_2", "radio_static",])],
-                                        title: "Pass Zombie Hotspot")
+//        let monitorAltitude = SensorCollector(lengthInSeconds: 150, dataLabel: "high_point", sensors: [.Location, .Altitude])
+//        let takeHighRoute = Interaction(moments: [Sound(fileNames: ["radio_static", "high_route_1", "radio_static",]),
+//                                                  monitorAltitude],
+//                                        title: "Take High Route")
+//        
+//        // Go fast past the zombie hangout
+//        let monitorSpeed = SensorCollector(lengthInSeconds: 30, dataLabel: "stop_sign", sensors: [.Location, .Speed])
+//        let passZombieHotspot = Interaction(moments: [Sound(fileNames: ["radio_static", "stopsign_hotspot_1", "radio_static",]),
+//                                                      monitorSpeed,
+//                                                      Sound(fileNames: ["radio_static", "stopsign_hotspot_2", "radio_static",])],
+//                                            title: "Pass Zombie Hotspot")
+//        
+//        // Find somewhere to sit and rest
+//        let monitorStop = SensorCollector(lengthInSeconds: 20, dataLabel: "rest_place", sensors: [.Location, .Speed])
+//        let findRestPlace = Interaction(moments: [Sound(fileNames: ["radio_static", "find_rest_1", "radio_static",]),
+//                                                  monitorStop,
+//                                                  Sound(fileNames: ["radio_static", "find_rest_2", "radio_static",])],
+//                                        title: "Pass Zombie Hotspot")
         
         /*
         *
@@ -211,20 +211,23 @@ class MissionViewController: UIViewController, MKMapViewDelegate, ExperienceMana
         let sprintingInteractions = [findFireHydrant, sprintToBuilding, passTenTrees]
         
         
-        let allInteractions = [knockForBuildings, getCoverAtTree, takeHighRoute, passZombieHotspot, findRestPlace] + sprintingInteractions
+//        let allInteractions = [knockForBuildings, getCoverAtTree, takeHighRoute, passZombieHotspot, findRestPlace] + sprintingInteractions
         
         
         // Construct the experience based on selected mission
         var stages: [Stage] = []
-        switch missionTitle {
-        case "S1M16: Scouting Mission (~45 min)":
-
-            /*
-            *
-            * MARK: mission construction
-            *
-            */
+        if missionTitle == "Version X" {
             // http://zombiesrun.wikia.com/wiki/Scouting_Mission#
+            let stage1 = Stage(moments: [Sound(fileNames: ["S1M16_1"]), Interim(lengthInSeconds: 5.minutesToSeconds)], title: "Scouting")
+            let stage2 = Stage(moments: [Sound(fileNames: ["S1M16_2"]), Interim(lengthInSeconds: 5.minutesToSeconds)], title: "No More Eyes")
+            let stage3 = Stage(moments: [Sound(fileNames: ["S1M16_3"]), Interim(lengthInSeconds: 5.minutesToSeconds)], title: "Gunshots")
+            let stage4 = Stage(moments: [Sound(fileNames: ["S1M16_4"]), Interim(lengthInSeconds: 5.minutesToSeconds)], title: "A Mystery")
+            let stage5 = Stage(moments: [Sound(fileNames: ["S1M16_5"]), Interim(lengthInSeconds: 5.minutesToSeconds)], title: "Swift Exit")
+            let stage6 = Stage(moments: [Sound(fileNames: ["S1M16_6"]), Interim(lengthInSeconds: 5.minutesToSeconds)], title: "Pursuit")
+            let stage7 = Stage(moments: [Sound(fileNames: ["S1M16_7", "S1M16_8", "mission_completed"])], title: "Debrief")
+
+            stages = [stage1, stage2, stage3, stage4, stage5, stage6, stage7]
+        } else if missionTitle == "Version Y" {
             let stage1 = Stage(moments: [Sound(fileNames: ["S1M16_1"]), Interim(lengthInSeconds: 2.minutesToSeconds), Interim(lengthInSeconds: 120)],
                 title: "Scouting", interactionInsertionIndices: [2], interactionPool: sprintingInteractions)
             let stage2 = Stage(moments: [Sound(fileNames: ["S1M16_2"]), Interim(lengthInSeconds: 2.minutesToSeconds), Interim(lengthInSeconds: 120)], title: "No More Eyes", interactionInsertionIndices: [2], interactionPool: sprintingInteractions)
@@ -233,42 +236,63 @@ class MissionViewController: UIViewController, MKMapViewDelegate, ExperienceMana
             let stage5 = Stage(moments: [Sound(fileNames: ["S1M16_5"]), Interim(lengthInSeconds: 5.minutesToSeconds)], title: "Swift Exit")
             let stage6 = Stage(moments: [Sound(fileNames: ["S1M16_6"]), Interim(lengthInSeconds: 5.minutesToSeconds)], title: "Pursuit")
             let stage7 = Stage(moments: [Sound(fileNames: ["S1M16_7", "S1M16_8", "mission_completed"])], title: "Debrief")
-
+            
             stages = [stage1, stage2, stage3, stage4, stage5, stage6, stage7]
-            
-            experienceManager = ExperienceManager(title: missionTitle, stages: stages)
-            break
-            
-
-        case "Intel Team Missions 1 (<15min)":
-            // Demos all of the interactions
-            
-            var transitions = [Sound]()
-            for var i=0; i < allInteractions.count; i++ {
-                transitions.append(Sound(fileNames: ["vignette_transition"]))
-            }
-            
-            let stage1 = Stage(moments: [Sound(fileNames: ["radio_static", "intel_team_intro", "radio_static"])] +
-                                        transitions +
-                                        [Sound(fileNames: ["radio_static", "intel_missions_end", "radio_static"])],
-                                title: "All Interaction Stage",
-                                interactionInsertionIndices: [2,3,4,5,6],
-                                interactionPool: allInteractions)
-            
-            
-            stages = [stage1]
-            
-            // Zombie music: https://www.youtube.com/watch?v=vClu9SCxHhI&spfreload=10
-            
-            experienceManager = ExperienceManager(title: missionTitle, stages: stages)
-            
-            break
-            
-        default:
-            experienceManager = ExperienceManager(title: missionTitle, stages: stages)
-            break
-        
         }
+        experienceManager = ExperienceManager(title: missionTitle, stages: stages)
+//        switch missionTitle {
+//        case "S1M16: Scouting Mission (~45 min)":
+//
+//            /*
+//            *
+//            * MARK: mission construction
+//            *
+//            */
+//            // http://zombiesrun.wikia.com/wiki/Scouting_Mission#
+//            let stage1 = Stage(moments: [Sound(fileNames: ["S1M16_1"]), Interim(lengthInSeconds: 2.minutesToSeconds), Interim(lengthInSeconds: 120)],
+//                title: "Scouting", interactionInsertionIndices: [2], interactionPool: sprintingInteractions)
+//            let stage2 = Stage(moments: [Sound(fileNames: ["S1M16_2"]), Interim(lengthInSeconds: 2.minutesToSeconds), Interim(lengthInSeconds: 120)], title: "No More Eyes", interactionInsertionIndices: [2], interactionPool: sprintingInteractions)
+//            let stage3 = Stage(moments: [Sound(fileNames: ["S1M16_3"]), Interim(lengthInSeconds: 2.minutesToSeconds), Interim(lengthInSeconds: 120)], title: "Gunshots", interactionInsertionIndices: [2], interactionPool: sprintingInteractions)
+//            let stage4 = Stage(moments: [Sound(fileNames: ["S1M16_4"]), Interim(lengthInSeconds: 5.minutesToSeconds)], title: "A Mystery")
+//            let stage5 = Stage(moments: [Sound(fileNames: ["S1M16_5"]), Interim(lengthInSeconds: 5.minutesToSeconds)], title: "Swift Exit")
+//            let stage6 = Stage(moments: [Sound(fileNames: ["S1M16_6"]), Interim(lengthInSeconds: 5.minutesToSeconds)], title: "Pursuit")
+//            let stage7 = Stage(moments: [Sound(fileNames: ["S1M16_7", "S1M16_8", "mission_completed"])], title: "Debrief")
+//
+//            stages = [stage1, stage2, stage3, stage4, stage5, stage6, stage7]
+//            
+//            experienceManager = ExperienceManager(title: missionTitle, stages: stages)
+//            break
+//            
+//
+//        case "Intel Team Missions 1 (<15min)":
+//            // Demos all of the interactions
+//            
+//            var transitions = [Sound]()
+//            for var i=0; i < allInteractions.count; i++ {
+//                transitions.append(Sound(fileNames: ["vignette_transition"]))
+//            }
+//            
+//            let stage1 = Stage(moments: [Sound(fileNames: ["radio_static", "intel_team_intro", "radio_static"])] +
+//                                        transitions +
+//                                        [Sound(fileNames: ["radio_static", "intel_missions_end", "radio_static"])],
+//                                title: "All Interaction Stage",
+//                                interactionInsertionIndices: [2,3,4,5,6],
+//                                interactionPool: allInteractions)
+//            
+//            
+//            stages = [stage1]
+//            
+//            // Zombie music: https://www.youtube.com/watch?v=vClu9SCxHhI&spfreload=10
+//            
+//            experienceManager = ExperienceManager(title: missionTitle, stages: stages)
+//            
+//            break
+//            
+//        default:
+//            experienceManager = ExperienceManager(title: missionTitle, stages: stages)
+//            break
+//        
+//        }
         
         
         experienceManager.delegate = self
