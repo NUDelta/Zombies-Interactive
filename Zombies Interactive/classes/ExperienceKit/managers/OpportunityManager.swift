@@ -90,11 +90,6 @@ class OpportunityManager: NSObject {
                     return 0
                 }
                 break
-                
-            default:
-                // some condition is not handled, we'll assume it isn't met
-                return 0
-                break
             
             }
         }

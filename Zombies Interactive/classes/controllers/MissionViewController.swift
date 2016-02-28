@@ -69,7 +69,7 @@ class MissionViewController: UIViewController, MKMapViewDelegate, ExperienceMana
             nextMomentButton.hidden = false
             #endif
             startDate = NSDate()
-            let timer = NSTimer.scheduledTimerWithTimeInterval(1.0, target: self, selector: Selector("updateTimeElapsed"), userInfo: nil, repeats: true)
+            let _ = NSTimer.scheduledTimerWithTimeInterval(1.0, target: self, selector: Selector("updateTimeElapsed"), userInfo: nil, repeats: true)
             
             if(CMPedometer.isStepCountingAvailable()){
                 pedometer.startPedometerUpdatesFromDate(startDate) {
