@@ -117,12 +117,15 @@ class SignUpLogInViewController: UIViewController, UITextFieldDelegate {
     }
     
     func goToHome(){
+        let viewController:UIViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("IntroPageViewController") 
+        self.presentViewController(viewController, animated: true, completion: nil)
+        
         //let storyboard:UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
         //let navigationController:UINavigationController = storyboard.instantiateInitialViewController() as! UINavigationController
         // go to home page
         //let vc = ViewController(nibName: "HomeVC", bundle:nil)
-        let vc:UIViewController = storyboard!.instantiateViewControllerWithIdentifier("HomeVC") 
-        self.navigationController!.pushViewController(vc, animated: true)
+//        let vc:IntroPageViewController = (storyboard!.instantiateViewControllerWithIdentifier("IntroPageViewController") as? IntroPageViewController)!
+//        self.navigationController!.pushViewController(vc, animated: true)
     }
     
     func textFieldShouldReturn(textField: UITextField) -> Bool {

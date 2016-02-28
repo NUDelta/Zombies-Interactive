@@ -30,21 +30,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         //setup storyboard to display initial view
         let storyboard:UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-        let navigationController:UINavigationController = storyboard.instantiateInitialViewController() as! UINavigationController
+//        let navigationController:UINavigationController = storyboard.instantiateInitialViewController() as! UINavigationController
+        
+        let introViewController = storyboard.instantiateInitialViewController() as! IntroPageViewController
         
         //let navigationController = window?.rootViewController as! UINavigationController
         // determine if user is logged in
         if (PFUser.currentUser() != nil){ // go directly to start screen
             print("Logged In")
-            
-            let rootViewController:UIViewController = storyboard.instantiateViewControllerWithIdentifier("HomeVC") 
-            navigationController.viewControllers = [rootViewController]
-            self.window?.rootViewController = navigationController
         } else { // go to signup/login
             print("Not logged in")
             let rootViewController:UIViewController = storyboard.instantiateViewControllerWithIdentifier("SignUpVC") 
-            navigationController.viewControllers = [rootViewController]
-            self.window?.rootViewController = navigationController
+            self.window?.rootViewController = rootViewController
         }
         
         

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9532" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="X5E-dJ-7wN">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9532" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="oGi-ej-0wd">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
@@ -7,6 +7,99 @@
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
+        <!--Intro Page View Controller-->
+        <scene sceneID="QhY-wZ-4tF">
+            <objects>
+                <pageViewController storyboardIdentifier="IntroPageViewController" autoresizesArchivedViewToFullSize="NO" transitionStyle="scroll" navigationOrientation="horizontal" spineLocation="none" id="oGi-ej-0wd" customClass="IntroPageViewController" customModule="Zombies_Interactive" customModuleProvider="target" sceneMemberID="viewController">
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+                </pageViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="pJL-It-V45" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1289" y="-794"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="As8-d4-NUF">
+            <objects>
+                <viewController storyboardIdentifier="IntroOneVC" id="CSq-Fe-hJk" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Cna-Zu-RSo"/>
+                        <viewControllerLayoutGuide type="bottom" id="zHe-hl-aH4"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="NRA-hl-q7e">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="11" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Pvf-GJ-586">
+                                <rect key="frame" x="16" y="149" width="288" height="270"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="270" id="NqD-TJ-YmD"/>
+                                </constraints>
+                                <string key="text">The world is in the midst of a zombie apocalypse. You are Runner 5, member of the Abel Township survivor colony. Many are counting on you to help rebuild from the ruins of civilization.</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="Pvf-GJ-586" firstAttribute="centerY" secondItem="NRA-hl-q7e" secondAttribute="centerY" id="XuK-D5-2pZ"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="Pvf-GJ-586" secondAttribute="trailing" id="eje-JH-DeF"/>
+                            <constraint firstAttribute="leadingMargin" secondItem="Pvf-GJ-586" secondAttribute="leading" id="rNP-kC-8wv"/>
+                        </constraints>
+                    </view>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="kwC-nZ-SxE" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1795" y="-794"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="njM-nj-Q0Q">
+            <objects>
+                <viewController storyboardIdentifier="IntroTwoVC" id="qcf-zo-Prw" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="kDA-8S-q1s"/>
+                        <viewControllerLayoutGuide type="bottom" id="Uzi-dt-fpO"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="YMo-GE-np5">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="14" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xsm-cH-qXQ">
+                                <rect key="frame" x="16" y="149" width="288" height="270"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="270" id="mw9-yQ-IDe"/>
+                                </constraints>
+                                <string key="text">In this mission you will hear the voice of Abel’s lead communications operator Sam Yao, an engineer called Janine, and a couple of other runners like you. 
+
+Sam has assigned you and the other runners the task of visiting some areas that have long gone unchecked.
+
+Good luck.</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="f99-sN-tVL">
+                                <rect key="frame" x="139" y="530" width="42" height="30"/>
+                                <state key="normal" title="Got it."/>
+                                <connections>
+                                    <segue destination="X5E-dJ-7wN" kind="show" id="oap-Ca-vKi"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="xsm-cH-qXQ" firstAttribute="leading" secondItem="YMo-GE-np5" secondAttribute="leadingMargin" id="I63-8R-DQg"/>
+                            <constraint firstItem="xsm-cH-qXQ" firstAttribute="centerY" secondItem="YMo-GE-np5" secondAttribute="centerY" id="IOO-et-qFl"/>
+                            <constraint firstItem="Uzi-dt-fpO" firstAttribute="top" secondItem="f99-sN-tVL" secondAttribute="bottom" constant="8" symbolic="YES" id="Np3-In-KRS"/>
+                            <constraint firstItem="f99-sN-tVL" firstAttribute="centerX" secondItem="YMo-GE-np5" secondAttribute="centerX" id="VNa-aR-MAE"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="xsm-cH-qXQ" secondAttribute="trailing" id="qZH-d3-auS"/>
+                        </constraints>
+                    </view>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="tg7-r7-0mn" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2221" y="-800"/>
+        </scene>
         <!--Sign Up Log In View Controller-->
         <scene sceneID="15A-fX-kP2">
             <objects>
@@ -137,7 +230,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="AGE-kZ-b21" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2115" y="-783"/>
+            <point key="canvasLocation" x="731" y="-71"/>
         </scene>
         <!--Mission View Controller-->
         <scene sceneID="ufC-wZ-h7g">
@@ -292,7 +385,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2879" y="-87"/>
+            <point key="canvasLocation" x="2611" y="-71"/>
         </scene>
         <!--Home View Controller-->
         <scene sceneID="1IH-jK-WUk">
