@@ -30,9 +30,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         //setup storyboard to display initial view
         let storyboard:UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-//        let navigationController:UINavigationController = storyboard.instantiateInitialViewController() as! UINavigationController
-        
-        let introViewController = storyboard.instantiateInitialViewController() as! IntroPageViewController
         
         //let navigationController = window?.rootViewController as! UINavigationController
         // determine if user is logged in
