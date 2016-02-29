@@ -161,7 +161,7 @@ class MissionViewController: UIViewController, MKMapViewDelegate, ExperienceMana
 
             stages = [stage1, stage2, stage3, stage4, stage5, stage6, stage7]
         } else if missionTitle == "Version Y" {
-            let stage1 = Stage(moments: [Sound(fileNames: ["intel_team_intro", "S1M16_1"]), Interim(lengthInSeconds: 2.minutesToSeconds), Interim(lengthInSeconds: 120)],
+            let stage1 = Stage(moments: [Sound(fileNames: ["radio_static", "intel_team_intro", "radio_static", "vignette_transition", "S1M16_1"]), Interim(lengthInSeconds: 2.minutesToSeconds), Interim(lengthInSeconds: 120)],
                 title: "Scouting", interactionInsertionIndices: [2], interactionPool: sprintingInteractions)
             let stage2 = Stage(moments: [Sound(fileNames: ["S1M16_2"]), Interim(lengthInSeconds: 2.minutesToSeconds), Interim(lengthInSeconds: 120)], title: "No More Eyes", interactionInsertionIndices: [2], interactionPool: sprintingInteractions)
             let stage3 = Stage(moments: [Sound(fileNames: ["S1M16_3"]), Interim(lengthInSeconds: 2.minutesToSeconds), Interim(lengthInSeconds: 120)], title: "Gunshots", interactionInsertionIndices: [2], interactionPool: sprintingInteractions)
