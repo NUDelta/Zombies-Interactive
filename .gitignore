@@ -37,4 +37,4 @@ Delta_Enterprise_Export.sh
 *.ipa
 *.html
 docs/
-Zombies\ Interactive/classes/ExperienceKit/
+# Zombies\ Interactive/classes/ExperienceKit/
