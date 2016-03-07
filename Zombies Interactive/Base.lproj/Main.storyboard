@@ -69,10 +69,7 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="270" id="mw9-yQ-IDe"/>
                                 </constraints>
-                                <string key="text">In this mission you will hear the voice of Abel’s lead communications operator Sam Yao, an engineer called Janine, and a couple of other runners like you. 
-
-Sam has assigned you and the other runners the task of visiting some areas that have long gone unchecked.
-
+                                <string key="text">In this mission you have been tasked with collecting intelligence about the area.
 Good luck.</string>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="highlightedColor"/>
@@ -153,7 +150,7 @@ Good luck.</string>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Zombies Interactive" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HHq-6Y-gnw">
                                 <rect key="frame" x="45" y="41" width="235" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="25"/>
-                                <color key="textColor" red="0.23584445127614098" green="0.8603614267676768" blue="0.58203058616952486" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="textColor" red="1" green="0.80000001190000003" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="viT-nz-4f2">
@@ -401,7 +398,7 @@ Good luck.</string>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="M16" translatesAutoresizingMaskIntoConstraints="NO" id="hZL-90-NIV">
                                 <rect key="frame" x="0.0" y="64" width="320" height="160"/>
-                                <color key="backgroundColor" red="0.40000000600000002" green="0.80000001190000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" red="1" green="0.80000001190000003" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="hZL-90-NIV" secondAttribute="height" multiplier="2:1" id="urQ-QH-2qC"/>
                                 </constraints>
@@ -442,7 +439,7 @@ Good luck.</string>
                                     <constraint firstAttribute="height" constant="50" id="lfp-87-9kX"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                <state key="normal" title="Loading ...">
+                                <state key="normal" title="Intel Mission">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>

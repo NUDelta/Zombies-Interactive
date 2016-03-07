@@ -173,19 +173,6 @@ class ExperienceManager: NSObject, OpportunityManagerDelegate {
         self.experience?.dateCompleted = NSDate()
         self.experience?.completed = true
         self.experience?.saveInBackground()
-        
-        if experience?.title == "Version X" {
-            if let u = PFUser.currentUser() {
-                u["completedX"] = true
-                u.saveInBackground()
-            }
-        } else if experience?.title == "Version Y" {
-            if let u = PFUser.currentUser() {
-                u["completedY"] = true
-                u.saveInBackground()
-            }
-        
-        }
   
         delegate?.didFinishExperience?()
     }

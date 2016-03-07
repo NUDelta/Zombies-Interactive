@@ -18,29 +18,6 @@ class HomeViewController: UIViewController {
     override func viewDidLoad(){
         super.viewDidLoad()
         view.backgroundColor = UIColor(red:0.24, green:0.24, blue:0.25, alpha:1)
-        
-        if let q = PFUser.query(), u = PFUser.currentUser(), username = u.username {
-            q.whereKey("username", equalTo: username)
-            
-            q.findObjectsInBackgroundWithBlock({ (objects, error) -> Void in
-                if let objs = objects, user = objs.first as? PFUser,
-                    firstVersionIsX = user["firstVersionIsX"] as? Bool,
-                    completedX = user["completedX"] as? Bool,
-                    completedY = user["completedY"] as? Bool {
-                        if (firstVersionIsX && completedX == false) || (firstVersionIsX == false && completedY == true) {
-                            self.missionLabel.setTitle("Version X", forState: .Normal)
-                        } else {
-                            self.missionLabel.setTitle("Version Y", forState: .Normal)
-                        }
-                }
-                else {
-                    print("User not found")
-                }
-            })
-            
-        }
-
-        
     }
     
     override func didReceiveMemoryWarning() {

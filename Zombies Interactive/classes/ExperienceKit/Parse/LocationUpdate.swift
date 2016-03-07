@@ -15,6 +15,7 @@ class LocationUpdate : PFObject, PFSubclassing {
     @NSManaged var location: PFGeoPoint?
     @NSManaged var altitude: NSNumber?
     @NSManaged var speed: NSNumber?
+    @NSManaged var horizontalAccuracy: NSNumber?
     
     override class func initialize() {
         struct Static {

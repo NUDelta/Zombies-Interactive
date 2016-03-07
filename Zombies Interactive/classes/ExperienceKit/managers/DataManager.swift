@@ -36,8 +36,8 @@ class DataManager : NSObject, CLLocationManagerDelegate {
         self.experience = experience
     
         self.locationManager.delegate = self
-        self.locationManager.distanceFilter = 1 // won't get update unless they moved 1 meter
-        self.locationManager.desiredAccuracy = kCLLocationAccuracyBest
+        self.locationManager.distanceFilter = 1 // distance runner must move in meters to call update eventconfi
+        self.locationManager.desiredAccuracy = kCLLocationAccuracyBestForNavigation
         self.locationManager.requestAlwaysAuthorization()
     }
     
@@ -128,6 +128,7 @@ class DataManager : NSObject, CLLocationManagerDelegate {
         locationUpdate.location = PFGeoPoint(location: currentLocation)
         locationUpdate.altitude = currentLocation!.altitude
         locationUpdate.speed = currentLocation!.speed
+        locationUpdate.horizontalAccuracy = currentLocation!.horizontalAccuracy
         locationUpdate.saveInBackground()
     }
     

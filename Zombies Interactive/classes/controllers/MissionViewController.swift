@@ -149,28 +149,16 @@ class MissionViewController: UIViewController, MKMapViewDelegate, ExperienceMana
         
         // Construct the experience based on selected mission
         var stages: [Stage] = []
-        if missionTitle == "Version X" {
-            // http://zombiesrun.wikia.com/wiki/Scouting_Mission#
-            let stage1 = Stage(moments: [Sound(fileNames: ["S1M16_1"]), Interim(lengthInSeconds: 5.minutesToSeconds)], title: "Scouting")
-            let stage2 = Stage(moments: [Sound(fileNames: ["S1M16_2"]), Interim(lengthInSeconds: 5.minutesToSeconds)], title: "No More Eyes")
-            let stage3 = Stage(moments: [Sound(fileNames: ["S1M16_3"]), Interim(lengthInSeconds: 5.minutesToSeconds)], title: "Gunshots")
-            let stage4 = Stage(moments: [Sound(fileNames: ["S1M16_4"]), Interim(lengthInSeconds: 5.minutesToSeconds)], title: "A Mystery")
-            let stage5 = Stage(moments: [Sound(fileNames: ["S1M16_5"]), Interim(lengthInSeconds: 5.minutesToSeconds)], title: "Swift Exit")
-            let stage6 = Stage(moments: [Sound(fileNames: ["S1M16_6"]), Interim(lengthInSeconds: 5.minutesToSeconds)], title: "Pursuit")
-            let stage7 = Stage(moments: [Sound(fileNames: ["S1M16_7", "mission_completed"])], title: "Debrief")
+        if missionTitle == "Intel Mission" {
 
-            stages = [stage1, stage2, stage3, stage4, stage5, stage6, stage7]
-        } else if missionTitle == "Version Y" {
-            let stage1 = Stage(moments: [Sound(fileNames: ["radio_static", "intel_team_intro", "radio_static", "vignette_transition", "S1M16_1"]), Interim(lengthInSeconds: 2.minutesToSeconds), Interim(lengthInSeconds: 120)],
-                title: "Scouting", interactionInsertionIndices: [2], interactionPool: sprintingInteractions)
-            let stage2 = Stage(moments: [Sound(fileNames: ["S1M16_2"]), Interim(lengthInSeconds: 2.minutesToSeconds), Interim(lengthInSeconds: 120)], title: "No More Eyes", interactionInsertionIndices: [2], interactionPool: sprintingInteractions)
-            let stage3 = Stage(moments: [Sound(fileNames: ["S1M16_3"]), Interim(lengthInSeconds: 2.minutesToSeconds), Interim(lengthInSeconds: 120)], title: "Gunshots", interactionInsertionIndices: [2], interactionPool: sprintingInteractions)
-            let stage4 = Stage(moments: [Sound(fileNames: ["S1M16_4"]), Interim(lengthInSeconds: 5.minutesToSeconds)], title: "A Mystery")
-            let stage5 = Stage(moments: [Sound(fileNames: ["S1M16_5"]), Interim(lengthInSeconds: 5.minutesToSeconds)], title: "Swift Exit")
-            let stage6 = Stage(moments: [Sound(fileNames: ["S1M16_6"]), Interim(lengthInSeconds: 5.minutesToSeconds)], title: "Pursuit")
-            let stage7 = Stage(moments: [Sound(fileNames: ["S1M16_7", "mission_completed"])], title: "Debrief")
+            let stage1 = Stage(moments: [Sound(fileNames: ["radio_static", "intel_team_intro", "radio_static", "vignette_transition"]), Interim(lengthInSeconds: 90), Sound(fileNames: ["vignette_transition"])],
+                title: "Stage1", interactionInsertionIndices: [2], interactionPool: sprintingInteractions)
+            let stage2 = Stage(moments: [Interim(lengthInSeconds: 90), Sound(fileNames: ["vignette_transition"])],
+                title: "Stage2", interactionInsertionIndices: [1], interactionPool: sprintingInteractions)
+            let stage3 = Stage(moments: [Interim(lengthInSeconds: 90), Sound(fileNames: ["vignette_transition","mission_completed"])],
+                title: "Stage3", interactionInsertionIndices: [1], interactionPool: sprintingInteractions)
             
-            stages = [stage1, stage2, stage3, stage4, stage5, stage6, stage7]
+            stages = [stage1, stage2, stage3]
         }
         experienceManager = ExperienceManager(title: missionTitle, stages: stages)
 
