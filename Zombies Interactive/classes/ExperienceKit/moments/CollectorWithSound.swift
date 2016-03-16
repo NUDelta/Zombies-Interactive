@@ -9,7 +9,7 @@
 import Foundation
 
 /// A moment that collects device data throughout its duration, and
-/// does not try to make sense of it in real time. Saves an associated DataEvent in Parse.
+/// does not try to make sense of it in real time. Saves an associated sensorMoment in Parse.
 /// Also plays audio, like the Sound class.
 class CollectorWithSound : Sound {
     /// The types of data that should be collected for the duration (i.e. Location, Motion).

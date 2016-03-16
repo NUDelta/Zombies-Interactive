@@ -12,7 +12,7 @@ import CoreMotion
 import Parse
 
 /// Sensor types that can be used to specify what kind of data to collect.
-/// Each type maps to a class in Parse, see DataEvent for more detail.
+/// Each type maps to a class in Parse, see sensorMoment for more detail.
 enum Sensor: String {
     case Location = "location",
         Accel = "accel",
@@ -26,7 +26,7 @@ class DataManager : NSObject, CLLocationManagerDelegate {
     var experience: Experience?
     var locationManager = CLLocationManager()
     var motionActivityManager = CMMotionActivityManager()
-    var dataEvent: DataEvent?
+    var sensorMoment: SensorMoment?
     var currentLocation: CLLocation?
     
     
@@ -59,17 +59,17 @@ class DataManager : NSObject, CLLocationManagerDelegate {
     
     
     func startCollecting(information:Any?){
-        self.dataEvent = DataEvent()
-        self.dataEvent?.experience = self.experience
-        self.dataEvent?.startDate = NSDate()
+        self.sensorMoment = SensorMoment()
+        self.sensorMoment?.experience = self.experience
+        self.sensorMoment?.startDate = NSDate()
         
         if let infoDict = information as? [String : AnyObject],
         sensors = infoDict["sensors"] as? [String],
         interaction = infoDict["interaction"] as? String,
         label = infoDict["label"] as? String {
-            self.dataEvent?.sensors = sensors
-            self.dataEvent?.interaction = interaction
-            self.dataEvent?.label = label
+            self.sensorMoment?.sensors = sensors
+            self.sensorMoment?.interaction = interaction
+            self.sensorMoment?.label = label
             
             for sensor in sensors {
                 switch sensor {
@@ -107,8 +107,8 @@ class DataManager : NSObject, CLLocationManagerDelegate {
     func stopCollecting(){
         print("  stopped recording data")
         self.motionActivityManager.stopActivityUpdates()
-        self.dataEvent?.endDate = NSDate()
-        self.dataEvent?.saveInBackground()
+        self.sensorMoment?.endDate = NSDate()
+        self.sensorMoment?.saveInBackground()
     }
     
     func startUpdatingLocation() {
