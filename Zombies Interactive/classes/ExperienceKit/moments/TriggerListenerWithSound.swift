@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import MediaPlayer
 
 
 /// A moment that listens for specified triggers (see Trigger) to imply some data point's existence.
@@ -43,7 +44,7 @@ class TriggerListenerWithSound : Sound {
     
     func didReceiveTrigger() {
         print("  received \(trigger) trigger")
-        self.eventManager.trigger("foundWorldObject", information: ["trigger": trigger.rawValue, "label": dataLabel, "interaction": title])
+        self.eventManager.trigger("foundWorldObject", information: ["trigger": trigger.rawValue, "label": dataLabel, "MomentBlockSimple": title])
         if recordMultiple == false {
             self.finished()
         }
@@ -55,7 +56,7 @@ class TriggerListenerWithSound : Sound {
         if numFilesPlayed == fileNames.count {
             
             if additionalTime > 0 {
-                timer = NSTimer.scheduledTimerWithTimeInterval(additionalTime, target: self, selector: Selector("finished"), userInfo: nil, repeats: false)
+                timer = NSTimer.scheduledTimerWithTimeInterval(additionalTime, target: self, selector: #selector(Moment.finished), userInfo: nil, repeats: false)
                 
             } else {
                 super.finished()

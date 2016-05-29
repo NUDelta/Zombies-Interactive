@@ -1,5 +1,5 @@
 //
-//  Stage.swift
+//  MomentBlock.swift
 //  Zombies Interactive
 //
 //  Created by Scott Cambo on 8/19/15.
@@ -9,35 +9,35 @@
 import Foundation
 
 
-// Stage: a sub-experience comprised of moments
-class Stage: NSObject{
+// MomentBlock: a sub-experience comprised of moments
+class MomentBlock: NSObject{
     
     // TODO: organize methods better
     
-    var stageStarted = false
+    var MomentBlockStarted = false
     var isPlaying = false
     var moments:[Moment]
     var currentMomentIdx = -1
     var title: String
     let eventManager = EventManager()
-    var interactionInsertionIndices: [Int]?
-    var interactionPool: [Interaction]?
+    var MomentBlockSimpleInsertionIndices: [Int]?
+    var MomentBlockSimplePool: [MomentBlockSimple]?
     
     var currentMoment: Moment? {
         get { return moments[safe: currentMomentIdx] }
     }
     
     
-    init(moments: [Moment], title: String, interactionInsertionIndices:[Int]?=nil, interactionPool:[Interaction]?=nil) {
+    init(moments: [Moment], title: String, MomentBlockSimpleInsertionIndices:[Int]?=nil, MomentBlockSimplePool:[MomentBlockSimple]?=nil) {
         
-        if interactionPool?.count < interactionInsertionIndices?.count {
-            fatalError("interactionInsertionPool must be larger than the number of interaction insertion indices, as none will be repeated")
+        if MomentBlockSimplePool?.count < MomentBlockSimpleInsertionIndices?.count {
+            fatalError("MomentBlockSimpleInsertionPool must be larger than the number of MomentBlockSimple insertion indices, as none will be repeated")
         }
         
         self.moments = moments
         self.title = title
-        self.interactionPool = interactionPool
-        self.interactionInsertionIndices = interactionInsertionIndices
+        self.MomentBlockSimplePool = MomentBlockSimplePool
+        self.MomentBlockSimpleInsertionIndices = MomentBlockSimpleInsertionIndices
         
         super.init()
         
@@ -51,20 +51,20 @@ class Stage: NSObject{
     }
     
     
-    func insertAnyRandomInteractions() {
+    func insertAnyRandomMomentBlockSimples() {
         // should this be done at runtime to allow for better "audibles"?
-        if let insertionIndices = interactionInsertionIndices, _ = self.interactionPool  {
+        if let insertionIndices = MomentBlockSimpleInsertionIndices, _ = self.MomentBlockSimplePool  {
             var numMomentsInserted = 0
             for idx in insertionIndices {
                 let idxNew = idx + numMomentsInserted
-                let randomInteractionIdx = self.interactionPool!.randomItemIndex()
-                let randomInteraction = self.interactionPool!.removeAtIndex(randomInteractionIdx)
+                let randomMomentBlockSimpleIdx = self.MomentBlockSimplePool!.randomItemIndex()
+                let randomMomentBlockSimple = self.MomentBlockSimplePool!.removeAtIndex(randomMomentBlockSimpleIdx)
                 
-                eventManager.trigger("choseRandomInteraction", information: ["interactionTitle": randomInteraction.title])
-                self.insertMomentsAtIndex(randomInteraction.moments, idx: idxNew)
-                numMomentsInserted += randomInteraction.moments.count
+                eventManager.trigger("choseRandomMomentBlockSimple", information: ["MomentBlockSimpleTitle": randomMomentBlockSimple.title])
+                self.insertMomentsAtIndex(randomMomentBlockSimple.moments, idx: idxNew)
+                numMomentsInserted += randomMomentBlockSimple.moments.count
             }
-            print("\nInteractions inserted at random:\n\(self.moments)")
+            print("\n(MomentBlock.title:\(self.title)) MomentBlockSimples inserted at random (count:\(numMomentsInserted)). All moments:\n\(self.moments)")
         }
     }
     
@@ -77,13 +77,14 @@ class Stage: NSObject{
     }
     
     func startingInterim(information: Any?) {
+        print("(MomentBlock::startingInterim) triggered")
         self.eventManager.trigger("startingInterim", information: information)
     }
     
     func start() {
-        insertAnyRandomInteractions()
-        print("\nStarting stage: " + self.title)
-        stageStarted = true
+        insertAnyRandomMomentBlockSimples()
+        print("\n(MomentBlock::start) Starting MomentBlock: " + self.title)
+        MomentBlockStarted = true
         self.nextMoment()
     }
     
@@ -100,6 +101,8 @@ class Stage: NSObject{
     
     func nextMoment() {
         
+        //[PERHAPS I SHOULD DO OPPORTUNITY CHECKING HERE INSTEAD]
+        
         // TODO this is sloppy checking types, fix this
         if let _ = self.currentMoment as? SensorCollector {
             self.eventManager.trigger("sensorCollectorEnded")
@@ -108,30 +111,32 @@ class Stage: NSObject{
         }
         
         // stop the current moment's audio here instead of ExperienceManager?
-        self.currentMomentIdx++
+        self.currentMomentIdx += 1
         
         if self.currentMomentIdx < moments.count {
             if let currentMoment = self.currentMoment as? SensorCollector {
                 self.eventManager.trigger("sensorCollectorStarted",
-                    information: ["sensors": currentMoment.sensors.rawValues, "label": currentMoment.dataLabel, "interaction": currentMoment.title])
+                    information: ["sensors": currentMoment.sensors.rawValues, "label": currentMoment.dataLabel, "MomentBlockSimple": currentMoment.title])
             } else if let currentMoment = self.currentMoment as? CollectorWithSound {
                 self.eventManager.trigger("sensorCollectorStarted",
-                    information: ["sensors": currentMoment.sensors.rawValues, "label": currentMoment.dataLabel, "interaction": currentMoment.title])
+                    information: ["sensors": currentMoment.sensors.rawValues, "label": currentMoment.dataLabel, "MomentBlockSimple": currentMoment.title])
             }
+            print("\n--starting next moment (idx:\(currentMomentIdx))")
             self.currentMoment?.start()
         } else {
-            print("Finished stage: \(self.title)")
-            self.eventManager.trigger("stageFinished")
+            print("Finished MomentBlock: \(self.title)")
+            self.eventManager.trigger("MomentBlockFinished")
         }
     }
     
     
     func next(notification: NSNotification) {
+        print("--next(???)--")
         self.nextMoment()
     }
     
     func recordWorldObject(information: Any?) {
-        print(" stage.recordWorldObject called")
+        print(" MomentBlock.recordWorldObject called")
         self.eventManager.trigger("foundWorldObject", information: information)
     }
     

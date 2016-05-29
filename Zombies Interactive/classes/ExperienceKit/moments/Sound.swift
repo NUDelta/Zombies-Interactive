@@ -18,9 +18,10 @@ class Sound: Moment, AVAudioPlayerDelegate{
     var player:AVAudioPlayer?
     var numFilesPlayed:Int = 0
     
-    init(fileNames: [String], isInterruptable:Bool=false, title:String?=nil){
+    init(fileNames: [String], isInterruptable:Bool=false, title:String?=nil, canEvaluateOpportunity:Bool=false){
         self.fileNames = fileNames
-        super.init(title: title ?? fileNames.joinWithSeparator(">"), isInterruptable: isInterruptable)
+        //[ Sound title is basically set to all the file names ] 
+        super.init(title: title ?? fileNames.joinWithSeparator(">"), isInterruptable: isInterruptable, canEvaluateOpportunity: canEvaluateOpportunity)
         self.duration = calculateAudioDuration()
         
         setupNextAudioFile()
@@ -28,9 +29,11 @@ class Sound: Moment, AVAudioPlayerDelegate{
     
     func calculateAudioDuration() -> Float {
         var totalDuration:Float = 0
+        print(fileNames)
         
         for path in fileNames {
             let asset = AVURLAsset(URL: NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource(path, ofType: "mp3")!), options: nil)
+            //print("loading asset:\(asset)")
             let audioDuration = asset.duration
             totalDuration += Float(CMTimeGetSeconds(audioDuration))
         }
@@ -62,6 +65,19 @@ class Sound: Moment, AVAudioPlayerDelegate{
             print(error.localizedDescription)
             self.player = nil
         }
+        
+        // For audio backgrounding
+        do {
+            try AVAudioSession.sharedInstance().setCategory(AVAudioSessionCategoryPlayback)
+        } catch let error as NSError {
+            print(error.localizedDescription)
+        }
+        do {
+            try AVAudioSession.sharedInstance().setActive(true)
+        } catch let error as NSError {
+            print(error.localizedDescription)
+        }
+        UIApplication.sharedApplication().beginReceivingRemoteControlEvents()
         
         self.player?.delegate = self
         self.player?.prepareToPlay()

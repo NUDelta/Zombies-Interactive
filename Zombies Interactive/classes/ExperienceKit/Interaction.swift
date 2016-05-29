@@ -1,5 +1,5 @@
 //
-//  Interaction.swift
+//  MomentBlockSimple.swift
 //  Zombies Interactive
 //
 //  Created by Henry Spindell on 10/30/15.
@@ -9,15 +9,22 @@
 import Foundation
 
 /// Compositional class that logically groups a number of Moments together with a title.
-/// Can be inserted into stages in a number of ways -- see optional Stage parameters, and OpportunityManager.
-class Interaction : NSObject {
+/// Can be inserted into MomentBlocks in a number of ways -- see optional MomentBlock parameters, and OpportunityManager.
+class MomentBlockSimple : NSObject {
     var moments: [Moment]
     var title: String
-    var requirement: Requirement?
+    var requirement: Requirement? //use for calculating opportunities
+    var canInsertImmediately: Bool = false
     
-    init(moments: [Moment], title: String, requirement: Requirement?=nil) {
+    init(moments: [Moment], title: String, requirement: Requirement?=nil, canInsertImmediately: Bool?=false) {
         self.moments = moments
         self.title = title
         self.requirement = requirement
+        
+        //for each moment, append the MomentBlockSimple title to the end
+        //(so we can make debugging easier)
+        for moment: Moment in self.moments {
+            moment.title = moment.title + " (in:\(self.title))"
+        }
     }
 }

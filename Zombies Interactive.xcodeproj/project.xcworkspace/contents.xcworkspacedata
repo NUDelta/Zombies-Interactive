@@ -2,6 +2,6 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "self:/Users/henry/Documents/NU/Fall15/EECS495-Zhang/HabitSourceArchitecture/Zombies Interactive.xcodeproj">
+      location = "developer:../../../../Users/hyung-soon/Desktop/Zombies-Interactive/Zombies Interactive.xcodeproj">
    </FileRef>
 </Workspace>

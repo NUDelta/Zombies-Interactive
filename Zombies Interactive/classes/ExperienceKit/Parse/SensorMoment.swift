@@ -17,7 +17,7 @@ class SensorMoment : PFObject, PFSubclassing {
     @NSManaged var endDate: NSDate?
     @NSManaged var sensors: [String]?
     @NSManaged var label: String?
-    @NSManaged var interaction: String?
+    @NSManaged var MomentBlockSimple: String?
     
     override class func initialize() {
         struct Static {

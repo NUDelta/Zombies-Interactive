@@ -17,6 +17,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
+        
+        print("[AppDelegate::application] setting up parse")
+        
         // Override point for customization after application launch.
         // https://parse.com/docs/ios_guide#localdatastore/iOS
         Parse.enableLocalDatastore()

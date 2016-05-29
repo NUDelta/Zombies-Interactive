@@ -11,11 +11,16 @@ import Parse
 
 class WorldObject : PFObject, PFSubclassing {
     
+    @NSManaged var interaction: String?
     @NSManaged var experience: Experience?
     @NSManaged var location: PFGeoPoint?
     @NSManaged var trigger: String?
     @NSManaged var label: String?
-    @NSManaged var interaction: String?
+    @NSManaged var MomentBlockSimple: String?
+    @NSManaged var verifiedTimes: NSNumber?
+    @NSManaged var validatedTimes: NSNumber?
+    @NSManaged var invalidatedTimes: NSNumber?
+    @NSManaged var variation: NSNumber?
     
     var verified: Bool {
         get { return self["verified"] as! Bool }

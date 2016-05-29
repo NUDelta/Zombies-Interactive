@@ -31,7 +31,7 @@
 //    func didDetectKnock(detector: TSTapDetector!) {
 //        print("  detected double knock")
 //        
-//        self.eventManager.trigger("foundPointOfInterest", information: ["trigger": "double_knock", "label": self.dataLabel, "interaction": self.title])
+//        self.eventManager.trigger("foundPointOfInterest", information: ["trigger": "double_knock", "label": self.dataLabel, "MomentBlockSimple": self.title])
 //    }
 //    
 //    override func finished() {

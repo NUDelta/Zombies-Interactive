@@ -14,4 +14,5 @@ struct Context {
     var timeRemaining: NSTimeInterval?
     var speed: CLLocationSpeed?
     var location: CLLocationCoordinate2D?
+    var heading: CLLocationDirection?
 }

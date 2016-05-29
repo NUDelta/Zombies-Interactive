@@ -23,8 +23,6 @@
 		528E89E11B9DEE1100C5FC8E /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 528E89E01B9DEE1100C5FC8E /* libz.dylib */; };
 		528E89E31B9DEE1A00C5FC8E /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 528E89E21B9DEE1A00C5FC8E /* libsqlite3.dylib */; };
 		528E89E51B9DEE3400C5FC8E /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 528E89E41B9DEE3400C5FC8E /* Social.framework */; };
-		BA0736271BE9B69B00B9748A /* SpeechListener.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA0736261BE9B69B00B9748A /* SpeechListener.swift */; };
-		BA0736291BE9C12500B9748A /* SensorMoment.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA0736281BE9C12500B9748A /* SensorMoment.swift */; };
 		BA1F2FDA1BBBB17C00E22B7F /* OpenEars.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BA1F2FD81BBBB17C00E22B7F /* OpenEars.framework */; };
 		BA1F2FDB1BBBB17C00E22B7F /* Slt.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BA1F2FD91BBBB17C00E22B7F /* Slt.framework */; };
 		BA1F2FE41BBBB25700E22B7F /* AcousticModelEnglish.bundle in Resources */ = {isa = PBXBuildFile; fileRef = BA1F2FE21BBBB25700E22B7F /* AcousticModelEnglish.bundle */; };
@@ -33,7 +31,6 @@
 		BA2B43EA1BBBB042007C2483 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BA2B43E91BBBB042007C2483 /* Parse.framework */; };
 		BA2B43EC1BBBB06D007C2483 /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BA2B43EB1BBBB06D007C2483 /* Bolts.framework */; };
 		BA36A8951BBBA79100E197E2 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BA36A8941BBBA79100E197E2 /* Images.xcassets */; };
-		BA4987CA1C4B1151009E6056 /* TriggerListenerWithSound.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA4987C91C4B1151009E6056 /* TriggerListenerWithSound.swift */; };
 		BA4A6B7D1C6E885B0064CF83 /* cover_at_building_1.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = BA4A6B5E1C6E885B0064CF83 /* cover_at_building_1.mp3 */; };
 		BA4A6B7E1C6E885B0064CF83 /* cover_at_building_cancel.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = BA4A6B5F1C6E885B0064CF83 /* cover_at_building_cancel.mp3 */; };
 		BA4A6B7F1C6E885B0064CF83 /* cover_at_building_found.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = BA4A6B601C6E885B0064CF83 /* cover_at_building_found.mp3 */; };
@@ -79,35 +76,48 @@
 		BA54FC361C71AAC600FFE4ED /* hardcore-lose.wav in Resources */ = {isa = PBXBuildFile; fileRef = BA54FC211C71AAC600FFE4ED /* hardcore-lose.wav */; };
 		BA54FC371C71AAC600FFE4ED /* proximity-pip.wav in Resources */ = {isa = PBXBuildFile; fileRef = BA54FC221C71AAC600FFE4ED /* proximity-pip.wav */; };
 		BA54FC381C71AAC600FFE4ED /* zombie-horde-loop.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = BA54FC231C71AAC600FFE4ED /* zombie-horde-loop.mp3 */; };
-		BA630CC21C41AD7D004CDB0E /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA630CBF1C41AD7D004CDB0E /* DataManager.swift */; };
-		BA630CC31C41AD7D004CDB0E /* ExperienceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA630CC01C41AD7D004CDB0E /* ExperienceManager.swift */; };
-		BA630CC41C41AD7D004CDB0E /* OpportunityManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA630CC11C41AD7D004CDB0E /* OpportunityManager.swift */; };
-		BA630CC61C41AD8F004CDB0E /* Context.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA630CC51C41AD8F004CDB0E /* Context.swift */; };
-		BA630CC81C41ADA1004CDB0E /* Interaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA630CC71C41ADA1004CDB0E /* Interaction.swift */; };
-		BA64ED8D1C602D52008F5270 /* CollectorWithSound.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA64ED8C1C602D52008F5270 /* CollectorWithSound.swift */; };
-		BA7D8A6D1BE838F80059A8A7 /* TriggerListener.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA7D8A6C1BE838F80059A8A7 /* TriggerListener.swift */; };
-		BA7D8A6F1BE842AE0059A8A7 /* KnockListener.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA7D8A6E1BE842AE0059A8A7 /* KnockListener.swift */; };
 		BA9890A31BDDB2D00037A615 /* silence.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = BA9890A21BDDB2D00037A615 /* silence.mp3 */; };
 		BAA8E2D21C8297EF00C66A69 /* IntroPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAA8E2D11C8297EF00C66A69 /* IntroPageViewController.swift */; };
-		BAC7CBF51BD41B3A0031E905 /* Stage.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAC7CBF21BD41B3A0031E905 /* Stage.swift */; };
-		BAC7CBFB1BD41B4F0031E905 /* Experience.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAC7CBF71BD41B4F0031E905 /* Experience.swift */; };
-		BAC7CBFC1BD41B4F0031E905 /* LocationUpdate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAC7CBF81BD41B4F0031E905 /* LocationUpdate.swift */; };
-		BAC7CBFD1BD41B4F0031E905 /* WorldObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAC7CBF91BD41B4F0031E905 /* WorldObject.swift */; };
-		BAC7CC041BD41B680031E905 /* SensorCollector.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAC7CBFE1BD41B680031E905 /* SensorCollector.swift */; };
-		BAC7CC051BD41B680031E905 /* Moment.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAC7CBFF1BD41B680031E905 /* Moment.swift */; };
-		BAC7CC061BD41B680031E905 /* Interim.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAC7CC001BD41B680031E905 /* Interim.swift */; };
-		BAC7CC071BD41B680031E905 /* Sound.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAC7CC011BD41B680031E905 /* Sound.swift */; };
-		BAC7CC0B1BD41B7C0031E905 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAC7CC0A1BD41B7C0031E905 /* Extensions.swift */; };
-		BAC7CC0D1BD41B870031E905 /* Events.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAC7CC0C1BD41B870031E905 /* Events.swift */; };
 		BAC7CC1C1BD41C1B0031E905 /* ActuationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAC7CC181BD41C1B0031E905 /* ActuationController.swift */; };
 		BAC7CC1D1BD41C1B0031E905 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAC7CC191BD41C1B0031E905 /* HomeViewController.swift */; };
 		BAC7CC1E1BD41C1B0031E905 /* MissionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAC7CC1A1BD41C1B0031E905 /* MissionViewController.swift */; };
 		BAC7CC1F1BD41C1B0031E905 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAC7CC1B1BD41C1B0031E905 /* SignUpViewController.swift */; };
-		BAE596701C175E8700541604 /* Requirement.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAE5966F1C175E8700541604 /* Requirement.swift */; };
-		BAFA26A71C65540F000EA65C /* MotionActivityUpdate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAFA26A61C65540F000EA65C /* MotionActivityUpdate.swift */; };
-		BAFF26971C4735C50032078D /* ARAudioRecognizer.m in Sources */ = {isa = PBXBuildFile; fileRef = BAFF26911C4735C50032078D /* ARAudioRecognizer.m */; };
-		BAFF26981C4735C50032078D /* TSCoreMotionListener.m in Sources */ = {isa = PBXBuildFile; fileRef = BAFF26941C4735C50032078D /* TSCoreMotionListener.m */; };
-		BAFF26991C4735C50032078D /* TSTapDetector.m in Sources */ = {isa = PBXBuildFile; fileRef = BAFF26961C4735C50032078D /* TSTapDetector.m */; };
+		D767F5A31CFB31260000A26B /* Context.swift in Sources */ = {isa = PBXBuildFile; fileRef = D767F5741CFB31260000A26B /* Context.swift */; };
+		D767F5A41CFB31260000A26B /* Interaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = D767F5751CFB31260000A26B /* Interaction.swift */; };
+		D767F5A51CFB31260000A26B /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D767F5771CFB31260000A26B /* DataManager.swift */; };
+		D767F5A61CFB31260000A26B /* ExperienceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D767F5781CFB31260000A26B /* ExperienceManager.swift */; };
+		D767F5A71CFB31260000A26B /* OpportunityManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D767F5791CFB31260000A26B /* OpportunityManager.swift */; };
+		D767F5A81CFB31260000A26B /* ScaffoldingManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D767F57A1CFB31260000A26B /* ScaffoldingManager.swift */; };
+		D767F5A91CFB31260000A26B /* CollectorWithSound.swift in Sources */ = {isa = PBXBuildFile; fileRef = D767F57C1CFB31260000A26B /* CollectorWithSound.swift */; };
+		D767F5AA1CFB31260000A26B /* ConditionalMoment.swift in Sources */ = {isa = PBXBuildFile; fileRef = D767F57D1CFB31260000A26B /* ConditionalMoment.swift */; };
+		D767F5AB1CFB31260000A26B /* ContinuousMoment.swift in Sources */ = {isa = PBXBuildFile; fileRef = D767F57E1CFB31260000A26B /* ContinuousMoment.swift */; };
+		D767F5AC1CFB31260000A26B /* FunctionMoment.swift in Sources */ = {isa = PBXBuildFile; fileRef = D767F57F1CFB31260000A26B /* FunctionMoment.swift */; };
+		D767F5AD1CFB31260000A26B /* Interim.swift in Sources */ = {isa = PBXBuildFile; fileRef = D767F5801CFB31260000A26B /* Interim.swift */; };
+		D767F5AE1CFB31260000A26B /* KnockListener.swift in Sources */ = {isa = PBXBuildFile; fileRef = D767F5811CFB31260000A26B /* KnockListener.swift */; };
+		D767F5AF1CFB31260000A26B /* Moment.swift in Sources */ = {isa = PBXBuildFile; fileRef = D767F5821CFB31260000A26B /* Moment.swift */; };
+		D767F5B01CFB31260000A26B /* OpportunityCheck.swift in Sources */ = {isa = PBXBuildFile; fileRef = D767F5831CFB31260000A26B /* OpportunityCheck.swift */; };
+		D767F5B11CFB31260000A26B /* OpportunityPollerMoment.swift in Sources */ = {isa = PBXBuildFile; fileRef = D767F5841CFB31260000A26B /* OpportunityPollerMoment.swift */; };
+		D767F5B21CFB31260000A26B /* SensorCollector.swift in Sources */ = {isa = PBXBuildFile; fileRef = D767F5851CFB31260000A26B /* SensorCollector.swift */; };
+		D767F5B31CFB31260000A26B /* SilentMoment.swift in Sources */ = {isa = PBXBuildFile; fileRef = D767F5861CFB31260000A26B /* SilentMoment.swift */; };
+		D767F5B41CFB31260000A26B /* Sound.swift in Sources */ = {isa = PBXBuildFile; fileRef = D767F5871CFB31260000A26B /* Sound.swift */; };
+		D767F5B51CFB31260000A26B /* SpeechListener.swift in Sources */ = {isa = PBXBuildFile; fileRef = D767F5881CFB31260000A26B /* SpeechListener.swift */; };
+		D767F5B61CFB31260000A26B /* SynthVoiceMoment.swift in Sources */ = {isa = PBXBuildFile; fileRef = D767F5891CFB31260000A26B /* SynthVoiceMoment.swift */; };
+		D767F5B71CFB31260000A26B /* TriggerListener.swift in Sources */ = {isa = PBXBuildFile; fileRef = D767F58A1CFB31260000A26B /* TriggerListener.swift */; };
+		D767F5B81CFB31260000A26B /* TriggerListenerWithSound.swift in Sources */ = {isa = PBXBuildFile; fileRef = D767F58B1CFB31260000A26B /* TriggerListenerWithSound.swift */; };
+		D767F5B91CFB31260000A26B /* WaitForDoubleKnock.swift in Sources */ = {isa = PBXBuildFile; fileRef = D767F58C1CFB31260000A26B /* WaitForDoubleKnock.swift */; };
+		D767F5BA1CFB31260000A26B /* WaitForWord.swift in Sources */ = {isa = PBXBuildFile; fileRef = D767F58D1CFB31260000A26B /* WaitForWord.swift */; };
+		D767F5BB1CFB31260000A26B /* Experience.swift in Sources */ = {isa = PBXBuildFile; fileRef = D767F58F1CFB31260000A26B /* Experience.swift */; };
+		D767F5BC1CFB31260000A26B /* LocationUpdate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D767F5901CFB31260000A26B /* LocationUpdate.swift */; };
+		D767F5BD1CFB31260000A26B /* MotionActivityUpdate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D767F5911CFB31260000A26B /* MotionActivityUpdate.swift */; };
+		D767F5BE1CFB31260000A26B /* SensorMoment.swift in Sources */ = {isa = PBXBuildFile; fileRef = D767F5921CFB31260000A26B /* SensorMoment.swift */; };
+		D767F5BF1CFB31260000A26B /* WorldObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = D767F5931CFB31260000A26B /* WorldObject.swift */; };
+		D767F5C01CFB31260000A26B /* Requirement.swift in Sources */ = {isa = PBXBuildFile; fileRef = D767F5941CFB31260000A26B /* Requirement.swift */; };
+		D767F5C11CFB31260000A26B /* Stage.swift in Sources */ = {isa = PBXBuildFile; fileRef = D767F5951CFB31260000A26B /* Stage.swift */; };
+		D767F5C21CFB31260000A26B /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D767F5971CFB31260000A26B /* Extensions.swift */; };
+		D767F5C31CFB31260000A26B /* Events.swift in Sources */ = {isa = PBXBuildFile; fileRef = D767F5991CFB31260000A26B /* Events.swift */; };
+		D767F5C41CFB31260000A26B /* ARAudioRecognizer.m in Sources */ = {isa = PBXBuildFile; fileRef = D767F59D1CFB31260000A26B /* ARAudioRecognizer.m */; };
+		D767F5C51CFB31260000A26B /* TSCoreMotionListener.m in Sources */ = {isa = PBXBuildFile; fileRef = D767F5A01CFB31260000A26B /* TSCoreMotionListener.m */; };
+		D767F5C61CFB31260000A26B /* TSTapDetector.m in Sources */ = {isa = PBXBuildFile; fileRef = D767F5A21CFB31260000A26B /* TSTapDetector.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -128,8 +138,6 @@
 		528E89E01B9DEE1100C5FC8E /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		528E89E21B9DEE1A00C5FC8E /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
 		528E89E41B9DEE3400C5FC8E /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
-		BA0736261BE9B69B00B9748A /* SpeechListener.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SpeechListener.swift; path = ExperienceKit/moments/SpeechListener.swift; sourceTree = "<group>"; };
-		BA0736281BE9C12500B9748A /* SensorMoment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SensorMoment.swift; path = ExperienceKit/Parse/SensorMoment.swift; sourceTree = "<group>"; };
 		BA1F2FD81BBBB17C00E22B7F /* OpenEars.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenEars.framework; path = ExperienceKit/Frameworks/OpenEars.framework; sourceTree = "<group>"; };
 		BA1F2FD91BBBB17C00E22B7F /* Slt.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Slt.framework; path = ExperienceKit/Frameworks/Slt.framework; sourceTree = "<group>"; };
 		BA1F2FE21BBBB25700E22B7F /* AcousticModelEnglish.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = AcousticModelEnglish.bundle; path = ExperienceKit/Bundles/AcousticModelEnglish.bundle; sourceTree = SOURCE_ROOT; };
@@ -140,7 +148,6 @@
 		BA2B43E91BBBB042007C2483 /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Parse.framework; path = Frameworks/Parse.framework; sourceTree = "<group>"; };
 		BA2B43EB1BBBB06D007C2483 /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Bolts.framework; path = Frameworks/Bolts.framework; sourceTree = "<group>"; };
 		BA36A8941BBBA79100E197E2 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = "Zombies Interactive/Images.xcassets"; sourceTree = SOURCE_ROOT; };
-		BA4987C91C4B1151009E6056 /* TriggerListenerWithSound.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TriggerListenerWithSound.swift; path = ExperienceKit/moments/TriggerListenerWithSound.swift; sourceTree = "<group>"; };
 		BA4A6B5E1C6E885B0064CF83 /* cover_at_building_1.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = cover_at_building_1.mp3; sourceTree = "<group>"; };
 		BA4A6B5F1C6E885B0064CF83 /* cover_at_building_cancel.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = cover_at_building_cancel.mp3; sourceTree = "<group>"; };
 		BA4A6B601C6E885B0064CF83 /* cover_at_building_found.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = cover_at_building_found.mp3; sourceTree = "<group>"; };
@@ -186,40 +193,52 @@
 		BA54FC211C71AAC600FFE4ED /* hardcore-lose.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "hardcore-lose.wav"; sourceTree = "<group>"; };
 		BA54FC221C71AAC600FFE4ED /* proximity-pip.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "proximity-pip.wav"; sourceTree = "<group>"; };
 		BA54FC231C71AAC600FFE4ED /* zombie-horde-loop.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "zombie-horde-loop.mp3"; sourceTree = "<group>"; };
-		BA630CBF1C41AD7D004CDB0E /* DataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = DataManager.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
-		BA630CC01C41AD7D004CDB0E /* ExperienceManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExperienceManager.swift; sourceTree = "<group>"; };
-		BA630CC11C41AD7D004CDB0E /* OpportunityManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OpportunityManager.swift; sourceTree = "<group>"; };
-		BA630CC51C41AD8F004CDB0E /* Context.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Context.swift; path = ExperienceKit/Context.swift; sourceTree = "<group>"; };
-		BA630CC71C41ADA1004CDB0E /* Interaction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Interaction.swift; path = ExperienceKit/Interaction.swift; sourceTree = "<group>"; };
-		BA64ED8C1C602D52008F5270 /* CollectorWithSound.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; name = CollectorWithSound.swift; path = ExperienceKit/moments/CollectorWithSound.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
-		BA7D8A6C1BE838F80059A8A7 /* TriggerListener.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TriggerListener.swift; path = ExperienceKit/moments/TriggerListener.swift; sourceTree = "<group>"; };
-		BA7D8A6E1BE842AE0059A8A7 /* KnockListener.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = KnockListener.swift; path = ExperienceKit/moments/KnockListener.swift; sourceTree = "<group>"; };
 		BA9890A21BDDB2D00037A615 /* silence.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = silence.mp3; sourceTree = "<group>"; };
 		BAA8E2D11C8297EF00C66A69 /* IntroPageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = IntroPageViewController.swift; path = controllers/IntroPageViewController.swift; sourceTree = "<group>"; };
-		BAC7CBF21BD41B3A0031E905 /* Stage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Stage.swift; path = ExperienceKit/Stage.swift; sourceTree = "<group>"; };
-		BAC7CBF71BD41B4F0031E905 /* Experience.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Experience.swift; path = ExperienceKit/Parse/Experience.swift; sourceTree = "<group>"; };
-		BAC7CBF81BD41B4F0031E905 /* LocationUpdate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LocationUpdate.swift; path = ExperienceKit/Parse/LocationUpdate.swift; sourceTree = "<group>"; };
-		BAC7CBF91BD41B4F0031E905 /* WorldObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = WorldObject.swift; path = ExperienceKit/Parse/WorldObject.swift; sourceTree = "<group>"; };
-		BAC7CBFE1BD41B680031E905 /* SensorCollector.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SensorCollector.swift; path = ExperienceKit/moments/SensorCollector.swift; sourceTree = "<group>"; };
-		BAC7CBFF1BD41B680031E905 /* Moment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Moment.swift; path = ExperienceKit/moments/Moment.swift; sourceTree = "<group>"; };
-		BAC7CC001BD41B680031E905 /* Interim.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Interim.swift; path = ExperienceKit/moments/Interim.swift; sourceTree = "<group>"; };
-		BAC7CC011BD41B680031E905 /* Sound.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Sound.swift; path = ExperienceKit/moments/Sound.swift; sourceTree = "<group>"; };
-		BAC7CC0A1BD41B7C0031E905 /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Extensions.swift; path = ExperienceKit/utilities/Extensions.swift; sourceTree = "<group>"; };
-		BAC7CC0C1BD41B870031E905 /* Events.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Events.swift; path = ExperienceKit/utilities/third_party/Events.swift; sourceTree = "<group>"; };
 		BAC7CC181BD41C1B0031E905 /* ActuationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ActuationController.swift; path = controllers/ActuationController.swift; sourceTree = "<group>"; };
 		BAC7CC191BD41C1B0031E905 /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HomeViewController.swift; path = controllers/HomeViewController.swift; sourceTree = "<group>"; };
 		BAC7CC1A1BD41C1B0031E905 /* MissionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MissionViewController.swift; path = controllers/MissionViewController.swift; sourceTree = "<group>"; };
 		BAC7CC1B1BD41C1B0031E905 /* SignUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SignUpViewController.swift; path = controllers/SignUpViewController.swift; sourceTree = "<group>"; };
-		BAD2F21D1BC4A7F600576D03 /* OEBridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "OEBridging-Header.h"; sourceTree = "<group>"; };
-		BAE5966F1C175E8700541604 /* Requirement.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Requirement.swift; path = ExperienceKit/Requirement.swift; sourceTree = "<group>"; };
-		BAFA26A61C65540F000EA65C /* MotionActivityUpdate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MotionActivityUpdate.swift; path = ExperienceKit/Parse/MotionActivityUpdate.swift; sourceTree = "<group>"; };
-		BAFF26901C4735C50032078D /* ARAudioRecognizer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ARAudioRecognizer.h; sourceTree = "<group>"; };
-		BAFF26911C4735C50032078D /* ARAudioRecognizer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ARAudioRecognizer.m; sourceTree = "<group>"; };
-		BAFF26921C4735C50032078D /* ARAudioRecognizerDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ARAudioRecognizerDelegate.h; sourceTree = "<group>"; };
-		BAFF26931C4735C50032078D /* TSCoreMotionListener.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TSCoreMotionListener.h; sourceTree = "<group>"; };
-		BAFF26941C4735C50032078D /* TSCoreMotionListener.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TSCoreMotionListener.m; sourceTree = "<group>"; };
-		BAFF26951C4735C50032078D /* TSTapDetector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TSTapDetector.h; sourceTree = "<group>"; };
-		BAFF26961C4735C50032078D /* TSTapDetector.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TSTapDetector.m; sourceTree = "<group>"; };
+		D767F5741CFB31260000A26B /* Context.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Context.swift; sourceTree = "<group>"; };
+		D767F5751CFB31260000A26B /* Interaction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Interaction.swift; sourceTree = "<group>"; };
+		D767F5771CFB31260000A26B /* DataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
+		D767F5781CFB31260000A26B /* ExperienceManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExperienceManager.swift; sourceTree = "<group>"; };
+		D767F5791CFB31260000A26B /* OpportunityManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OpportunityManager.swift; sourceTree = "<group>"; };
+		D767F57A1CFB31260000A26B /* ScaffoldingManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScaffoldingManager.swift; sourceTree = "<group>"; };
+		D767F57C1CFB31260000A26B /* CollectorWithSound.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectorWithSound.swift; sourceTree = "<group>"; };
+		D767F57D1CFB31260000A26B /* ConditionalMoment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConditionalMoment.swift; sourceTree = "<group>"; };
+		D767F57E1CFB31260000A26B /* ContinuousMoment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContinuousMoment.swift; sourceTree = "<group>"; };
+		D767F57F1CFB31260000A26B /* FunctionMoment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FunctionMoment.swift; sourceTree = "<group>"; };
+		D767F5801CFB31260000A26B /* Interim.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Interim.swift; sourceTree = "<group>"; };
+		D767F5811CFB31260000A26B /* KnockListener.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KnockListener.swift; sourceTree = "<group>"; };
+		D767F5821CFB31260000A26B /* Moment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Moment.swift; sourceTree = "<group>"; };
+		D767F5831CFB31260000A26B /* OpportunityCheck.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OpportunityCheck.swift; sourceTree = "<group>"; };
+		D767F5841CFB31260000A26B /* OpportunityPollerMoment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OpportunityPollerMoment.swift; sourceTree = "<group>"; };
+		D767F5851CFB31260000A26B /* SensorCollector.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SensorCollector.swift; sourceTree = "<group>"; };
+		D767F5861CFB31260000A26B /* SilentMoment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SilentMoment.swift; sourceTree = "<group>"; };
+		D767F5871CFB31260000A26B /* Sound.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Sound.swift; sourceTree = "<group>"; };
+		D767F5881CFB31260000A26B /* SpeechListener.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpeechListener.swift; sourceTree = "<group>"; };
+		D767F5891CFB31260000A26B /* SynthVoiceMoment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SynthVoiceMoment.swift; sourceTree = "<group>"; };
+		D767F58A1CFB31260000A26B /* TriggerListener.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TriggerListener.swift; sourceTree = "<group>"; };
+		D767F58B1CFB31260000A26B /* TriggerListenerWithSound.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TriggerListenerWithSound.swift; sourceTree = "<group>"; };
+		D767F58C1CFB31260000A26B /* WaitForDoubleKnock.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WaitForDoubleKnock.swift; sourceTree = "<group>"; };
+		D767F58D1CFB31260000A26B /* WaitForWord.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WaitForWord.swift; sourceTree = "<group>"; };
+		D767F58F1CFB31260000A26B /* Experience.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Experience.swift; sourceTree = "<group>"; };
+		D767F5901CFB31260000A26B /* LocationUpdate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationUpdate.swift; sourceTree = "<group>"; };
+		D767F5911CFB31260000A26B /* MotionActivityUpdate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MotionActivityUpdate.swift; sourceTree = "<group>"; };
+		D767F5921CFB31260000A26B /* SensorMoment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SensorMoment.swift; sourceTree = "<group>"; };
+		D767F5931CFB31260000A26B /* WorldObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WorldObject.swift; sourceTree = "<group>"; };
+		D767F5941CFB31260000A26B /* Requirement.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Requirement.swift; sourceTree = "<group>"; };
+		D767F5951CFB31260000A26B /* Stage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Stage.swift; sourceTree = "<group>"; };
+		D767F5971CFB31260000A26B /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		D767F5991CFB31260000A26B /* Events.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Events.swift; sourceTree = "<group>"; };
+		D767F59C1CFB31260000A26B /* ARAudioRecognizer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ARAudioRecognizer.h; sourceTree = "<group>"; };
+		D767F59D1CFB31260000A26B /* ARAudioRecognizer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ARAudioRecognizer.m; sourceTree = "<group>"; };
+		D767F59E1CFB31260000A26B /* ARAudioRecognizerDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ARAudioRecognizerDelegate.h; sourceTree = "<group>"; };
+		D767F59F1CFB31260000A26B /* TSCoreMotionListener.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TSCoreMotionListener.h; sourceTree = "<group>"; };
+		D767F5A01CFB31260000A26B /* TSCoreMotionListener.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TSCoreMotionListener.m; sourceTree = "<group>"; };
+		D767F5A11CFB31260000A26B /* TSTapDetector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TSTapDetector.h; sourceTree = "<group>"; };
+		D767F5A21CFB31260000A26B /* TSTapDetector.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TSTapDetector.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -290,7 +309,6 @@
 				528C3A501B826734007C59FC /* LaunchScreen.xib */,
 				528C3A461B826734007C59FC /* Zombies-Interactive.xcdatamodeld */,
 				528C3A421B826734007C59FC /* Supporting Files */,
-				BAD2F21D1BC4A7F600576D03 /* OEBridging-Header.h */,
 			);
 			path = "Zombies Interactive";
 			sourceTree = "<group>";
@@ -336,8 +354,8 @@
 			isa = PBXGroup;
 			children = (
 				BAF68CC51BBF340200145698 /* Controllers */,
+				D767F5731CFB31260000A26B /* ExperienceKit */,
 				BA2B43D91BBBAF23007C2483 /* AppDelegate.swift */,
-				BA320E641BC828CE000E52EE /* ExperienceKit */,
 			);
 			name = Classes;
 			path = classes;
@@ -364,22 +382,6 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		BA320E641BC828CE000E52EE /* ExperienceKit */ = {
-			isa = PBXGroup;
-			children = (
-				BA32A8131BCB5BC800316136 /* Utilities */,
-				BA32A8121BCB5B9100316136 /* Moments */,
-				BAFED6341BC36D2800197581 /* Parse */,
-				BA630CBE1C41AD7D004CDB0E /* Managers */,
-				BA630CC71C41ADA1004CDB0E /* Interaction.swift */,
-				BAE5966F1C175E8700541604 /* Requirement.swift */,
-				BA630CC51C41AD8F004CDB0E /* Context.swift */,
-				BAC7CBF21BD41B3A0031E905 /* Stage.swift */,
-			);
-			name = ExperienceKit;
-			path = "Zombies Interactive/classes";
-			sourceTree = SOURCE_ROOT;
-		};
 		BA32A8051BCB3DB700316136 /* Zombies, Run! */ = {
 			isa = PBXGroup;
 			children = (
@@ -387,40 +389,6 @@
 				BA54FC1E1C71AAC600FFE4ED /* sfx */,
 			);
 			path = "Zombies, Run!";
-			sourceTree = "<group>";
-		};
-		BA32A8121BCB5B9100316136 /* Moments */ = {
-			isa = PBXGroup;
-			children = (
-				BAC7CBFE1BD41B680031E905 /* SensorCollector.swift */,
-				BA64ED8C1C602D52008F5270 /* CollectorWithSound.swift */,
-				BAC7CBFF1BD41B680031E905 /* Moment.swift */,
-				BAC7CC001BD41B680031E905 /* Interim.swift */,
-				BAC7CC011BD41B680031E905 /* Sound.swift */,
-				BA7D8A6C1BE838F80059A8A7 /* TriggerListener.swift */,
-				BA4987C91C4B1151009E6056 /* TriggerListenerWithSound.swift */,
-				BA7D8A6E1BE842AE0059A8A7 /* KnockListener.swift */,
-				BA0736261BE9B69B00B9748A /* SpeechListener.swift */,
-			);
-			name = Moments;
-			sourceTree = "<group>";
-		};
-		BA32A8131BCB5BC800316136 /* Utilities */ = {
-			isa = PBXGroup;
-			children = (
-				BA32A8141BCB5BDA00316136 /* Third Party */,
-				BAC7CC0A1BD41B7C0031E905 /* Extensions.swift */,
-			);
-			name = Utilities;
-			sourceTree = "<group>";
-		};
-		BA32A8141BCB5BDA00316136 /* Third Party */ = {
-			isa = PBXGroup;
-			children = (
-				BAFF268E1C4735C50032078D /* TapShare */,
-				BAC7CC0C1BD41B870031E905 /* Events.swift */,
-			);
-			name = "Third Party";
 			sourceTree = "<group>";
 		};
 		BA4A6B5C1C6E885B0064CF83 /* interactions */ = {
@@ -592,17 +560,6 @@
 			path = sfx;
 			sourceTree = "<group>";
 		};
-		BA630CBE1C41AD7D004CDB0E /* Managers */ = {
-			isa = PBXGroup;
-			children = (
-				BA630CBF1C41AD7D004CDB0E /* DataManager.swift */,
-				BA630CC01C41AD7D004CDB0E /* ExperienceManager.swift */,
-				BA630CC11C41AD7D004CDB0E /* OpportunityManager.swift */,
-			);
-			name = Managers;
-			path = ExperienceKit/managers;
-			sourceTree = "<group>";
-		};
 		BAF68CC51BBF340200145698 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
@@ -615,37 +572,105 @@
 			name = Controllers;
 			sourceTree = "<group>";
 		};
-		BAFED6341BC36D2800197581 /* Parse */ = {
+		D767F5731CFB31260000A26B /* ExperienceKit */ = {
 			isa = PBXGroup;
 			children = (
-				BA0736281BE9C12500B9748A /* SensorMoment.swift */,
-				BAC7CBF71BD41B4F0031E905 /* Experience.swift */,
-				BAC7CBF81BD41B4F0031E905 /* LocationUpdate.swift */,
-				BAFA26A61C65540F000EA65C /* MotionActivityUpdate.swift */,
-				BAC7CBF91BD41B4F0031E905 /* WorldObject.swift */,
+				D767F5741CFB31260000A26B /* Context.swift */,
+				D767F5751CFB31260000A26B /* Interaction.swift */,
+				D767F5761CFB31260000A26B /* managers */,
+				D767F57B1CFB31260000A26B /* moments */,
+				D767F58E1CFB31260000A26B /* Parse */,
+				D767F5941CFB31260000A26B /* Requirement.swift */,
+				D767F5951CFB31260000A26B /* Stage.swift */,
+				D767F5961CFB31260000A26B /* utilities */,
 			);
-			name = Parse;
+			path = ExperienceKit;
 			sourceTree = "<group>";
 		};
-		BAFF268E1C4735C50032078D /* TapShare */ = {
+		D767F5761CFB31260000A26B /* managers */ = {
 			isa = PBXGroup;
 			children = (
-				BAFF268F1C4735C50032078D /* ARAudioRecognizer */,
-				BAFF26931C4735C50032078D /* TSCoreMotionListener.h */,
-				BAFF26941C4735C50032078D /* TSCoreMotionListener.m */,
-				BAFF26951C4735C50032078D /* TSTapDetector.h */,
-				BAFF26961C4735C50032078D /* TSTapDetector.m */,
+				D767F5771CFB31260000A26B /* DataManager.swift */,
+				D767F5781CFB31260000A26B /* ExperienceManager.swift */,
+				D767F5791CFB31260000A26B /* OpportunityManager.swift */,
+				D767F57A1CFB31260000A26B /* ScaffoldingManager.swift */,
 			);
-			name = TapShare;
-			path = ExperienceKit/utilities/third_party/TapShare;
+			path = managers;
 			sourceTree = "<group>";
 		};
-		BAFF268F1C4735C50032078D /* ARAudioRecognizer */ = {
+		D767F57B1CFB31260000A26B /* moments */ = {
 			isa = PBXGroup;
 			children = (
-				BAFF26901C4735C50032078D /* ARAudioRecognizer.h */,
-				BAFF26911C4735C50032078D /* ARAudioRecognizer.m */,
-				BAFF26921C4735C50032078D /* ARAudioRecognizerDelegate.h */,
+				D767F57C1CFB31260000A26B /* CollectorWithSound.swift */,
+				D767F57D1CFB31260000A26B /* ConditionalMoment.swift */,
+				D767F57E1CFB31260000A26B /* ContinuousMoment.swift */,
+				D767F57F1CFB31260000A26B /* FunctionMoment.swift */,
+				D767F5801CFB31260000A26B /* Interim.swift */,
+				D767F5811CFB31260000A26B /* KnockListener.swift */,
+				D767F5821CFB31260000A26B /* Moment.swift */,
+				D767F5831CFB31260000A26B /* OpportunityCheck.swift */,
+				D767F5841CFB31260000A26B /* OpportunityPollerMoment.swift */,
+				D767F5851CFB31260000A26B /* SensorCollector.swift */,
+				D767F5861CFB31260000A26B /* SilentMoment.swift */,
+				D767F5871CFB31260000A26B /* Sound.swift */,
+				D767F5881CFB31260000A26B /* SpeechListener.swift */,
+				D767F5891CFB31260000A26B /* SynthVoiceMoment.swift */,
+				D767F58A1CFB31260000A26B /* TriggerListener.swift */,
+				D767F58B1CFB31260000A26B /* TriggerListenerWithSound.swift */,
+				D767F58C1CFB31260000A26B /* WaitForDoubleKnock.swift */,
+				D767F58D1CFB31260000A26B /* WaitForWord.swift */,
+			);
+			path = moments;
+			sourceTree = "<group>";
+		};
+		D767F58E1CFB31260000A26B /* Parse */ = {
+			isa = PBXGroup;
+			children = (
+				D767F58F1CFB31260000A26B /* Experience.swift */,
+				D767F5901CFB31260000A26B /* LocationUpdate.swift */,
+				D767F5911CFB31260000A26B /* MotionActivityUpdate.swift */,
+				D767F5921CFB31260000A26B /* SensorMoment.swift */,
+				D767F5931CFB31260000A26B /* WorldObject.swift */,
+			);
+			path = Parse;
+			sourceTree = "<group>";
+		};
+		D767F5961CFB31260000A26B /* utilities */ = {
+			isa = PBXGroup;
+			children = (
+				D767F5971CFB31260000A26B /* Extensions.swift */,
+				D767F5981CFB31260000A26B /* third_party */,
+			);
+			path = utilities;
+			sourceTree = "<group>";
+		};
+		D767F5981CFB31260000A26B /* third_party */ = {
+			isa = PBXGroup;
+			children = (
+				D767F5991CFB31260000A26B /* Events.swift */,
+				D767F59A1CFB31260000A26B /* TapShare */,
+			);
+			path = third_party;
+			sourceTree = "<group>";
+		};
+		D767F59A1CFB31260000A26B /* TapShare */ = {
+			isa = PBXGroup;
+			children = (
+				D767F59B1CFB31260000A26B /* ARAudioRecognizer */,
+				D767F59F1CFB31260000A26B /* TSCoreMotionListener.h */,
+				D767F5A01CFB31260000A26B /* TSCoreMotionListener.m */,
+				D767F5A11CFB31260000A26B /* TSTapDetector.h */,
+				D767F5A21CFB31260000A26B /* TSTapDetector.m */,
+			);
+			path = TapShare;
+			sourceTree = "<group>";
+		};
+		D767F59B1CFB31260000A26B /* ARAudioRecognizer */ = {
+			isa = PBXGroup;
+			children = (
+				D767F59C1CFB31260000A26B /* ARAudioRecognizer.h */,
+				D767F59D1CFB31260000A26B /* ARAudioRecognizer.m */,
+				D767F59E1CFB31260000A26B /* ARAudioRecognizerDelegate.h */,
 			);
 			path = ARAudioRecognizer;
 			sourceTree = "<group>";
@@ -779,40 +804,50 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D767F5B81CFB31260000A26B /* TriggerListenerWithSound.swift in Sources */,
 				BA4F036C1BD95B2600792A6D /* Constants.swift in Sources */,
-				BA64ED8D1C602D52008F5270 /* CollectorWithSound.swift in Sources */,
-				BA630CC21C41AD7D004CDB0E /* DataManager.swift in Sources */,
-				BAE596701C175E8700541604 /* Requirement.swift in Sources */,
-				BAC7CBF51BD41B3A0031E905 /* Stage.swift in Sources */,
+				D767F5AD1CFB31260000A26B /* Interim.swift in Sources */,
+				D767F5AF1CFB31260000A26B /* Moment.swift in Sources */,
+				D767F5BA1CFB31260000A26B /* WaitForWord.swift in Sources */,
 				BA2B43E11BBBAF23007C2483 /* AppDelegate.swift in Sources */,
-				BAC7CC0D1BD41B870031E905 /* Events.swift in Sources */,
+				D767F5B71CFB31260000A26B /* TriggerListener.swift in Sources */,
 				BAA8E2D21C8297EF00C66A69 /* IntroPageViewController.swift in Sources */,
-				BAC7CC071BD41B680031E905 /* Sound.swift in Sources */,
-				BAC7CC061BD41B680031E905 /* Interim.swift in Sources */,
-				BA7D8A6F1BE842AE0059A8A7 /* KnockListener.swift in Sources */,
-				BA4987CA1C4B1151009E6056 /* TriggerListenerWithSound.swift in Sources */,
-				BAFF26981C4735C50032078D /* TSCoreMotionListener.m in Sources */,
-				BA630CC81C41ADA1004CDB0E /* Interaction.swift in Sources */,
-				BA7D8A6D1BE838F80059A8A7 /* TriggerListener.swift in Sources */,
 				BAC7CC1D1BD41C1B0031E905 /* HomeViewController.swift in Sources */,
-				BA630CC41C41AD7D004CDB0E /* OpportunityManager.swift in Sources */,
-				BAFA26A71C65540F000EA65C /* MotionActivityUpdate.swift in Sources */,
-				BA630CC61C41AD8F004CDB0E /* Context.swift in Sources */,
-				BAC7CC051BD41B680031E905 /* Moment.swift in Sources */,
-				BA0736291BE9C12500B9748A /* SensorMoment.swift in Sources */,
-				BAC7CC041BD41B680031E905 /* SensorCollector.swift in Sources */,
-				BA0736271BE9B69B00B9748A /* SpeechListener.swift in Sources */,
-				BAC7CBFC1BD41B4F0031E905 /* LocationUpdate.swift in Sources */,
-				BAFF26971C4735C50032078D /* ARAudioRecognizer.m in Sources */,
+				D767F5C41CFB31260000A26B /* ARAudioRecognizer.m in Sources */,
+				D767F5BC1CFB31260000A26B /* LocationUpdate.swift in Sources */,
+				D767F5C51CFB31260000A26B /* TSCoreMotionListener.m in Sources */,
 				528C3A481B826734007C59FC /* Zombies-Interactive.xcdatamodeld in Sources */,
+				D767F5A61CFB31260000A26B /* ExperienceManager.swift in Sources */,
+				D767F5C11CFB31260000A26B /* Stage.swift in Sources */,
+				D767F5B11CFB31260000A26B /* OpportunityPollerMoment.swift in Sources */,
+				D767F5BB1CFB31260000A26B /* Experience.swift in Sources */,
+				D767F5AA1CFB31260000A26B /* ConditionalMoment.swift in Sources */,
+				D767F5A71CFB31260000A26B /* OpportunityManager.swift in Sources */,
+				D767F5B01CFB31260000A26B /* OpportunityCheck.swift in Sources */,
+				D767F5C61CFB31260000A26B /* TSTapDetector.m in Sources */,
+				D767F5A91CFB31260000A26B /* CollectorWithSound.swift in Sources */,
+				D767F5B41CFB31260000A26B /* Sound.swift in Sources */,
+				D767F5B51CFB31260000A26B /* SpeechListener.swift in Sources */,
+				D767F5AC1CFB31260000A26B /* FunctionMoment.swift in Sources */,
+				D767F5BD1CFB31260000A26B /* MotionActivityUpdate.swift in Sources */,
+				D767F5B91CFB31260000A26B /* WaitForDoubleKnock.swift in Sources */,
+				D767F5B31CFB31260000A26B /* SilentMoment.swift in Sources */,
 				BAC7CC1C1BD41C1B0031E905 /* ActuationController.swift in Sources */,
-				BAFF26991C4735C50032078D /* TSTapDetector.m in Sources */,
+				D767F5AB1CFB31260000A26B /* ContinuousMoment.swift in Sources */,
+				D767F5A41CFB31260000A26B /* Interaction.swift in Sources */,
+				D767F5BE1CFB31260000A26B /* SensorMoment.swift in Sources */,
+				D767F5B21CFB31260000A26B /* SensorCollector.swift in Sources */,
+				D767F5BF1CFB31260000A26B /* WorldObject.swift in Sources */,
+				D767F5B61CFB31260000A26B /* SynthVoiceMoment.swift in Sources */,
+				D767F5C01CFB31260000A26B /* Requirement.swift in Sources */,
+				D767F5AE1CFB31260000A26B /* KnockListener.swift in Sources */,
+				D767F5A31CFB31260000A26B /* Context.swift in Sources */,
+				D767F5C21CFB31260000A26B /* Extensions.swift in Sources */,
+				D767F5A81CFB31260000A26B /* ScaffoldingManager.swift in Sources */,
+				D767F5C31CFB31260000A26B /* Events.swift in Sources */,
+				D767F5A51CFB31260000A26B /* DataManager.swift in Sources */,
 				BAC7CC1E1BD41C1B0031E905 /* MissionViewController.swift in Sources */,
-				BAC7CBFD1BD41B4F0031E905 /* WorldObject.swift in Sources */,
-				BA630CC31C41AD7D004CDB0E /* ExperienceManager.swift in Sources */,
-				BAC7CC0B1BD41B7C0031E905 /* Extensions.swift in Sources */,
 				BAC7CC1F1BD41C1B0031E905 /* SignUpViewController.swift in Sources */,
-				BAC7CBFB1BD41B4F0031E905 /* Experience.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -939,6 +974,7 @@
 					"$(PROJECT_DIR)/**",
 				);
 				INFOPLIST_FILE = "Zombies Interactive/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "edu.northwestern.delta.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "Zombies Interactive";
@@ -956,6 +992,7 @@
 					"$(PROJECT_DIR)/**",
 				);
 				INFOPLIST_FILE = "Zombies Interactive/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "edu.northwestern.delta.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "Zombies Interactive";

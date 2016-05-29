@@ -8,7 +8,7 @@
 
 import Foundation
 
-/// A component that makes up part of a Stage; from an interaction with the user to collect data,
+/// A component that makes up part of a MomentBlock; from an MomentBlock_Simple with the user to collect data,
 /// to simple audio to advance the experience.
 /// DO NOT instantiate this class, instead, use one of its subclasses.
 class Moment: NSObject {
@@ -21,8 +21,10 @@ class Moment: NSObject {
     var title: String
     
     /// Whether or not this moment may be interrupted to dynamically insert 
-    /// an interaction from the OpportunityManager. Always defaults to false.
+    /// an MomentBlock_Simple from the OpportunityManager. Always defaults to false.
     var isInterruptable: Bool
+    
+    var canEvaluateOpportunity: Bool
     
     var duration: Float = 0
     var momentStarted = false
@@ -32,15 +34,16 @@ class Moment: NSObject {
         return self.title
     }
     
-    init(title: String, isInterruptable:Bool=false){
+    init(title: String, isInterruptable:Bool=false, canEvaluateOpportunity:Bool=false){
         // WARNING: DO NOT INIT A Moment(), USE ONLY SUBCLASSES - need to find solution
         // check the caller
         self.title = title
         self.isInterruptable = isInterruptable
+        self.canEvaluateOpportunity = canEvaluateOpportunity
     }
     
     func start(){
-        print("  Starting moment: \(self.title)")
+        print("  \n(Moment::start)    Starting moment: \(self.title)")
         momentStarted = true
         // passed as string so it will conform to AnyObject
         eventManager.trigger("startingMoment", information: ["duration": "\(duration)"])
@@ -56,7 +59,7 @@ class Moment: NSObject {
     }
     
     func finished(){
-        print("  Finished moment: \(self.title)")
+        print("  (Moment::finished) Finished moment: \(self.title)")
         
         self.eventManager.trigger("nextMoment")
     }

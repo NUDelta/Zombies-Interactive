@@ -21,12 +21,14 @@ class Interim: Moment{
     var timeRemaining: NSTimeInterval
     var player:AVAudioPlayer?
     
-    init(title:String?=nil, isInterruptable:Bool=false, lengthInSeconds:Float){
+    init(title:String?=nil, isInterruptable:Bool=false, lengthInSeconds:Float, canEvaluateOpportunity:Bool=false){
         self.lengthInSeconds = lengthInSeconds
         self.timeRemaining = NSTimeInterval(lengthInSeconds)
-        super.init(title: title ?? "Interim (\(lengthInSeconds) seconds)", isInterruptable: isInterruptable)
+        super.init(title: title ?? "Interim (\(lengthInSeconds) seconds)", isInterruptable: isInterruptable, canEvaluateOpportunity: canEvaluateOpportunity)
         self.duration = self.lengthInSeconds
         
+        //note: silence is just a 15 minute file with no noise
+        //(15 minutes is assumed to be a long enough period)
         let pathToAudio = NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource("silence", ofType: "mp3")!)
         
         do {
@@ -43,6 +45,7 @@ class Interim: Moment{
     override func start() {
         self.startTime = NSDate()
         super.start()
+        print("(Interim::start) triggering startingInterim")
         self.eventManager.trigger("startingInterim", information: ["duration": "\(duration)"])
     }
     
@@ -51,7 +54,7 @@ class Interim: Moment{
         
         if timer.valid == false {
             print("  \(round(timeRemaining)) seconds remaining in interim")
-            timer = NSTimer.scheduledTimerWithTimeInterval(timeRemaining, target: self, selector: Selector("finished"), userInfo: nil, repeats: false)
+            timer = NSTimer.scheduledTimerWithTimeInterval(timeRemaining, target: self, selector: #selector(Moment.finished), userInfo: nil, repeats: false)
             self.startTime = NSDate()
         }
         
