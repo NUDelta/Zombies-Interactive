@@ -10,32 +10,38 @@ import Foundation
 
 //conditional branching of moments based upon a true/false function
 class ConditionalMoment: Moment{
-    var moment_true: Moment
-    var moment_false: Moment
+    var momentBlock_true: MomentBlockSimple
+    var momentBlock_false: MomentBlockSimple
     var moment_result: Moment?
     var conditionFunc: ()->Bool
     
-    init(title:String?=nil, moment_true:Moment, moment_false:Moment, conditionFunc:()->Bool){
-        self.moment_true = moment_true
-        self.moment_false = moment_false
+    static var experienceManager: ExperienceManager?
+    
+    init(title:String?=nil, momentBlock_true:MomentBlockSimple, momentBlock_false:MomentBlockSimple,
+         conditionFunc:()->Bool){
+        self.momentBlock_true = momentBlock_true
+        self.momentBlock_false = momentBlock_false
         self.conditionFunc = conditionFunc
         
-        super.init(title: title ?? "condition-true:\(moment_true.title)-false:\(moment_false.title)")
+        super.init(title: title ?? "condition-true:\(momentBlock_true.title)-false:\(momentBlock_false.title)")
     }
     
     override func play(){
         if conditionFunc() {
-            moment_result = moment_true
+            //moment_result = moment_true
             print("..conditialMoment result:true")
+            ConditionalMoment.experienceManager?.insertMomentBlockSimple(momentBlock_true)
         }
         else {
-            moment_result = moment_false
+            //moment_result = moment_false
             print("..conditialMoment result:false")
+            ConditionalMoment.experienceManager?.insertMomentBlockSimple(momentBlock_false)
         }
         //when the moment triggers the "nextMoment" message,
-        moment_result!.eventManager.listenTo("nextMoment", action: finished)
-        moment_result!.play()
-        super.play()
+        //moment_result!.eventManager.listenTo("nextMoment", action: finished)
+        //moment_result!.play()
+        //super.play()
+        finished()
     }
     
     override func pause(){

@@ -12,6 +12,7 @@ import CoreLocation
 import Parse
 import CoreMotion
 import MediaPlayer
+import MapKit
 
 /// Protocol for suscribing to ExperienceManager events
 @objc protocol ExperienceManagerDelegate {
@@ -67,6 +68,14 @@ class ExperienceManager: NSObject, OpportunityManagerDelegate {
     }
     func saveCurrentContext() {
         tempSavedContext = currentContext
+    }
+    func distanceBetweenSavedAndCurrentContext() -> Double {
+        let loc_cur = MKMapPointForCoordinate(self.getCurrentSavedContext()!.location!)
+        let dis = MKMetersBetweenMapPoints(
+            loc_cur,
+            MKMapPointForCoordinate(self.currentContext.location!)
+        )
+        return dis
     }
     
     init(title: String, momentBlocks: [MomentBlock], MomentBlockSimplePool: [MomentBlockSimple]?=nil) {
