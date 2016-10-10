@@ -24,12 +24,6 @@ class HomeViewController: UIViewController {
         super.didReceiveMemoryWarning()
     }
 
-    @IBOutlet weak var musicNotice: UITextView!
-    @IBOutlet weak var musicSwitch: UISwitch!
-    
-    @IBAction func musicSwitched(sender: UISwitch) {
-        musicNotice.hidden = !musicSwitch.on
-    }
 
     @IBAction func missionsButton(sender: AnyObject) {
         let vc:UIViewController = storyboard!.instantiateViewControllerWithIdentifier("MissionVC")
@@ -37,7 +31,6 @@ class HomeViewController: UIViewController {
         btn = sender as? UIButton,
         missionTitle = btn.titleLabel?.text {
             missionController.missionTitle = missionTitle
-            missionController.musicOn = musicSwitch.on
             self.navigationController!.pushViewController(missionController, animated: true)
         }
         

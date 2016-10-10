@@ -32,7 +32,7 @@ class OpportunityPoller: SilentMoment {
     
     func checkOpportuntiy() {
         print("...checking opportunity")
-        var insertableMomentBlock = _scaffoldingManager.getPossibleInsertion(objectFilters)
+        let insertableMomentBlock = _scaffoldingManager.getPossibleInsertion(objectFilters)
         if insertableMomentBlock != nil {
             _scaffoldingManager._experienceManager.insertMomentBlockSimple(insertableMomentBlock!)
             print("--inserting opportuntistic MomentBlockSimple. ending current moment--")

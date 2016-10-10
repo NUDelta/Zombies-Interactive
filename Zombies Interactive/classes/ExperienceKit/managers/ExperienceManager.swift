@@ -234,7 +234,7 @@ class ExperienceManager: NSObject, OpportunityManagerDelegate {
     func insertMomentBlockSimple( momentBlockSimple: MomentBlockSimple )
     {
         if let  curMomentBlock = currentMomentBlock,
-            curMoment = curMomentBlock.currentMoment {
+            _ = curMomentBlock.currentMoment {
             curMomentBlock.insertMomentsAtIndex(momentBlockSimple.moments,
                                                 idx: curMomentBlock.currentMomentIdx + 1)
         }

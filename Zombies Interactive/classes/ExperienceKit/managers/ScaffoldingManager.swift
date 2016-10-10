@@ -29,7 +29,7 @@ class ScaffoldingManager: NSObject {
             label = infoDict["label"]
         }
         //query possible scaffolding opportunities within x meters
-        var curGeoPoint = PFGeoPoint(location: _experienceManager.dataManager!.currentLocation!)
+        let curGeoPoint = PFGeoPoint(location: _experienceManager.dataManager!.currentLocation!)
         var query = PFQuery(className: "WorldObject")
         query = query.whereKey("location", nearGeoPoint: curGeoPoint, withinKilometers: 0.01)
         

@@ -67,7 +67,7 @@ class MissionViewController: UIViewController, MKMapViewDelegate, ExperienceMana
             nextMomentButton.hidden = false
             #endif
             startDate = NSDate()
-            let _ = NSTimer.scheduledTimerWithTimeInterval(1.0, target: self, selector: Selector("updateTimeElapsed"), userInfo: nil, repeats: true)
+            let _ = NSTimer.scheduledTimerWithTimeInterval(1.0, target: self, selector: #selector(MissionViewController.updateTimeElapsed), userInfo: nil, repeats: true)
             
             if(CMPedometer.isStepCountingAvailable()){
                 pedometer.startPedometerUpdatesFromDate(startDate) {
@@ -139,7 +139,7 @@ class MissionViewController: UIViewController, MKMapViewDelegate, ExperienceMana
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationItem.hidesBackButton = true
-        let newBackButton = UIBarButtonItem(title: "Back", style: UIBarButtonItemStyle.Plain, target: self, action: "back:")
+        let newBackButton = UIBarButtonItem(title: "Back", style: UIBarButtonItemStyle.Plain, target: self, action: #selector(MissionViewController.back(_:)))
         self.navigationItem.leftBarButtonItem = newBackButton
         view.backgroundColor = UIColor(red:0.24, green:0.24, blue:0.25, alpha:1)
         
@@ -155,257 +155,43 @@ class MissionViewController: UIViewController, MKMapViewDelegate, ExperienceMana
         */
         print("[MissionViewController] init experiences")
         
-        let findHydrantInstruct = Sound(fileNames: ["radio_static", "our_monitors_show", "radio_static"])
-        let findHydrantCollector = SensorCollector(lengthInSeconds: 30, dataLabel: "fire_hydrant", sensors: [.Location, .Speed])
-        let findFireHydrant = MomentBlockSimple(moments: [findHydrantInstruct, findHydrantCollector, Sound(fileNames: ["radio_static", "you've_thrown_off","radio_static"])], title: "Sprint to hydrant")
+        
+        let intelIntro = SynthVoiceMoment(content: "Runner 5, this is the advanced intel team at Abel Township. Our job is to learn as much as possible about what’s out there beyond the colony. You’re the only runner whose device is still fully functioning, so we’re going to have to ask you to do some reconnaissance work. Good luck.")
+        
+        let findHydrantInstruct = SynthVoiceMoment(content: "Runner 5, our monitors show your pace has slowed and zombies in the area are gaining ground. You need to increase speed to reach a safe distance. You should pass a fire hydrant after a few seconds, at which point you should return to regular pace. Begin sprinting now.")
+        
+        let findHydrantComplete = SynthVoiceMoment(content: "You’ve bought yourself some time, and thrown off the scent. Good work.")
+        
+        
+//        let findHydrantInstruct = Sound(fileNames: ["radio_static", "our_monitors_show", "radio_static"])
+        let findHydrantCollector = SensorCollector(lengthInSeconds: 10, dataLabel: "fire_hydrant", sensors: [.Location, .Speed])
+        let findFireHydrant = MomentBlockSimple(moments: [findHydrantInstruct, findHydrantCollector, findHydrantComplete], title: "Sprint to hydrant")
         
 
-        let passTenTreesInstruct = Sound(fileNames: ["radio_static", "weve_noticed_increased", "radio_static"])
-        let passTenTreesCollector = SensorCollector(lengthInSeconds: 25, dataLabel: "tree", sensors: [.Location, .Speed])
-        let passTenTrees = MomentBlockSimple(moments: [passTenTreesInstruct, passTenTreesCollector, Sound(fileNames: ["radio_static","you_should_be","radio_static"])], title: "Sprint past ten trees")
-        
-        let sprintToBuildingInstruct = Sound(fileNames: ["radio_static", "the_radars_on", "radio_static"])
-        let sprintToBuildingCollector = SensorCollector(lengthInSeconds: 20, dataLabel: "tall_building", sensors: [.Location, .Speed])
-        let sprintToBuilding = MomentBlockSimple(moments: [sprintToBuildingInstruct, sprintToBuildingCollector, Sound(fileNames: ["radio_static","building_confirmed","radio_static"])], title: "Sprint to tall building")
-        
-        let sprintingInteractions = [findFireHydrant, sprintToBuilding, passTenTrees]
-        
+//        let passTenTreesInstruct = Sound(fileNames: ["radio_static", "weve_noticed_increased", "radio_static"])
+//        let passTenTreesCollector = SensorCollector(lengthInSeconds: 25, dataLabel: "tree", sensors: [.Location, .Speed])
+//        let passTenTrees = MomentBlockSimple(moments: [passTenTreesInstruct, passTenTreesCollector, Sound(fileNames: ["radio_static","you_should_be","radio_static"])], title: "Sprint past ten trees")
+//        
+//        let sprintToBuildingInstruct = Sound(fileNames: ["radio_static", "the_radars_on", "radio_static"])
+//        let sprintToBuildingCollector = SensorCollector(lengthInSeconds: 20, dataLabel: "tall_building", sensors: [.Location, .Speed])
+//        let sprintToBuilding = MomentBlockSimple(moments: [sprintToBuildingInstruct, sprintToBuildingCollector, Sound(fileNames: ["radio_static","building_confirmed","radio_static"])], title: "Sprint to tall building")
+//        
+//        _ = [findFireHydrant, sprintToBuilding, passTenTrees]
+//        
         
         
         
         // Construct the experience based on selected mission
         var stages: [MomentBlock] = []
-        if missionTitle == "Intel Mission" {
-
-            let stage1 = MomentBlock(moments: [Sound(fileNames: ["radio_static", "intel_team_intro", "radio_static", "vignette_transition"]), Interim(lengthInSeconds: 90), Sound(fileNames: ["vignette_transition"])],
+        if missionTitle == "UIST Intel Mission" {
+            let stage1 = MomentBlock(moments: [intelIntro, Sound(fileNames: ["vignette_transition"]), Interim(lengthInSeconds: 5)],
                 title: "Stage1")
-            let stage2 = MomentBlock(moments: [Interim(lengthInSeconds: 90), Sound(fileNames: ["vignette_transition"])],
-                title: "Stage2")
-            let stage3 = MomentBlock(moments: [Interim(lengthInSeconds: 90), Sound(fileNames: ["vignette_transition","mission_completed"])],
-                title: "Stage3")
+            let stage2 = MomentBlock(moments: findFireHydrant.moments, title: "Stage2")
             
-            stages = [stage1, stage2, stage3]
+            stages = [stage1, stage2]
         }
         
         experienceManager = ExperienceManager(title: missionTitle, momentBlocks: stages)
-
-        ////////////////////////////////////////////////////////
-        //[ SCAFFOLDING MANAGER ]
-        ////////////////////////////////////////////////////////
-        var scaffoldingManager = ScaffoldingManager(
-            experienceManager: experienceManager)
-        
-        //[scaffolding: validation]
-        let momentblock_lamp_validation = MomentBlockSimple(moments: [
-            //instruction
-            SynthVoiceMoment(content: "runer 5, our sensors signal a lamp post ahead within 10m, alluding to the existence of a live source of power. if you see it, approach it and remain there until we've recorded your position. if you see none, continue"),
-            //moment that saves current context
-            FunctionMoment(execFunc: {()->Void in
-                self.experienceManager.saveCurrentContext()
-            }),
-            //wait for person to make decisive action
-            Interim(lengthInSeconds: 10),
-            //branch: stationary, then push location, if not
-            ConditionalMoment(
-                momentBlock_true: MomentBlockSimple(
-                    moments: [
-                        SynthVoiceMoment(content: "detected position - lamp validated"),
-                        SynthVoiceMoment(content: "this is a great find")
-                    ],
-                    title: "detected:true"
-                ),
-                momentBlock_false: MomentBlockSimple(
-                    moments: [
-                        SynthVoiceMoment(content: "you're moving - no lamp I see"),
-                        SynthVoiceMoment(content: "we have noted the absence")
-                    ],
-                    title: "detected:false"
-                ),
-                conditionFunc: {() -> Bool in
-                    if let speed = self.experienceManager.dataManager?.currentLocation?.speed
-                        //true condition: user is stationary
-                        where speed <= 1.2 {
-                        
-                        //a. distance from polled position <= 10: validation
-                        if self.experienceManager.distanceBetweenSavedAndCurrentContext() <= 10 {
-                            let curEvaluatingObject = scaffoldingManager.curPulledObject!
-                            self.experienceManager.dataManager?.updateWorldObject(curEvaluatingObject, information: [], validated: true)
-                        }
-                        //b. distance from polled position > 10: new
-                        else {
-                            self.experienceManager.dataManager?.pushWorldObject(["label": "lamp", "interaction" : "find_lamp", "variation" : "0"])
-                        }
-                        return true
-                    }
-                    //false condition: user keeps moving
-                    //a. distance from polled position <= 10: validation
-                    if self.experienceManager.distanceBetweenSavedAndCurrentContext() <= 10 {
-                        let curEvaluatingObject = scaffoldingManager.curPulledObject!
-                        self.experienceManager.dataManager?.updateWorldObject(curEvaluatingObject, information: [], validated: false)
-                    }
-                    //b. distance from polled position > 10: new
-                    else {
-                        self.experienceManager.dataManager?.pushWorldObject(["label": "lamp(false)", "interaction" : "find_lamp", "variation" : "0"])
-                    }
-                    return false
-            }),
-            SynthVoiceMoment(content: "good job - now move on"),
-            ], title: "scaffold_lamp(validate)",
-               requirement: Requirement(conditions:[Condition.InRegion, Condition.ExistsObject],
-                objectLabel: "lamp"))
-        
-        
-        //[scaffolding: variation]
-        let momentblock_lamp_variation = MomentBlockSimple(moments: [
-            //instruction
-            SynthVoiceMoment(content: "runner 5, there should be a lamp post ahead within 20m, where our scout team state they've left an encrypted message. if you see the lamp post and it has something posted, approach it and remain there until we've recorded your position. if you see none, continue"),
-            //wait for person to make decisive action
-            Interim(lengthInSeconds: 10),
-            //branch: stationary, then push location, if not
-            ConditionalMoment(
-                momentBlock_true: MomentBlockSimple(
-                    moments: [
-                        SynthVoiceMoment(content: "detected stop - message location recorded."),
-                        SynthVoiceMoment(content: "we'll send another team to decode the message")
-                    ],
-                    title: "detected:true"
-                ),
-                momentBlock_false: MomentBlockSimple(
-                    moments: [
-                        SynthVoiceMoment(content: "you're moving - no message I see"),
-                        SynthVoiceMoment(content: "we have noted the absence")
-                    ],
-                    title: "detected:false"
-                ),
-                conditionFunc: {() -> Bool in
-                    if let speed = self.experienceManager.dataManager?.currentLocation?.speed
-                        //true condition: user is stationary
-                        where speed <= 1.2 {
-                        self.experienceManager.dataManager?.pushWorldObject(["label": "lamp_poster", "interaction" : "scaffold_lamp_posters", "variation" : "1"])
-                        return true
-                    }
-                    //false condition: user keeps moving
-                    self.experienceManager.dataManager?.pushWorldObject(["label": "lamp_poster(false)", "interaction" : "scaffold_lamp_posters", "variation" : "1"])
-                    return false
-            }),
-            SynthVoiceMoment(content: "good job - now move on"),
-            ], title: "scaffold_lamp(variation)",
-               requirement: Requirement(conditions:[Condition.InRegion, Condition.ExistsObject],
-                objectLabel: "lamp", variationNumber: 0))
-        
-        scaffoldingManager.insertableMomentBlocks =
-            [momentblock_lamp_validation, momentblock_lamp_variation]
-        
-        ////////////////////////////////////////////////////////
-        //[ EXPERIENCE MANAGER ]
-        ////////////////////////////////////////////////////////
-        let block_intro = MomentBlock(moments: [Sound(fileNames: ["radio_static", "intel_team_intro", "radio_static", "vignette_transition"]), Interim(lengthInSeconds: 1), Sound(fileNames: ["vignette_transition"])],
-                                 title: "block:intro")
-        let block_transition = MomentBlock(moments: [Interim(lengthInSeconds: 90), Sound(fileNames: ["vignette_transition"])],
-                                 title: "block:transition")
-        let block_end = MomentBlock(moments: [Interim(lengthInSeconds: 90), Sound(fileNames: ["vignette_transition","mission_completed"])],
-                                 title: "block:end")
-        
-        let block_poll = MomentBlock(moments: [
-            //instruction
-            Sound(fileNames: ["radio_static"]),
-            SynthVoiceMoment(content: "runner 5, our sensors are going to conduct an initial scan of your current area to look for Zombies in the vicinity. Continue at regular pace."),
-            Sound(fileNames: ["radio_static", "vignette_transition"]),
-            //keep pulling opportunities
-            OpportunityPoller(objectFilters:["label": "lamp"], lengthInSeconds: 10.0, pollEveryXSeconds: 2.0, scaffoldingManager: scaffoldingManager),
-            ],title: "block:poll")
-        
-        let block_lamp_find = MomentBlock(moments: [
-            //instruction
-            Sound(fileNames: ["radio_static"]),
-            SynthVoiceMoment(content: "runner 5, our sensors show signs of a lamp post ahead within 10 meters, alluding to the existence of a functioning power source. run up to it and remain if true, retain current pace if false"),
-            //wait for person to make decisive action
-            Interim(lengthInSeconds: 10),
-            //branch: stationary, then push location, if not
-            ConditionalMoment(
-                momentBlock_true: MomentBlockSimple(
-                    moments: [
-                        SynthVoiceMoment(content: "you're stationary - lamp recorded"),
-                        SynthVoiceMoment(content: "")
-                    ],
-                    title: "detected:true"
-                ),
-                momentBlock_false: MomentBlockSimple(
-                    moments: [
-                        SynthVoiceMoment(content: "you're moving - no lamp I see"),
-                        SynthVoiceMoment(content: "absence has been recorded")],
-                    title: "detected:false"
-                ),
-                conditionFunc: {() -> Bool in
-                    if let speed = self.experienceManager.dataManager?.currentLocation?.speed
-                        //true condition: user is stationary
-                        where speed <= 1.2 {
-                        self.experienceManager.dataManager?.pushWorldObject(["label": "lamp", "interaction" : "find_lamp", "variation" : "0"])
-                        return true
-                    }
-                    //false condition: user keeps running
-                    self.experienceManager.dataManager?.pushWorldObject(["label": "lamp(false)", "interaction" : "find_lamp", "variation" : "0"])
-                    return false
-            }),
-            SynthVoiceMoment(content: "good job - now move on"),
-            Sound(fileNames: ["radio_static", "vignette_transition"]),
-            //
-            //pause before next moment
-            Interim(lengthInSeconds: 10)
-            ],title: "block:lamp(find)")
-        
-        let block_lamp_false = MomentBlock(moments: [
-            //instruction
-            Sound(fileNames: ["radio_static"]),
-            SynthVoiceMoment(content: "runner 5, our sensors detect Zombies in the area. If there exists an area without a lamp ahead within 10m, run into it and remain there in position in the shadows. If not, start sprinting. we'll let you known when you're clear"),
-            Sound(fileNames: ["radio_static", "vignette_transition"]),
-            //wait for person to make decisive action
-            Interim(lengthInSeconds: 10),
-            //branch: stationary, then push location, if not
-            Sound(fileNames: ["radio_static"]),
-            ConditionalMoment(
-                momentBlock_true: MomentBlockSimple(
-                    moments: [
-                        SynthVoiceMoment(content: "you're stationary - remain in the shadows. Zombies have not detected your presence"),
-                        SynthVoiceMoment(content: "")
-                    ],
-                    title: "detected:true"
-                ),
-                momentBlock_false: MomentBlockSimple(
-                    moments: [
-                        SynthVoiceMoment(content: "you're moving - maintain pace")
-                    ],
-                    title: "detected:false"
-                ),
-                conditionFunc: {() -> Bool in
-                    if let speed = self.experienceManager.dataManager?.currentLocation?.speed
-                        //true condition: user is stationary
-                        where speed <= 1.2 {
-                        self.experienceManager.dataManager?.pushWorldObject(["label": "lamp(false)", "interaction" : "find_lamp", "variation" : "0"])
-                        return true
-                    }
-                    //false condition: user keeps running
-                    self.experienceManager.dataManager?.pushWorldObject(["label": "lamp", "interaction" : "find_lamp", "variation" : "0"])
-                    return false
-            }),
-            SynthVoiceMoment(content: "runner 5, great job - you're clear. feel free to move on"),
-            //Sound(fileNames: ["radio_static", "vignette_transition"]),
-            //
-            //pause before next moment
-            Interim(lengthInSeconds: 10)
-            ],title: "block:lamp(false)")
-        
-        var momentBlocks: [MomentBlock] = [
-            block_intro, block_poll,
-            block_lamp_find,
-            block_lamp_false,
-            block_end ]
-        experienceManager = ExperienceManager(title: missionTitle, momentBlocks: momentBlocks)
-        
-        //UPDATE EXPERIENCEMANAGER REFERENCES
-        scaffoldingManager._experienceManager = experienceManager
-        ConditionalMoment.experienceManager = experienceManager
-        
         //SET DELEGATES
         experienceManager.delegate = self
 

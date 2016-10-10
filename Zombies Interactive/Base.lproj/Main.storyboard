@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="oGi-ej-0wd">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15G1004" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="oGi-ej-0wd">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -438,32 +438,6 @@ Good luck.</string>
                                     <constraint firstAttribute="width" secondItem="hZL-90-NIV" secondAttribute="height" multiplier="2:1" id="urQ-QH-2qC"/>
                                 </constraints>
                             </imageView>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dhK-9y-E3l">
-                                <rect key="frame" x="12" y="355" width="296" height="205"/>
-                                <string key="text">Note about music: While the app is not playing audio related to the mission, you will hear music from your own library. For this reason we suggest selecting a running playlist from your Music app before you start the mission. This will not work with Spotify (yet), sorry!</string>
-                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                            </textView>
-                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="4DT-pU-5EW">
-                                <rect key="frame" x="255" y="307" width="51" height="31"/>
-                                <connections>
-                                    <action selector="musicSwitched:" destination="B83-kc-EzL" eventType="valueChanged" id="y6r-jc-Cwl"/>
-                                </connections>
-                            </switch>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Play my Music during the run" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FgD-6J-jyX">
-                                <rect key="frame" x="16" y="313" width="222" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RdV-sb-aBZ">
-                                <rect key="frame" x="16" y="346" width="288" height="1"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="1" id="0ah-Tg-vEI"/>
-                                </constraints>
-                            </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1EZ-tM-fTU">
                                 <rect key="frame" x="0.0" y="224" width="320" height="75"/>
                                 <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
@@ -474,7 +448,7 @@ Good luck.</string>
                                     <constraint firstAttribute="height" constant="50" id="lfp-87-9kX"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                <state key="normal" title="Intel Mission">
+                                <state key="normal" title="UIST Intel Mission">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -499,37 +473,19 @@ Good luck.</string>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="5X0-dE-NAC" firstAttribute="bottom" secondItem="1EZ-tM-fTU" secondAttribute="bottom" constant="-4" id="3Yt-F7-uDb"/>
-                            <constraint firstItem="dhK-9y-E3l" firstAttribute="leading" secondItem="3XY-Bi-L1F" secondAttribute="leadingMargin" constant="-4" id="44s-cm-vzg"/>
-                            <constraint firstItem="4DT-pU-5EW" firstAttribute="top" secondItem="dhK-9y-E3l" secondAttribute="bottom" constant="8" symbolic="YES" id="5eS-EI-c7I"/>
-                            <constraint firstItem="4DT-pU-5EW" firstAttribute="top" secondItem="1EZ-tM-fTU" secondAttribute="bottom" constant="8" id="6Fo-ov-ZbH"/>
-                            <constraint firstItem="dhK-9y-E3l" firstAttribute="top" secondItem="RdV-sb-aBZ" secondAttribute="bottom" constant="8" symbolic="YES" id="7X6-jL-YO2"/>
                             <constraint firstAttribute="centerX" secondItem="1EZ-tM-fTU" secondAttribute="centerX" id="7nM-Ro-xMi"/>
-                            <constraint firstItem="A2q-G4-38J" firstAttribute="top" secondItem="FgD-6J-jyX" secondAttribute="bottom" constant="8" symbolic="YES" id="9tD-6T-HGw"/>
-                            <constraint firstItem="dhK-9y-E3l" firstAttribute="top" secondItem="4DT-pU-5EW" secondAttribute="bottom" constant="8" symbolic="YES" id="Ad2-eV-k0w"/>
-                            <constraint firstItem="FgD-6J-jyX" firstAttribute="centerY" secondItem="4DT-pU-5EW" secondAttribute="centerY" id="Duw-x7-7uw"/>
                             <constraint firstAttribute="leadingMargin" secondItem="1EZ-tM-fTU" secondAttribute="leading" constant="16" id="Fat-dL-Oat"/>
-                            <constraint firstItem="RdV-sb-aBZ" firstAttribute="leading" secondItem="FgD-6J-jyX" secondAttribute="leading" id="KiX-Zi-aNy"/>
                             <constraint firstItem="1EZ-tM-fTU" firstAttribute="top" secondItem="hZL-90-NIV" secondAttribute="bottom" id="M0s-Eg-HDt"/>
-                            <constraint firstItem="FgD-6J-jyX" firstAttribute="leading" secondItem="3XY-Bi-L1F" secondAttribute="leadingMargin" id="PTg-0G-8XY"/>
-                            <constraint firstItem="RdV-sb-aBZ" firstAttribute="top" secondItem="4DT-pU-5EW" secondAttribute="bottom" constant="8" symbolic="YES" id="V8j-7y-AZE"/>
                             <constraint firstAttribute="trailingMargin" secondItem="1EZ-tM-fTU" secondAttribute="trailing" constant="-16" id="VjS-JK-wOs"/>
-                            <constraint firstItem="A2q-G4-38J" firstAttribute="top" secondItem="dhK-9y-E3l" secondAttribute="bottom" constant="8" symbolic="YES" id="WAR-g3-mjy"/>
                             <constraint firstItem="A2q-G4-38J" firstAttribute="top" secondItem="1EZ-tM-fTU" secondAttribute="bottom" constant="162" id="XER-e6-wma"/>
-                            <constraint firstItem="A2q-G4-38J" firstAttribute="top" secondItem="dhK-9y-E3l" secondAttribute="bottom" constant="8" symbolic="YES" id="b4q-Gu-zBD"/>
                             <constraint firstAttribute="leadingMargin" secondItem="1EZ-tM-fTU" secondAttribute="leading" constant="-20" id="cSo-xY-Vxz"/>
                             <constraint firstItem="5X0-dE-NAC" firstAttribute="centerX" secondItem="1EZ-tM-fTU" secondAttribute="centerX" id="cWu-O0-gxV"/>
                             <constraint firstAttribute="trailingMargin" secondItem="hZL-90-NIV" secondAttribute="trailing" constant="-16" id="fYv-nQ-vBh"/>
-                            <constraint firstItem="A2q-G4-38J" firstAttribute="top" secondItem="4DT-pU-5EW" secondAttribute="bottom" constant="8" symbolic="YES" id="gOv-fb-zid"/>
                             <constraint firstItem="1EZ-tM-fTU" firstAttribute="top" secondItem="VXi-vT-o9f" secondAttribute="bottom" constant="8" symbolic="YES" id="gU2-vm-Ubc"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="4DT-pU-5EW" secondAttribute="trailing" id="hN3-YL-oAE"/>
                             <constraint firstAttribute="centerX" secondItem="1EZ-tM-fTU" secondAttribute="centerX" id="i85-MM-we6"/>
-                            <constraint firstItem="dhK-9y-E3l" firstAttribute="top" secondItem="1EZ-tM-fTU" secondAttribute="bottom" constant="8" symbolic="YES" id="mjX-PM-NWX"/>
                             <constraint firstItem="hZL-90-NIV" firstAttribute="top" secondItem="VXi-vT-o9f" secondAttribute="bottom" id="mzk-1G-Zys"/>
                             <constraint firstItem="hZL-90-NIV" firstAttribute="leading" secondItem="3XY-Bi-L1F" secondAttribute="leadingMargin" constant="-16" id="o7B-oJ-qZt"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="dhK-9y-E3l" secondAttribute="trailing" constant="-4" id="pLc-Vn-cyo"/>
                             <constraint firstAttribute="trailingMargin" secondItem="1EZ-tM-fTU" secondAttribute="trailing" constant="-20" id="rQb-XM-1cZ"/>
-                            <constraint firstItem="FgD-6J-jyX" firstAttribute="top" secondItem="1EZ-tM-fTU" secondAttribute="bottom" constant="6.5" id="vv4-MX-FZw"/>
-                            <constraint firstItem="RdV-sb-aBZ" firstAttribute="trailing" secondItem="4DT-pU-5EW" secondAttribute="trailing" id="zBQ-De-qzR"/>
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">
@@ -538,22 +494,13 @@ Good luck.</string>
                                 <exclude reference="gU2-vm-Ubc"/>
                                 <exclude reference="i85-MM-we6"/>
                                 <exclude reference="rQb-XM-1cZ"/>
-                                <exclude reference="vv4-MX-FZw"/>
-                                <exclude reference="Ad2-eV-k0w"/>
-                                <exclude reference="mjX-PM-NWX"/>
-                                <exclude reference="5eS-EI-c7I"/>
-                                <exclude reference="9tD-6T-HGw"/>
-                                <exclude reference="WAR-g3-mjy"/>
                                 <exclude reference="XER-e6-wma"/>
-                                <exclude reference="gOv-fb-zid"/>
                             </mask>
                         </variation>
                     </view>
                     <navigationItem key="navigationItem" id="bnX-6K-b9C"/>
                     <connections>
                         <outlet property="missionLabel" destination="1EZ-tM-fTU" id="mvG-dS-Zde"/>
-                        <outlet property="musicNotice" destination="dhK-9y-E3l" id="jpz-Is-o4i"/>
-                        <outlet property="musicSwitch" destination="4DT-pU-5EW" id="OsF-iF-wMo"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="b1H-AF-17Q" userLabel="First Responder" sceneMemberID="firstResponder"/>
