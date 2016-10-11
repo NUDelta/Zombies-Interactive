@@ -16,7 +16,7 @@ import CoreLocation
 class MissionViewController: UIViewController, MKMapViewDelegate, ExperienceManagerDelegate {
 
     var missionTitle: String = ""
-    var musicOn: Bool = true
+    var musicOn: Bool = false
     var experienceManager:ExperienceManager!
     var musicPlayer:MPMusicPlayerController?
     var audioSession: AVAudioSession = AVAudioSession.sharedInstance()
@@ -64,7 +64,7 @@ class MissionViewController: UIViewController, MKMapViewDelegate, ExperienceMana
             self.experienceManager.start()
             self.controlLabel.setTitle("Pause", forState: .Normal)
             #if DEBUG
-            nextMomentButton.hidden = false
+//            nextMomentButton.hidden = false
             #endif
             startDate = NSDate()
             let _ = NSTimer.scheduledTimerWithTimeInterval(1.0, target: self, selector: #selector(MissionViewController.updateTimeElapsed), userInfo: nil, repeats: true)
@@ -156,37 +156,22 @@ class MissionViewController: UIViewController, MKMapViewDelegate, ExperienceMana
         print("[MissionViewController] init experiences")
         
         
-        let intelIntro = SynthVoiceMoment(content: "Runner 5, this is the advanced intel team at Abel Township. Our job is to learn as much as possible about what’s out there beyond the colony. You’re the only runner whose device is still fully functioning, so we’re going to have to ask you to do some reconnaissance work. Good luck.")
+        let intelIntro = MomentBlockSimple(moments: [Sound(fileNames: ["radio_static"]), SynthVoiceMoment(content: "Runner 5, this is the advanced intel team at Abel Township. Our job is to learn as much as possible about what’s out there beyond the colony. You’re the only runner whose device is still fully functioning, so we’re going to have to ask you to do some reconnaissance work. Good luck."), Sound(fileNames: ["radio_static"])], title: "Intel intro")
         
-        let findHydrantInstruct = SynthVoiceMoment(content: "Runner 5, our monitors show your pace has slowed and zombies in the area are gaining ground. You need to increase speed to reach a safe distance. You should pass a fire hydrant after a few seconds, at which point you should return to regular pace. Begin sprinting now.")
+        let findHydrantInstruct = MomentBlockSimple(moments: [Sound(fileNames: ["radio_static"]), SynthVoiceMoment(content: "Runner 5, our monitors show your pace has slowed and zombies in the area are gaining ground. You need to increase speed to reach a safe distance. You should pass a fire hydrant after a few seconds, at which point you should return to regular pace. Begin sprinting now."), Sound(fileNames: ["radio_static"])], title: "Fire hydrant instruct")
         
-        let findHydrantComplete = SynthVoiceMoment(content: "You’ve bought yourself some time, and thrown off the scent. Good work.")
+        let findHydrantComplete = MomentBlockSimple(moments: [Sound(fileNames: ["radio_static"]), SynthVoiceMoment(content: "You’ve thrown off the scent and bought yourself some time. Good work."), Sound(fileNames: ["radio_static"])], title: "Fire hydrant complete")
         
         
-//        let findHydrantInstruct = Sound(fileNames: ["radio_static", "our_monitors_show", "radio_static"])
         let findHydrantCollector = SensorCollector(lengthInSeconds: 10, dataLabel: "fire_hydrant", sensors: [.Location, .Speed])
-        let findFireHydrant = MomentBlockSimple(moments: [findHydrantInstruct, findHydrantCollector, findHydrantComplete], title: "Sprint to hydrant")
-        
-
-//        let passTenTreesInstruct = Sound(fileNames: ["radio_static", "weve_noticed_increased", "radio_static"])
-//        let passTenTreesCollector = SensorCollector(lengthInSeconds: 25, dataLabel: "tree", sensors: [.Location, .Speed])
-//        let passTenTrees = MomentBlockSimple(moments: [passTenTreesInstruct, passTenTreesCollector, Sound(fileNames: ["radio_static","you_should_be","radio_static"])], title: "Sprint past ten trees")
-//        
-//        let sprintToBuildingInstruct = Sound(fileNames: ["radio_static", "the_radars_on", "radio_static"])
-//        let sprintToBuildingCollector = SensorCollector(lengthInSeconds: 20, dataLabel: "tall_building", sensors: [.Location, .Speed])
-//        let sprintToBuilding = MomentBlockSimple(moments: [sprintToBuildingInstruct, sprintToBuildingCollector, Sound(fileNames: ["radio_static","building_confirmed","radio_static"])], title: "Sprint to tall building")
-//        
-//        _ = [findFireHydrant, sprintToBuilding, passTenTrees]
-//        
-        
         
         
         // Construct the experience based on selected mission
         var stages: [MomentBlock] = []
         if missionTitle == "UIST Intel Mission" {
-            let stage1 = MomentBlock(moments: [intelIntro, Sound(fileNames: ["vignette_transition"]), Interim(lengthInSeconds: 5)],
+            let stage1 = MomentBlock(moments: intelIntro.moments + [Sound(fileNames: ["vignette_transition"]), Interim(lengthInSeconds: 5)],
                 title: "Stage1")
-            let stage2 = MomentBlock(moments: findFireHydrant.moments, title: "Stage2")
+            let stage2 = MomentBlock(moments: findHydrantInstruct.moments + [findHydrantCollector] + findHydrantComplete.moments, title: "Stage2")
             
             stages = [stage1, stage2]
         }
@@ -265,16 +250,16 @@ class MissionViewController: UIViewController, MKMapViewDelegate, ExperienceMana
     }
     
     func didFinishExperience() {
-        do {
-            try AVAudioSession.sharedInstance().setActive(false, withOptions: .NotifyOthersOnDeactivation)
-        } catch let error as NSError {
-            print(error.localizedDescription)
-        }
-        
-        let systemPlayer = MPMusicPlayerController.systemMusicPlayer()
-        if let _ = systemPlayer.nowPlayingItem {
-            systemPlayer.play()
-        }
+//        do {
+//            try AVAudioSession.sharedInstance().setActive(false, withOptions: .NotifyOthersOnDeactivation)
+//        } catch let error as NSError {
+//            print(error.localizedDescription)
+//        }
+//
+//        let systemPlayer = MPMusicPlayerController.systemMusicPlayer()
+//        if let _ = systemPlayer.nowPlayingItem {
+//            systemPlayer.play()
+//        }
         
         controlLabel.setTitle("Mission Complete", forState: .Normal)
         missionComplete = true
@@ -286,12 +271,12 @@ class MissionViewController: UIViewController, MKMapViewDelegate, ExperienceMana
     
     func pauseMusic() {
         // TODO fade out?
-        MPMusicPlayerController.systemMusicPlayer().pause()
+//        MPMusicPlayerController.systemMusicPlayer().pause()
     }
     
     func playMusic() {
         // TODO fade in?
-        MPMusicPlayerController.systemMusicPlayer().play()
+//        MPMusicPlayerController.systemMusicPlayer().play()
     }
     
     func didAddDestination(destLocation: CLLocationCoordinate2D, destinationName: String) {
