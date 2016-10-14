@@ -163,7 +163,7 @@ class MissionViewController: UIViewController, MKMapViewDelegate, ExperienceMana
         let findHydrantComplete = MomentBlockSimple(moments: [Sound(fileNames: ["radio_static"]), SynthVoiceMoment(content: "You’ve thrown off the scent and bought yourself some time. Good work."), Sound(fileNames: ["radio_static"])], title: "Fire hydrant complete")
         
         
-        let findHydrantCollector = SensorCollector(lengthInSeconds: 10, dataLabel: "fire_hydrant", sensors: [.Location, .Speed])
+        let findHydrantCollector = Interim(lengthInSeconds: 8)
         
         
         // Construct the experience based on selected mission
