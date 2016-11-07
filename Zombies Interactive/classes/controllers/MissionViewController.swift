@@ -188,9 +188,70 @@ class MissionViewController: UIViewController, MKMapViewDelegate, ExperienceMana
         }
         
         experienceManager = ExperienceManager(title: missionTitle, momentBlocks: stages)
+        
+        ////////////////////////////////////////////////////////
+        //[ SCAFFOLDING MANAGER : TREES ]
+        ////////////////////////////////////////////////////////
+        let scaffoldingManagerTree = ScaffoldingManager(experienceManager: experienceManager)
+        
+        // validation: prove that ten trees are present
+        let momentblock_tree_validation = MomentBlockSimple(moments: [
+            SynthVoiceMoment(content: "runner 5, our sensors signal that you're passing a patch of trees, which are filled with zombie activity if the leaf color is just right. if you see multiple trees up ahead, approach them and remain there until we record your position. if you see no trees, you're safe. continue."),
+            FunctionMoment(execFunc: {()->Void in
+                self.experienceManager.saveCurrentContext()
+            }),
+            Interim(lengthInSeconds: 10),
+            ConditionalMoment(
+                momentBlock_true: MomentBlockSimple(
+                    moments: [
+                        SynthVoiceMoment(content: "detected position. trees validated"),
+                        SynthVoiceMoment(content: "this is an awesome find")
+                    ],
+                    title: "detected: true"
+                ),
+                momentBlock_false: MomentBlockSimple(
+                    moments: [
+                        SynthVoiceMoment(content: "you kept moving. no trees nearby i see."),
+                        SynthVoiceMoment(content: "we've updated our intel")
+                    ],
+                    title: "detected: false"
+                ),
+                conditionFunc: {() -> Bool in
+                    // true condition: user is stationary, so trees spotted
+                    if let speed = self.experienceManager.dataManager?.currentLocation?.speed
+                        where speed <= 1.2 {
+                        if self.experienceManager.distanceBetweenSavedAndCurrentContext() <= 10 {
+                            let currEvaluatingObject = scaffoldingManagerTree.curPulledObject!
+                            self.experienceManager.dataManager?.updateWorldObject(currEvaluatingObject, information: [], validated: true)
+                        }
+                        else {
+                            self.experienceManager.dataManager?.pushWorldObject(["label": "tree", "interaction" : "find_ten_trees", "variation" : "0"])
+                        }
+                        
+                        return true
+                    }
+                    
+                    // false condition: user moves on, no trees found
+                    if self.experienceManager.distanceBetweenSavedAndCurrentContext() <= 10 {
+                        let currEvaluatingObject = scaffoldingManagerTree.curPulledObject!
+                        self.experienceManager.dataManager?.updateWorldObject(currEvaluatingObject, information: [], validated: false)
+                    }
+                    else {
+                        self.experienceManager.dataManager?.pushWorldObject(["label": "tree(false)", "interaction" : "find_ten_trees", "variation" : "0"])
+                    }
+                    return false
+                    
+            }),
+            SynthVoiceMoment(content: "good job - now move on"),
+            ], title: "scaffold_trees(variation)",
+               requirement: Requirement(conditions:[Condition.InRegion, Condition.ExistsObject],
+                objectLabel: "tree", variationNumber: 0))
+        
+        // variation: asking additional info when ten trees are present (after validation)
+        // TODO
 
         ////////////////////////////////////////////////////////
-        //[ SCAFFOLDING MANAGER ]
+        //[ SCAFFOLDING MANAGER : LAMP ]
         ////////////////////////////////////////////////////////
         var scaffoldingManager = ScaffoldingManager(
             experienceManager: experienceManager)
