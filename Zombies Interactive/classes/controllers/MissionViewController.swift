@@ -248,7 +248,42 @@ class MissionViewController: UIViewController, MKMapViewDelegate, ExperienceMana
                 objectLabel: "tree", variationNumber: 0))
         
         // variation: asking additional info when ten trees are present (after validation)
-        // TODO
+        let momentblock_tree_variation = MomentBlockSimple(moments: [
+            SynthVoiceMoment(content: "runner 5, our sensors signal that you're passing a patch of trees, which are filled with zombie activity if the leaf color is just right. if you see a tree with red leaves up ahead, stand by it until we tell you to move on. if you see no trees with red leaves, you're safe. continue."),
+            Interim(lengthInSeconds: 10),
+            ConditionalMoment(
+                momentBlock_true: MomentBlockSimple(
+                    moments: [
+                        SynthVoiceMoment(content: "detected stop - tree location recorded."),
+                        SynthVoiceMoment(content: "we'll send another team to decode the message")
+                    ],
+                    title: "detected:true"
+                ),
+                momentBlock_false: MomentBlockSimple(
+                    moments: [
+                        SynthVoiceMoment(content: "you're moving. no message I see"),
+                        SynthVoiceMoment(content: "we have updated our intel")
+                    ],
+                    title: "detected:false"
+                ),
+                conditionFunc: {() -> Bool in
+                    if let speed = self.experienceManager.dataManager?.currentLocation?.speed
+                        //true condition: user is stationary
+                        where speed <= 1.2 {
+                        self.experienceManager.dataManager?.pushWorldObject(["label": "red_tree", "interaction" : "scaffold_red_tree", "variation" : "1"])
+                        return true
+                    }
+                    //false condition: user keeps moving
+                    self.experienceManager.dataManager?.pushWorldObject(["label": "red_tree(false)", "interaction" : "scaffold_red_tree", "variation" : "1"])
+                    return false
+            }),
+            SynthVoiceMoment(content: "good job - now move on"),
+            ], title: "scaffold_tree(variation)",
+               requirement: Requirement(conditions:[Condition.InRegion, Condition.ExistsObject],
+                objectLabel: "tree", variationNumber: 0))
+        
+        scaffoldingManagerTree.insertableMomentBlocks =
+            [momentblock_tree_validation, momentblock_tree_variation]
 
         ////////////////////////////////////////////////////////
         //[ SCAFFOLDING MANAGER : LAMP ]
