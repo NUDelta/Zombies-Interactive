@@ -196,7 +196,7 @@ class MissionViewController: UIViewController, MKMapViewDelegate, ExperienceMana
         
         // validation: prove that ten trees are present
         let momentblock_tree_validation = MomentBlockSimple(moments: [
-            SynthVoiceMoment(content: "runner 5, our sensors signal that you're passing a patch of trees, which are filled with zombie activity if the leaf color is just right. if you see multiple trees up ahead, approach them and remain there until we record your position. if you see no trees, you're safe. continue."),
+            SynthVoiceMoment(content: "Runner 5, our sensors signal that you're passing a patch of trees, which can be filled with zombie activity. If you see multiple trees up ahead, sprint until you pass approximately ten of them. If you see no trees, you're safe. Carry on."),
             FunctionMoment(execFunc: {()->Void in
                 self.experienceManager.saveCurrentContext()
             }),
@@ -204,15 +204,13 @@ class MissionViewController: UIViewController, MKMapViewDelegate, ExperienceMana
             ConditionalMoment(
                 momentBlock_true: MomentBlockSimple(
                     moments: [
-                        SynthVoiceMoment(content: "detected position. trees validated"),
-                        SynthVoiceMoment(content: "this is an awesome find")
+                        SynthVoiceMoment(content: "Detected trees. Thanks for updating our intel. We’ll look into zombies in this tree patch later, but you can carry on until your next task.")
                     ],
                     title: "detected: true"
                 ),
                 momentBlock_false: MomentBlockSimple(
                     moments: [
-                        SynthVoiceMoment(content: "you kept moving. no trees nearby i see."),
-                        SynthVoiceMoment(content: "we've updated our intel")
+                        SynthVoiceMoment(content: "Thanks for updating our intel. Keep running and be on the lookout for zombies.")
                     ],
                     title: "detected: false"
                 ),
@@ -249,20 +247,18 @@ class MissionViewController: UIViewController, MKMapViewDelegate, ExperienceMana
         
         // variation: asking additional info when ten trees are present (after validation)
         let momentblock_tree_variation = MomentBlockSimple(moments: [
-            SynthVoiceMoment(content: "runner 5, our sensors signal that you're passing a patch of trees, which are filled with zombie activity if the leaf color is just right. if you see a tree with red leaves up ahead, stand by it until we tell you to move on. if you see no trees with red leaves, you're safe. continue."),
+            SynthVoiceMoment(content: "Runner 5, our sensors signal that you're passing a patch of trees, which are filled with zombie activity if the tree type is just right. If you see any trees that are triangular and green up ahead, sprint past it and slow down to your usual speed immediately after you pass all trees that meet this description. If you see no trees that are triangular and green, you're safe. Continue."),
             Interim(lengthInSeconds: 10),
             ConditionalMoment(
                 momentBlock_true: MomentBlockSimple(
                     moments: [
-                        SynthVoiceMoment(content: "detected stop - tree location recorded."),
-                        SynthVoiceMoment(content: "we'll send another team to decode the message")
+                        SynthVoiceMoment(content: "Detected tree with high zombie activity. Tree location recorded. Slow down and run at your normal jogging pace.")
                     ],
                     title: "detected:true"
                 ),
                 momentBlock_false: MomentBlockSimple(
                     moments: [
-                        SynthVoiceMoment(content: "you're moving. no message I see"),
-                        SynthVoiceMoment(content: "we have updated our intel")
+                        SynthVoiceMoment(content: "Thanks for updating our intel. Keep running and be on the lookout for zombies.")
                     ],
                     title: "detected:false"
                 ),
@@ -270,11 +266,11 @@ class MissionViewController: UIViewController, MKMapViewDelegate, ExperienceMana
                     if let speed = self.experienceManager.dataManager?.currentLocation?.speed
                         //true condition: user is stationary
                         where speed <= 1.2 {
-                        self.experienceManager.dataManager?.pushWorldObject(["label": "red_tree", "interaction" : "scaffold_red_tree", "variation" : "1"])
+                        self.experienceManager.dataManager?.pushWorldObject(["label": "conifer_tree", "interaction" : "scaffold_conifer_tree", "variation" : "1"])
                         return true
                     }
                     //false condition: user keeps moving
-                    self.experienceManager.dataManager?.pushWorldObject(["label": "red_tree(false)", "interaction" : "scaffold_red_tree", "variation" : "1"])
+                    self.experienceManager.dataManager?.pushWorldObject(["label": "conifer_tree(false)", "interaction" : "scaffold_conifer_tree", "variation" : "1"])
                     return false
             }),
             SynthVoiceMoment(content: "good job - now move on"),
