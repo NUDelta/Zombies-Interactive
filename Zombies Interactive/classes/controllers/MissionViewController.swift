@@ -171,8 +171,6 @@ class MissionViewController: UIViewController, MKMapViewDelegate, ExperienceMana
         let sprintingInteractions = [findFireHydrant, sprintToBuilding, passTenTrees]
         
         
-        
-        
         // Construct the experience based on selected mission
         var stages: [MomentBlock] = []
         if missionTitle == "Intel Mission" {
@@ -217,7 +215,7 @@ class MissionViewController: UIViewController, MKMapViewDelegate, ExperienceMana
                 conditionFunc: {() -> Bool in
                     // true condition: user is stationary, so trees spotted
                     if let speed = self.experienceManager.dataManager?.currentLocation?.speed
-                        where speed <= 1.2 {
+                        where speed <= 1.2 { // TODO: what is sprinting speed? this is apparently stationary speed
                         if self.experienceManager.distanceBetweenSavedAndCurrentContext() <= 10 {
                             let currEvaluatingObject = scaffoldingManagerTree.curPulledObject!
                             self.experienceManager.dataManager?.updateWorldObject(currEvaluatingObject, information: [], validated: true)
@@ -264,8 +262,7 @@ class MissionViewController: UIViewController, MKMapViewDelegate, ExperienceMana
                 ),
                 conditionFunc: {() -> Bool in
                     if let speed = self.experienceManager.dataManager?.currentLocation?.speed
-                        //true condition: user is stationary
-                        where speed <= 1.2 {
+                        where speed <= 1.2 { // TODO: what is sprinting speed? this is apparently stationary speed
                         self.experienceManager.dataManager?.pushWorldObject(["label": "conifer_tree", "interaction" : "scaffold_conifer_tree", "variation" : "1"])
                         return true
                     }
@@ -280,123 +277,16 @@ class MissionViewController: UIViewController, MKMapViewDelegate, ExperienceMana
         
         scaffoldingManagerTree.insertableMomentBlocks =
             [momentblock_tree_validation, momentblock_tree_variation]
-
-        ////////////////////////////////////////////////////////
-        //[ SCAFFOLDING MANAGER : LAMP ]
-        ////////////////////////////////////////////////////////
-        var scaffoldingManager = ScaffoldingManager(
-            experienceManager: experienceManager)
-        
-        //[scaffolding: validation]
-        let momentblock_lamp_validation = MomentBlockSimple(moments: [
-            //instruction
-            SynthVoiceMoment(content: "runer 5, our sensors signal a lamp post ahead within 10m, alluding to the existence of a live source of power. if you see it, approach it and remain there until we've recorded your position. if you see none, continue"),
-            //moment that saves current context
-            FunctionMoment(execFunc: {()->Void in
-                self.experienceManager.saveCurrentContext()
-            }),
-            //wait for person to make decisive action
-            Interim(lengthInSeconds: 10),
-            //branch: stationary, then push location, if not
-            ConditionalMoment(
-                momentBlock_true: MomentBlockSimple(
-                    moments: [
-                        SynthVoiceMoment(content: "detected position - lamp validated"),
-                        SynthVoiceMoment(content: "this is a great find")
-                    ],
-                    title: "detected:true"
-                ),
-                momentBlock_false: MomentBlockSimple(
-                    moments: [
-                        SynthVoiceMoment(content: "you're moving - no lamp I see"),
-                        SynthVoiceMoment(content: "we have noted the absence")
-                    ],
-                    title: "detected:false"
-                ),
-                conditionFunc: {() -> Bool in
-                    if let speed = self.experienceManager.dataManager?.currentLocation?.speed
-                        //true condition: user is stationary
-                        where speed <= 1.2 {
-                        
-                        //a. distance from polled position <= 10: validation
-                        if self.experienceManager.distanceBetweenSavedAndCurrentContext() <= 10 {
-                            let curEvaluatingObject = scaffoldingManager.curPulledObject!
-                            self.experienceManager.dataManager?.updateWorldObject(curEvaluatingObject, information: [], validated: true)
-                        }
-                        //b. distance from polled position > 10: new
-                        else {
-                            self.experienceManager.dataManager?.pushWorldObject(["label": "lamp", "interaction" : "find_lamp", "variation" : "0"])
-                        }
-                        return true
-                    }
-                    //false condition: user keeps moving
-                    //a. distance from polled position <= 10: validation
-                    if self.experienceManager.distanceBetweenSavedAndCurrentContext() <= 10 {
-                        let curEvaluatingObject = scaffoldingManager.curPulledObject!
-                        self.experienceManager.dataManager?.updateWorldObject(curEvaluatingObject, information: [], validated: false)
-                    }
-                    //b. distance from polled position > 10: new
-                    else {
-                        self.experienceManager.dataManager?.pushWorldObject(["label": "lamp(false)", "interaction" : "find_lamp", "variation" : "0"])
-                    }
-                    return false
-            }),
-            SynthVoiceMoment(content: "good job - now move on"),
-            ], title: "scaffold_lamp(validate)",
-               requirement: Requirement(conditions:[Condition.InRegion, Condition.ExistsObject],
-                objectLabel: "lamp"))
-        
-        
-        //[scaffolding: variation]
-        let momentblock_lamp_variation = MomentBlockSimple(moments: [
-            //instruction
-            SynthVoiceMoment(content: "runner 5, there should be a lamp post ahead within 20m, where our scout team state they've left an encrypted message. if you see the lamp post and it has something posted, approach it and remain there until we've recorded your position. if you see none, continue"),
-            //wait for person to make decisive action
-            Interim(lengthInSeconds: 10),
-            //branch: stationary, then push location, if not
-            ConditionalMoment(
-                momentBlock_true: MomentBlockSimple(
-                    moments: [
-                        SynthVoiceMoment(content: "detected stop - message location recorded."),
-                        SynthVoiceMoment(content: "we'll send another team to decode the message")
-                    ],
-                    title: "detected:true"
-                ),
-                momentBlock_false: MomentBlockSimple(
-                    moments: [
-                        SynthVoiceMoment(content: "you're moving - no message I see"),
-                        SynthVoiceMoment(content: "we have noted the absence")
-                    ],
-                    title: "detected:false"
-                ),
-                conditionFunc: {() -> Bool in
-                    if let speed = self.experienceManager.dataManager?.currentLocation?.speed
-                        //true condition: user is stationary
-                        where speed <= 1.2 {
-                        self.experienceManager.dataManager?.pushWorldObject(["label": "lamp_poster", "interaction" : "scaffold_lamp_posters", "variation" : "1"])
-                        return true
-                    }
-                    //false condition: user keeps moving
-                    self.experienceManager.dataManager?.pushWorldObject(["label": "lamp_poster(false)", "interaction" : "scaffold_lamp_posters", "variation" : "1"])
-                    return false
-            }),
-            SynthVoiceMoment(content: "good job - now move on"),
-            ], title: "scaffold_lamp(variation)",
-               requirement: Requirement(conditions:[Condition.InRegion, Condition.ExistsObject],
-                objectLabel: "lamp", variationNumber: 0))
-        
-        scaffoldingManager.insertableMomentBlocks =
-            [momentblock_lamp_validation, momentblock_lamp_variation]
         
         ////////////////////////////////////////////////////////
         //[ EXPERIENCE MANAGER ]
         ////////////////////////////////////////////////////////
         let block_intro = MomentBlock(moments: [Sound(fileNames: ["radio_static", "intel_team_intro", "radio_static", "vignette_transition"]), Interim(lengthInSeconds: 1), Sound(fileNames: ["vignette_transition"])],
-                                 title: "block:intro")
+                                      title: "block:intro")
         let block_transition = MomentBlock(moments: [Interim(lengthInSeconds: 90), Sound(fileNames: ["vignette_transition"])],
-                                 title: "block:transition")
+                                           title: "block:transition")
         let block_end = MomentBlock(moments: [Interim(lengthInSeconds: 90), Sound(fileNames: ["vignette_transition","mission_completed"])],
-                                 title: "block:end")
+                                    title: "block:end")
         
         let block_poll = MomentBlock(moments: [
             //instruction
@@ -404,39 +294,37 @@ class MissionViewController: UIViewController, MKMapViewDelegate, ExperienceMana
             SynthVoiceMoment(content: "runner 5, our sensors are going to conduct an initial scan of your current area to look for Zombies in the vicinity. Continue at regular pace."),
             Sound(fileNames: ["radio_static", "vignette_transition"]),
             //keep pulling opportunities
-            OpportunityPoller(objectFilters:["label": "lamp"], lengthInSeconds: 10.0, pollEveryXSeconds: 2.0, scaffoldingManager: scaffoldingManager),
+            OpportunityPoller(objectFilters:["label": "tree"], lengthInSeconds: 10.0, pollEveryXSeconds: 2.0, scaffoldingManager: scaffoldingManagerTree), // tree scaffolding manager
             ],title: "block:poll")
         
-        let block_lamp_find = MomentBlock(moments: [
+        let block_tree_find = MomentBlock(moments: [
             //instruction
             Sound(fileNames: ["radio_static"]),
-            SynthVoiceMoment(content: "runner 5, our sensors show signs of a lamp post ahead within 10 meters, alluding to the existence of a functioning power source. run up to it and remain if true, retain current pace if false"),
+            SynthVoiceMoment(content: "Runner 5, our sensors signal that you're passing a patch of trees, which can be filled with zombie activity. If you see multiple trees up ahead, sprint until you pass approximately ten of them. If you see no trees, you're safe. Carry on."),
             //wait for person to make decisive action
             Interim(lengthInSeconds: 10),
-            //branch: stationary, then push location, if not
             ConditionalMoment(
                 momentBlock_true: MomentBlockSimple(
                     moments: [
-                        SynthVoiceMoment(content: "you're stationary - lamp recorded"),
-                        SynthVoiceMoment(content: "")
+                        SynthVoiceMoment(content: "tree"),
+                        SynthVoiceMoment(content: "words")
                     ],
                     title: "detected:true"
                 ),
                 momentBlock_false: MomentBlockSimple(
                     moments: [
-                        SynthVoiceMoment(content: "you're moving - no lamp I see"),
-                        SynthVoiceMoment(content: "absence has been recorded")],
+                        SynthVoiceMoment(content: "no tree"),
+                        SynthVoiceMoment(content: "words")],
                     title: "detected:false"
                 ),
                 conditionFunc: {() -> Bool in
                     if let speed = self.experienceManager.dataManager?.currentLocation?.speed
-                        //true condition: user is stationary
-                        where speed <= 1.2 {
-                        self.experienceManager.dataManager?.pushWorldObject(["label": "lamp", "interaction" : "find_lamp", "variation" : "0"])
+                        where speed <= 1.2 { // TODO: what is sprinting speed? this is apparently stationary speed
+                        self.experienceManager.dataManager?.pushWorldObject(["label": "tree", "interaction" : "find_ten_trees", "variation" : "0"])
                         return true
                     }
                     //false condition: user keeps running
-                    self.experienceManager.dataManager?.pushWorldObject(["label": "lamp(false)", "interaction" : "find_lamp", "variation" : "0"])
+                    self.experienceManager.dataManager?.pushWorldObject(["label": "tree(false)", "interaction" : "find_ten_trees", "variation" : "0"])
                     return false
             }),
             SynthVoiceMoment(content: "good job - now move on"),
@@ -444,58 +332,230 @@ class MissionViewController: UIViewController, MKMapViewDelegate, ExperienceMana
             //
             //pause before next moment
             Interim(lengthInSeconds: 10)
-            ],title: "block:lamp(find)")
-        
-        let block_lamp_false = MomentBlock(moments: [
-            //instruction
-            Sound(fileNames: ["radio_static"]),
-            SynthVoiceMoment(content: "runner 5, our sensors detect Zombies in the area. If there exists an area without a lamp ahead within 10m, run into it and remain there in position in the shadows. If not, start sprinting. we'll let you known when you're clear"),
-            Sound(fileNames: ["radio_static", "vignette_transition"]),
-            //wait for person to make decisive action
-            Interim(lengthInSeconds: 10),
-            //branch: stationary, then push location, if not
-            Sound(fileNames: ["radio_static"]),
-            ConditionalMoment(
-                momentBlock_true: MomentBlockSimple(
-                    moments: [
-                        SynthVoiceMoment(content: "you're stationary - remain in the shadows. Zombies have not detected your presence"),
-                        SynthVoiceMoment(content: "")
-                    ],
-                    title: "detected:true"
-                ),
-                momentBlock_false: MomentBlockSimple(
-                    moments: [
-                        SynthVoiceMoment(content: "you're moving - maintain pace")
-                    ],
-                    title: "detected:false"
-                ),
-                conditionFunc: {() -> Bool in
-                    if let speed = self.experienceManager.dataManager?.currentLocation?.speed
-                        //true condition: user is stationary
-                        where speed <= 1.2 {
-                        self.experienceManager.dataManager?.pushWorldObject(["label": "lamp(false)", "interaction" : "find_lamp", "variation" : "0"])
-                        return true
-                    }
-                    //false condition: user keeps running
-                    self.experienceManager.dataManager?.pushWorldObject(["label": "lamp", "interaction" : "find_lamp", "variation" : "0"])
-                    return false
-            }),
-            SynthVoiceMoment(content: "runner 5, great job - you're clear. feel free to move on"),
-            //Sound(fileNames: ["radio_static", "vignette_transition"]),
-            //
-            //pause before next moment
-            Interim(lengthInSeconds: 10)
-            ],title: "block:lamp(false)")
+            ],title: "block:tree(find)")
         
         var momentBlocks: [MomentBlock] = [
             block_intro, block_poll,
-            block_lamp_find,
-            block_lamp_false,
+            block_tree_find,
             block_end ]
         experienceManager = ExperienceManager(title: missionTitle, momentBlocks: momentBlocks)
+
+
+        ////////////////////////////////////////////////////////
+        //[ SCAFFOLDING MANAGER : LAMP ]
+        ////////////////////////////////////////////////////////
+//        var scaffoldingManager = ScaffoldingManager(
+//            experienceManager: experienceManager)
+//        
+//        //[scaffolding: validation]
+//        let momentblock_lamp_validation = MomentBlockSimple(moments: [
+//            //instruction
+//            SynthVoiceMoment(content: "runer 5, our sensors signal a lamp post ahead within 10m, alluding to the existence of a live source of power. if you see it, approach it and remain there until we've recorded your position. if you see none, continue"),
+//            //moment that saves current context
+//            FunctionMoment(execFunc: {()->Void in
+//                self.experienceManager.saveCurrentContext()
+//            }),
+//            //wait for person to make decisive action
+//            Interim(lengthInSeconds: 10),
+//            //branch: stationary, then push location, if not
+//            ConditionalMoment(
+//                momentBlock_true: MomentBlockSimple(
+//                    moments: [
+//                        SynthVoiceMoment(content: "detected position - lamp validated"),
+//                        SynthVoiceMoment(content: "this is a great find")
+//                    ],
+//                    title: "detected:true"
+//                ),
+//                momentBlock_false: MomentBlockSimple(
+//                    moments: [
+//                        SynthVoiceMoment(content: "you're moving - no lamp I see"),
+//                        SynthVoiceMoment(content: "we have noted the absence")
+//                    ],
+//                    title: "detected:false"
+//                ),
+//                conditionFunc: {() -> Bool in
+//                    if let speed = self.experienceManager.dataManager?.currentLocation?.speed
+//                        //true condition: user is stationary
+//                        where speed <= 1.2 {
+//                        
+//                        //a. distance from polled position <= 10: validation
+//                        if self.experienceManager.distanceBetweenSavedAndCurrentContext() <= 10 {
+//                            let curEvaluatingObject = scaffoldingManager.curPulledObject!
+//                            self.experienceManager.dataManager?.updateWorldObject(curEvaluatingObject, information: [], validated: true)
+//                        }
+//                        //b. distance from polled position > 10: new
+//                        else {
+//                            self.experienceManager.dataManager?.pushWorldObject(["label": "lamp", "interaction" : "find_lamp", "variation" : "0"])
+//                        }
+//                        return true
+//                    }
+//                    //false condition: user keeps moving
+//                    //a. distance from polled position <= 10: validation
+//                    if self.experienceManager.distanceBetweenSavedAndCurrentContext() <= 10 {
+//                        let curEvaluatingObject = scaffoldingManager.curPulledObject!
+//                        self.experienceManager.dataManager?.updateWorldObject(curEvaluatingObject, information: [], validated: false)
+//                    }
+//                    //b. distance from polled position > 10: new
+//                    else {
+//                        self.experienceManager.dataManager?.pushWorldObject(["label": "lamp(false)", "interaction" : "find_lamp", "variation" : "0"])
+//                    }
+//                    return false
+//            }),
+//            SynthVoiceMoment(content: "good job - now move on"),
+//            ], title: "scaffold_lamp(validate)",
+//               requirement: Requirement(conditions:[Condition.InRegion, Condition.ExistsObject],
+//                objectLabel: "lamp"))
+//        
+//        
+//        //[scaffolding: variation]
+//        let momentblock_lamp_variation = MomentBlockSimple(moments: [
+//            //instruction
+//            SynthVoiceMoment(content: "runner 5, there should be a lamp post ahead within 20m, where our scout team state they've left an encrypted message. if you see the lamp post and it has something posted, approach it and remain there until we've recorded your position. if you see none, continue"),
+//            //wait for person to make decisive action
+//            Interim(lengthInSeconds: 10),
+//            //branch: stationary, then push location, if not
+//            ConditionalMoment(
+//                momentBlock_true: MomentBlockSimple(
+//                    moments: [
+//                        SynthVoiceMoment(content: "detected stop - message location recorded."),
+//                        SynthVoiceMoment(content: "we'll send another team to decode the message")
+//                    ],
+//                    title: "detected:true"
+//                ),
+//                momentBlock_false: MomentBlockSimple(
+//                    moments: [
+//                        SynthVoiceMoment(content: "you're moving - no message I see"),
+//                        SynthVoiceMoment(content: "we have noted the absence")
+//                    ],
+//                    title: "detected:false"
+//                ),
+//                conditionFunc: {() -> Bool in
+//                    if let speed = self.experienceManager.dataManager?.currentLocation?.speed
+//                        //true condition: user is stationary
+//                        where speed <= 1.2 {
+//                        self.experienceManager.dataManager?.pushWorldObject(["label": "lamp_poster", "interaction" : "scaffold_lamp_posters", "variation" : "1"])
+//                        return true
+//                    }
+//                    //false condition: user keeps moving
+//                    self.experienceManager.dataManager?.pushWorldObject(["label": "lamp_poster(false)", "interaction" : "scaffold_lamp_posters", "variation" : "1"])
+//                    return false
+//            }),
+//            SynthVoiceMoment(content: "good job - now move on"),
+//            ], title: "scaffold_lamp(variation)",
+//               requirement: Requirement(conditions:[Condition.InRegion, Condition.ExistsObject],
+//                objectLabel: "lamp", variationNumber: 0))
+//        
+//        scaffoldingManager.insertableMomentBlocks =
+//            [momentblock_lamp_validation, momentblock_lamp_variation]
+        
+        ////////////////////////////////////////////////////////
+        //[ EXPERIENCE MANAGER ]
+        ////////////////////////////////////////////////////////
+//        let block_intro = MomentBlock(moments: [Sound(fileNames: ["radio_static", "intel_team_intro", "radio_static", "vignette_transition"]), Interim(lengthInSeconds: 1), Sound(fileNames: ["vignette_transition"])],
+//                                 title: "block:intro")
+//        let block_transition = MomentBlock(moments: [Interim(lengthInSeconds: 90), Sound(fileNames: ["vignette_transition"])],
+//                                 title: "block:transition")
+//        let block_end = MomentBlock(moments: [Interim(lengthInSeconds: 90), Sound(fileNames: ["vignette_transition","mission_completed"])],
+//                                 title: "block:end")
+//        
+//        let block_poll = MomentBlock(moments: [
+//            //instruction
+//            Sound(fileNames: ["radio_static"]),
+//            SynthVoiceMoment(content: "runner 5, our sensors are going to conduct an initial scan of your current area to look for Zombies in the vicinity. Continue at regular pace."),
+//            Sound(fileNames: ["radio_static", "vignette_transition"]),
+//            //keep pulling opportunities
+//            OpportunityPoller(objectFilters:["label": "lamp"], lengthInSeconds: 10.0, pollEveryXSeconds: 2.0, scaffoldingManager: scaffoldingManager),
+//            ],title: "block:poll")
+//        
+//        let block_lamp_find = MomentBlock(moments: [
+//            //instruction
+//            Sound(fileNames: ["radio_static"]),
+//            SynthVoiceMoment(content: "runner 5, our sensors show signs of a lamp post ahead within 10 meters, alluding to the existence of a functioning power source. run up to it and remain if true, retain current pace if false"),
+//            //wait for person to make decisive action
+//            Interim(lengthInSeconds: 10),
+//            //branch: stationary, then push location, if not
+//            ConditionalMoment(
+//                momentBlock_true: MomentBlockSimple(
+//                    moments: [
+//                        SynthVoiceMoment(content: "you're stationary - lamp recorded"),
+//                        SynthVoiceMoment(content: "")
+//                    ],
+//                    title: "detected:true"
+//                ),
+//                momentBlock_false: MomentBlockSimple(
+//                    moments: [
+//                        SynthVoiceMoment(content: "you're moving - no lamp I see"),
+//                        SynthVoiceMoment(content: "absence has been recorded")],
+//                    title: "detected:false"
+//                ),
+//                conditionFunc: {() -> Bool in
+//                    if let speed = self.experienceManager.dataManager?.currentLocation?.speed
+//                        //true condition: user is stationary
+//                        where speed <= 1.2 {
+//                        self.experienceManager.dataManager?.pushWorldObject(["label": "lamp", "interaction" : "find_lamp", "variation" : "0"])
+//                        return true
+//                    }
+//                    //false condition: user keeps running
+//                    self.experienceManager.dataManager?.pushWorldObject(["label": "lamp(false)", "interaction" : "find_lamp", "variation" : "0"])
+//                    return false
+//            }),
+//            SynthVoiceMoment(content: "good job - now move on"),
+//            Sound(fileNames: ["radio_static", "vignette_transition"]),
+//            //
+//            //pause before next moment
+//            Interim(lengthInSeconds: 10)
+//            ],title: "block:lamp(find)")
+//        
+//        let block_lamp_false = MomentBlock(moments: [
+//            //instruction
+//            Sound(fileNames: ["radio_static"]),
+//            SynthVoiceMoment(content: "runner 5, our sensors detect Zombies in the area. If there exists an area without a lamp ahead within 10m, run into it and remain there in position in the shadows. If not, start sprinting. we'll let you known when you're clear"),
+//            Sound(fileNames: ["radio_static", "vignette_transition"]),
+//            //wait for person to make decisive action
+//            Interim(lengthInSeconds: 10),
+//            //branch: stationary, then push location, if not
+//            Sound(fileNames: ["radio_static"]),
+//            ConditionalMoment(
+//                momentBlock_true: MomentBlockSimple(
+//                    moments: [
+//                        SynthVoiceMoment(content: "you're stationary - remain in the shadows. Zombies have not detected your presence"),
+//                        SynthVoiceMoment(content: "")
+//                    ],
+//                    title: "detected:true"
+//                ),
+//                momentBlock_false: MomentBlockSimple(
+//                    moments: [
+//                        SynthVoiceMoment(content: "you're moving - maintain pace")
+//                    ],
+//                    title: "detected:false"
+//                ),
+//                conditionFunc: {() -> Bool in
+//                    if let speed = self.experienceManager.dataManager?.currentLocation?.speed
+//                        //true condition: user is stationary
+//                        where speed <= 1.2 {
+//                        self.experienceManager.dataManager?.pushWorldObject(["label": "lamp(false)", "interaction" : "find_lamp", "variation" : "0"])
+//                        return true
+//                    }
+//                    //false condition: user keeps running
+//                    self.experienceManager.dataManager?.pushWorldObject(["label": "lamp", "interaction" : "find_lamp", "variation" : "0"])
+//                    return false
+//            }),
+//            SynthVoiceMoment(content: "runner 5, great job - you're clear. feel free to move on"),
+//            //Sound(fileNames: ["radio_static", "vignette_transition"]),
+//            //
+//            //pause before next moment
+//            Interim(lengthInSeconds: 10)
+//            ],title: "block:lamp(false)")
+//        
+//        var momentBlocks: [MomentBlock] = [
+//            block_intro, block_poll,
+//            block_lamp_find,
+//            block_lamp_false,
+//            block_end ]
+//        experienceManager = ExperienceManager(title: missionTitle, momentBlocks: momentBlocks)
         
         //UPDATE EXPERIENCEMANAGER REFERENCES
-        scaffoldingManager._experienceManager = experienceManager
+        scaffoldingManagerTree._experienceManager = experienceManager
         ConditionalMoment.experienceManager = experienceManager
         
         //SET DELEGATES
