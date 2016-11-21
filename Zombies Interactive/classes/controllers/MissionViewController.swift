@@ -170,7 +170,6 @@ class MissionViewController: UIViewController, MKMapViewDelegate, ExperienceMana
         
         let sprintingInteractions = [findFireHydrant, sprintToBuilding, passTenTrees]
         
-        
         // Construct the experience based on selected mission
         var stages: [MomentBlock] = []
         if missionTitle == "Intel Mission" {
@@ -223,7 +222,7 @@ class MissionViewController: UIViewController, MKMapViewDelegate, ExperienceMana
                         else {
                             self.experienceManager.dataManager?.pushWorldObject(["label": "tree", "interaction" : "find_ten_trees", "variation" : "0"])
                         }
-                        
+                        print("validation")
                         return true
                     }
                     
@@ -235,12 +234,13 @@ class MissionViewController: UIViewController, MKMapViewDelegate, ExperienceMana
                     else {
                         self.experienceManager.dataManager?.pushWorldObject(["label": "tree(false)", "interaction" : "find_ten_trees", "variation" : "0"])
                     }
+                    print("validation")
                     return false
                     
             }),
             SynthVoiceMoment(content: "good job - now move on"),
             ], title: "scaffold_trees(variation)",
-               requirement: Requirement(conditions:[Condition.InRegion, Condition.ExistsObject],
+               requirement: Requirement(conditions:[], //Condition.InRegion, Condition.ExistsObject
                 objectLabel: "tree", variationNumber: 0))
         
         // variation: asking additional info when ten trees are present (after validation)
@@ -264,15 +264,17 @@ class MissionViewController: UIViewController, MKMapViewDelegate, ExperienceMana
                     if let speed = self.experienceManager.dataManager?.currentLocation?.speed
                         where speed <= 1.2 { // TODO: what is sprinting speed? this is apparently stationary speed
                         self.experienceManager.dataManager?.pushWorldObject(["label": "conifer_tree", "interaction" : "scaffold_conifer_tree", "variation" : "1"])
+                        print("variation")
                         return true
                     }
                     //false condition: user keeps moving
                     self.experienceManager.dataManager?.pushWorldObject(["label": "conifer_tree(false)", "interaction" : "scaffold_conifer_tree", "variation" : "1"])
+                    print("variation")
                     return false
             }),
             SynthVoiceMoment(content: "good job - now move on"),
             ], title: "scaffold_tree(variation)",
-               requirement: Requirement(conditions:[Condition.InRegion, Condition.ExistsObject],
+               requirement: Requirement(conditions:[Condition.ExistsObject], //Condition.InRegion
                 objectLabel: "tree", variationNumber: 0))
         
         scaffoldingManagerTree.insertableMomentBlocks =
@@ -282,26 +284,22 @@ class MissionViewController: UIViewController, MKMapViewDelegate, ExperienceMana
         //[ EXPERIENCE MANAGER ]
         ////////////////////////////////////////////////////////
         let block_intro = MomentBlock(moments: [Sound(fileNames: ["radio_static", "intel_team_intro", "radio_static", "vignette_transition"]), Interim(lengthInSeconds: 1), Sound(fileNames: ["vignette_transition"])],
-                                      title: "block:intro")
+                                    title: "block:intro")
         let block_transition = MomentBlock(moments: [Interim(lengthInSeconds: 90), Sound(fileNames: ["vignette_transition"])],
-                                           title: "block:transition")
+                                    title: "block:transition")
         let block_end = MomentBlock(moments: [Interim(lengthInSeconds: 90), Sound(fileNames: ["vignette_transition","mission_completed"])],
                                     title: "block:end")
         
         let block_poll = MomentBlock(moments: [
-            //instruction
             Sound(fileNames: ["radio_static"]),
             SynthVoiceMoment(content: "runner 5, our sensors are going to conduct an initial scan of your current area to look for Zombies in the vicinity. Continue at regular pace."),
             Sound(fileNames: ["radio_static", "vignette_transition"]),
-            //keep pulling opportunities
-            OpportunityPoller(objectFilters:["label": "tree"], lengthInSeconds: 10.0, pollEveryXSeconds: 2.0, scaffoldingManager: scaffoldingManagerTree), // tree scaffolding manager
-            ],title: "block:poll")
+            OpportunityPoller(objectFilters:["label": "tree"], lengthInSeconds: 10.0, pollEveryXSeconds: 2.0, scaffoldingManager: scaffoldingManagerTree),
+            ], title: "block:poll")
         
         let block_tree_find = MomentBlock(moments: [
-            //instruction
             Sound(fileNames: ["radio_static"]),
             SynthVoiceMoment(content: "Runner 5, our sensors signal that you're passing a patch of trees, which can be filled with zombie activity. If you see multiple trees up ahead, sprint until you pass approximately ten of them. If you see no trees, you're safe. Carry on."),
-            //wait for person to make decisive action
             Interim(lengthInSeconds: 10),
             ConditionalMoment(
                 momentBlock_true: MomentBlockSimple(
@@ -323,20 +321,19 @@ class MissionViewController: UIViewController, MKMapViewDelegate, ExperienceMana
                         self.experienceManager.dataManager?.pushWorldObject(["label": "tree", "interaction" : "find_ten_trees", "variation" : "0"])
                         return true
                     }
-                    //false condition: user keeps running
                     self.experienceManager.dataManager?.pushWorldObject(["label": "tree(false)", "interaction" : "find_ten_trees", "variation" : "0"])
                     return false
             }),
             SynthVoiceMoment(content: "good job - now move on"),
             Sound(fileNames: ["radio_static", "vignette_transition"]),
-            //
-            //pause before next moment
-            Interim(lengthInSeconds: 10)
+            
+            Interim(lengthInSeconds: 10) //pause
             ],title: "block:tree(find)")
         
         var momentBlocks: [MomentBlock] = [
-            block_intro, block_poll,
+            block_intro,
             block_tree_find,
+            block_poll,
             block_end ]
         experienceManager = ExperienceManager(title: missionTitle, momentBlocks: momentBlocks)
 
