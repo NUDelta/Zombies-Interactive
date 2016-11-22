@@ -183,7 +183,7 @@ class MissionViewController: UIViewController, MKMapViewDelegate, ExperienceMana
             
             stages = [stage1, stage2, stage3]
         }
-        
+
         experienceManager = ExperienceManager(title: missionTitle, momentBlocks: stages)
         
         ////////////////////////////////////////////////////////
@@ -240,7 +240,7 @@ class MissionViewController: UIViewController, MKMapViewDelegate, ExperienceMana
             }),
             SynthVoiceMoment(content: "good job - now move on"),
             ], title: "scaffold_trees(variation)",
-               requirement: Requirement(conditions:[], //Condition.InRegion, Condition.ExistsObject
+               requirement: Requirement(conditions:[Condition.InRegion, Condition.ExistsObject],
                 objectLabel: "tree", variationNumber: 0))
         
         // variation: asking additional info when ten trees are present (after validation)
@@ -274,19 +274,19 @@ class MissionViewController: UIViewController, MKMapViewDelegate, ExperienceMana
             }),
             SynthVoiceMoment(content: "good job - now move on"),
             ], title: "scaffold_tree(variation)",
-               requirement: Requirement(conditions:[Condition.ExistsObject], //Condition.InRegion
-                objectLabel: "tree", variationNumber: 0))
+               requirement: Requirement(conditions:[Condition.InRegion, Condition.ExistsObject],
+                objectLabel: "tree", variationNumber: 1))
         
         scaffoldingManagerTree.insertableMomentBlocks =
-            [momentblock_tree_validation, momentblock_tree_variation]
-        
+            [momentblock_tree_variation]
+
         ////////////////////////////////////////////////////////
         //[ EXPERIENCE MANAGER ]
         ////////////////////////////////////////////////////////
         let block_intro = MomentBlock(moments: [Sound(fileNames: ["radio_static", "intel_team_intro", "radio_static", "vignette_transition"]), Interim(lengthInSeconds: 1), Sound(fileNames: ["vignette_transition"])],
-                                    title: "block:intro")
-        let block_transition = MomentBlock(moments: [Interim(lengthInSeconds: 90), Sound(fileNames: ["vignette_transition"])],
-                                    title: "block:transition")
+                                      title: "block:intro")
+        //let block_transition = MomentBlock(moments: [Interim(lengthInSeconds: 90), Sound(fileNames: ["vignette_transition"])],
+        //                            title: "block:transition")
         let block_end = MomentBlock(moments: [Interim(lengthInSeconds: 90), Sound(fileNames: ["vignette_transition","mission_completed"])],
                                     title: "block:end")
         
@@ -304,15 +304,14 @@ class MissionViewController: UIViewController, MKMapViewDelegate, ExperienceMana
             ConditionalMoment(
                 momentBlock_true: MomentBlockSimple(
                     moments: [
-                        SynthVoiceMoment(content: "tree"),
-                        SynthVoiceMoment(content: "words")
+                        SynthVoiceMoment(content: "tree")
                     ],
                     title: "detected:true"
                 ),
                 momentBlock_false: MomentBlockSimple(
                     moments: [
-                        SynthVoiceMoment(content: "no tree"),
-                        SynthVoiceMoment(content: "words")],
+                        SynthVoiceMoment(content: "no tree")
+                    ],
                     title: "detected:false"
                 ),
                 conditionFunc: {() -> Bool in
@@ -336,8 +335,7 @@ class MissionViewController: UIViewController, MKMapViewDelegate, ExperienceMana
             block_poll,
             block_end ]
         experienceManager = ExperienceManager(title: missionTitle, momentBlocks: momentBlocks)
-
-
+        
         ////////////////////////////////////////////////////////
         //[ SCAFFOLDING MANAGER : LAMP ]
         ////////////////////////////////////////////////////////
