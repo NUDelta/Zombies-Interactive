@@ -66,7 +66,7 @@ class ScaffoldingManager: NSObject {
     
     //rank the possible insertable MomentBlocks
     func getBestMomentBlock(label:String) -> MomentBlockSimple? {
-        var highestIdx = -1
+        var highestIdx = 0
         var highestScore = -1
         var currentScore = -1
         for (idx, momentBlock) in insertableMomentBlocks.enumerate() {
@@ -106,9 +106,9 @@ class ScaffoldingManager: NSObject {
                 highestScore = currentScore
             }
         }
-        if highestIdx == -1 {
-            return nil
-        }
+//        if highestIdx == -1 {
+//            return nil
+//        }
         print("(getBestMomentBlock) highest-idx:\(highestIdx)")
         return insertableMomentBlocks[highestIdx]
     }
