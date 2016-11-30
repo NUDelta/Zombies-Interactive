@@ -245,7 +245,7 @@ class MissionViewController: UIViewController, MKMapViewDelegate, ExperienceMana
         
         // variation: asking additional info when ten trees are present (after validation)
         let momentblock_tree_variation = MomentBlockSimple(moments: [
-            SynthVoiceMoment(content: "Runner 5, our sensors signal that you're passing a patch of trees, which are filled with zombie activity if the tree type is just right. If you see any trees that are triangular and green up ahead, sprint past it and slow down to your usual speed immediately after you pass all trees that meet this description. If you see no trees that are triangular and green, you're safe. Continue."),
+            SynthVoiceMoment(content: "Runner 5, our sensors signal that you're passing a tree that could be dangerous if its type is just right. If you see any trees that are triangle shaped up ahead, sprint past it and slow down to your usual speed immediately. If you see no trees that are triangular, you're safe. Continue."),
             Interim(lengthInSeconds: 10),
             ConditionalMoment(
                 momentBlock_true: MomentBlockSimple(
@@ -261,10 +261,19 @@ class MissionViewController: UIViewController, MKMapViewDelegate, ExperienceMana
                     title: "detected:false"
                 ),
                 conditionFunc: {() -> Bool in
+                    let oldspeed = self.experienceManager.dataManager?.currentLocation?.speed
+                    // create delay to allow user to start picking up sprint speed
+                    let seconds = 2.0
+                    let delay = seconds * Double(NSEC_PER_SEC)  // nanoseconds per seconds
+                    let dispatchTime = dispatch_time(DISPATCH_TIME_NOW, Int64(delay))
+                    dispatch_after(dispatchTime, dispatch_get_main_queue(), {
+                        print("delay")
+                        print(oldspeed)
+                        })
                     if let speed = self.experienceManager.dataManager?.currentLocation?.speed
-                        where speed <= 1.2 { // TODO: what is sprinting speed? this is apparently stationary speed
+                        where speed >= oldspeed {
                         self.experienceManager.dataManager?.pushWorldObject(["label": "conifer_tree", "interaction" : "scaffold_conifer_tree", "variation" : "1"])
-                        print("variation")
+                        print(speed)
                         return true
                     }
                     //false condition: user keeps moving
@@ -287,14 +296,14 @@ class MissionViewController: UIViewController, MKMapViewDelegate, ExperienceMana
                                       title: "block:intro")
         //let block_transition = MomentBlock(moments: [Interim(lengthInSeconds: 90), Sound(fileNames: ["vignette_transition"])],
         //                            title: "block:transition")
-        let block_end = MomentBlock(moments: [Interim(lengthInSeconds: 90), Sound(fileNames: ["vignette_transition","mission_completed"])],
+        let block_end = MomentBlock(moments: [Interim(lengthInSeconds: 120), Sound(fileNames: ["vignette_transition","mission_completed"])],
                                     title: "block:end")
         
         let block_poll = MomentBlock(moments: [
             Sound(fileNames: ["radio_static"]),
             SynthVoiceMoment(content: "runner 5, our sensors are going to conduct an initial scan of your current area to look for Zombies in the vicinity. Continue at regular pace."),
             Sound(fileNames: ["radio_static", "vignette_transition"]),
-            OpportunityPoller(objectFilters:["label": "tree"], lengthInSeconds: 10.0, pollEveryXSeconds: 2.0, scaffoldingManager: scaffoldingManagerTree),
+            OpportunityPoller(objectFilters:["label": "tree"], lengthInSeconds: 60.0, pollEveryXSeconds: 2.0, scaffoldingManager: scaffoldingManagerTree),
             ], title: "block:poll")
         
         let block_tree_find = MomentBlock(moments: [
@@ -304,13 +313,13 @@ class MissionViewController: UIViewController, MKMapViewDelegate, ExperienceMana
             ConditionalMoment(
                 momentBlock_true: MomentBlockSimple(
                     moments: [
-                        SynthVoiceMoment(content: "tree")
+                        SynthVoiceMoment(content: "Detected tree with possible zombie activity. Great job. Keep running and be on the lookout for zombies.")
                     ],
                     title: "detected:true"
                 ),
                 momentBlock_false: MomentBlockSimple(
                     moments: [
-                        SynthVoiceMoment(content: "no tree")
+                        SynthVoiceMoment(content: "No trees means no zombies nearby. You're safe. Keep on running and remain vigilant.")
                     ],
                     title: "detected:false"
                 ),
