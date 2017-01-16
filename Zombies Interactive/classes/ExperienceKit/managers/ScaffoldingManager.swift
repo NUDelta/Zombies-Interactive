@@ -38,25 +38,27 @@ class ScaffoldingManager: NSObject {
             query = query.whereKey("label", equalTo: label!)
         }
         
-        let objects = query.findObjects()
-        if objects == nil {
-            return nil
+        do {
+            let objects = try query.findObjects()
+            if objects.count <= 0 {
+                return nil
+            }
+            evaluatingObjects = objects as! [PFObject]
+            let object = objects[0] as! PFObject
+            print("query result: \(query)")
+            print("object result: \(object)")
+            curPulledObject = object //save pulled object for potential reuse
         }
-        if objects?.count <= 0 {
-            return nil
+        catch {
+            print(error)
         }
-        evaluatingObjects = objects as! [PFObject]
-        let object = objects![0] as! PFObject
-        print("query result: \(query)")
-        print("object result: \(object)")
-        curPulledObject = object //save pulled object for potential reuse
         
         //get best MomentBlock for insertion (from pool)
         let bestMomentBlock = getBestMomentBlock(label!)
         if bestMomentBlock != nil {
             print("--possible insertion:\(bestMomentBlock!.title)--")
             return bestMomentBlock
-        }
+            }
         return nil
     }
     
@@ -73,16 +75,13 @@ class ScaffoldingManager: NSObject {
             currentScore = -1
             //evaluate score of current
             if ( momentBlock.requirement?.objectLabel == label ) {
-
-                //CONDITION: variation
-                //currently just giving back the interaction with the highest variation precondition
+                //CONDITION: variation: currently just giving back the interaction with the highest variation precondition
                 if momentBlock.requirement?.variationNumber == nil {
                     currentScore = 5
                 }
                 else {
                     for pulledObject in evaluatingObjects {
-                        //var worldObj = pulledObject as! WorldObject
-                        //calculate validRatio (valid / invalid)
+                        //var worldObj = pulledObject as! WorldObject -- calculate validRatio (valid / invalid)
                         var valTimes = pulledObject.objectForKey("validatedTimes") as? Double ?? 0
                         var invalTimes = pulledObject.objectForKey("invalidatedTimes") as? Double ?? 0
                         if valTimes == 0 {
@@ -106,11 +105,7 @@ class ScaffoldingManager: NSObject {
                 highestScore = currentScore
             }
         }
-//        if highestIdx == -1 {
-//            return nil
-//        }
         print("(getBestMomentBlock) highest-idx:\(highestIdx)")
         return insertableMomentBlocks[highestIdx]
     }
-    
 }
