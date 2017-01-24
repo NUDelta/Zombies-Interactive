@@ -299,6 +299,18 @@ class MissionViewController: UIViewController, MKMapViewDelegate, ExperienceMana
         let block_end = MomentBlock(moments: [Interim(lengthInSeconds: 120), Sound(fileNames: ["vignette_transition","mission_completed"])],
                                     title: "block:end")
         
+        let block_var1 = MomentBlock(moments: [Sound(fileNames: ["radio_static"]),
+            SynthVoiceMoment(content: "Runner 5, our sensors signal that you're passing a tree that could be dangerous if its type is just right. If you see any trees that have a jagged outline up ahead, run in a zig zag pattern to avoid zombies. If you see no trees like this, you're safe. Continue."),
+            Sound(fileNames: ["radio_static", "vignette_transition"])], title: "block:var1")
+        
+        let block_var2 = MomentBlock(moments: [Sound(fileNames: ["radio_static"]),
+            SynthVoiceMoment(content: "Runner 5, our sensors signal that you're passing a tree. If you see any trees, run in a zig zag pattern to avoid mines that we planted to kill zombies in this area. If you see no trees, you're safe. Continue."),
+            Sound(fileNames: ["radio_static", "vignette_transition"])], title: "block:var2")
+        
+        let block_var3 = MomentBlock(moments: [Sound(fileNames: ["radio_static"]),
+            SynthVoiceMoment(content: "Runner 5, our sensors signal that you're passing a tree that could be dangerous if its type is just right. If you see any trees that have a jagged outline up ahead, run in a zig zag pattern to avoid mines that we planted to kill zombies in this area. If you see no trees like this, you're safe. Continue."),
+            Sound(fileNames: ["radio_static", "vignette_transition"])], title: "block:var3")
+        
         let block_poll = MomentBlock(moments: [
             Sound(fileNames: ["radio_static"]),
             SynthVoiceMoment(content: "runner 5, our sensors are going to conduct an initial scan of your current area to look for Zombies in the vicinity. Continue at regular pace."),
@@ -340,8 +352,11 @@ class MissionViewController: UIViewController, MKMapViewDelegate, ExperienceMana
         
         var momentBlocks: [MomentBlock] = [
             block_intro,
-            block_tree_find,
-            block_poll,
+            block_var1,
+            block_var2,
+            block_var3,
+            //block_tree_find,
+            //block_poll,
             block_end ]
         experienceManager = ExperienceManager(title: missionTitle, momentBlocks: momentBlocks)
         
