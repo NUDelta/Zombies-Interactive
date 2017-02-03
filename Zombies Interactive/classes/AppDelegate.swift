@@ -25,7 +25,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         Parse.enableLocalDatastore()
         
         // Initialize Parse.
-        Parse.setApplicationId(kParseApplicationID, clientKey: kParseClientKey)
+        //Parse.setApplicationId(kParseApplicationID, clientKey: kParseClientKey)
+        
+        let config = ParseClientConfiguration {
+            $0.applicationId = "fEzVacO5gJMMaZBveiq5WWacZhqacHX6lw3CimcB"
+            $0.clientKey = "tHjgPtq9PbD2qPUZ9P0vKsaFfY3XFQ9iltXC"
+            $0.server = "http://zombies-ininteractive.herokuapp.com/parse/"
+        }
+        
+        Parse.initializeWithConfiguration(config)
         
         // [Optional] Track statistics around application opens.
         PFAnalytics.trackAppOpenedWithLaunchOptions(launchOptions)
