@@ -160,7 +160,7 @@ class MissionViewController: UIViewController, MKMapViewDelegate, ExperienceMana
         
         let findHydrantInstruct = MomentBlockSimple(moments: [Sound(fileNames: ["radio_static"]), SynthVoiceMoment(content: "Runner 5, our monitors show your pace has slowed and zombies in the area are gaining ground. You need to increase speed to reach a safe distance. You should pass a fire hydrant after a few seconds, at which point you should return to regular pace. Begin sprinting now."), Sound(fileNames: ["radio_static"])], title: "Fire hydrant instruct")
         
-        let findHydrantComplete = MomentBlockSimple(moments: [Sound(fileNames: ["radio_static"]), SynthVoiceMoment(content: "You’ve thrown off the scent and bought yourself some time. Good work."), Sound(fileNames: ["radio_static"])], title: "Fire hydrant complete")
+        let findHydrantComplete = MomentBlockSimple(moments: [Sound(fileNames: ["radio_static"]), SynthVoiceMoment(content: "You’ve thrown off the scent and bought yourself some time... That will be all for now. Nice work."), Sound(fileNames: ["radio_static"])], title: "Fire hydrant complete")
         
         
         let findHydrantCollector = Interim(lengthInSeconds: 8)
@@ -169,9 +169,8 @@ class MissionViewController: UIViewController, MKMapViewDelegate, ExperienceMana
         // Construct the experience based on selected mission
         var stages: [MomentBlock] = []
         if missionTitle == "UIST Intel Mission" {
-            let stage1 = MomentBlock(moments: intelIntro.moments + [Sound(fileNames: ["vignette_transition"]), Interim(lengthInSeconds: 5)],
-                title: "Stage1")
-            let stage2 = MomentBlock(moments: findHydrantInstruct.moments + [findHydrantCollector] + findHydrantComplete.moments, title: "Stage2")
+            let stage1 = MomentBlock(moments: intelIntro.moments + [Sound(fileNames: ["vignette_transition"])], title: "Stage1")
+            let stage2 = MomentBlock(moments: findHydrantInstruct.moments + [findHydrantCollector] + findHydrantComplete.moments + [Sound(fileNames: ["vignette_transition"])], title: "Stage2")
             
             stages = [stage1, stage2]
         }
