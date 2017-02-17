@@ -294,25 +294,25 @@ class MissionViewController: UIViewController, MKMapViewDelegate, ExperienceMana
         ////////////////////////////////////////////////////////
         let block_intro = MomentBlock(moments: [Sound(fileNames: ["radio_static", "intel_team_intro", "radio_static", "vignette_transition"]), Interim(lengthInSeconds: 1), Sound(fileNames: ["vignette_transition"])],
                                       title: "block:intro")
-        //let block_transition = MomentBlock(moments: [Interim(lengthInSeconds: 90), Sound(fileNames: ["vignette_transition"])],
-        //                            title: "block:transition")
+        let block_transition = MomentBlock(moments: [Interim(lengthInSeconds: 90), Sound(fileNames: ["vignette_transition"])],
+                                    title: "block:transition")
         let block_end = MomentBlock(moments: [Interim(lengthInSeconds: 120), Sound(fileNames: ["vignette_transition","mission_completed"])],
                                     title: "block:end")
         
         let block_var1 = MomentBlock(moments: [Sound(fileNames: ["radio_static"]),
-            SynthVoiceMoment(content: "Runner 5, our sensors signal that you're passing a tree that could be dangerous. If you see any trees that have a jagged outline up ahead, run in a zig zag pattern to dodge mines that we planted to eliminate zombies. If you see no trees like this, you're safe. Continue."),
+            SynthVoiceMoment(content: "Runner 5, our sensors signal that you're passing a potentially zombie-infested tree. If you see any trees that still have leaves, do ten jumping jacks next to one. This will ward off zombies hiding behind the leaves. If you see no trees like this, you're safe. Continue."),
             Sound(fileNames: ["radio_static", "vignette_transition"])], title: "block:var1")
         
         let block_var2 = MomentBlock(moments: [Sound(fileNames: ["radio_static"]),
-            SynthVoiceMoment(content: "Runner 5, our sensors signal that you're passing a building. If the building has lights on, tiptoe past it so the zombies inside do not notice you. If you see no building like this, you're safe. Continue."),
+            SynthVoiceMoment(content: "Runner 5, our sensors signal that you're passing a building. If the building has lights on, do low lunges past it so the zombies inside do not notice you. If you see no building like this, you're safe. Continue."),
             Sound(fileNames: ["radio_static", "vignette_transition"])], title: "block:var2")
         
         let block_var3 = MomentBlock(moments: [Sound(fileNames: ["radio_static"]),
-            SynthVoiceMoment(content: "Runner 5, our sensors signal that you're passing a bike rack. If the bike rack has open spots, this is a safe zone. Take a 30 second stretching break. If you see no bike rack like this, keep running."),
+            SynthVoiceMoment(content: "Runner 5, our sensors signal that you're passing a bench. If the bench is unoccupied, this is a safe zone. Take a 30 second stretching break. If you see no unoccupied benches, keep running."),
             Sound(fileNames: ["radio_static", "vignette_transition"])], title: "block:var3")
         
         let block_var4 = MomentBlock(moments: [Sound(fileNames: ["radio_static"]),
-            SynthVoiceMoment(content: "Runner 5, our sensors signal that you're passing some pole. If you pass a pole that has a bus stop sign, jump up and down twice to help us recalibrate your position. If you see no poles like this, keep running."),
+            SynthVoiceMoment(content: "Runner 5, our sensors signal that you're passing another building. If you pass a building with a ramp, do calf raises on that ramp in order to mark it as a potential hospital site for post-apocalypse victims. If you see no buildings like this, keep running."),
             Sound(fileNames: ["radio_static", "vignette_transition"])], title: "block:var4")
         
         let block_poll = MomentBlock(moments: [
@@ -357,8 +357,11 @@ class MissionViewController: UIViewController, MKMapViewDelegate, ExperienceMana
         var momentBlocks: [MomentBlock] = [
             block_intro,
             block_var1,
+            block_transition,
             block_var2,
+            block_transition,
             block_var3,
+            block_transition,
             block_var4,
             //block_tree_find,
             //block_poll,
