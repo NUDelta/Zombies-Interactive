@@ -300,19 +300,19 @@ class MissionViewController: UIViewController, MKMapViewDelegate, ExperienceMana
                                     title: "block:end")
         
         let block_var1 = MomentBlock(moments: [Sound(fileNames: ["radio_static"]),
-            SynthVoiceMoment(content: "Runner 5, our sensors signal that you're passing a potentially zombie-infested tree. If you see any trees that still have leaves, do ten jumping jacks next to one. This will ward off zombies hiding behind the leaves. If you see no trees like this, you're safe. Continue."),
+            SynthVoiceMoment(content: "Runner 5, our sensors signal that you're passing a building. If you pass a building that has stairs but not a ramp, do calf raises on those stairs in order to mark this building as a potential hospital site for post-apocalypse victims. If you see no buildings like this, keep running."),
             Sound(fileNames: ["radio_static", "vignette_transition"])], title: "block:var1")
         
         let block_var2 = MomentBlock(moments: [Sound(fileNames: ["radio_static"]),
-            SynthVoiceMoment(content: "Runner 5, our sensors signal that you're passing a building. If the building has lights on, do low lunges past it so the zombies inside do not notice you. If you see no building like this, you're safe. Continue."),
+            SynthVoiceMoment(content: "Runner 5, our sensors signal that you're passing a stoplight. If the stoplight is flashing red, sprint as fast as you can because zombies have taken over the traffic system. If you see no stoplights like this, you're safe. Continue."),
             Sound(fileNames: ["radio_static", "vignette_transition"])], title: "block:var2")
         
         let block_var3 = MomentBlock(moments: [Sound(fileNames: ["radio_static"]),
-            SynthVoiceMoment(content: "Runner 5, our sensors signal that you're passing a bench. If the bench is unoccupied, this is a safe zone. Take a 30 second stretching break. If you see no unoccupied benches, keep running."),
+            SynthVoiceMoment(content: "Runner 5, our sensors signal that you're passing some bike racks. If the bike racks have open spots, do butt kicks past them to mark them as a safe space for humans avoiding zombies by bike. If you see no bike racks like this, you're safe. Continue."),
             Sound(fileNames: ["radio_static", "vignette_transition"])], title: "block:var3")
         
         let block_var4 = MomentBlock(moments: [Sound(fileNames: ["radio_static"]),
-            SynthVoiceMoment(content: "Runner 5, our sensors signal that you're passing another building. If you pass a building with a ramp, do calf raises on that ramp in order to mark it as a potential hospital site for post-apocalypse victims. If you see no buildings like this, keep running."),
+            SynthVoiceMoment(content: "Runner 5, our sensors signal that you're passing a water fountain. If the water fountain looks unclean, do 5 squats next to it in order to hide from nearby zombies. If you see no water fountains like this, you're safe. Continue."),
             Sound(fileNames: ["radio_static", "vignette_transition"])], title: "block:var4")
         
         let block_poll = MomentBlock(moments: [
