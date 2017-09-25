@@ -25,7 +25,7 @@ class TriggerListenerWithSound : Sound {
     var recordMultiple: Bool
     
     var additionalTime: Double
-    var timer = NSTimer()
+    var timer = Timer()
     
     init(title:String?=nil, isInterruptable:Bool=false, fileNames:[String], dataLabel:String, trigger: Trigger, recordMultiple:Bool=false, additionalTime:Double?=0){
         self.dataLabel = dataLabel
@@ -33,7 +33,7 @@ class TriggerListenerWithSound : Sound {
         self.recordMultiple = recordMultiple
         self.additionalTime = additionalTime ?? 0
         
-        super.init(fileNames: fileNames, title: title ?? "Listen for \(trigger.rawValue)", isInterruptable: isInterruptable)
+        super.init(fileNames: fileNames, isInterruptable: isInterruptable, title: title ?? "Listen for \(trigger.rawValue)")
     }
     
     override func start() {
@@ -51,12 +51,12 @@ class TriggerListenerWithSound : Sound {
     }
     
     
-    override func audioPlayerDidFinishPlaying(player: AVAudioPlayer, successfully flag: Bool) {
+    override func audioPlayerDidFinishPlaying(_ player: AVAudioPlayer, successfully flag: Bool) {
         numFilesPlayed += 1
         if numFilesPlayed == fileNames.count {
             
             if additionalTime > 0 {
-                timer = NSTimer.scheduledTimerWithTimeInterval(additionalTime, target: self, selector: #selector(Moment.finished), userInfo: nil, repeats: false)
+                timer = Timer.scheduledTimer(timeInterval: additionalTime, target: self, selector: #selector(Moment.finished), userInfo: nil, repeats: false)
                 
             } else {
                 super.finished()

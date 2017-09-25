@@ -14,10 +14,10 @@ class SilentMoment: Moment {
         super.init(title: title ?? "silent moment")
         //note: silence is just a 15 minute file with no noise
         //(15 minutes is assumed to be a long enough period)
-        let pathToAudio = NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource("silence", ofType: "mp3")!)
+        let pathToAudio = URL(fileURLWithPath: Bundle.main.path(forResource: "silence", ofType: "mp3")!)
         
         do {
-            self.player = try AVAudioPlayer(contentsOfURL: pathToAudio)
+            self.player = try AVAudioPlayer(contentsOf: pathToAudio)
         } catch let error as NSError {
             print(error.localizedDescription)
             self.player = nil

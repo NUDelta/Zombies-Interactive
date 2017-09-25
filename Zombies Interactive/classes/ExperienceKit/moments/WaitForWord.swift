@@ -42,7 +42,7 @@ class WaitForWord: Interim{
         super.finished()
     }
     
-    func heard(information:Any?){
+    func heard(_ information:Any?){
         // ?? - H
         self.eventManager.trigger("dataLabel", information: "heardWord")
         finished()

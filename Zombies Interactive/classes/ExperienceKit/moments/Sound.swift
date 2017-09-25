@@ -21,7 +21,7 @@ class Sound: Moment, AVAudioPlayerDelegate{
     init(fileNames: [String], isInterruptable:Bool=false, title:String?=nil, canEvaluateOpportunity:Bool=false){
         self.fileNames = fileNames
         //[ Sound title is basically set to all the file names ] 
-        super.init(title: title ?? fileNames.joinWithSeparator(">"), isInterruptable: isInterruptable, canEvaluateOpportunity: canEvaluateOpportunity)
+        super.init(title: title ?? fileNames.joined(separator: ">"), isInterruptable: isInterruptable, canEvaluateOpportunity: canEvaluateOpportunity)
         self.duration = calculateAudioDuration()
         
         setupNextAudioFile()
@@ -32,7 +32,7 @@ class Sound: Moment, AVAudioPlayerDelegate{
         print(fileNames)
         
         for path in fileNames {
-            let asset = AVURLAsset(URL: NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource(path, ofType: "mp3")!), options: nil)
+            let asset = AVURLAsset(url: URL(fileURLWithPath: Bundle.main.path(forResource: path, ofType: "mp3")!), options: nil)
             //print("loading asset:\(asset)")
             let audioDuration = asset.duration
             totalDuration += Float(CMTimeGetSeconds(audioDuration))
@@ -40,7 +40,7 @@ class Sound: Moment, AVAudioPlayerDelegate{
         return totalDuration
     }
     
-    func audioPlayerDidFinishPlaying(player: AVAudioPlayer, successfully flag: Bool) {
+    func audioPlayerDidFinishPlaying(_ player: AVAudioPlayer, successfully flag: Bool) {
         numFilesPlayed += 1
         if numFilesPlayed == fileNames.count {
             super.finished()
@@ -50,17 +50,17 @@ class Sound: Moment, AVAudioPlayerDelegate{
         }
     }
     
-    func audioPlayerDecodeErrorDidOccur(player: AVAudioPlayer, error: NSError?) {
+    func audioPlayerDecodeErrorDidOccur(_ player: AVAudioPlayer, error: Error?) {
         if let error = error {
             print(error.localizedDescription)
         }
     }
     
     func setupNextAudioFile() {
-        let pathToAudio = NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource(fileNames[numFilesPlayed], ofType: "mp3")!)
+        let pathToAudio = URL(fileURLWithPath: Bundle.main.path(forResource: fileNames[numFilesPlayed], ofType: "mp3")!)
         
         do {
-            self.player = try AVAudioPlayer(contentsOfURL: pathToAudio)
+            self.player = try AVAudioPlayer(contentsOf: pathToAudio)
         } catch let error as NSError {
             print(error.localizedDescription)
             self.player = nil
@@ -77,7 +77,7 @@ class Sound: Moment, AVAudioPlayerDelegate{
         } catch let error as NSError {
             print(error.localizedDescription)
         }
-        UIApplication.sharedApplication().beginReceivingRemoteControlEvents()
+        UIApplication.shared.beginReceivingRemoteControlEvents()
         
         self.player?.delegate = self
         self.player?.prepareToPlay()

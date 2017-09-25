@@ -798,6 +798,7 @@
 					528C3A3E1B826734007C59FC = {
 						CreatedOnToolsVersion = 6.4;
 						DevelopmentTeam = Z39SHT32J6;
+						LastSwiftMigration = 0820;
 						SystemCapabilities = {
 							com.apple.BackgroundModes = {
 								enabled = 1;
@@ -1097,6 +1098,7 @@
 				PRODUCT_NAME = "Zombies Interactive";
 				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "./Zombies Interactive/OEBridging-Header.h";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
@@ -1118,6 +1120,7 @@
 				PRODUCT_NAME = "Zombies Interactive";
 				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "./Zombies Interactive/OEBridging-Header.h";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
 		};

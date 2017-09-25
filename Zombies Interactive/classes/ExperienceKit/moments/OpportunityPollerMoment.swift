@@ -13,8 +13,8 @@ class OpportunityPoller: SilentMoment {
     var _scaffoldingManager: ScaffoldingManager
     var _lengthInSeconds: Double
     var _pollEveryXSeconds: Double
-    var _timerPolling: NSTimer?
-    var _timerWholeMoment: NSTimer?
+    var _timerPolling: Timer?
+    var _timerWholeMoment: Timer?
     
     init(objectFilters:Any, lengthInSeconds: Double, pollEveryXSeconds: Double, scaffoldingManager: ScaffoldingManager, title:String?=nil){
         self.objectFilters = objectFilters
@@ -25,8 +25,8 @@ class OpportunityPoller: SilentMoment {
     }
     
     override func play(){
-        _timerPolling = NSTimer.scheduledTimerWithTimeInterval(_pollEveryXSeconds, target: self, selector: #selector(OpportunityPoller.checkOpportuntiy), userInfo: nil, repeats: true)
-        _timerWholeMoment = NSTimer.scheduledTimerWithTimeInterval(_lengthInSeconds, target: self, selector: #selector(OpportunityPoller.finished), userInfo: nil, repeats: false)
+        _timerPolling = Timer.scheduledTimer(timeInterval: _pollEveryXSeconds, target: self, selector: #selector(OpportunityPoller.checkOpportuntiy), userInfo: nil, repeats: true)
+        _timerWholeMoment = Timer.scheduledTimer(timeInterval: _lengthInSeconds, target: self, selector: #selector(OpportunityPoller.finished), userInfo: nil, repeats: false)
         super.play()
     }
     

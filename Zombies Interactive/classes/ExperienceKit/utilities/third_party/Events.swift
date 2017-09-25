@@ -15,7 +15,7 @@ class EventManager {
     // Create a new event listener, not expecting information from the trigger
     // + eventName: Matching trigger eventNames will cause this listener to fire
     // + action: The block of code you want executed when the event triggers
-    func listenTo(eventName:String, action:(()->())) {
+    func listenTo(_ eventName:String, action: @escaping (()->())) {
         let newListener = EventListenerAction(callback: action)
         addListener(eventName, newEventListener: newListener)
     }
@@ -23,15 +23,15 @@ class EventManager {
     // Create a new event listener, expecting information from the trigger
     // + eventName: Matching trigger eventNames will cause this listener to fire
     // + action: The block of code you want executed when the event triggers
-    func listenTo(eventName:String, action:((Any?)->())) {
+    func listenTo(_ eventName:String, action: @escaping ((Any?)->())) {
         let newListener = EventListenerAction(callback: action)
         addListener(eventName, newEventListener: newListener)
     }
     
-    internal func addListener(eventName:String, newEventListener:EventListenerAction) {
+    internal func addListener(_ eventName:String, newEventListener:EventListenerAction) {
         if let listenerArray = self.listeners[eventName] {
             // action array exists for this event, add new action to it
-            listenerArray.addObject(newEventListener)
+            listenerArray.add(newEventListener)
         }
         else {
             // no listeners created for this event yet, create a new array
@@ -41,7 +41,7 @@ class EventManager {
     
     // Removes all listeners by default, or specific listeners through paramters
     // + eventName: If an event name is passed, only listeners for that event will be removed
-    func removeListeners(eventNameToRemoveOrNil:String?) {
+    func removeListeners(_ eventNameToRemoveOrNil:String?) {
         if let eventNameToRemove = eventNameToRemoveOrNil {
             // remove listeners for a specific event
             
@@ -52,14 +52,14 @@ class EventManager {
         }
         else {
             // no specific parameters - remove all listeners on this object
-            self.listeners.removeAll(keepCapacity: false)
+            self.listeners.removeAll(keepingCapacity: false)
         }
     }
     
     // Triggers an event
     // + eventName: Matching listener eventNames will fire when this is called
     // + information: pass values to your listeners
-    func trigger(eventName:String, information:Any? = nil) {
+    func trigger(_ eventName:String, information:Any? = nil) {
         if let actionObjects = self.listeners[eventName] {
             for actionObject in actionObjects {
                 if let actionToPerform = actionObject as? EventListenerAction {
@@ -80,12 +80,12 @@ class EventListenerAction {
     let action:(() -> ())?
     let actionExpectsInfo:((Any?) -> ())?
     
-    init(callback:(() -> ())) {
+    init(callback:@escaping (() -> ())) {
         self.action = callback
         self.actionExpectsInfo = nil
     }
     
-    init(callback:((Any?) -> ())) {
+    init(callback:@escaping ((Any?) -> ())) {
         self.actionExpectsInfo = callback
         self.action = nil
     }

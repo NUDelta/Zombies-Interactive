@@ -29,7 +29,7 @@ class KnockListener: TriggerListener, TSTapDetectorDelegate {
     }
     
     override func play() {
-        self.tapDetector?.listener.collectMotionInformationWithInterval(10)
+        self.tapDetector?.listener.collectMotionInformation(withInterval: 10)
         super.play()
     }
     
@@ -45,7 +45,7 @@ class KnockListener: TriggerListener, TSTapDetectorDelegate {
     }
     
     // delegate method for tapDetector
-    func didDetectKnock(detector: TSTapDetector!, isDouble: Bool) {
+    func didDetectKnock(_ detector: TSTapDetector!, isDouble: Bool) {
         print("  got knock, isDouble:\(isDouble)")
         
         if requireDoubleKnock == false {

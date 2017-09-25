@@ -11,6 +11,30 @@ import Parse
 import MapKit
 import MediaPlayer
 import CoreLocation
+// FIXME: comparison operators with optionals were removed from the Swift Standard Libary.
+// Consider refactoring the code to use the non-optional operators.
+fileprivate func < <T : Comparable>(lhs: T?, rhs: T?) -> Bool {
+  switch (lhs, rhs) {
+  case let (l?, r?):
+    return l < r
+  case (nil, _?):
+    return true
+  default:
+    return false
+  }
+}
+
+// FIXME: comparison operators with optionals were removed from the Swift Standard Libary.
+// Consider refactoring the code to use the non-optional operators.
+fileprivate func >= <T : Comparable>(lhs: T?, rhs: T?) -> Bool {
+  switch (lhs, rhs) {
+  case let (l?, r?):
+    return l >= r
+  default:
+    return !(lhs < rhs)
+  }
+}
+
 
 
 class MissionViewController: UIViewController, MKMapViewDelegate, ExperienceManagerDelegate {
@@ -26,7 +50,7 @@ class MissionViewController: UIViewController, MKMapViewDelegate, ExperienceMana
     var currentMomentIsInterim: Bool = false
     
     let pedometer = CMPedometer()
-    var startDate: NSDate!
+    var startDate: Date!
     var missionComplete: Bool = false
     
     @IBOutlet weak var controlLabel: UIButton!
@@ -35,44 +59,44 @@ class MissionViewController: UIViewController, MKMapViewDelegate, ExperienceMana
     @IBOutlet weak var timeElapsedLabel: UILabel!
     @IBOutlet weak var stepsTakenLabel: UILabel!
     
-    @IBAction func previousMoment(sender: AnyObject) {
+    @IBAction func previousMoment(_ sender: AnyObject) {
         // FIX this requires too much knowledge of internals for another developer to use
         let currentMoment = self.experienceManager.currentMomentBlock?.currentMoment
         (currentMoment as? Sound)?.player?.stop()
         
         if self.experienceManager.isPlaying == false {
-            self.controlLabel.setTitle("Pause", forState: .Normal)
+            self.controlLabel.setTitle("Pause", for: UIControlState())
         }
         
         currentMoment?.finished()
     }
     
-    @IBAction func nextMoment(sender: AnyObject) {
+    @IBAction func nextMoment(_ sender: AnyObject) {
         // FIX this requires too much knowledge of internals for another developer to use
         let currentMoment = self.experienceManager.currentMomentBlock?.currentMoment
         (currentMoment as? Sound)?.player?.stop()
         
         if self.experienceManager.isPlaying == false {
-            self.controlLabel.setTitle("Pause", forState: .Normal)
+            self.controlLabel.setTitle("Pause", for: UIControlState())
         }
 
         currentMoment?.finished()
     }
     
-    @IBAction func controlButton(sender: AnyObject) {
-        if let label = self.controlLabel.titleLabel?.text where label == "Start" {
+    @IBAction func controlButton(_ sender: AnyObject) {
+        if let label = self.controlLabel.titleLabel?.text, label == "Start" {
             self.experienceManager.start()
-            self.controlLabel.setTitle("Pause", forState: .Normal)
+            self.controlLabel.setTitle("Pause", for: UIControlState())
             #if DEBUG
-            nextMomentButton.hidden = false
+            nextMomentButton.isHidden = false
             #endif
-            startDate = NSDate()
-            let _ = NSTimer.scheduledTimerWithTimeInterval(1.0, target: self, selector: Selector("updateTimeElapsed"), userInfo: nil, repeats: true)
+            startDate = Date()
+            let _ = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(MissionViewController.updateTimeElapsed), userInfo: nil, repeats: true)
             
             if(CMPedometer.isStepCountingAvailable()){
-                pedometer.startPedometerUpdatesFromDate(startDate) {
+                pedometer.startUpdates(from: startDate) {
                     (data: CMPedometerData?, error) -> Void in
-                    dispatch_async(dispatch_get_main_queue(), { () -> Void in
+                    DispatchQueue.main.async(execute: { () -> Void in
                         if(error == nil){
                             if let distance = data?.distance {
                                 self.stepsTakenLabel.text = String(format: "Estimated %.2f miles traveled", distance.toMiles)
@@ -89,49 +113,49 @@ class MissionViewController: UIViewController, MKMapViewDelegate, ExperienceMana
             if musicOn && currentMomentIsInterim {
                 playMusic()
             }
-            self.controlLabel.setTitle("Pause", forState: .Normal)
+            self.controlLabel.setTitle("Pause", for: UIControlState())
         } else if self.controlLabel.titleLabel!.text == "Pause" {
             print("  Experience paused")
             self.experienceManager.pause()
-            if audioSession.otherAudioPlaying {
+            if audioSession.isOtherAudioPlaying {
                 pauseMusic()
             }
-            self.controlLabel.setTitle("Resume", forState: .Normal)
+            self.controlLabel.setTitle("Resume", for: UIControlState())
         }
     }
     
-    func secondsToHoursMinutesSeconds (seconds : Int) -> (Int, Int, Int) {
+    func secondsToHoursMinutesSeconds (_ seconds : Int) -> (Int, Int, Int) {
         return (seconds / 3600, (seconds % 3600) / 60, (seconds % 3600) % 60)
     }
     
     func updateTimeElapsed() {
-        let (h,m,s) = secondsToHoursMinutesSeconds(Int(NSDate().timeIntervalSinceDate(startDate)))
+        let (h,m,s) = secondsToHoursMinutesSeconds(Int(Date().timeIntervalSince(startDate)))
         timeElapsedLabel.text = "\(h)h \(m)m \(s)s elapsed"
         
     }
     
-    @IBAction func btn_startLocUpdate(sender: AnyObject) {
+    @IBAction func btn_startLocUpdate(_ sender: AnyObject) {
         self.experienceManager.dataManager?.startUpdatingLocation()
     }
-    @IBAction func btn_pushLampT(sender: AnyObject) {
+    @IBAction func btn_pushLampT(_ sender: AnyObject) {
         print("push:lampT")
         self.experienceManager.dataManager?.pushWorldObject(["label": "lamp", "interaction" : "find_lamp", "variation" : "0"])
     }
-    @IBAction func btn_pushLampF(sender: AnyObject) {
+    @IBAction func btn_pushLampF(_ sender: AnyObject) {
         print("push:lampF")
         self.experienceManager.dataManager?.pushWorldObject(["label": "lamp(false)", "interaction" : "find_lamp", "variation" : "0"])
     }
-    @IBAction func btn_pushLampValid(sender: AnyObject) {
+    @IBAction func btn_pushLampValid(_ sender: AnyObject) {
         print("push:lampValid")
     }
-    @IBAction func btn_pushLampInvalid(sender: AnyObject) {
+    @IBAction func btn_pushLampInvalid(_ sender: AnyObject) {
         print("push:lampInvalid")
     }
-    @IBAction func btn_pushLampPost(sender: AnyObject) {
+    @IBAction func btn_pushLampPost(_ sender: AnyObject) {
         print("push:lampPostT")
         self.experienceManager.dataManager?.pushWorldObject(["label": "lamp_poster", "interaction" : "scaffold_lamp_posters", "variation" : "1"])
     }
-    @IBAction func btn_pushLampPostF(sender: AnyObject) {
+    @IBAction func btn_pushLampPostF(_ sender: AnyObject) {
         print("push:lampPostF")
         self.experienceManager.dataManager?.pushWorldObject(["label": "lamp_poster(false)", "interaction" : "scaffold_lamp_posters", "variation" : "1"])
     }
@@ -139,7 +163,7 @@ class MissionViewController: UIViewController, MKMapViewDelegate, ExperienceMana
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationItem.hidesBackButton = true
-        let newBackButton = UIBarButtonItem(title: "Back", style: UIBarButtonItemStyle.Plain, target: self, action: "back:")
+        let newBackButton = UIBarButtonItem(title: "Back", style: UIBarButtonItemStyle.plain, target: self, action: #selector(MissionViewController.back(_:)))
         self.navigationItem.leftBarButtonItem = newBackButton
         view.backgroundColor = UIColor(red:0.24, green:0.24, blue:0.25, alpha:1)
         
@@ -213,8 +237,7 @@ class MissionViewController: UIViewController, MKMapViewDelegate, ExperienceMana
                 ),
                 conditionFunc: {() -> Bool in
                     // true condition: user is stationary, so trees spotted
-                    if let speed = self.experienceManager.dataManager?.currentLocation?.speed
-                        where speed <= 1.2 { // TODO: what is sprinting speed? this is apparently stationary speed
+                    if let speed = self.experienceManager.dataManager?.currentLocation?.speed, speed <= 1.2 { // TODO: what is sprinting speed? this is apparently stationary speed
                         if self.experienceManager.distanceBetweenSavedAndCurrentContext() <= 10 {
                             let currEvaluatingObject = scaffoldingManagerTree.curPulledObject!
                             self.experienceManager.dataManager?.updateWorldObject(currEvaluatingObject, information: [], validated: true)
@@ -240,7 +263,7 @@ class MissionViewController: UIViewController, MKMapViewDelegate, ExperienceMana
             }),
             SynthVoiceMoment(content: "good job - now move on"),
             ], title: "scaffold_trees(variation)",
-               requirement: Requirement(conditions:[Condition.InRegion, Condition.ExistsObject],
+               requirement: Requirement(conditions:[Condition.inRegion, Condition.existsObject],
                 objectLabel: "tree", variationNumber: 0))
         
         // variation: asking additional info when ten trees are present (after validation)
@@ -265,13 +288,12 @@ class MissionViewController: UIViewController, MKMapViewDelegate, ExperienceMana
                     // create delay to allow user to start picking up sprint speed
                     let seconds = 2.0
                     let delay = seconds * Double(NSEC_PER_SEC)  // nanoseconds per seconds
-                    let dispatchTime = dispatch_time(DISPATCH_TIME_NOW, Int64(delay))
-                    dispatch_after(dispatchTime, dispatch_get_main_queue(), {
+                    let dispatchTime = DispatchTime.now() + Double(Int64(delay)) / Double(NSEC_PER_SEC)
+                    DispatchQueue.main.asyncAfter(deadline: dispatchTime, execute: {
                         print("delay")
                         print(oldspeed)
                         })
-                    if let speed = self.experienceManager.dataManager?.currentLocation?.speed
-                        where speed >= oldspeed {
+                    if let speed = self.experienceManager.dataManager?.currentLocation?.speed, speed >= oldspeed {
                         self.experienceManager.dataManager?.pushWorldObject(["label": "conifer_tree", "interaction" : "scaffold_conifer_tree", "variation" : "1"])
                         print(speed)
                         return true
@@ -283,7 +305,7 @@ class MissionViewController: UIViewController, MKMapViewDelegate, ExperienceMana
             }),
             SynthVoiceMoment(content: "good job - now move on"),
             ], title: "scaffold_tree(variation)",
-               requirement: Requirement(conditions:[Condition.InRegion, Condition.ExistsObject],
+               requirement: Requirement(conditions:[Condition.inRegion, Condition.existsObject],
                 objectLabel: "tree", variationNumber: 1))
         
         scaffoldingManagerTree.insertableMomentBlocks =
@@ -340,8 +362,7 @@ class MissionViewController: UIViewController, MKMapViewDelegate, ExperienceMana
                     title: "detected:false"
                 ),
                 conditionFunc: {() -> Bool in
-                    if let speed = self.experienceManager.dataManager?.currentLocation?.speed
-                        where speed <= 1.2 { // TODO: what is sprinting speed? this is apparently stationary speed
+                    if let speed = self.experienceManager.dataManager?.currentLocation?.speed, speed <= 1.2 { // TODO: what is sprinting speed? this is apparently stationary speed
                         self.experienceManager.dataManager?.pushWorldObject(["label": "tree", "interaction" : "find_ten_trees", "variation" : "0"])
                         return true
                     }
@@ -590,14 +611,14 @@ class MissionViewController: UIViewController, MKMapViewDelegate, ExperienceMana
 
         // Set up the map view
         mapView.delegate = self
-        mapView.mapType = MKMapType.Standard
-        mapView.userTrackingMode = MKUserTrackingMode.Follow // don't use heading for now, annoying to always calibrate compass + UI unnecessary
+        mapView.mapType = MKMapType.standard
+        mapView.userTrackingMode = MKUserTrackingMode.follow // don't use heading for now, annoying to always calibrate compass + UI unnecessary
         mapView.showsUserLocation = true
         
 
         do {
-            try self.audioSession.setCategory(AVAudioSessionCategoryPlayback, withOptions: .MixWithOthers)
-            try self.audioSession.setActive(false, withOptions: .NotifyOthersOnDeactivation)
+            try self.audioSession.setCategory(AVAudioSessionCategoryPlayback, with: .mixWithOthers)
+            try self.audioSession.setActive(false, with: .notifyOthersOnDeactivation)
         } catch let error as NSError {
             print(error.localizedDescription)
         }
@@ -608,31 +629,31 @@ class MissionViewController: UIViewController, MKMapViewDelegate, ExperienceMana
         super.didReceiveMemoryWarning()
     }
     
-    func back(sender: UIBarButtonItem) {
+    func back(_ sender: UIBarButtonItem) {
 
         if self.experienceManager.currentMomentBlockIdx > -1 && missionComplete == false {
             
-            let refreshAlert = UIAlertController(title: "Are you sure?", message: "This will end the mission. All progress will be lost.", preferredStyle: UIAlertControllerStyle.Alert)
+            let refreshAlert = UIAlertController(title: "Are you sure?", message: "This will end the mission. All progress will be lost.", preferredStyle: UIAlertControllerStyle.alert)
         
-            refreshAlert.addAction(UIAlertAction(title: "Exit Mission", style: .Destructive , handler: { (action: UIAlertAction!) in
+            refreshAlert.addAction(UIAlertAction(title: "Exit Mission", style: .destructive , handler: { (action: UIAlertAction!) in
                 self.experienceManager.pause()
-                self.navigationController?.popViewControllerAnimated(true)
+                self.navigationController?.popViewController(animated: true)
             }))
         
-            refreshAlert.addAction(UIAlertAction(title: "Cancel", style: .Default, handler: { (action: UIAlertAction!) in
+            refreshAlert.addAction(UIAlertAction(title: "Cancel", style: .default, handler: { (action: UIAlertAction!) in
                 print("Handle Cancel Logic here")
             }))
     
         
-            presentViewController(refreshAlert, animated: true, completion: nil)
+            present(refreshAlert, animated: true, completion: nil)
         } else {
-            self.navigationController?.popViewControllerAnimated(true)
+            self.navigationController?.popViewController(animated: true)
         }
         
     }
     
     
-    func addObjectToMap(objectLocation: CLLocationCoordinate2D, annotationTitle: String) {
+    func addObjectToMap(_ objectLocation: CLLocationCoordinate2D, annotationTitle: String) {
         // for now, assume it won't be so far away that
         // it isn't on the map (don't worry about changing view region)
         
@@ -659,7 +680,7 @@ class MissionViewController: UIViewController, MKMapViewDelegate, ExperienceMana
     
     func didFinishExperience() {
         do {
-            try AVAudioSession.sharedInstance().setActive(false, withOptions: .NotifyOthersOnDeactivation)
+            try AVAudioSession.sharedInstance().setActive(false, with: .notifyOthersOnDeactivation)
         } catch let error as NSError {
             print(error.localizedDescription)
         }
@@ -669,7 +690,7 @@ class MissionViewController: UIViewController, MKMapViewDelegate, ExperienceMana
             systemPlayer.play()
         }
         
-        controlLabel.setTitle("Mission Complete", forState: .Normal)
+        controlLabel.setTitle("Mission Complete", for: UIControlState())
         missionComplete = true
         
 //        if let navController = self.navigationController {
@@ -687,7 +708,7 @@ class MissionViewController: UIViewController, MKMapViewDelegate, ExperienceMana
         MPMusicPlayerController.systemMusicPlayer().play()
     }
     
-    func didAddDestination(destLocation: CLLocationCoordinate2D, destinationName: String) {
+    func didAddDestination(_ destLocation: CLLocationCoordinate2D, destinationName: String) {
         addObjectToMap(destLocation, annotationTitle: destinationName)
     }
     
@@ -705,7 +726,7 @@ class MissionViewController: UIViewController, MKMapViewDelegate, ExperienceMana
     
     func didBeginSound() {
         currentMomentIsInterim = false
-        if musicOn && audioSession.otherAudioPlaying {
+        if musicOn && audioSession.isOtherAudioPlaying {
             pauseMusic()
         }
     }

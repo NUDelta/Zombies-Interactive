@@ -11,6 +11,10 @@ import Parse
 
 class MotionActivityUpdate: PFObject, PFSubclassing {
     
+    private static var __once: () = {
+            MotionActivityUpdate.registerSubclass()
+        }()
+    
     @NSManaged var experience: Experience?
     @NSManaged var location: PFGeoPoint?
     @NSManaged var state: String?
@@ -18,11 +22,9 @@ class MotionActivityUpdate: PFObject, PFSubclassing {
     
     override class func initialize() {
         struct Static {
-            static var onceToken : dispatch_once_t = 0;
+            static var onceToken : Int = 0;
         }
-        dispatch_once(&Static.onceToken) {
-            self.registerSubclass()
-        }
+        _ = MotionActivityUpdate.__once
     }
     
     static func parseClassName() -> String {

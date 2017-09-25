@@ -27,17 +27,17 @@ class HomeViewController: UIViewController {
     @IBOutlet weak var musicNotice: UITextView!
     @IBOutlet weak var musicSwitch: UISwitch!
     
-    @IBAction func musicSwitched(sender: UISwitch) {
-        musicNotice.hidden = !musicSwitch.on
+    @IBAction func musicSwitched(_ sender: UISwitch) {
+        musicNotice.isHidden = !musicSwitch.isOn
     }
 
-    @IBAction func missionsButton(sender: AnyObject) {
-        let vc:UIViewController = storyboard!.instantiateViewControllerWithIdentifier("MissionVC")
+    @IBAction func missionsButton(_ sender: AnyObject) {
+        let vc:UIViewController = storyboard!.instantiateViewController(withIdentifier: "MissionVC")
         if let missionController = vc as? MissionViewController,
-        btn = sender as? UIButton,
-        missionTitle = btn.titleLabel?.text {
+        let btn = sender as? UIButton,
+        let missionTitle = btn.titleLabel?.text {
             missionController.missionTitle = missionTitle
-            missionController.musicOn = musicSwitch.on
+            missionController.musicOn = musicSwitch.isOn
             self.navigationController!.pushViewController(missionController, animated: true)
         }
         

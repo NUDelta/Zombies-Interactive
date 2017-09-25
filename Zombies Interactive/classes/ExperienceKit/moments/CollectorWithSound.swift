@@ -20,7 +20,7 @@ class CollectorWithSound : Sound {
     var dataLabel: String
     
     var additionalTime: Double
-    var timer = NSTimer()
+    var timer = Timer()
     
     /**
      Initializes a new SensorCollector with the provided parameters
@@ -34,15 +34,15 @@ class CollectorWithSound : Sound {
         self.sensors = sensors
         self.dataLabel = dataLabel
         self.additionalTime = additionalTime ?? 0
-        super.init(fileNames: fileNames, title: title ?? "Find \(dataLabel)", isInterruptable: interruptable)
+        super.init(fileNames: fileNames, isInterruptable: interruptable, title: title ?? "Find \(dataLabel)")
     }
     
-    override func audioPlayerDidFinishPlaying(player: AVAudioPlayer, successfully flag: Bool) {
+    override func audioPlayerDidFinishPlaying(_ player: AVAudioPlayer, successfully flag: Bool) {
         numFilesPlayed += 1
         if numFilesPlayed == fileNames.count {
             
             if additionalTime > 0 {
-                timer = NSTimer.scheduledTimerWithTimeInterval(additionalTime, target: self, selector: #selector(finished), userInfo: nil, repeats: false)
+                timer = Timer.scheduledTimer(timeInterval: additionalTime, target: self, selector: #selector(finished), userInfo: nil, repeats: false)
                 fileNames.append("silence")
                 setupNextAudioFile()
                 self.player?.play()

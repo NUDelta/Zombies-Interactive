@@ -16,23 +16,23 @@ class Interim: Moment{
     /// The length of the interim period
     var lengthInSeconds: Float
     
-    var timer = NSTimer()
-    var startTime: NSDate = NSDate()
-    var timeRemaining: NSTimeInterval
+    var timer = Timer()
+    var startTime: Date = Date()
+    var timeRemaining: TimeInterval
     var player:AVAudioPlayer?
     
     init(title:String?=nil, isInterruptable:Bool=false, lengthInSeconds:Float, canEvaluateOpportunity:Bool=false){
         self.lengthInSeconds = lengthInSeconds
-        self.timeRemaining = NSTimeInterval(lengthInSeconds)
+        self.timeRemaining = TimeInterval(lengthInSeconds)
         super.init(title: title ?? "Interim (\(lengthInSeconds) seconds)", isInterruptable: isInterruptable, canEvaluateOpportunity: canEvaluateOpportunity)
         self.duration = self.lengthInSeconds
         
         //note: silence is just a 15 minute file with no noise
         //(15 minutes is assumed to be a long enough period)
-        let pathToAudio = NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource("silence", ofType: "mp3")!)
+        let pathToAudio = URL(fileURLWithPath: Bundle.main.path(forResource: "silence", ofType: "mp3")!)
         
         do {
-            self.player = try AVAudioPlayer(contentsOfURL: pathToAudio)
+            self.player = try AVAudioPlayer(contentsOf: pathToAudio)
         } catch let error as NSError {
             print(error.localizedDescription)
             self.player = nil
@@ -43,7 +43,7 @@ class Interim: Moment{
 
     
     override func start() {
-        self.startTime = NSDate()
+        self.startTime = Date()
         super.start()
         print("(Interim::start) triggering startingInterim")
         self.eventManager.trigger("startingInterim", information: ["duration": "\(duration)"])
@@ -52,10 +52,10 @@ class Interim: Moment{
     override func play() {
         super.play()
         
-        if timer.valid == false {
+        if timer.isValid == false {
             print("  \(round(timeRemaining)) seconds remaining in interim")
-            timer = NSTimer.scheduledTimerWithTimeInterval(timeRemaining, target: self, selector: #selector(Moment.finished), userInfo: nil, repeats: false)
-            self.startTime = NSDate()
+            timer = Timer.scheduledTimer(timeInterval: timeRemaining, target: self, selector: #selector(Moment.finished), userInfo: nil, repeats: false)
+            self.startTime = Date()
         }
         
         self.player?.play()

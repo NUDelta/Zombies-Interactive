@@ -11,6 +11,10 @@ import Parse
 
 class LocationUpdate : PFObject, PFSubclassing {
     
+    private static var __once: () = {
+            LocationUpdate.registerSubclass()
+        }()
+    
     @NSManaged var experience: Experience?
     @NSManaged var location: PFGeoPoint?
     @NSManaged var altitude: NSNumber?
@@ -19,11 +23,9 @@ class LocationUpdate : PFObject, PFSubclassing {
     
     override class func initialize() {
         struct Static {
-            static var onceToken : dispatch_once_t = 0;
+            static var onceToken : Int = 0;
         }
-        dispatch_once(&Static.onceToken) {
-            self.registerSubclass()
-        }
+        _ = LocationUpdate.__once
     }
     
     static func parseClassName() -> String {

@@ -12,20 +12,22 @@ import Parse
 /// An index for a dataset from a SensorCollector moment.
 class SensorMoment : PFObject, PFSubclassing {
     
+    private static var __once: () = {
+            SensorMoment.registerSubclass()
+        }()
+    
     @NSManaged var experience: Experience?
-    @NSManaged var startDate: NSDate?
-    @NSManaged var endDate: NSDate?
+    @NSManaged var startDate: Date?
+    @NSManaged var endDate: Date?
     @NSManaged var sensors: [String]?
     @NSManaged var label: String?
     @NSManaged var MomentBlockSimple: String?
     
     override class func initialize() {
         struct Static {
-            static var onceToken : dispatch_once_t = 0;
+            static var onceToken : Int = 0;
         }
-        dispatch_once(&Static.onceToken) {
-            self.registerSubclass()
-        }
+        _ = SensorMoment.__once
     }
     
     static func parseClassName() -> String {

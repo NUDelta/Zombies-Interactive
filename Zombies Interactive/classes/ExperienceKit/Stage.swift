@@ -7,6 +7,19 @@
 //
 
 import Foundation
+// FIXME: comparison operators with optionals were removed from the Swift Standard Libary.
+// Consider refactoring the code to use the non-optional operators.
+fileprivate func < <T : Comparable>(lhs: T?, rhs: T?) -> Bool {
+  switch (lhs, rhs) {
+  case let (l?, r?):
+    return l < r
+  case (nil, _?):
+    return true
+  default:
+    return false
+  }
+}
+
 
 
 // MomentBlock: a sub-experience comprised of moments
@@ -53,12 +66,12 @@ class MomentBlock: NSObject{
     
     func insertAnyRandomMomentBlockSimples() {
         // should this be done at runtime to allow for better "audibles"?
-        if let insertionIndices = MomentBlockSimpleInsertionIndices, _ = self.MomentBlockSimplePool  {
+        if let insertionIndices = MomentBlockSimpleInsertionIndices, let _ = self.MomentBlockSimplePool  {
             var numMomentsInserted = 0
             for idx in insertionIndices {
                 let idxNew = idx + numMomentsInserted
                 let randomMomentBlockSimpleIdx = self.MomentBlockSimplePool!.randomItemIndex()
-                let randomMomentBlockSimple = self.MomentBlockSimplePool!.removeAtIndex(randomMomentBlockSimpleIdx)
+                let randomMomentBlockSimple = self.MomentBlockSimplePool!.remove(at: randomMomentBlockSimpleIdx)
                 
                 eventManager.trigger("choseRandomMomentBlockSimple", information: ["MomentBlockSimpleTitle": randomMomentBlockSimple.title])
                 self.insertMomentsAtIndex(randomMomentBlockSimple.moments, idx: idxNew)
@@ -68,7 +81,7 @@ class MomentBlock: NSObject{
         }
     }
     
-    func startingMoment(information: Any?) {
+    func startingMoment(_ information: Any?) {
         self.eventManager.trigger("startingMoment", information: information)
     }
     
@@ -76,7 +89,7 @@ class MomentBlock: NSObject{
         self.eventManager.trigger("startingSound")
     }
     
-    func startingInterim(information: Any?) {
+    func startingInterim(_ information: Any?) {
         print("(MomentBlock::startingInterim) triggered")
         self.eventManager.trigger("startingInterim", information: information)
     }
@@ -130,17 +143,17 @@ class MomentBlock: NSObject{
     }
     
     
-    func next(notification: NSNotification) {
+    func next(_ notification: Notification) {
         print("--next(???)--")
         self.nextMoment()
     }
     
-    func recordWorldObject(information: Any?) {
+    func recordWorldObject(_ information: Any?) {
         print(" MomentBlock.recordWorldObject called")
         self.eventManager.trigger("foundWorldObject", information: information)
     }
     
-    func insertMomentsAtIndex(insertedMoments:[Moment], idx:Int) {
+    func insertMomentsAtIndex(_ insertedMoments:[Moment], idx:Int) {
         for moment in insertedMoments {
             moment.eventManager.listenTo("startingMoment", action: self.startingMoment)
             moment.eventManager.listenTo("nextMoment", action: self.nextMoment)

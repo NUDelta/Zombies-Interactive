@@ -22,14 +22,14 @@ class ScaffoldingManager: NSObject {
         super.init()
     }
     
-    func getPossibleInsertion(withInformation: Any?) -> MomentBlockSimple? {
+    func getPossibleInsertion(_ withInformation: Any?) -> MomentBlockSimple? {
         //parse out user defined filters
         var label: String?
         if let infoDict = withInformation as? [String : String] {
             label = infoDict["label"]
         }
         //query possible scaffolding opportunities within x meters
-        var curGeoPoint = PFGeoPoint(location: _experienceManager.dataManager!.currentLocation!)
+        let curGeoPoint = PFGeoPoint(location: _experienceManager.dataManager!.currentLocation!)
         var query = PFQuery(className: "WorldObject")
         query = query.whereKey("location", nearGeoPoint: curGeoPoint, withinKilometers: 0.01)
         
@@ -43,8 +43,8 @@ class ScaffoldingManager: NSObject {
             if objects.count <= 0 {
                 return nil
             }
-            evaluatingObjects = objects as! [PFObject]
-            let object = objects[0] as! PFObject
+            evaluatingObjects = objects 
+            let object = objects[0] 
             print("query result: \(query)")
             print("object result: \(object)")
             curPulledObject = object //save pulled object for potential reuse
@@ -67,11 +67,11 @@ class ScaffoldingManager: NSObject {
     
     
     //rank the possible insertable MomentBlocks
-    func getBestMomentBlock(label:String) -> MomentBlockSimple? {
+    func getBestMomentBlock(_ label:String) -> MomentBlockSimple? {
         var highestIdx = 0
         var highestScore = -1
         var currentScore = -1
-        for (idx, momentBlock) in insertableMomentBlocks.enumerate() {
+        for (idx, momentBlock) in insertableMomentBlocks.enumerated() {
             currentScore = -1
             //evaluate score of current
             if ( momentBlock.requirement?.objectLabel == label ) {
@@ -82,8 +82,8 @@ class ScaffoldingManager: NSObject {
                 else {
                     for pulledObject in evaluatingObjects {
                         //var worldObj = pulledObject as! WorldObject -- calculate validRatio (valid / invalid)
-                        var valTimes = pulledObject.objectForKey("validatedTimes") as? Double ?? 0
-                        var invalTimes = pulledObject.objectForKey("invalidatedTimes") as? Double ?? 0
+                        var valTimes = pulledObject.object(forKey: "validatedTimes") as? Double ?? 0
+                        var invalTimes = pulledObject.object(forKey: "invalidatedTimes") as? Double ?? 0
                         if valTimes == 0 {
                             valTimes = 1
                         }
@@ -92,8 +92,7 @@ class ScaffoldingManager: NSObject {
                         }
                         let validRatio = valTimes / invalTimes
                         //make sure the varation precondition exists
-                        if let variation = pulledObject.objectForKey("variation") as? Int
-                        where variation == momentBlock.requirement?.variationNumber && validRatio >= 1.5 {
+                        if let variation = pulledObject.object(forKey: "variation") as? NSNumber, variation == momentBlock.requirement?.variationNumber && validRatio >= 1.5 {
                             currentScore = (momentBlock.requirement?.variationNumber as! Int + 1) * 10
                         }
                     }

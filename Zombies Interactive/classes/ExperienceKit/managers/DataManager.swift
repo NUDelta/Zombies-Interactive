@@ -22,7 +22,7 @@ enum Sensor: String {
 }
 
 @objc protocol DataManagerDelegate {
-    optional func didUpdateData()
+    @objc optional func didUpdateData()
 }
 
 class DataManager : NSObject, CLLocationManagerDelegate {
@@ -66,7 +66,7 @@ class DataManager : NSObject, CLLocationManagerDelegate {
 //        worldObject.saveInBackground()
 //    }
     
-    func updateWorldObject(object:PFObject, information:Any?, validated:Bool?)
+    func updateWorldObject(_ object:PFObject, information:Any?, validated:Bool?)
     {
         if validated != nil {
             if validated! == true {
@@ -79,14 +79,14 @@ class DataManager : NSObject, CLLocationManagerDelegate {
         object.saveInBackground()
     }
     
-    func pushWorldObject(information: Any?) {
+    func pushWorldObject(_ information: Any?) {
         print("(DM::pushWorldObject): \(information)")
         let worldObject = WorldObject()
         if let infoDict = information as? [String : String] {
             //worldObject.trigger = infoDict["trigger"]
             worldObject.interaction = infoDict["interaction"]
             worldObject.label = infoDict["label"]
-            worldObject.variation = Int(infoDict["variation"] ?? "0") //default value:0
+            worldObject.variation = Int(infoDict["variation"] ?? "0") as NSNumber? //default value:0
             //worldObject.MomentBlockSimple = infoDict["MomentBlockSimple"]
         }
         //worldObject.experience = experience
@@ -98,7 +98,7 @@ class DataManager : NSObject, CLLocationManagerDelegate {
         
         //certain conditions where error does occur, and maybe some not
         //maybe locatinons are misssing parameters, etc. 
-        worldObject.saveInBackgroundWithBlock  {
+        worldObject.saveInBackground  {
             (success, error) in
             if success == true {
                 print("Score created with ID: \(worldObject.objectId)")
@@ -109,15 +109,15 @@ class DataManager : NSObject, CLLocationManagerDelegate {
     }
     
     
-    func startCollecting(information:Any?){
+    func startCollecting(_ information:Any?){
         self.sensorMoment = SensorMoment()
         self.sensorMoment?.experience = self.experience
-        self.sensorMoment?.startDate = NSDate()
+        self.sensorMoment?.startDate = Date()
         
         if let infoDict = information as? [String : AnyObject],
-        sensors = infoDict["sensors"] as? [String],
-        MomentBlockSimple = infoDict["MomentBlockSimple"] as? String,
-        label = infoDict["label"] as? String {
+        let sensors = infoDict["sensors"] as? [String],
+        let MomentBlockSimple = infoDict["MomentBlockSimple"] as? String,
+        let label = infoDict["label"] as? String {
             self.sensorMoment?.sensors = sensors
             self.sensorMoment?.MomentBlockSimple = MomentBlockSimple
             self.sensorMoment?.label = label
@@ -138,9 +138,9 @@ class DataManager : NSObject, CLLocationManagerDelegate {
                     print(" (DataManager::startCollecting)   recording \(sensor)")
                     
                     if(CMMotionActivityManager.isActivityAvailable()) {
-                        self.motionActivityManager.startActivityUpdatesToQueue(NSOperationQueue.mainQueue()) { data in
+                        self.motionActivityManager.startActivityUpdates(to: OperationQueue.main) { data in
                             if let data = data {
-                                dispatch_async(dispatch_get_main_queue()) {
+                                DispatchQueue.main.async {
                                     self.saveMotionActivityUpdate(data)
                                 }
                             }
@@ -161,7 +161,7 @@ class DataManager : NSObject, CLLocationManagerDelegate {
     func stopCollecting(){
         print("  stopped recording data")
         self.motionActivityManager.stopActivityUpdates()
-        self.sensorMoment?.endDate = NSDate()
+        self.sensorMoment?.endDate = Date()
         self.sensorMoment?.saveInBackground()
     }
     
@@ -177,7 +177,7 @@ class DataManager : NSObject, CLLocationManagerDelegate {
     }
     
     
-    func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         print("..datamanager::updating location..")
         //this is where DataManager.currentLocation gets updated
         //required for OpportunityManager
@@ -187,16 +187,16 @@ class DataManager : NSObject, CLLocationManagerDelegate {
         let locationUpdate = LocationUpdate() //intialise Parse object
         locationUpdate.experience = self.experience
         locationUpdate.location = PFGeoPoint(location: currentLocation)
-        locationUpdate.altitude = currentLocation!.altitude
-        locationUpdate.speed = currentLocation!.speed
-        locationUpdate.horizontalAccuracy = currentLocation!.horizontalAccuracy
+        locationUpdate.altitude = currentLocation!.altitude as NSNumber?
+        locationUpdate.speed = currentLocation!.speed as NSNumber?
+        locationUpdate.horizontalAccuracy = currentLocation!.horizontalAccuracy as NSNumber?
         //locationUpdate.incrementKey(<#T##key: String##String#>, byAmount: <#T##NSNumber#>)
         locationUpdate.saveInBackground()
         
         delegate?.didUpdateData?()
     }
     
-    func locationManager(manager: CLLocationManager, didUpdateHeading newHeading: CLHeading) {
+    func locationManager(_ manager: CLLocationManager, didUpdateHeading newHeading: CLHeading) {
         //print("..datamanager::updating heading..")
         var h = newHeading.magneticHeading
         let h2 = newHeading.trueHeading // will be -1 if we have no location info
@@ -205,7 +205,7 @@ class DataManager : NSObject, CLLocationManagerDelegate {
         }
         let cards = ["N", "NE", "E", "SE", "S", "SW", "W", "NW"]
         var dir = "N"
-        for (ix, card) in cards.enumerate() {
+        for (ix, card) in cards.enumerated() {
             if h < 45.0/2.0 + 45.0*Double(ix) {
                 dir = card
                 break
@@ -223,7 +223,7 @@ class DataManager : NSObject, CLLocationManagerDelegate {
     }
     
     //called by: Stage::nextMoment() -> DataManager::startCollecting()
-    func saveMotionActivityUpdate(data:CMMotionActivity) {
+    func saveMotionActivityUpdate(_ data:CMMotionActivity) {
         print("..datamanager::updating motion activity..")
         currentMotionActivity = data
         var activityState = "other"
@@ -246,7 +246,7 @@ class DataManager : NSObject, CLLocationManagerDelegate {
         motionActivityUpdate.experience = self.experience
         motionActivityUpdate.location = PFGeoPoint(location: locationManager.location)
         motionActivityUpdate.state = activityState
-        motionActivityUpdate.confidence = data.confidence.rawValue
+        motionActivityUpdate.confidence = data.confidence.rawValue as NSNumber?
         motionActivityUpdate.saveInBackground()
         
         delegate?.didUpdateData?()

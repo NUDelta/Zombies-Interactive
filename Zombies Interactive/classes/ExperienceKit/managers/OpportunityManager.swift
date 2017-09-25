@@ -9,28 +9,52 @@
 import Foundation
 import CoreLocation
 import MapKit
+// FIXME: comparison operators with optionals were removed from the Swift Standard Libary.
+// Consider refactoring the code to use the non-optional operators.
+fileprivate func < <T : Comparable>(lhs: T?, rhs: T?) -> Bool {
+  switch (lhs, rhs) {
+  case let (l?, r?):
+    return l < r
+  case (nil, _?):
+    return true
+  default:
+    return false
+  }
+}
+
+// FIXME: comparison operators with optionals were removed from the Swift Standard Libary.
+// Consider refactoring the code to use the non-optional operators.
+fileprivate func > <T : Comparable>(lhs: T?, rhs: T?) -> Bool {
+  switch (lhs, rhs) {
+  case let (l?, r?):
+    return l > r
+  default:
+    return rhs < lhs
+  }
+}
+
 
 
 @objc protocol OpportunityManagerDelegate {
 
-    optional func didUpdateMomentBlockSimpleQueue()
+    @objc optional func didUpdateMomentBlockSimpleQueue()
     func attemptInsertMomentBlockSimple()
 }
 
 extension CLLocation {
     // In meteres
-    class func distance(from: CLLocationCoordinate2D, to:CLLocationCoordinate2D) -> CLLocationDistance {
+    class func distance(_ from: CLLocationCoordinate2D, to:CLLocationCoordinate2D) -> CLLocationDistance {
         let from = CLLocation(latitude: from.latitude, longitude: from.longitude)
         let to = CLLocation(latitude: to.latitude, longitude: to.longitude)
-        return from.distanceFromLocation(to) //gets distance in meters
+        return from.distance(from: to) //gets distance in meters
     }
 }
 
-func RadiansToDegrees (value:Double) -> Double {
+func RadiansToDegrees (_ value:Double) -> Double {
     return value * 180.0 / M_PI
 }
 
-func getAngularDifference(loc1: CLLocationCoordinate2D, loc2: CLLocationCoordinate2D) -> Double
+func getAngularDifference(_ loc1: CLLocationCoordinate2D, loc2: CLLocationCoordinate2D) -> Double
 {
     let dLon = loc1.longitude - loc2.longitude
     let y = sin(dLon) * cos(loc2.latitude)
@@ -48,14 +72,14 @@ class OpportunityManager: NSObject {
         self.MomentBlockSimplePool = MomentBlockSimplePool
     }
     
-    func getImmediateInsertMomentBlockSimple(context: Context) -> MomentBlockSimple? {
+    func getImmediateInsertMomentBlockSimple(_ context: Context) -> MomentBlockSimple? {
         print(  "(OpportunityManager::getBestFitMomentBlockSimple)")
         var highestScore: Double = 0
         var highestScoreIdx = -1
         
         //go through all the MomentBlockSimples in the MomentBlockSimple pool and get the
         //MomentBlockSimple with the highest score
-        for (idx, MomentBlockSimple) in MomentBlockSimplePool.enumerate() {
+        for (idx, MomentBlockSimple) in MomentBlockSimplePool.enumerated() {
             let fitScore = MomentBlockSimpleContextFitScore(context, momentBlockSimple: MomentBlockSimple)
             if fitScore > highestScore {
                 highestScore = fitScore
@@ -68,14 +92,14 @@ class OpportunityManager: NSObject {
         return MomentBlockSimplePool[highestScoreIdx]
     }
     
-    func getBestFitMomentBlockSimple(context: Context) -> MomentBlockSimple? {
+    func getBestFitMomentBlockSimple(_ context: Context) -> MomentBlockSimple? {
         print(  "(OpportunityManager::getBestFitMomentBlockSimple)")
         var highestScore: Double = 0
         var highestScoreIdx = -1
         
         //go through all the MomentBlockSimples in the MomentBlockSimple pool and get the
         //MomentBlockSimple with the highest score
-        for (idx, MomentBlockSimple) in MomentBlockSimplePool.enumerate() {
+        for (idx, MomentBlockSimple) in MomentBlockSimplePool.enumerated() {
             let fitScore = MomentBlockSimpleContextFitScore(context, momentBlockSimple: MomentBlockSimple)
             if fitScore > highestScore {
                 highestScore = fitScore
@@ -92,11 +116,11 @@ class OpportunityManager: NSObject {
         //MomentBlockSimple with the highest score
         //NOTE: CURRENTLY REMOVING THIS MomentBlockSimple AFTER INSERTION
         //(PERHAPS NOT WHAT IS WANTED)
-        return MomentBlockSimplePool.removeAtIndex(highestScoreIdx)
+        return MomentBlockSimplePool.remove(at: highestScoreIdx)
     }
     
     
-    func MomentBlockSimpleContextFitScore(context: Context, momentBlockSimple: MomentBlockSimple) -> Double {
+    func MomentBlockSimpleContextFitScore(_ context: Context, momentBlockSimple: MomentBlockSimple) -> Double {
         if momentBlockSimple.requirement == nil {
             return 0
         }
@@ -107,37 +131,33 @@ class OpportunityManager: NSObject {
         
         for condition in req.conditions {
             switch condition {
-            case .MaxSpeed:
-                if let maxSpeed = req.speed
-                where context.speed > maxSpeed {
+            case .maxSpeed:
+                if let maxSpeed = req.speed, context.speed > maxSpeed {
                     return 0
                 }
                 break
-            case .MinSpeed:
-                if let minSpeed = req.speed
-                where context.speed < minSpeed {
+            case .minSpeed:
+                if let minSpeed = req.speed, context.speed < minSpeed {
                     return 0
                 }
                 break
-            case .TimeElapsed:
-                if let necessaryTimeElapsed = req.seconds
-                where context.timeElapsed < necessaryTimeElapsed {
-                    return 0
-                }
-                break
-                
-            case .TimeRemaining:
-                if let timeNeeded = req.seconds
-                where context.timeRemaining < timeNeeded {
+            case .timeElapsed:
+                if let necessaryTimeElapsed = req.seconds, context.timeElapsed < necessaryTimeElapsed {
                     return 0
                 }
                 break
                 
-            case .InRegion:
+            case .timeRemaining:
+                if let timeNeeded = req.seconds, context.timeRemaining < timeNeeded {
+                    return 0
+                }
+                break
+                
+            case .inRegion:
                 //print("\ncalculating inRegion... (context.location:\(context.location))")
                 print("\ncalculating inRegion...")
                 if let loc_cur = context.location,
-                region_bound = req.region
+                let region_bound = req.region
                 {
                     let p1 = MKMapPointForCoordinate((region_bound.center))
                     let p2 = MKMapPointForCoordinate(loc_cur)

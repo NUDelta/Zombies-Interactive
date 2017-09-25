@@ -16,7 +16,7 @@ import CoreLocation
 //the object I define == one of the objects returned from query
 
 enum Condition {
-    case MinSpeed, MaxSpeed, TimeElapsed, TimeRemaining, InRegion, ExistsObject
+    case minSpeed, maxSpeed, timeElapsed, timeRemaining, inRegion, existsObject
     // time elapsed and remaining refer to experience time, not real time (which would include pauses, etc.)
 }
 
@@ -24,13 +24,13 @@ class Requirement : NSObject {
     var canInsertImmediately: Bool? = false
     var conditions: [Condition]
     var speed: CLLocationSpeed?
-    var seconds: NSTimeInterval?
+    var seconds: TimeInterval?
     var region: CLCircularRegion?
     var withinRadius: Double?
     var objectLabel: String?
     var variationNumber: NSNumber?
     
-    init(conditions:[Condition], speed:CLLocationSpeed?=nil, seconds:NSTimeInterval?=nil, region:CLCircularRegion?=nil, canInsertImmediately:Bool?=false, withinRadius:Double?=0, objectLabel:String?="", variationNumber:NSNumber?=nil) {
+    init(conditions:[Condition], speed:CLLocationSpeed?=nil, seconds:TimeInterval?=nil, region:CLCircularRegion?=nil, canInsertImmediately:Bool?=false, withinRadius:Double?=0, objectLabel:String?="", variationNumber:NSNumber?=nil) {
         self.conditions = conditions
         self.speed = speed
         self.seconds = seconds

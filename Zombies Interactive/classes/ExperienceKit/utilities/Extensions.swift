@@ -26,10 +26,10 @@ extension Array {
     }
 }
 
-extension CollectionType where Generator.Element == Sensor {
+extension Collection where Iterator.Element == Sensor {
     var rawValues: [String] {
         return self.map {
-            (let sensor) -> String in
+            (sensor) -> String in
             return sensor.rawValue
         }
     }

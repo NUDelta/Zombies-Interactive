@@ -12,16 +12,16 @@ import Foundation
 //reason: so that location data, etc. has a chance to update
 class ContinuousMoment: SilentMoment {
     var conditionFunc: ()->Bool
-    var _timer: NSTimer?
+    var _timer: Timer?
     
-    init(title:String?=nil, conditionFunc:()->Bool){
+    init(title:String?=nil, conditionFunc:@escaping ()->Bool){
         self.conditionFunc = conditionFunc
         super.init(title: title ?? "continuous-moment")
     }
     
     override func play(){
         //start a timer that checks the conditinoFunc every second
-        _timer = NSTimer.scheduledTimerWithTimeInterval(1.0, target: self, selector: #selector(ContinuousMoment.checkCondition), userInfo: nil, repeats: true)
+        _timer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(ContinuousMoment.checkCondition), userInfo: nil, repeats: true)
         super.play()
     }
     

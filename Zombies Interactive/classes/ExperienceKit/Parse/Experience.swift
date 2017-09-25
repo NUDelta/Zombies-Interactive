@@ -12,11 +12,15 @@ import Parse
 // Experience: a log of a user's in-app experience
 class Experience : PFObject, PFSubclassing {
     
+    private static var __once: () = {
+            Experience.registerSubclass()
+        }()
+    
     @NSManaged var user: PFUser?
     @NSManaged var title: String?
     @NSManaged var point: PFGeoPoint?
-    @NSManaged var dateStarted: NSDate?
-    @NSManaged var dateCompleted: NSDate?
+    @NSManaged var dateStarted: Date?
+    @NSManaged var dateCompleted: Date?
     
     var completed: Bool {
         get { return self["completed"] as! Bool }
@@ -25,11 +29,9 @@ class Experience : PFObject, PFSubclassing {
     
     override class func initialize() {
         struct Static {
-            static var onceToken : dispatch_once_t = 0;
+            static var onceToken : Int = 0;
         }
-        dispatch_once(&Static.onceToken) {
-            self.registerSubclass()
-        }
+        _ = Experience.__once
     }
     
     static func parseClassName() -> String {

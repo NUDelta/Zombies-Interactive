@@ -12,7 +12,7 @@ class SynthVoiceMoment : Moment {
     var speechSynthesizer: AVSpeechSynthesizer
     var speechUtterance: AVSpeechUtterance
     var voice: AVSpeechSynthesisVoice
-    var _timer: NSTimer?
+    var _timer: Timer?
     
     init(title:String?=nil, content:String){
         
@@ -35,13 +35,13 @@ class SynthVoiceMoment : Moment {
     
     override func play(){
         //speechSynthesizer.continueSpeaking()
-        speechSynthesizer.speakUtterance(speechUtterance)
-        _timer = NSTimer.scheduledTimerWithTimeInterval(1.0, target: self, selector: #selector(SynthVoiceMoment.checkVoiceFinished), userInfo: nil, repeats: true)
+        speechSynthesizer.speak(speechUtterance)
+        _timer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(SynthVoiceMoment.checkVoiceFinished), userInfo: nil, repeats: true)
         super.play()
     }
     
     func checkVoiceFinished() {
-        if ( !speechSynthesizer.speaking ) {
+        if ( !speechSynthesizer.isSpeaking ) {
             _timer?.invalidate()
             super.finished()
         }
@@ -49,7 +49,7 @@ class SynthVoiceMoment : Moment {
     
     override func pause(){
         _timer?.invalidate()
-        speechSynthesizer.pauseSpeakingAtBoundary(AVSpeechBoundary.Immediate)
+        speechSynthesizer.pauseSpeaking(at: AVSpeechBoundary.immediate)
         super.pause()
     }
     

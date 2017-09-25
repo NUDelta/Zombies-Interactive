@@ -12,7 +12,7 @@ import Foundation
 class FunctionMoment: SilentMoment {
     var _execFunc: ()->Void
     
-    init(title:String?=nil, execFunc:()->Void){
+    init(title:String?=nil, execFunc:@escaping ()->Void){
         self._execFunc = execFunc
         super.init(title: title ?? "execFunc moment")
     }

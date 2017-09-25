@@ -11,6 +11,10 @@ import Parse
 
 class WorldObject : PFObject, PFSubclassing {
     
+    private static var __once: () = {
+            WorldObject.registerSubclass()
+        }()
+    
     @NSManaged var interaction: String?
     @NSManaged var experience: Experience?
     @NSManaged var location: PFGeoPoint?
@@ -29,11 +33,9 @@ class WorldObject : PFObject, PFSubclassing {
     
     override class func initialize() {
         struct Static {
-            static var onceToken : dispatch_once_t = 0;
+            static var onceToken : Int = 0;
         }
-        dispatch_once(&Static.onceToken) {
-            self.registerSubclass()
-        }
+        _ = WorldObject.__once
     }
     
     static func parseClassName() -> String {

@@ -10,8 +10,8 @@ import Foundation
 import CoreLocation
 
 struct Context {
-    var timeElapsed: NSTimeInterval? // experience time, not real time
-    var timeRemaining: NSTimeInterval?
+    var timeElapsed: TimeInterval? // experience time, not real time
+    var timeRemaining: TimeInterval?
     var speed: CLLocationSpeed?
     var location: CLLocationCoordinate2D?
     var heading: CLLocationDirection?

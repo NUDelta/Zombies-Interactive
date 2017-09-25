@@ -18,7 +18,7 @@ class ConditionalMoment: Moment{
     static var experienceManager: ExperienceManager?
     
     init(title:String?=nil, momentBlock_true:MomentBlockSimple, momentBlock_false:MomentBlockSimple,
-         conditionFunc:()->Bool){
+         conditionFunc:@escaping ()->Bool){
         self.momentBlock_true = momentBlock_true
         self.momentBlock_false = momentBlock_false
         self.conditionFunc = conditionFunc

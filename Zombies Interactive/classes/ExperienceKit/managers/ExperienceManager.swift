@@ -16,16 +16,16 @@ import MapKit
 
 /// Protocol for suscribing to ExperienceManager events
 @objc protocol ExperienceManagerDelegate {
-    optional func didBeginMoment()
-    optional func didFinishMoment()
-    optional func didBeginInterim()
-    optional func didFinishInterim()
-    optional func didBeginSound()
-    optional func didFinishSound()
-    optional func didBeginMomentBlock()
-    optional func didFinishMomentBlock()
-    optional func didFinishExperience()
-    optional func didAddDestination(destLocation: CLLocationCoordinate2D, destinationName: String)
+    @objc optional func didBeginMoment()
+    @objc optional func didFinishMoment()
+    @objc optional func didBeginInterim()
+    @objc optional func didFinishInterim()
+    @objc optional func didBeginSound()
+    @objc optional func didFinishSound()
+    @objc optional func didBeginMomentBlock()
+    @objc optional func didFinishMomentBlock()
+    @objc optional func didFinishExperience()
+    @objc optional func didAddDestination(_ destLocation: CLLocationCoordinate2D, destinationName: String)
 }
 
 /// Contains all logic for playing the experience, saving data, etc. Implement ExperienceManagerDelegate protocol for more custom logic.
@@ -44,7 +44,7 @@ class ExperienceManager: NSObject, OpportunityManagerDelegate {
     var experience: Experience?
     var delegate: ExperienceManagerDelegate?
     
-    var opportunityTimer = NSTimer()
+    var opportunityTimer = Timer()
     
     
     var currentMomentBlock: MomentBlock? {
@@ -107,14 +107,13 @@ class ExperienceManager: NSObject, OpportunityManagerDelegate {
     
     }
     
-    func handleInterimStart(information: Any?) {
+    func handleInterimStart(_ information: Any?) {
         print(" (ExperienceManager::handleInterimStart)")
         delegate?.didBeginInterim?()
         
         if let MomentBlock = currentMomentBlock,
-            moment = MomentBlock.currentMoment,
-            _ = opportunityManager
-            where moment.canEvaluateOpportunity
+            let moment = MomentBlock.currentMoment,
+            let _ = opportunityManager, moment.canEvaluateOpportunity
         {
             //resetOpportunityTimer(information)
             print("\n (ExperienceManager::handleSoundStart) + canEvaluateOpportunity (title:\(moment.title))")
@@ -122,13 +121,12 @@ class ExperienceManager: NSObject, OpportunityManagerDelegate {
         }
     }
     
-    func handleSoundStart(information: Any?) {
+    func handleSoundStart(_ information: Any?) {
         delegate?.didBeginSound?()
         
         if let MomentBlock = currentMomentBlock,
-        moment = MomentBlock.currentMoment,
-        _ = opportunityManager
-        where moment.canEvaluateOpportunity
+        let moment = MomentBlock.currentMoment,
+        let _ = opportunityManager, moment.canEvaluateOpportunity
         {
             //resetOpportunityTimer(information)
             //print("\n (ExperienceManager::handleSoundStart) + canEvaluateOpportunity (title:\(moment.title))")
@@ -136,18 +134,18 @@ class ExperienceManager: NSObject, OpportunityManagerDelegate {
         }
     }
     
-    func updateMomentBlockSimplePool(information: Any?) {
+    func updateMomentBlockSimplePool(_ information: Any?) {
 
         if let infoDict = information as? [String : String],
-            MomentBlockSimpleTitle = infoDict["MomentBlockSimpleTitle"] {
+            let MomentBlockSimpleTitle = infoDict["MomentBlockSimpleTitle"] {
             print("  removing \(MomentBlockSimpleTitle) from pool")
                 
             // remove this MomentBlockSimple from potentially being included in  future MomentBlocks
             for momentBlock in momentBlocks {
-                if let idx = momentBlock.MomentBlockSimplePool?.indexOf({ (MomentBlockSimple) -> Bool in
+                if let idx = momentBlock.MomentBlockSimplePool?.index(where: { (MomentBlockSimple) -> Bool in
                     return MomentBlockSimple.title == MomentBlockSimpleTitle
                 }) {
-                    momentBlock.MomentBlockSimplePool?.removeAtIndex(idx)
+                    momentBlock.MomentBlockSimplePool?.remove(at: idx)
                 }
             }
         
@@ -158,8 +156,8 @@ class ExperienceManager: NSObject, OpportunityManagerDelegate {
     func start() {
         print("\n[ExperienceManager::start] Experience started")
         isPlaying = true
-        self.experience?.user = PFUser.currentUser()
-        self.experience?.dateStarted = NSDate()
+        self.experience?.user = PFUser.current()
+        self.experience?.dateStarted = Date()
         self.experience?.completed = false
         self.experience?.saveInBackground()
         experienceStarted = true
@@ -205,7 +203,7 @@ class ExperienceManager: NSObject, OpportunityManagerDelegate {
         print("\nFinished experience")
         dataManager?.stopUpdatingLocation()
         
-        self.experience?.dateCompleted = NSDate()
+        self.experience?.dateCompleted = Date()
         self.experience?.completed = true
         self.experience?.saveInBackground()
   
@@ -213,28 +211,28 @@ class ExperienceManager: NSObject, OpportunityManagerDelegate {
     }
     
     
-    func resetOpportunityTimer(information: Any?) {
+    func resetOpportunityTimer(_ information: Any?) {
         // FIXME this won't work as [String:AnyObject], even though it worked for datamanager?
         
         print(" (ExperienceManager::resetOpportunityTimer)")
         if let infoDict = information as? [String : String],
-        durationString = infoDict["duration"],
-        duration = Float(durationString) {
+        let durationString = infoDict["duration"],
+        let duration = Float(durationString) {
                 
-            if opportunityTimer.valid {
+            if opportunityTimer.isValid {
                 opportunityTimer.invalidate()
             }
                 
             let midDurationTime = duration/2 // TODO randomize this a bit?
-            opportunityTimer = NSTimer.scheduledTimerWithTimeInterval(NSTimeInterval(midDurationTime), target: self, selector: #selector(OpportunityManagerDelegate.attemptInsertMomentBlockSimple), userInfo: nil, repeats: false)
+            opportunityTimer = Timer.scheduledTimer(timeInterval: TimeInterval(midDurationTime), target: self, selector: #selector(OpportunityManagerDelegate.attemptInsertMomentBlockSimple), userInfo: nil, repeats: false)
             print("  Opportunity check in \(round(midDurationTime)) seconds")
         }
     }
     
-    func insertMomentBlockSimple( momentBlockSimple: MomentBlockSimple )
+    func insertMomentBlockSimple( _ momentBlockSimple: MomentBlockSimple )
     {
         if let  curMomentBlock = currentMomentBlock,
-            curMoment = curMomentBlock.currentMoment {
+            let curMoment = curMomentBlock.currentMoment {
             curMomentBlock.insertMomentsAtIndex(momentBlockSimple.moments,
                                                 idx: curMomentBlock.currentMomentIdx + 1)
         }
@@ -243,13 +241,9 @@ class ExperienceManager: NSObject, OpportunityManagerDelegate {
     func attemptInsertMomentBlockSimple() {
         print("  (ExperienceManager) Checking opportunity...")
         if let om = opportunityManager,
-        momentBlock = currentMomentBlock,
-        moment = momentBlock.currentMoment,
-        momentBlockSimple = om.getBestFitMomentBlockSimple(currentContext)
-            
-        //isPlaying: when experience is not paused + has started
-        //moment.isInterruptable:
-        where isPlaying {
+        let momentBlock = currentMomentBlock,
+        let moment = momentBlock.currentMoment,
+        let momentBlockSimple = om.getBestFitMomentBlockSimple(currentContext), isPlaying {
             print("  \n(ExperienceManager::attemptInsertMomentBlockSimple) Inserting MomentBlockSimple '\(momentBlockSimple.title)'.")
             
             // add pin on map if it's location based

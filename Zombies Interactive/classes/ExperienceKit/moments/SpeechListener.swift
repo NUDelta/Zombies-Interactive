@@ -40,7 +40,7 @@ class SpeechListener: TriggerListener {
         super.finished()
     }
     
-    func didHearWord(information:Any?){
+    func didHearWord(_ information:Any?){
         print("  heard one of the specified words")
         didReceiveTrigger()
     }
