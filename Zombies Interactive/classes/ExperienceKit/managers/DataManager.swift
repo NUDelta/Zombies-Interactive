@@ -10,6 +10,7 @@ import Foundation
 import CoreLocation
 import CoreMotion
 import Parse
+import AVFoundation
 
 /// Sensor types that can be used to specify what kind of data to collect.
 /// Each type maps to a class in Parse, see sensorMoment for more detail.
@@ -29,6 +30,7 @@ class DataManager : NSObject, CLLocationManagerDelegate {
     
     var delegate: DataManagerDelegate?
     var experience: Experience?
+    var _experienceManager: ExperienceManager
     var locationManager = CLLocationManager()
     var motionActivityManager = CMMotionActivityManager()
     var sensorMoment: SensorMoment?
@@ -36,35 +38,32 @@ class DataManager : NSObject, CLLocationManagerDelegate {
     var currentHeading: CLLocationDirection?
     var currentMotionActivity:CMMotionActivity?
     var currentMotionActivityState: String?
+    let synthesizer : AVSpeechSynthesizer = AVSpeechSynthesizer()
     
-    init(experience: Experience) {
+    // New snippets
+    let demoId = "1"
+    // var locationManager: CLLocationManager! = CLLocationManager()
+    // let serverAddress = "https://8011ac33.ngrok.io"
+    var momentString = ""
+    var momentPlayed = false
+    var lastLocationPostedAt : Double = Date().timeIntervalSinceReferenceDate
+    @IBOutlet weak var momentTextLabel: UILabel!
+
+    init(experienceManager: ExperienceManager, experience: Experience) {
+        self._experienceManager = experienceManager
+        
         super.init()
         
         self.experience = experience
-    
+        
         self.locationManager.delegate = self
         self.locationManager.distanceFilter = 0.1 // distance runner must move in meters to call update eventconfi
         self.locationManager.desiredAccuracy = kCLLocationAccuracyBestForNavigation
         self.locationManager.requestAlwaysAuthorization()
-        //self.locationManager.requestWhenInUseAuthorization()
+        self.locationManager.requestWhenInUseAuthorization()
         self.locationManager.startUpdatingHeading()
+        
     }
-    
-    // TODO: why is this function running for no reason sometimes..?
-//    func recordWorldObject(information: Any?) {
-//        print(information)
-//        print("  datamanager->recording world object")
-//        let worldObject = WorldObject()
-//        if let infoDict = information as? [String : String] {
-//            worldObject.trigger = infoDict["trigger"]
-//            worldObject.label = infoDict["label"]
-//            worldObject.MomentBlockSimple = infoDict["MomentBlockSimple"]
-//        }
-//        worldObject.experience = experience
-//        worldObject.location = PFGeoPoint(location: locationManager.location)
-//        worldObject.verified = true
-//        worldObject.saveInBackground()
-//    }
     
     func updateWorldObject(_ object:PFObject, information:Any?, validated:Bool?)
     {
@@ -107,7 +106,6 @@ class DataManager : NSObject, CLLocationManagerDelegate {
             }
         }
     }
-    
     
     func startCollecting(_ information:Any?){
         self.sensorMoment = SensorMoment()
@@ -176,12 +174,64 @@ class DataManager : NSObject, CLLocationManagerDelegate {
         self.locationManager.stopUpdatingLocation()
     }
     
+    func getMoments(){
+        CommManager.instance.getRequest(route: "moments", parameters: [:]) {
+            json in
+            print(json)
+            // if there is no nearby search region with the item not found yet, server returns {"result":0}
+            //            if json.index(forKey: "found") != nil {
+            //                let loc = json["loc"] as! [String:Any]
+            //                let coord = loc["coordinates"] as! [Double]
+            //                let id = json["_id"] as! [String:Any]
+            //                //                    if regionId == id["$oid"] as! String {
+            //                self.searchRegion = LostItemRegion(requesterName: json["user"] as! String, item: json["item"] as! String, itemDetail: json["detail"] as! String, lat: coord[1], lon: coord[0], id: id["$oid"] as! String)
+            //                self.center.post(name: NSNotification.Name(rawValue: "updatedDetail"), object: nil, userInfo:nil)
+            //                    }
+        }
+    }
+    
+    // SEND A LOCATION, RECIEVE THE "BEST" MOMENT FROM OPPORTUNITY MANANGER ON BACKEND
+    // this return type is sketchy
+    func postLocation(_ location:[String:Double]) -> [String:Any] {
+        let params = location
+        var ret = [String:Any]()
+        CommManager.instance.urlRequest(route: "location", parameters: params, completion: {
+            json in
+            ret = json
+        })
+        return ret
+    }
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         print("..datamanager::updating location..")
         //this is where DataManager.currentLocation gets updated
-        //required for OpportunityManager
         currentLocation = locations[0]
+        
+        // Snippets from new Location manager:
+        let userLocation:CLLocation = locations[0];
+        let long = userLocation.coordinate.longitude;
+        let lat = userLocation.coordinate.latitude;
+        var momentJson = [String:Any]();
+        var json = [String:Double]();
+        json["longitude"] = long
+        json["latitude"] = lat
+        
+        print("long: \(long), lat: \(lat)")
+        
+        // JUST CHECKED W POSTMAN... should be working
+        momentJson = postLocation(json)
+        
+        let utterance : AVSpeechUtterance = AVSpeechUtterance(string: self.momentString)
+        utterance.voice = AVSpeechSynthesisVoice(language: "en-US")
+        
+        let momentInstruct = Sound(fileNames: ["radio_static"])
+        let momentCollector = SensorCollector(lengthInSeconds: 30, dataLabel: "fire_hydrant", sensors: [.Location, .Speed])
+        let newMoment = MomentBlockSimple(moments: [momentInstruct, momentCollector, Sound(fileNames: ["radio_static", "you've_thrown_off","radio_static"])], title: "Sprint to hydrant")
+        
+        
+        
+        // Can I do this? There seems to be another step in the other examples
+        self._experienceManager.insertMomentBlockSimple(newMoment)
         
         //Check Parse if locations are pushing
         let locationUpdate = LocationUpdate() //intialise Parse object

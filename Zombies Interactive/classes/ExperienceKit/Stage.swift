@@ -40,7 +40,6 @@ class MomentBlock: NSObject{
         get { return moments[safe: currentMomentIdx] }
     }
     
-    
     init(moments: [Moment], title: String, MomentBlockSimpleInsertionIndices:[Int]?=nil, MomentBlockSimplePool:[MomentBlockSimple]?=nil) {
         
         if MomentBlockSimplePool?.count < MomentBlockSimpleInsertionIndices?.count {

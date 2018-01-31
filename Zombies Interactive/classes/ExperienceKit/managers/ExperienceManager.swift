@@ -46,7 +46,6 @@ class ExperienceManager: NSObject, OpportunityManagerDelegate {
     
     var opportunityTimer = Timer()
     
-    
     var currentMomentBlock: MomentBlock? {
         get { return momentBlocks[safe: currentMomentBlockIdx] }
     }
@@ -79,32 +78,32 @@ class ExperienceManager: NSObject, OpportunityManagerDelegate {
     }
     
     init(title: String, momentBlocks: [MomentBlock], MomentBlockSimplePool: [MomentBlockSimple]?=nil) {
-        self.momentBlocks = momentBlocks
-        self.experience = Experience()
-        self.experience?.title = title
-        self.dataManager = DataManager(experience: self.experience!)
-        if let _ = MomentBlockSimplePool {
-            opportunityManager = OpportunityManager(MomentBlockSimplePool: MomentBlockSimplePool!)
-        }
-        
-        
-        super.init()
-        
-        for momentBlock in momentBlocks{
-            momentBlock.eventManager.listenTo("MomentBlockFinished", action: nextMomentBlock)
-            momentBlock.eventManager.listenTo("startingInterim", action: handleInterimStart)
-            momentBlock.eventManager.listenTo("startingSound", action: handleSoundStart)
-            momentBlock.eventManager.listenTo("choseRandomMomentBlockSimple", action: updateMomentBlockSimplePool)
-            
-            if let dataManager = dataManager {
-                momentBlock.eventManager.listenTo("sensorCollectorStarted", action: dataManager.startCollecting)
-                momentBlock.eventManager.listenTo("sensorCollectorEnded", action: dataManager.stopCollecting)
-                
-//                MomentBlock.eventManager.listenTo("foundWorldObject", action: dataManager.recordWorldObject)
+            super.init()
+            self.momentBlocks = momentBlocks
+            self.experience = Experience()
+            self.experience?.title = title
+            if let _ = MomentBlockSimplePool {
+                opportunityManager = OpportunityManager(MomentBlockSimplePool: MomentBlockSimplePool!)
             }
-        }
+        
+            // init was here
+        
+            self.dataManager = DataManager(experienceManager: self, experience: self.experience!)
 
-    
+        
+            for momentBlock in momentBlocks{
+                momentBlock.eventManager.listenTo("MomentBlockFinished", action: nextMomentBlock)
+                momentBlock.eventManager.listenTo("startingInterim", action: handleInterimStart)
+                momentBlock.eventManager.listenTo("startingSound", action: handleSoundStart)
+                momentBlock.eventManager.listenTo("choseRandomMomentBlockSimple", action: updateMomentBlockSimplePool)
+                
+                if let dataManager = dataManager {
+                    momentBlock.eventManager.listenTo("sensorCollectorStarted", action: dataManager.startCollecting)
+                    momentBlock.eventManager.listenTo("sensorCollectorEnded", action: dataManager.stopCollecting)
+                    
+    //                MomentBlock.eventManager.listenTo("foundWorldObject", action: dataManager.recordWorldObject)
+                }
+            }
     }
     
     func handleInterimStart(_ information: Any?) {
