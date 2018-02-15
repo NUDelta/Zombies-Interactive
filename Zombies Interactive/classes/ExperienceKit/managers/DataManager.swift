@@ -39,6 +39,7 @@ class DataManager : NSObject, CLLocationManagerDelegate {
     var currentMotionActivity:CMMotionActivity?
     var currentMotionActivityState: String?
     let synthesizer : AVSpeechSynthesizer = AVSpeechSynthesizer()
+    var playedMoments = Set<String>()
     
     // New snippets
     let demoId = "1"
@@ -79,7 +80,7 @@ class DataManager : NSObject, CLLocationManagerDelegate {
     }
     
     func pushWorldObject(_ information: Any?) {
-        print("(DM::pushWorldObject): \(information)")
+       // print("(DM::pushWorldObject): \(information)")
         let worldObject = WorldObject()
         if let infoDict = information as? [String : String] {
             //worldObject.trigger = infoDict["trigger"]
@@ -100,7 +101,7 @@ class DataManager : NSObject, CLLocationManagerDelegate {
         worldObject.saveInBackground  {
             (success, error) in
             if success == true {
-                print("Score created with ID: \(worldObject.objectId)")
+          //      print("Score created with ID: \(worldObject.objectId)")
             } else {
                 print(error)
             }
@@ -190,16 +191,31 @@ class DataManager : NSObject, CLLocationManagerDelegate {
         }
     }
     
+    func buildMoment(_ moment:[String:Any]){
+        self.momentString = moment["prompt"] as! String
+        if self.momentString != "" && !self.playedMoments.contains(moment["id"] as! String){
+            let block_body = MomentBlockSimple(moments: [Sound(fileNames: ["radio_static"]),
+                                                         SynthVoiceMoment(content: self.momentString),
+                                                         Sound(fileNames: ["radio_static", "vignette_transition"])], title: "block:body")
+            // Insert moment into experience manager
+            self._experienceManager.insertMomentBlockSimple(block_body)
+            // Save id of moment
+            self.playedMoments.insert(moment["id"] as! String)
+        }
+    }
+    
     // SEND A LOCATION, RECIEVE THE "BEST" MOMENT FROM OPPORTUNITY MANANGER ON BACKEND
-    // this return type is sketchy
-    func postLocation(_ location:[String:Double]) -> [String:Any] {
+    func postLocation(_ location:[String:Double]) {
         let params = location
         var ret = [String:Any]()
         CommManager.instance.urlRequest(route: "location", parameters: params, completion: {
             json in
             ret = json
+            
+            // Receive json and create moment
+            print(ret)
+            self.buildMoment(ret)
         })
-        return ret
     }
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
@@ -211,27 +227,14 @@ class DataManager : NSObject, CLLocationManagerDelegate {
         let userLocation:CLLocation = locations[0];
         let long = userLocation.coordinate.longitude;
         let lat = userLocation.coordinate.latitude;
-        var momentJson = [String:Any]();
         var json = [String:Double]();
         json["longitude"] = long
         json["latitude"] = lat
         
         print("long: \(long), lat: \(lat)")
         
-        // JUST CHECKED W POSTMAN... should be working
-        momentJson = postLocation(json)
-        
-        let utterance : AVSpeechUtterance = AVSpeechUtterance(string: self.momentString)
-        utterance.voice = AVSpeechSynthesisVoice(language: "en-US")
-        
-        let momentInstruct = Sound(fileNames: ["radio_static"])
-        let momentCollector = SensorCollector(lengthInSeconds: 30, dataLabel: "fire_hydrant", sensors: [.Location, .Speed])
-        let newMoment = MomentBlockSimple(moments: [momentInstruct, momentCollector, Sound(fileNames: ["radio_static", "you've_thrown_off","radio_static"])], title: "Sprint to hydrant")
-        
-        
-        
-        // Can I do this? There seems to be another step in the other examples
-        self._experienceManager.insertMomentBlockSimple(newMoment)
+        // Post latitude and longitude, recieve moment, insert moment!
+        postLocation(json)
         
         //Check Parse if locations are pushing
         let locationUpdate = LocationUpdate() //intialise Parse object

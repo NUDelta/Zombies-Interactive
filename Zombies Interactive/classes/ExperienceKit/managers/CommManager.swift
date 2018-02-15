@@ -26,7 +26,7 @@ class CommManager: NSObject {
         let config = URLSessionConfiguration.default
         let session: URLSession = URLSession(configuration: config)
         let params = parameters.stringFromHttpParameters()
-        let urlString = URL(string: "\(Config.URL)/\(route)?\(params)")!
+        let urlString = URL(string: "\(Config.URL)/\(route)")!
         print(urlString)
         let task = session.dataTask(with: urlString, completionHandler: {
             (data, response, error) in
