@@ -39,7 +39,7 @@ class DataManager : NSObject, CLLocationManagerDelegate {
     var currentMotionActivity:CMMotionActivity?
     var currentMotionActivityState: String?
     let synthesizer : AVSpeechSynthesizer = AVSpeechSynthesizer()
-    var playedMoments = Set<String>()
+    //var playedMoments = Set<String>()
     
     // New snippets
     let demoId = "1"
@@ -190,17 +190,20 @@ class DataManager : NSObject, CLLocationManagerDelegate {
             //                    }
         }
     }
-    
+    // fatal error!
     func buildMoment(_ moment:[String:Any]){
-        self.momentString = moment["prompt"] as! String
-        if self.momentString != "" && !self.playedMoments.contains(moment["id"] as! String){
-            let block_body = MomentBlockSimple(moments: [Sound(fileNames: ["radio_static"]),
-                                                         SynthVoiceMoment(content: self.momentString),
-                                                         Sound(fileNames: ["radio_static", "vignette_transition"])], title: "block:body")
-            // Insert moment into experience manager
-            self._experienceManager.insertMomentBlockSimple(block_body)
-            // Save id of moment
-            self.playedMoments.insert(moment["id"] as! String)
+        print(moment)
+        if moment["prompt"] != nil{
+            self.momentString = moment["prompt"] as! String
+            if (self.momentString != ""){
+                let block_body = MomentBlockSimple(moments: [Sound(fileNames: ["radio_static"]),
+                                                             SynthVoiceMoment(content: self.momentString),
+                                                             Sound(fileNames: ["radio_static", "vignette_transition"])], title: "block:body")
+                // Insert moment into experience manager
+                self._experienceManager.insertMomentBlockSimple(block_body)
+                // Save id of moment
+                //self.playedMoments.insert(moment["id"] as! String)
+            }
         }
     }
     
