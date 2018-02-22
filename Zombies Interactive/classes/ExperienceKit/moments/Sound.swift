@@ -18,7 +18,7 @@ class Sound: Moment, AVAudioPlayerDelegate{
     var player:AVAudioPlayer?
     var numFilesPlayed:Int = 0
     
-    init(fileNames: [String], isInterruptable:Bool=false, title:String?=nil, canEvaluateOpportunity:Bool=false){
+    init(fileNames: [String], isInterruptable:Bool=true, title:String?=nil, canEvaluateOpportunity:Bool=false){
         self.fileNames = fileNames
         //[ Sound title is basically set to all the file names ] 
         super.init(title: title ?? fileNames.joined(separator: ">"), isInterruptable: isInterruptable, canEvaluateOpportunity: canEvaluateOpportunity)

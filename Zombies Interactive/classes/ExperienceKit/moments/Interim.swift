@@ -21,7 +21,7 @@ class Interim: Moment{
     var timeRemaining: TimeInterval
     var player:AVAudioPlayer?
     
-    init(title:String?=nil, isInterruptable:Bool=false, lengthInSeconds:Float, canEvaluateOpportunity:Bool=false){
+    init(title:String?=nil, isInterruptable:Bool=true, lengthInSeconds:Float, canEvaluateOpportunity:Bool=false){
         self.lengthInSeconds = lengthInSeconds
         self.timeRemaining = TimeInterval(lengthInSeconds)
         super.init(title: title ?? "Interim (\(lengthInSeconds) seconds)", isInterruptable: isInterruptable, canEvaluateOpportunity: canEvaluateOpportunity)

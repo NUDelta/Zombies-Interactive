@@ -58,7 +58,7 @@ class DataManager : NSObject, CLLocationManagerDelegate {
         self.experience = experience
         
         self.locationManager.delegate = self
-        self.locationManager.distanceFilter = 0.1 // distance runner must move in meters to call update eventconfi
+        self.locationManager.distanceFilter = 10 // distance runner must move in meters to call update eventconfi
         self.locationManager.desiredAccuracy = kCLLocationAccuracyBestForNavigation
         self.locationManager.requestAlwaysAuthorization()
         self.locationManager.requestWhenInUseAuthorization()
@@ -192,14 +192,12 @@ class DataManager : NSObject, CLLocationManagerDelegate {
         }
     }
     func buildMoment(_ moment:[String:Any]){
-        print("build moment:")
-        print(moment)
         if moment["prompt"] != nil{
             self.momentString = moment["prompt"] as! String
             if (self.momentString != "" && !self.playedMoments.contains(self.momentString)){
-                let block_body = MomentBlockSimple(moments: [Sound(fileNames: ["radio_static"]),
-                                                             SynthVoiceMoment(content: self.momentString),
-                                                             Sound(fileNames: ["radio_static", "vignette_transition"])], title: "block:body", canInsertImmediately: true)
+                
+                let expandMoment:SynthVoiceMoment = SynthVoiceMoment(title: "newMoment", isInterruptable: true, content: self.momentString)
+                let block_body = MomentBlockSimple(moments: [expandMoment], title:"expand moment block", canInsertImmediately: true)
                 // Insert moment into experience manager
                 self._experienceManager.insertMomentBlockSimple(block_body)
                 self.playedMoments.insert(self.momentString)

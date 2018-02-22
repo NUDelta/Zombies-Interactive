@@ -34,7 +34,7 @@ class Moment: NSObject {
         return self.title
     }
     
-    init(title: String, isInterruptable:Bool=false, canEvaluateOpportunity:Bool=false){
+    init(title: String, isInterruptable:Bool=true, canEvaluateOpportunity:Bool=false){
         // WARNING: DO NOT INIT A Moment(), USE ONLY SUBCLASSES - need to find solution
         // check the caller
         self.title = title

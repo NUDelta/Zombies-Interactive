@@ -8,12 +8,17 @@
     </wpt>
     <wpt lat="42.056607" lon="-87.677155">
         <ele>0</ele>
-        <time>2016-12-29T00:01:15Z</time>
+        <time>2016-12-29T00:01:02Z</time>
         <name>pt1</name>
     </wpt>
     <wpt lat="42.056271" lon="-87.677087">
         <ele>0</ele>
-        <time>2016-12-29T00:01:30Z</time>
+        <time>2016-12-29T00:01:05Z</time>
+        <name>pt2</name>
+    </wpt>
+    <wpt lat="42.053665" lon="-87.677224">
+        <ele>0</ele>
+        <time>2016-12-29T00:01:45Z</time>
         <name>pt2</name>
     </wpt>
 </gpx>

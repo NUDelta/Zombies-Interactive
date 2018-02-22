@@ -14,8 +14,7 @@ class SynthVoiceMoment : Moment {
     var voice: AVSpeechSynthesisVoice
     var _timer: Timer?
     
-    init(title:String?=nil, content:String){
-        
+    init(title:String?=nil, isInterruptable:Bool, content:String){
         speechSynthesizer = AVSpeechSynthesizer()
         speechUtterance = AVSpeechUtterance(string: content)
         
@@ -30,7 +29,7 @@ class SynthVoiceMoment : Moment {
         speechUtterance.voice = voice
         //speechSynthesizer.speakUtterance(speechUtterance)
         //speechSynthesizer.pauseSpeakingAtBoundary(AVSpeechBoundary.Immediate)
-        super.init(title: title ?? "synth-voice:\(content)")
+        super.init(title: title ?? "synth-voice:\(content)", isInterruptable: isInterruptable)
     }
     
     override func play(){

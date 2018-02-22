@@ -158,38 +158,38 @@ class MissionViewController: UIViewController, MKMapViewDelegate, ExperienceMana
         self.experienceManager.dataManager?.pushWorldObject(["label": "lamp_poster(false)", "interaction" : "scaffold_lamp_posters", "variation" : "1"])
     }
     
-    func initializeExperienceManager() -> String{
-        var moment = [String:Any]()
-        CommManager.instance.getRequest(route: "intro", parameters: [:]) {
-            json in
-            print (json)
-            moment = json
-            let block_body = MomentBlock(moments: [Sound(fileNames: ["radio_static"]),
-                                                         SynthVoiceMoment(content: moment["prompt"] as! String),
-                                                         Sound(fileNames: ["radio_static", "vignette_transition"])], title: "block:body")
-            // Insert intro into experience manager start
-//            let stages: [MomentBlock] = [block_body]
-//            self.experienceManager = ExperienceManager(title: self.missionTitle,  momentBlocks: stages)
-            //self.experienceManager.delegate = self
-            //self.experienceManager.insertMomentBlockSimple(block_body)
-        }
-        return "Success"
-    }
+//    func initializeExperienceManager() -> String{
+//        var moment = [String:Any]()
+//        CommManager.instance.getRequest(route: "intro", parameters: [:]) {
+//            json in
+//            print (json)
+//            moment = json
+//            let block_body = MomentBlock(moments: [Sound(fileNames: ["radio_static"]),
+//                                                         SynthVoiceMoment(content: moment["prompt"] as! String),
+//                                                         Sound(fileNames: ["radio_static", "vignette_transition"])], title: "block:body")
+//            // Insert intro into experience manager start
+////            let stages: [MomentBlock] = [block_body]
+////            self.experienceManager = ExperienceManager(title: self.missionTitle,  momentBlocks: stages)
+//            //self.experienceManager.delegate = self
+//            //self.experienceManager.insertMomentBlockSimple(block_body)
+//        }
+//        return "Success"
+//    }
     
-    func getEndMoment() -> String{
-        var moment = [String:Any]()
-        CommManager.instance.getRequest(route: "end", parameters: [:]) {
-            json in
-            print (json)
-            moment = json
-            let block_body = MomentBlockSimple(moments: [Sound(fileNames: ["radio_static"]),
-                                                         SynthVoiceMoment(content: moment["prompt"] as! String),
-                                                         Sound(fileNames: ["radio_static", "vignette_transition"])], title: "block:body")
-            // Insert end into experience manager where??
-            // self.experienceManager.insertMomentBlockSimple(block_body)
-        }
-        return "Success"
-    }
+//    func getEndMoment() -> String{
+//        var moment = [String:Any]()
+//        CommManager.instance.getRequest(route: "end", parameters: [:]) {
+//            json in
+//            print (json)
+//            moment = json
+//            let block_body = MomentBlockSimple(moments: [Sound(fileNames: ["radio_static"]),
+//                                                         SynthVoiceMoment(content: moment["prompt"] as! String),
+//                                                         Sound(fileNames: ["radio_static", "vignette_transition"])], title: "block:body")
+//            // Insert end into experience manager where??
+//            // self.experienceManager.insertMomentBlockSimple(block_body)
+//        }
+//        return "Success"
+//    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -207,11 +207,11 @@ class MissionViewController: UIViewController, MKMapViewDelegate, ExperienceMana
         // Initialize experience manager with intro moment grabbed from backend
         let intro_text = "You can hear me alright? I'm Violet and I'm your designated guide! So don't worry. I'm watching you from an outlook in the base, so I can keep watch and warn you if you're in danger - but you have to do the running and be quick. We need you to get back to base safely and gather some important information for us about the Northwestern Campus so we can send out more teams to gather resources. Got it? Good. Ok. I see you're starting out now -- keep a good pace and stay alert"
         
-        let block_body = MomentBlock(moments: [Sound(fileNames: ["radio_static"]),
-                                                     SynthVoiceMoment(content: intro_text),
-                                                     Sound(fileNames: ["radio_static"])], title: "block:body")
+        let newIntroMoment:Moment = SynthVoiceMoment(title:"intro", isInterruptable: false, content: intro_text)
+
+        let block_body = MomentBlock(moments: [Sound(fileNames:["radio_static"], isInterruptable: false),newIntroMoment], title: "block:body")
        
-        let block_body2 = MomentBlock(moments: [Sound(fileNames: ["silence"])],  title: "block:silence")
+        let block_body2 = MomentBlock(moments: [Interim(isInterruptable: true, lengthInSeconds: 3), Interim(isInterruptable: true, lengthInSeconds: 3), Interim(isInterruptable: true, lengthInSeconds: 3), Sound(fileNames: ["silence"], isInterruptable:true)],  title: "block:silence")
         
         let stages: [MomentBlock] = [block_body, block_body2]
         experienceManager = ExperienceManager(title: "Mission title", momentBlocks: stages)
