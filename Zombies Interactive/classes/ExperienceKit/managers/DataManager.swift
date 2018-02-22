@@ -39,7 +39,7 @@ class DataManager : NSObject, CLLocationManagerDelegate {
     var currentMotionActivity:CMMotionActivity?
     var currentMotionActivityState: String?
     let synthesizer : AVSpeechSynthesizer = AVSpeechSynthesizer()
-    //var playedMoments = Set<String>()
+    var playedMoments = Set<String>()
     
     // New snippets
     let demoId = "1"
@@ -178,6 +178,7 @@ class DataManager : NSObject, CLLocationManagerDelegate {
     func getMoments(){
         CommManager.instance.getRequest(route: "moments", parameters: [:]) {
             json in
+            print("received moment")
             print(json)
             // if there is no nearby search region with the item not found yet, server returns {"result":0}
             //            if json.index(forKey: "found") != nil {
@@ -190,19 +191,18 @@ class DataManager : NSObject, CLLocationManagerDelegate {
             //                    }
         }
     }
-    // fatal error!
     func buildMoment(_ moment:[String:Any]){
+        print("build moment:")
         print(moment)
         if moment["prompt"] != nil{
             self.momentString = moment["prompt"] as! String
-            if (self.momentString != ""){
+            if (self.momentString != "" && !self.playedMoments.contains(self.momentString)){
                 let block_body = MomentBlockSimple(moments: [Sound(fileNames: ["radio_static"]),
                                                              SynthVoiceMoment(content: self.momentString),
-                                                             Sound(fileNames: ["radio_static", "vignette_transition"])], title: "block:body")
+                                                             Sound(fileNames: ["radio_static", "vignette_transition"])], title: "block:body", canInsertImmediately: true)
                 // Insert moment into experience manager
                 self._experienceManager.insertMomentBlockSimple(block_body)
-                // Save id of moment
-                //self.playedMoments.insert(moment["id"] as! String)
+                self.playedMoments.insert(self.momentString)
             }
         }
     }
@@ -216,13 +216,14 @@ class DataManager : NSObject, CLLocationManagerDelegate {
             ret = json
             
             // Receive json and create moment
+            print("Getting right moment:")
             print(ret)
             self.buildMoment(ret)
         })
     }
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        print("..datamanager::updating location..")
+        //print("..datamanager::updating location..")
         //this is where DataManager.currentLocation gets updated
         currentLocation = locations[0]
         
@@ -253,7 +254,6 @@ class DataManager : NSObject, CLLocationManagerDelegate {
     }
     
     func locationManager(_ manager: CLLocationManager, didUpdateHeading newHeading: CLHeading) {
-        //print("..datamanager::updating heading..")
         var h = newHeading.magneticHeading
         let h2 = newHeading.trueHeading // will be -1 if we have no location info
         if h2 >= 0 {
@@ -280,7 +280,7 @@ class DataManager : NSObject, CLLocationManagerDelegate {
     
     //called by: Stage::nextMoment() -> DataManager::startCollecting()
     func saveMotionActivityUpdate(_ data:CMMotionActivity) {
-        print("..datamanager::updating motion activity..")
+        //print("..datamanager::updating motion activity..")
         currentMotionActivity = data
         var activityState = "other"
         if(data.stationary == true) {

@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<gpx version="1.1" creator="GPS Visualizer http://www.gpsvisualizer.com/" xmlns="http://www.topografix.com/GPX/1/1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.topografix.com/GPX/1/1 http://www.topografix.com/GPX/1/1/gpx.xsd">
+    <wpt lat="42.0496679" lon="-87.6780185">
+        <name>42.0496679,-87.6780185</name>
+        <desc>1800-1806 Chicago Ave, Evanston, IL 60208, USA</desc>
+    </wpt>
+    <wpt lat="42.0576581" lon="-87.6771816">
+        <name>42.0576581,-87.6771816</name>
+        <desc>2145-2199 Sheridan Rd, Evanston, IL 60201, USA</desc>
+    </wpt>
+    <wpt lat="42.0584531" lon="-87.6836703">
+        <name>42.0584531,-87.6836703</name>
+        <desc>914 Noyes St, Evanston, IL 60201, USA</desc>
+    </wpt>
+    <trk>
+        <name>1800-1806 Chicago Ave - 2145-2199 Sheridan Rd</name>
+        <desc>0.6 mi, 0:11</desc>
+        <trkseg>
+            <trkpt lat="42.04966" lon="-87.67799"></trkpt>
+            <trkpt lat="42.0498" lon="-87.67792"></trkpt>
+            <trkpt lat="42.04999" lon="-87.67783"></trkpt>
+            <trkpt lat="42.05" lon="-87.67782"></trkpt>
+            <trkpt lat="42.05007" lon="-87.67779"></trkpt>
+            <trkpt lat="42.05056" lon="-87.67754"></trkpt>
+            <trkpt lat="42.0509" lon="-87.67737"></trkpt>
+            <trkpt lat="42.05106" lon="-87.6773"></trkpt>
+            <trkpt lat="42.05106" lon="-87.6773"></trkpt>
+            <trkpt lat="42.05207" lon="-87.67727"></trkpt>
+            <trkpt lat="42.05246" lon="-87.67724"></trkpt>
+            <trkpt lat="42.05302" lon="-87.67723"></trkpt>
+            <trkpt lat="42.05304" lon="-87.67723"></trkpt>
+            <trkpt lat="42.05322" lon="-87.67722"></trkpt>
+            <trkpt lat="42.05375" lon="-87.67721"></trkpt>
+            <trkpt lat="42.05384" lon="-87.67721"></trkpt>
+            <trkpt lat="42.05409" lon="-87.6772"></trkpt>
+            <trkpt lat="42.05438" lon="-87.6772"></trkpt>
+            <trkpt lat="42.05451" lon="-87.67719"></trkpt>
+            <trkpt lat="42.055" lon="-87.67718"></trkpt>
+            <trkpt lat="42.05536" lon="-87.67718"></trkpt>
+            <trkpt lat="42.05564" lon="-87.67717"></trkpt>
+            <trkpt lat="42.05623" lon="-87.67716"></trkpt>
+            <trkpt lat="42.05654" lon="-87.67716"></trkpt>
+            <trkpt lat="42.05709" lon="-87.67715"></trkpt>
+            <trkpt lat="42.0573" lon="-87.67714"></trkpt>
+            <trkpt lat="42.05754" lon="-87.67714"></trkpt>
+            <trkpt lat="42.05766" lon="-87.67714"></trkpt>
+        </trkseg>
+    </trk>
+    <trk>
+        <name>2145-2199 Sheridan Rd - 914 Noyes St</name>
+        <desc>0.4 mi, 0:08</desc>
+        <trkseg>
+            <trkpt lat="42.05766" lon="-87.67714"></trkpt>
+            <trkpt lat="42.05781" lon="-87.67714"></trkpt>
+            <trkpt lat="42.05799" lon="-87.67714"></trkpt>
+            <trkpt lat="42.05836" lon="-87.67713"></trkpt>
+            <trkpt lat="42.05836" lon="-87.67713"></trkpt>
+            <trkpt lat="42.05837" lon="-87.67802"></trkpt>
+            <trkpt lat="42.05838" lon="-87.67876"></trkpt>
+            <trkpt lat="42.05839" lon="-87.67965"></trkpt>
+            <trkpt lat="42.0584" lon="-87.68038"></trkpt>
+            <trkpt lat="42.0584" lon="-87.68063"></trkpt>
+            <trkpt lat="42.05843" lon="-87.68161"></trkpt>
+            <trkpt lat="42.05843" lon="-87.68261"></trkpt>
+            <trkpt lat="42.05844" lon="-87.68288"></trkpt>
+            <trkpt lat="42.05845" lon="-87.68348"></trkpt>
+            <trkpt lat="42.05845" lon="-87.68367"></trkpt>
+        </trkseg>
+    </trk>
+</gpx>

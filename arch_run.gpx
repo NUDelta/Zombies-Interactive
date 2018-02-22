@@ -1,0 +1,824 @@
+<gpx>
+  <name>route2</name>
+  <number>2</number>
+<!--  <wpt lat="42.0520515" lon="-87.6796424">-->
+<!--    <ele>0</ele>-->
+<!--    <time>2016-12-29T00:01:00Z</time>-->
+<!--    <>1871 Orrington Ave -->
+<!--  </wpt>-->
+<!--  <wpt lat="42.0512664" lon="-87.677042">-->
+<!--    <>The Arch -->
+<!--    <desc>The Arch, Evanston, IL 60208, USA</desc>-->
+<!--  </wpt>-->
+<!--  <wpt lat="42.0578062" lon="-87.6758774">-->
+<!--    <>Northwestern University Technological Institute -->
+<!--    <desc>Northwestern University Technological Institute, 2145 Sheridan Rd, Evanston, IL 60208, USA</desc>-->
+<!--  </wpt>-->
+<!--  <>1871 Orrington Ave to Northwestern University Technological Institute -->
+<!--  <number>1</number>-->
+  <wpt lat="42.05186" lon="-87.67959">
+        <ele>0</ele>
+        <time>2016-12-29T00:01:00Z</time>
+        <name>pt0</name>
+  </wpt>
+  <wpt lat="42.05184" lon="-87.67959">
+        <ele>1</ele>
+        <time>2016-12-29T00:01:05Z</time>
+        <name>pt0</name>003
+  </wpt>
+  <wpt lat="42.05182" lon="-87.67959">
+        <ele>2</ele>
+        <time>2016-12-29T00:01:10Z</time>
+        <name>pt0</name>004
+  </wpt>
+  <wpt lat="42.05178" lon="-87.6796">
+        <ele>3</ele>
+        <time>2016-12-29T00:01:15Z</time>
+        <name>pt0</name>005
+  </wpt>
+  <wpt lat="42.05176" lon="-87.67961">
+        <ele>4</ele>
+        <time>2016-12-29T00:01:20Z</time>
+        <name>pt0</name>006
+  </wpt>
+  <wpt lat="42.05173" lon="-87.67962">
+        <ele>5</ele>
+        <time>2016-12-29T00:01:25Z</time>
+        <name>pt0</name>007
+  </wpt>
+  <wpt lat="42.05171" lon="-87.67963">
+        <ele>6</ele>
+        <time>2016-12-29T00:01:30Z</time>
+        <name>pt0</name>008
+  </wpt>
+  <wpt lat="42.05154" lon="-87.67963">
+        <ele>7</ele>
+        <time>2016-12-29T00:01:35Z</time>
+        <name>pt0</name>009
+  </wpt>
+  <wpt lat="42.0515353" lon="-87.6796344">
+    <ele>8</ele>
+        <time>2016-12-29T00:01:40Z</time>
+        <name>pt0</name>010
+  </wpt>
+  <wpt lat="42.05153" lon="-87.67934">
+    <ele>9</ele>
+        <time>2016-12-29T00:01:45Z</time>
+        <name>pt0</name>011
+  </wpt>
+  <wpt lat="42.05153" lon="-87.67928">
+    <ele>10</ele>
+        <time>2016-12-29T00:01:50Z</time>
+        <name>pt0</name>012
+  </wpt>
+  <wpt lat="42.05154" lon="-87.67903">
+    <ele>11</ele>
+        <time>2016-12-29T00:01:55Z</time>
+        <name>pt0</name>013
+  </wpt>
+  <wpt lat="42.05154" lon="-87.67875">
+    <ele>12</ele>
+        <time>2016-12-29T00:02:00Z</time>
+        <name>pt0</name>014
+  </wpt>
+  <wpt lat="42.05154" lon="-87.67873">
+    <ele>13</ele>
+        <time>2016-12-29T00:02:05Z</time>
+        <name>pt0</name>015
+  </wpt>
+  <wpt lat="42.05154" lon="-87.67813">
+    <ele>14</ele>
+        <time>2016-12-29T00:02:10Z</time>
+        <name>pt0</name>016
+  </wpt>
+  <wpt lat="42.0515403" lon="-87.6781324">
+    <ele>15</ele>
+        <time>2016-12-29T00:02:15Z</time>
+        <name>pt0</name>017
+  </wpt>
+  <wpt lat="42.05143" lon="-87.67814">
+    <ele>16</ele>
+        <time>2016-12-29T00:02:20Z</time>
+        <name>pt0</name>018
+  </wpt>
+  <wpt lat="42.05132" lon="-87.67815">
+    <ele>17</ele>
+        <time>2016-12-29T00:02:25Z</time>
+        <name>pt0</name>019
+  </wpt>
+  <wpt lat="42.0513238" lon="-87.6781547">
+    <ele>18</ele>
+        <time>2016-12-29T00:02:30Z</time>
+        <name>pt0</name>020
+  </wpt>
+  <wpt lat="42.05127" lon="-87.67768">
+    <ele>19</ele>
+        <time>2016-12-29T00:02:35Z</time>
+        <name>pt0</name>021
+  </wpt>
+  <wpt lat="42.05126" lon="-87.67762">
+    <ele>20</ele>
+        <time>2016-12-29T00:02:40Z</time>
+        <name>pt0</name>022
+  </wpt>
+  <wpt lat="42.05125" lon="-87.67751">
+    <ele>21</ele>
+        <time>2016-12-29T00:02:45Z</time>
+        <name>pt0</name>023
+  </wpt>
+  <wpt lat="42.05124" lon="-87.67743">
+    <ele>22</ele>
+        <time>2016-12-29T00:02:50Z</time>
+        <name>pt0</name>024
+  </wpt>
+  <wpt lat="42.05106" lon="-87.6773">
+    <ele>23</ele>
+        <time>2016-12-29T00:02:55Z</time>
+        <name>pt0</name>025
+  </wpt>
+  <wpt lat="42.0510576" lon="-87.677299">
+    <ele>24</ele>
+        <time>2016-12-29T00:03:00Z</time>
+        <name>pt0</name>026
+  </wpt>
+  <wpt lat="42.05126" lon="-87.67703">
+    <ele>25</ele>
+        <time>2016-12-29T00:03:05Z</time>
+        <name>pt0</name>027
+  </wpt>
+  <wpt lat="42.0512599" lon="-87.6770331">
+    <ele>26</ele>
+        <time>2016-12-29T00:03:10Z</time>
+        <name>pt0</name>028
+  </wpt>
+  <wpt lat="42.0512599" lon="-87.6770331">
+    <ele>27</ele>
+        <time>2016-12-29T00:03:15Z</time>
+        <name>pt0</name>029
+  </wpt>
+  <wpt lat="42.05106" lon="-87.6773">
+    <ele>28</ele>
+        <time>2016-12-29T00:03:20Z</time>
+        <name>pt0</name>030
+  </wpt>
+  <wpt lat="42.0510576" lon="-87.677299">
+    <ele>29</ele>
+        <time>2016-12-29T00:03:25Z</time>
+        <name>pt0</name>031
+  </wpt>
+  <wpt lat="42.05124" lon="-87.67743">
+    <ele>30</ele>
+        <time>2016-12-29T00:03:30Z</time>
+        <name>pt0</name>032
+  </wpt>
+  <wpt lat="42.05125" lon="-87.67751">
+    <ele>31</ele>
+        <time>2016-12-29T00:03:35Z</time>
+        <name>pt0</name>033
+  </wpt>
+  <wpt lat="42.05126" lon="-87.67762">
+    <ele>32</ele>
+        <time>2016-12-29T00:03:40Z</time>
+        <name>pt0</name>034
+  </wpt>
+  <wpt lat="42.05127" lon="-87.67768">
+    <ele>33</ele>
+        <time>2016-12-29T00:03:45Z</time>
+        <name>pt0</name>035
+  </wpt>
+  <wpt lat="42.05132" lon="-87.67815">
+    <ele>34</ele>
+        <time>2016-12-29T00:03:50Z</time>
+        <name>pt0</name>036
+  </wpt>
+  <wpt lat="42.0513238" lon="-87.6781547">
+    <ele>35</ele>
+        <time>2016-12-29T00:03:55Z</time>
+        <name>pt0</name>037
+  </wpt>
+  <wpt lat="42.05143" lon="-87.67814">
+    <ele>36</ele>
+        <time>2016-12-29T00:04:00Z</time>
+        <name>pt0</name>038
+  </wpt>
+  <wpt lat="42.05154" lon="-87.67813">
+    <ele>37</ele>
+        <time>2016-12-29T00:04:05Z</time>
+        <name>pt0</name>039
+  </wpt>
+  <wpt lat="42.0515403" lon="-87.6781324">
+    <ele>38</ele>
+        <time>2016-12-29T00:04:10Z</time>
+        <name>pt0</name>040
+  </wpt>
+  <wpt lat="42.05154" lon="-87.67873">
+    <ele>39</ele>
+        <time>2016-12-29T00:04:15Z</time>
+        <name>pt0</name>041
+  </wpt>
+  <wpt lat="42.05154" lon="-87.67875">
+    <ele>40</ele>
+        <time>2016-12-29T00:04:20Z</time>
+        <name>pt0</name>042
+  </wpt>
+  <wpt lat="42.05154" lon="-87.67903">
+    <ele>41</ele>
+        <time>2016-12-29T00:04:25Z</time>
+        <name>pt0</name>043
+  </wpt>
+  <wpt lat="42.05153" lon="-87.67928">
+    <ele>42</ele>
+        <time>2016-12-29T00:04:30Z</time>
+        <name>pt0</name>044
+  </wpt>
+  <wpt lat="42.05153" lon="-87.67934">
+    <ele>43</ele>
+        <time>2016-12-29T00:04:35Z</time>
+        <name>pt0</name>045
+  </wpt>
+  <wpt lat="42.05154" lon="-87.67963">
+    <ele>44</ele>
+        <time>2016-12-29T00:04:40Z</time>
+        <name>pt0</name>046
+  </wpt>
+  <wpt lat="42.0515353" lon="-87.6796344">
+    <ele>45</ele>
+        <time>2016-12-29T00:04:45Z</time>
+        <name>pt0</name>047
+  </wpt>
+  <wpt lat="42.05171" lon="-87.67963">
+    <ele>46</ele>
+        <time>2016-12-29T00:04:50Z</time>
+        <name>pt0</name>048
+  </wpt>
+  <wpt lat="42.05173" lon="-87.67962">
+    <ele>47</ele>
+        <time>2016-12-29T00:05:00Z</time>
+        <name>pt0</name>049
+  </wpt>
+  <wpt lat="42.05176" lon="-87.67961">
+    <ele>48</ele>
+        <time>2016-12-29T00:05:05Z</time>
+        <name>pt0</name>050
+  </wpt>
+  <wpt lat="42.05178" lon="-87.6796">
+    <ele>49</ele>
+        <time>2016-12-29T00:05:10Z</time>
+        <name>pt0</name>051
+  </wpt>
+  <wpt lat="42.05182" lon="-87.67959">
+    <ele>50</ele>
+        <time>2016-12-29T00:05:15Z</time>
+        <name>pt0</name>052
+  </wpt>
+  <wpt lat="42.05184" lon="-87.67959">
+    <ele>51</ele>
+        <time>2016-12-29T00:05:20Z</time>
+        <name>pt0</name>053
+  </wpt>
+  <wpt lat="42.05186" lon="-87.67959">
+    <ele>52</ele>
+        <time>2016-12-29T00:05:25Z</time>
+        <name>pt0</name>054
+  </wpt>
+  <wpt lat="42.05209" lon="-87.6796">
+    <ele>53</ele>
+        <time>2016-12-29T00:05:30Z</time>
+        <name>pt0</name>055
+  </wpt>
+  <wpt lat="42.052086" lon="-87.6796009">
+    <ele>54</ele>
+        <time>2016-12-29T00:05:35Z</time>
+        <name>pt0</name>056
+  </wpt>
+  <wpt lat="42.05208" lon="-87.67941">
+    <ele>55</ele>
+        <time>2016-12-29T00:05:40Z</time>
+        <name>pt0</name>057
+  </wpt>
+  <wpt lat="42.05208" lon="-87.67927">
+    <ele>56</ele>
+        <time>2016-12-29T00:05:45Z</time>
+        <name>pt0</name>058
+  </wpt>
+  <wpt lat="42.05208" lon="-87.6788">
+    <ele>57</ele>
+        <time>2016-12-29T00:05:50Z</time>
+        <name>pt0</name>059
+  </wpt>
+  <wpt lat="42.0520809" lon="-87.6788029">
+    <ele>58</ele>
+        <time>2016-12-29T00:05:55Z</time>
+        <name>pt0</name>060
+  </wpt>
+  <wpt lat="42.05181" lon="-87.67881">
+    <ele>59</ele>
+        <time>2016-12-29T00:06:00Z</time>
+        <name>pt0</name>061
+  </wpt>
+  <wpt lat="42.05179" lon="-87.67875">
+    <ele>60</ele>
+        <time>2016-12-29T00:06:05Z</time>
+        <name>pt0</name>062
+  </wpt>
+  <wpt lat="42.05154" lon="-87.67875">
+    <ele>61</ele>
+        <time>2016-12-29T00:06:10Z</time>
+        <name>pt0</name>063
+  </wpt>
+  <wpt lat="42.0515372" lon="-87.6787506">
+    <ele>62</ele>
+        <time>2016-12-29T00:06:15Z</time>
+        <name>pt0</name>064
+  </wpt>
+  <wpt lat="42.05154" lon="-87.67873">
+    <ele>63</ele>
+        <time>2016-12-29T00:06:20Z</time>
+        <name>pt0</name>065
+  </wpt>
+  <wpt lat="42.05154" lon="-87.67813">
+    <ele>64</ele>
+        <time>2016-12-29T00:06:25Z</time>
+        <name>pt0</name>066
+  </wpt>
+  <wpt lat="42.0515403" lon="-87.6781324">
+    <ele>65</ele>
+        <time>2016-12-29T00:06:30Z</time>
+        <name>pt0</name>067
+  </wpt>
+  <wpt lat="42.05143" lon="-87.67814">
+    <ele>66</ele>
+        <time>2016-12-29T00:06:35Z</time>
+        <name>pt0</name>068
+  </wpt>
+  <wpt lat="42.05132" lon="-87.67815">
+    <ele>67</ele>
+        <time>2016-12-29T00:06:40Z</time>
+        <name>pt0</name>069
+  </wpt>
+  <wpt lat="42.0513238" lon="-87.6781547">
+    <ele>68</ele>
+        <time>2016-12-29T00:06:45Z</time>
+        <name>pt0</name>070
+  </wpt>
+  <wpt lat="42.05127" lon="-87.67768">
+    <ele>69</ele>
+        <time>2016-12-29T00:06:50Z</time>
+        <name>pt0</name>071
+  </wpt>
+  <wpt lat="42.05126" lon="-87.67762">
+    <ele>70</ele>
+        <time>2016-12-29T00:06:55Z</time>
+        <name>pt0</name>072
+  </wpt>
+  <wpt lat="42.05125" lon="-87.67751">
+    <ele>71</ele>
+        <time>2016-12-29T00:07:00Z</time>
+        <name>pt0</name>073
+  </wpt>
+  <wpt lat="42.05124" lon="-87.67743">
+    <ele>72</ele>
+        <time>2016-12-29T00:07:05Z</time>
+        <name>pt0</name>074
+  </wpt>
+  <wpt lat="42.05106" lon="-87.6773">
+    <ele>73</ele>
+        <time>2016-12-29T00:07:10Z</time>
+        <name>pt0</name>075
+  </wpt>
+  <wpt lat="42.0510576" lon="-87.677299">
+    <ele>74</ele>
+        <time>2016-12-29T00:07:15Z</time>
+        <name>pt0</name>076
+  </wpt>
+  <wpt lat="42.05136" lon="-87.6769">
+    <ele>75</ele>
+        <time>2016-12-29T00:07:20Z</time>
+        <name>pt0</name>077
+  </wpt>
+  <wpt lat="42.05168" lon="-87.67636">
+    <ele>76</ele>
+        <time>2016-12-29T00:07:25Z</time>
+        <name>pt0</name>078
+  </wpt>
+  <wpt lat="42.05169" lon="-87.67634">
+    <ele>77</ele>
+        <time>2016-12-29T00:07:30Z</time>
+        <name>pt0</name>079
+  </wpt>
+  <wpt lat="42.0517" lon="-87.67632">
+    <ele>78</ele>
+        <time>2016-12-29T00:07:35Z</time>
+        <name>pt0</name>080
+  </wpt>
+  <wpt lat="42.0517" lon="-87.67628">
+    <ele>79</ele>
+        <time>2016-12-29T00:07:40Z</time>
+        <name>pt0</name>081
+  </wpt>
+  <wpt lat="42.05171" lon="-87.67625">
+    <ele>80</ele>
+        <time>2016-12-29T00:07:45Z</time>
+        <name>pt0</name>082
+  </wpt>
+  <wpt lat="42.0517" lon="-87.67618">
+    <ele>81</ele>
+        <time>2016-12-29T00:07:50Z</time>
+        <name>pt0</name>083
+  </wpt>
+  <wpt lat="42.0516971" lon="-87.676175">
+        <ele>82</ele>
+        <time>2016-12-29T00:07:55Z</time>
+        <name>pt0</name>084
+  </wpt>
+  <wpt lat="42.05191" lon="-87.67613">
+        <ele>83</ele>
+        <time>2016-12-29T00:08:00Z</time>
+        <name>pt0</name>085
+  </wpt>
+  <wpt lat="42.0521" lon="-87.67607">
+        <ele>84</ele>
+        <time>2016-12-29T00:08:05Z</time>
+        <name>pt0</name>086
+  </wpt>
+  <wpt lat="42.05225" lon="-87.67603">
+        <ele>85</ele>
+        <time>2016-12-29T00:08:10Z</time>
+        <name>pt0</name>087
+  </wpt>
+  <wpt lat="42.05233" lon="-87.676">
+        <ele>86</ele>
+        <time>2016-12-29T00:08:15Z</time>
+        <name>pt0</name>088
+  </wpt>
+  <wpt lat="42.05243" lon="-87.67596">
+        <ele>87</ele>
+        <time>2016-12-29T00:08:20Z</time>
+        <name>pt0</name>089
+  </wpt>
+  <wpt lat="42.05256" lon="-87.6759">
+        <ele>88</ele>
+        <time>2016-12-29T00:08:25Z</time>
+        <name>pt0</name>090
+  </wpt>
+  <wpt lat="42.05263" lon="-87.67584">
+        <ele>89</ele>
+        <time>2016-12-29T00:08:30Z</time>
+        <name>pt0</name>091
+  </wpt>
+  <wpt lat="42.05278" lon="-87.67574">
+        <ele>90</ele>
+        <time>2016-12-29T00:08:35Z</time>
+        <name>pt0</name>092
+  </wpt>
+  <wpt lat="42.05279" lon="-87.67572">
+        <ele>91</ele>
+        <time>2016-12-29T00:08:40Z</time>
+        <name>pt0</name>093
+  </wpt>
+  <wpt lat="42.05279" lon="-87.67569">
+        <ele>92</ele>
+        <time>2016-12-29T00:08:45Z</time>
+        <name>pt0</name>094
+  </wpt>
+  <wpt lat="42.0527898" lon="-87.6756912">
+        <ele>93</ele>
+        <time>2016-12-29T00:08:50Z</time>
+        <name>pt0</name>095
+  </wpt>
+  <wpt lat="42.05287" lon="-87.67572">
+        <ele>94</ele>
+        <time>2016-12-29T00:08:55Z</time>
+        <name>pt0</name>096
+  </wpt>
+  <wpt lat="42.05355" lon="-87.67571">
+        <ele>95</ele>
+        <time>2016-12-29T00:09:00Z</time>
+        <name>pt0</name>097
+  </wpt>
+  <wpt lat="42.05363" lon="-87.67569">
+        <ele>96</ele>
+        <time>2016-12-29T00:09:05Z</time>
+        <name>pt0</name>098
+  </wpt>
+  <wpt lat="42.05367" lon="-87.67567">
+        <ele>97</ele>
+        <time>2016-12-29T00:09:10Z</time>
+        <name>pt0</name>099
+  </wpt>
+  <wpt lat="42.05371" lon="-87.67564">
+        <ele>98</ele>
+        <time>2016-12-29T00:09:15Z</time>
+        <name>pt0</name>100
+  </wpt>
+  <wpt lat="42.05376" lon="-87.67559">
+        <ele>99</ele>
+        <time>2016-12-29T00:09:20Z</time>
+        <name>pt0</name>101
+  </wpt>
+  <wpt lat="42.05382" lon="-87.67553">
+        <ele>100</ele>
+        <time>2016-12-29T00:09:25Z</time>
+        <name>pt0</name>102
+  </wpt>
+  <wpt lat="42.05391" lon="-87.67547">
+        <ele>101</ele>
+        <time>2016-12-29T00:09:30Z</time>
+        <name>pt0</name>103
+  </wpt>
+  <wpt lat="42.05402" lon="-87.6754">
+        <ele>102</ele>
+        <time>2016-12-29T00:09:35Z</time>
+        <name>pt0</name>104
+  </wpt>
+  <wpt lat="42.05405" lon="-87.67538">
+        <ele>103</ele>
+        <time>2016-12-29T00:09:40Z</time>
+        <name>pt0</name>105
+  </wpt>
+  <wpt lat="42.05411" lon="-87.67536">
+        <ele>104</ele>
+        <time>2016-12-29T00:09:45Z</time>
+        <name>pt0</name>106
+  </wpt>
+  <wpt lat="42.0544" lon="-87.67523">
+        <ele>105</ele>
+        <time>2016-12-29T00:09:50Z</time>
+        <name>pt0</name>107
+  </wpt>
+  <wpt lat="42.05444" lon="-87.67522">
+        <ele>106</ele>
+        <time>2016-12-29T00:09:55Z</time>
+        <name>pt0</name>108
+  </wpt>
+  <wpt lat="42.05449" lon="-87.67521">
+        <ele>107</ele>
+        <time>2016-12-29T00:10:00Z</time>
+        <name>pt0</name>109
+  </wpt>
+  <wpt lat="42.05452" lon="-87.67523">
+        <ele>108</ele>
+        <time>2016-12-29T00:10:05Z</time>
+        <name>pt0</name>110
+  </wpt>
+  <wpt lat="42.05495" lon="-87.67524">
+        <ele>109</ele>
+        <time>2016-12-29T00:10:10Z</time>
+        <name>pt0</name>111
+  </wpt>
+  <wpt lat="42.05499" lon="-87.67525">
+        <ele>110</ele>
+        <time>2016-12-29T00:10:15Z</time>
+        <name>pt0</name>112
+  </wpt>
+  <wpt lat="42.05509" lon="-87.67524">
+        <ele>111</ele>
+        <time>2016-12-29T00:10:20Z</time>
+        <name>pt0</name>113
+  </wpt>
+  <wpt lat="42.05527" lon="-87.67524">
+        <ele>112</ele>
+        <time>2016-12-29T00:10:25Z</time>
+        <name>pt0</name>114
+  </wpt>
+  <wpt lat="42.05542" lon="-87.67526">
+        <ele>113</ele>
+        <time>2016-12-29T00:10:30Z</time>
+        <name>pt0</name>115
+  </wpt>
+  <wpt lat="42.0554162" lon="-87.6752612">
+        <ele>114</ele>
+        <time>2016-12-29T00:10:35Z</time>
+        <name>pt0</name>116
+  </wpt>
+  <wpt lat="42.0554" lon="-87.67555">
+        <ele>115</ele>
+        <time>2016-12-29T00:10:40Z</time>
+        <name>pt0</name>117
+  </wpt>
+  <wpt lat="42.0554046" lon="-87.6755455">
+        <ele>116</ele>
+        <time>2016-12-29T00:10:45Z</time>
+        <name>pt0</name>118
+  </wpt>
+  <wpt lat="42.05545" lon="-87.67554">
+        <ele>117</ele>
+        <time>2016-12-29T00:10:50Z</time>
+        <name>pt0</name>119
+  </wpt>
+  <wpt lat="42.0554488" lon="-87.6755416">
+        <ele>118</ele>
+        <time>2016-12-29T00:10:55Z</time>
+        <name>pt0</name>120
+  </wpt>
+  <wpt lat="42.0556" lon="-87.67554">
+        <ele>119</ele>
+        <time>2016-12-29T00:11:00Z</time>
+        <name>pt0</name>121
+  </wpt>
+  <wpt lat="42.05577" lon="-87.67553">
+        <ele>120</ele>
+        <time>2016-12-29T00:11:05Z</time>
+        <name>pt0</name>122
+  </wpt>
+  <wpt lat="42.05579" lon="-87.67552">
+        <ele>121</ele>
+        <time>2016-12-29T00:11:10Z</time>
+        <name>pt0</name>123
+  </wpt>
+  <wpt lat="42.0558" lon="-87.67552">
+        <ele>122</ele>
+        <time>2016-12-29T00:11:15Z</time>
+        <name>pt0</name>124
+  </wpt>
+  <wpt lat="42.05581" lon="-87.67551">
+        <ele>123</ele>
+        <time>2016-12-29T00:11:20Z</time>
+        <name>pt0</name>125
+  </wpt>
+  <wpt lat="42.05582" lon="-87.6755">
+        <ele>124</ele>
+        <time>2016-12-29T00:11:25Z</time>
+        <name>pt0</name>126
+  </wpt>
+  <wpt lat="42.05583" lon="-87.67548">
+        <ele>125</ele>
+        <time>2016-12-29T00:11:30Z</time>
+        <name>pt0</name>127
+  </wpt>
+  <wpt lat="42.05584" lon="-87.67547">
+        <ele>126</ele>
+        <time>2016-12-29T00:11:35Z</time>
+        <name>pt0</name>128
+  </wpt>
+  <wpt lat="42.05584" lon="-87.67545">
+        <ele>127</ele>
+        <time>2016-12-29T00:11:40Z</time>
+        <name>pt0</name>129
+  </wpt>
+  <wpt lat="42.05584" lon="-87.67543">
+        <ele>128</ele>
+        <time>2016-12-29T00:11:45Z</time>
+        <name>pt0</name>130
+  </wpt>
+  <wpt lat="42.05585" lon="-87.67542">
+        <ele>129</ele>
+        <time>2016-12-29T00:11:50Z</time>
+        <name>pt0</name>131
+  </wpt>
+  <wpt lat="42.05595" lon="-87.67542">
+        <ele>130</ele>
+        <time>2016-12-29T00:11:55Z</time>
+        <name>pt0</name>132
+  </wpt>
+  <wpt lat="42.0559456" lon="-87.6754167">
+        <ele>131</ele>
+        <time>2016-12-29T00:12:00Z</time>
+        <name>pt0</name>133
+  </wpt>
+  <wpt lat="42.05611" lon="-87.67542">
+        <ele>132</ele>
+        <time>2016-12-29T00:12:05Z</time>
+        <name>pt0</name>134
+  </wpt>
+  <wpt lat="42.05627" lon="-87.67541">
+        <ele>133</ele>
+        <time>2016-12-29T00:12:10Z</time>
+        <name>pt0</name>135
+  </wpt>
+  <wpt lat="42.0566" lon="-87.67542">
+        <ele>134</ele>
+        <time>2016-12-29T00:12:15Z</time>
+        <name>pt0</name>136
+  </wpt>
+  <wpt lat="42.05666" lon="-87.67542">
+        <ele>135</ele>
+        <time>2016-12-29T00:12:20Z</time>
+        <name>pt0</name>137
+  </wpt>
+  <wpt lat="42.05669" lon="-87.67542">
+        <ele>136</ele>
+        <time>2016-12-29T00:12:25Z</time>
+        <name>pt0</name>138
+  </wpt>
+  <wpt lat="42.05673" lon="-87.67544">
+        <ele>137</ele>
+        <time>2016-12-29T00:12:30Z</time>
+        <name>pt0</name>139
+  </wpt>
+  <wpt lat="42.05676" lon="-87.67545">
+        <ele>138</ele>
+        <time>2016-12-29T00:12:35Z</time>
+        <name>pt0</name>140
+  </wpt>
+  <wpt lat="42.05679" lon="-87.67547">
+        <ele>139</ele>
+        <time>2016-12-29T00:12:40Z</time>
+        <name>pt0</name>141
+  </wpt>
+  <wpt lat="42.05681" lon="-87.67548">
+        <ele>140</ele>
+        <time>2016-12-29T00:12:45Z</time>
+        <name>pt0</name>142
+  </wpt>
+  <wpt lat="42.05685" lon="-87.67549">
+        <ele>141</ele>
+        <time>2016-12-29T00:12:50Z</time>
+        <name>pt0</name>143
+  </wpt>
+  <wpt lat="42.05687" lon="-87.6755">
+        <ele>142</ele>
+        <time>2016-12-29T00:12:55Z</time>
+        <name>pt0</name>144
+  </wpt>
+  <wpt lat="42.0569" lon="-87.67551">
+        <ele>143</ele>
+        <time>2016-12-29T00:13:00Z</time>
+        <name>pt0</name>145
+  </wpt>
+  <wpt lat="42.05693" lon="-87.67551">
+        <ele>144</ele>
+        <time>2016-12-29T00:13:05Z</time>
+        <name>pt0</name>146
+  </wpt>
+  <wpt lat="42.05695" lon="-87.67553">
+        <ele>145</ele>
+        <time>2016-12-29T00:13:10Z</time>
+        <name>pt0</name>147
+  </wpt>
+  <wpt lat="42.05697" lon="-87.67557">
+        <ele>146</ele>
+        <time>2016-12-29T00:13:15Z</time>
+        <name>pt0</name>148
+  </wpt>
+  <wpt lat="42.057" lon="-87.67561">
+        <ele>147</ele>
+        <time>2016-12-29T00:13:20Z</time>
+        <name>pt0</name>149
+  </wpt>
+  <wpt lat="42.05701" lon="-87.67562">
+        <ele>148</ele>
+        <time>2016-12-29T00:13:25Z</time>
+        <name>pt0</name>150
+  </wpt>
+  <wpt lat="42.05706" lon="-87.67563">
+        <ele>149</ele>
+        <time>2016-12-29T00:13:30Z</time>
+        <name>pt0</name>151
+  </wpt>
+  <wpt lat="42.05709" lon="-87.67563">
+        <ele>150</ele>
+        <time>2016-12-29T00:13:35Z</time>
+        <name>pt0</name>152
+  </wpt>
+  <wpt lat="42.0570857" lon="-87.6756298">
+        <ele>151</ele>
+        <time>2016-12-29T00:13:40Z</time>
+        <name>pt0</name>153
+  </wpt>
+  <wpt lat="42.05711" lon="-87.67563">
+        <ele>152</ele>
+        <time>2016-12-29T00:13:45Z</time>
+        <name>pt0</name>154
+  </wpt>
+  <wpt lat="42.05739" lon="-87.67561">
+        <ele>153</ele>
+        <time>2016-12-29T00:13:50Z</time>
+        <name>pt0</name>155
+  </wpt>
+  <wpt lat="42.05742" lon="-87.67552">
+        <ele>154</ele>
+        <time>2016-12-29T00:13:55Z</time>
+        <name>pt0</name>156
+  </wpt>
+  <wpt lat="42.05745" lon="-87.67552">
+        <ele>155</ele>
+        <time>2016-12-29T00:14:05Z</time>
+        <name>pt0</name>157
+  </wpt>
+  <wpt lat="42.05748" lon="-87.6761">
+        <ele>156</ele>
+        <time>2016-12-29T00:14:10Z</time>
+        <name>pt0</name>158
+  </wpt>
+  <wpt lat="42.05773" lon="-87.67614">
+        <ele>157</ele>
+        <time>2016-12-29T00:14:15Z</time>
+        <name>pt0</name>159
+  </wpt>
+  <wpt lat="42.0578" lon="-87.67623">
+        <ele>158</ele>
+        <time>2016-12-29T00:14:20Z</time>
+        <name>pt0</name>160
+  </wpt>
+  <wpt lat="42.0578002" lon="-87.6762254">
+        <ele>159</ele>
+        <time>2016-12-29T00:14:25Z</time>
+        <name>pt0</name>161
+  </wpt>
+  <wpt lat="42.0578002" lon="-87.6762254">
+        <ele>160</ele>
+        <time>2016-12-29T00:14:30Z</time>
+        <name>pt0</name>162
+  </wpt>
+</gpx>

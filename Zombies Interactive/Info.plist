@@ -12,6 +12,29 @@
 	<string></string>
 	<key>CFBundleIconFile</key>
 	<string></string>
+	<key>CFBundleIcons</key>
+	<dict>
+		<key>CFBundlePrimaryIcon</key>
+		<dict>
+			<key>CFBundleIconFiles</key>
+			<array>
+				<string></string>
+			</array>
+			<key>UIPrerenderedIcon</key>
+			<false/>
+		</dict>
+		<key>UINewsstandIcon</key>
+		<dict>
+			<key>CFBundleIconFiles</key>
+			<array>
+				<string></string>
+			</array>
+			<key>UINewsstandBindingEdge</key>
+			<string>UINewsstandBindingEdgeLeft</string>
+			<key>UINewsstandBindingType</key>
+			<string>UINewsstandBindingTypeMagazine</string>
+		</dict>
+	</dict>
 	<key>CFBundleIdentifier</key>
 	<string>$(PRODUCT_BUNDLE_IDENTIFIER)</string>
 	<key>CFBundleInfoDictionaryVersion</key>
@@ -37,6 +60,8 @@
 	</dict>
 	<key>NSHumanReadableCopyright</key>
 	<string></string>
+	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
+	<string>App tracks location</string>
 	<key>NSLocationAlwaysUsageDescription</key>
 	<string>Zombies Interactive requires access to your phone's location to enhance the experience, even while your phone is locked.</string>
 	<key>NSLocationWhenInUseUsageDescription</key>

@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		1D57064820196CCF005C39DB /* CommManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D57064720196CCF005C39DB /* CommManager.swift */; };
 		1D57064A201A8B4E005C39DB /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D570649201A8B4E005C39DB /* Config.swift */; };
+		1DCDA3A3203765DF002EDFE0 /* Location.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 1DCDA3A2203765DF002EDFE0 /* Location.gpx */; };
+		1DCFC767203BC3E100DFFFA4 /* arch_run.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 1DCFC766203BC3E100DFFFA4 /* arch_run.gpx */; };
 		5241B5621BA0980000DBC6D3 /* Zombies-Interactive.xcdatamodeld in Resources */ = {isa = PBXBuildFile; fileRef = 528C3A461B826734007C59FC /* Zombies-Interactive.xcdatamodeld */; };
 		5241B5711BA0E87400DBC6D3 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5241B5701BA0E87400DBC6D3 /* AudioToolbox.framework */; };
 		5241B5731BA0E88100DBC6D3 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5241B5721BA0E88100DBC6D3 /* AVFoundation.framework */; };
@@ -152,6 +154,9 @@
 /* Begin PBXFileReference section */
 		1D57064720196CCF005C39DB /* CommManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommManager.swift; sourceTree = "<group>"; };
 		1D570649201A8B4E005C39DB /* Config.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
+		1DCDA3A2203765DF002EDFE0 /* Location.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Location.gpx; sourceTree = SOURCE_ROOT; };
+		1DCFC766203BC3E100DFFFA4 /* arch_run.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = arch_run.gpx; sourceTree = SOURCE_ROOT; };
+		1DCFC768203BD7A500DFFFA4 /* arch_run2.gpx */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = arch_run2.gpx; sourceTree = "<group>"; };
 		5241B5701BA0E87400DBC6D3 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		5241B5721BA0E88100DBC6D3 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		528C3A3F1B826734007C59FC /* Zombies Interactive.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Zombies Interactive.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -359,6 +364,9 @@
 		528C3A411B826734007C59FC /* Zombies Interactive */ = {
 			isa = PBXGroup;
 			children = (
+				1DCDA3A2203765DF002EDFE0 /* Location.gpx */,
+				1DCFC766203BC3E100DFFFA4 /* arch_run.gpx */,
+				1DCFC768203BD7A500DFFFA4 /* arch_run2.gpx */,
 				BA4F036B1BD95B2600792A6D /* Constants.swift */,
 				1D570649201A8B4E005C39DB /* Config.swift */,
 				BA2B43D71BBBAF23007C2483 /* Classes */,
@@ -853,6 +861,7 @@
 				D76D03281D05C10600A4792E /* scaffolding_lets_start_the_game.m4a in Resources */,
 				BA1F2FE41BBBB25700E22B7F /* AcousticModelEnglish.bundle in Resources */,
 				D76D032A1D05C10600A4792E /* scaffolding_start_moving_away.m4a in Resources */,
+				1DCDA3A3203765DF002EDFE0 /* Location.gpx in Resources */,
 				D76D032D1D05C10600A4792E /* scaffolding_tree_good_job.m4a in Resources */,
 				D76D03221D05C10600A4792E /* lamp_variation_poster_true.m4a in Resources */,
 				BA4A6B8B1C6E885B0064CF83 /* building_confirmed.mp3 in Resources */,
@@ -913,6 +922,7 @@
 				BA4A6B931C6E885B0064CF83 /* vignette_transition.mp3 in Resources */,
 				BA4A6B8E1C6E885B0064CF83 /* stopsign_hotspot_2.mp3 in Resources */,
 				BA54FC2F1C71AAC600FFE4ED /* S1M16_4.mp3 in Resources */,
+				1DCFC767203BC3E100DFFFA4 /* arch_run.gpx in Resources */,
 				BA4A6B851C6E885B0064CF83 /* high_route_1.mp3 in Resources */,
 				BA4A6B871C6E885B0064CF83 /* intel_team_intro.mp3 in Resources */,
 				D76D03331D05C10600A4792E /* scaffolding_youre_stationary.m4a in Resources */,

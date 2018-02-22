@@ -15,7 +15,7 @@ struct Config {
     
     init() {
         if Config.DEBUG {
-            Config.URL = "http://10.1.10.137:5000"
+            Config.URL = "http://10.105.109.52:5000"
         } else {
             Config.URL = "https://hs4x.herokuapp.com"
         }

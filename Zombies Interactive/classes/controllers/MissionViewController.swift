@@ -205,11 +205,15 @@ class MissionViewController: UIViewController, MKMapViewDelegate, ExperienceMana
         */
         
         // Initialize experience manager with intro moment grabbed from backend
-        let intro_text = "Hey there, runner number 5. You can hear me alright, yeah? I'm Violet and I'm your designated guide! So don't worry. Well, worry a little bit. I'm watching you from an outlook in the base, so I can keep watch and warn you if you're in danger - but you have to do the running and be quick. We need you to get back to base safely and gather some important information for us about the Northwestern Campus so we can send out more teams to gather resources. Got it? Good. Ok. I see you're starting out now -- keep a good pace and stay alert";
+        let intro_text = "You can hear me alright? I'm Violet and I'm your designated guide! So don't worry. I'm watching you from an outlook in the base, so I can keep watch and warn you if you're in danger - but you have to do the running and be quick. We need you to get back to base safely and gather some important information for us about the Northwestern Campus so we can send out more teams to gather resources. Got it? Good. Ok. I see you're starting out now -- keep a good pace and stay alert"
+        
         let block_body = MomentBlock(moments: [Sound(fileNames: ["radio_static"]),
                                                      SynthVoiceMoment(content: intro_text),
-                                                     Sound(fileNames: ["radio_static", "vignette_transition"])], title: "block:body")
-        let stages: [MomentBlock] = [block_body]
+                                                     Sound(fileNames: ["radio_static"])], title: "block:body")
+       
+        let block_body2 = MomentBlock(moments: [Sound(fileNames: ["silence"])],  title: "block:silence")
+        
+        let stages: [MomentBlock] = [block_body, block_body2]
         experienceManager = ExperienceManager(title: "Mission title", momentBlocks: stages)
 
 //        let ret: String = initializeExperienceManager()
