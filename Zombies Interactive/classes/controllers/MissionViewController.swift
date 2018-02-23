@@ -209,11 +209,14 @@ class MissionViewController: UIViewController, MKMapViewDelegate, ExperienceMana
         
         let newIntroMoment:Moment = SynthVoiceMoment(title:"intro", isInterruptable: false, content: intro_text)
 
-        let block_body = MomentBlock(moments: [Sound(fileNames:["radio_static"], isInterruptable: true),newIntroMoment], title: "block:body")
+        let block_body = MomentBlock(moments: [Sound(fileNames:["radio_static"], isInterruptable: false),newIntroMoment], title: "block:body")
        
         let block_body2 = MomentBlock(moments: [Sound(fileNames: ["silence"], isInterruptable:true)],  title: "block:silence")
         
-        let stages: [MomentBlock] = [block_body, block_body2]
+        let block_body3 = MomentBlock(moments: [Sound(fileNames: ["silence"], isInterruptable:true)],  title: "block:silence2")
+
+        
+        let stages: [MomentBlock] = [block_body, block_body2, block_body3]
         experienceManager = ExperienceManager(title: "Mission title", momentBlocks: stages)
 
 //        let ret: String = initializeExperienceManager()

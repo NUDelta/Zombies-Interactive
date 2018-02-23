@@ -195,12 +195,14 @@ class DataManager : NSObject, CLLocationManagerDelegate {
         if moment["prompt"] != nil{
             self.momentString = moment["prompt"] as! String
             if (self.momentString != "" && !self.playedMoments.contains(self.momentString)){
-                
-                let expandMoment:SynthVoiceMoment = SynthVoiceMoment(title: "newMoment", isInterruptable: true, content: self.momentString)
-                let block_body = MomentBlockSimple(moments: [expandMoment], title:"expand moment block", canInsertImmediately: true)
-                // Insert moment into experience manager
-                self._experienceManager.insertMomentBlockSimple(block_body)
-                self.playedMoments.insert(self.momentString)
+                DispatchQueue.main.async {
+                    let expandMoment:SynthVoiceMoment = SynthVoiceMoment(title: "newMoment", isInterruptable: false, content: self.momentString)
+                    let block_body = MomentBlockSimple(moments: [Sound(fileNames:["radio_static"]), expandMoment, Sound(fileNames:["radio_static"])], title:"expand moment block", canInsertImmediately: true)
+                    // Insert moment into experience manager
+                    self._experienceManager.insertMomentBlockSimple(block_body)
+                    self.playedMoments.insert(self.momentString)
+                }
+
             }
         }
     }
