@@ -205,7 +205,7 @@ class MissionViewController: UIViewController, MKMapViewDelegate, ExperienceMana
         */
         
         // Initialize experience manager with intro moment grabbed from backend
-        let intro_text = "You can hear me alright? I'm Violet and I'm your designated guide! So don't worry. I'm watching you from an outlook in the base, so I can keep watch and warn you if you're in danger - but you have to do the running and be quick. We need you to get back to base safely and gather some important information for us about the Northwestern Campus so we can send out more teams to gather resources. Got it? Good. Ok. I see you're starting out now -- keep a good pace and stay alert"
+        let intro_text = "You can hear me alright? I'm your designated guide! We need you to get back to base safely and gather some important information for us. Got it? Good. Ok. I see you're starting out now -- keep a good pace and stay alert"
         
         let newIntroMoment:Moment = SynthVoiceMoment(title:"intro", isInterruptable: false, content: intro_text)
 
@@ -214,7 +214,6 @@ class MissionViewController: UIViewController, MKMapViewDelegate, ExperienceMana
         let block_body2 = MomentBlock(moments: [Sound(fileNames: ["silence"], isInterruptable:true)],  title: "block:silence")
         
         let block_body3 = MomentBlock(moments: [Sound(fileNames: ["silence"], isInterruptable:true)],  title: "block:silence2")
-
         
         let stages: [MomentBlock] = [block_body, block_body2, block_body3]
         experienceManager = ExperienceManager(title: "Mission title", momentBlocks: stages)

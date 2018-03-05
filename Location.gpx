@@ -13,42 +13,42 @@
     </wpt>
     <wpt lat="42.051396" lon="-87.676833">
         <ele>3</ele>
-        <time>2016-12-29T00:01:30Z</time>
+        <time>2016-12-29T00:01:20Z</time>
         <name>pt3</name>
     </wpt>
     <wpt lat="42.051677" lon="-87.676135">
         <ele>4</ele>
-        <time>2016-12-29T00:01:40Z</time>
+        <time>2016-12-29T00:01:25Z</time>
         <name>pt4</name>
     </wpt>
     <wpt lat="42.052020" lon="-87.676786">
         <ele>5</ele>
-        <time>2016-12-29T00:01:50Z</time>
+        <time>2016-12-29T00:01:30Z</time>
         <name>pt5</name>
     </wpt>
     <wpt lat="42.052552" lon="-87.677187">
         <ele>6</ele>
-        <time>2016-12-29T00:02:00Z</time>
+        <time>2016-12-29T00:1:35Z</time>
         <name>pt6</name>
     </wpt>
     <wpt lat="42.053370" lon="-87.677186">
         <ele>7</ele>
-        <time>2016-12-29T00:02:10Z</time>
+        <time>2016-12-29T00:01:40Z</time>
         <name>pt7</name>
     </wpt>
     <wpt lat="42.054437" lon="-87.677158">
         <ele>8</ele>
-        <time>2016-12-29T00:02:20Z</time>
+        <time>2016-12-29T00:01:45Z</time>
         <name>pt8</name>
     </wpt>
     <wpt lat="42.055307" lon="-87.677134">
         <ele>9</ele>
-        <time>2016-12-29T00:02:30Z</time>
+        <time>2016-12-29T00:01:50Z</time>
         <name>pt9</name>
     </wpt>
-    <wpt lat="42.056155" lon="-87.677134">
+    <wpt lat="42.051507" lon="-87.675919">
         <ele>10</ele>
-        <time>2016-12-29T00:02:40Z</time>
+        <time>2016-12-29T00:01:55Z</time>
         <name>pt10</name>
     </wpt>
 </gpx>
