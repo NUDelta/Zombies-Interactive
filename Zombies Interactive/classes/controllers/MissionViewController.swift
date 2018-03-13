@@ -56,6 +56,11 @@ class MissionViewController: UIViewController, MKMapViewDelegate, ExperienceMana
     @IBOutlet weak var nextMomentButton: UIButton!
     @IBOutlet weak var timeElapsedLabel: UILabel!
     @IBOutlet weak var stepsTakenLabel: UILabel!
+    @IBOutlet weak var endExperience: UIButton!
+    
+    @IBAction func endExperience(_ sender: AnyObject) {
+        self.experienceManager.finishExperience()
+    }
     
     @IBAction func previousMoment(_ sender: AnyObject) {
         // FIX this requires too much knowledge of internals for another developer to use
@@ -119,6 +124,7 @@ class MissionViewController: UIViewController, MKMapViewDelegate, ExperienceMana
                 pauseMusic()
             }
             self.controlLabel.setTitle("Resume", for: UIControlState())
+       
         }
     }
     
@@ -191,6 +197,26 @@ class MissionViewController: UIViewController, MKMapViewDelegate, ExperienceMana
 //        return "Success"
 //    }
     
+// Set up run document on backend
+    func initialize_run(){
+        var initialization_json = [String:String]();
+        let todaysDate:Date = Date()
+        let dateFormatter:DateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "MM-dd-yyyy HH:mm"
+        let DateInFormat:String = dateFormatter.string(from: todaysDate)
+        
+        // Could send more attributes here to front end for run initialization later on
+        initialization_json["start_time"] = DateInFormat
+        var ret = [String:Any]()
+        CommManager.instance.urlRequest(route: "initialize_run", parameters: initialization_json, completion: {
+            json in
+            ret = json
+            // Receive the run_id and user_id and save it in the Experience Manager object
+            self.experienceManager.run_id = ret["run_id"] as! [String : Any]
+            self.experienceManager.user_id = ret["user_id"] as! [String : Any]
+        })
+    }
+
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationItem.hidesBackButton = true
@@ -216,10 +242,10 @@ class MissionViewController: UIViewController, MKMapViewDelegate, ExperienceMana
         let block_body3 = MomentBlock(moments: [Sound(fileNames: ["silence"], isInterruptable:true)],  title: "block:silence2")
         
         let stages: [MomentBlock] = [block_body, block_body2, block_body3]
+        // NEW EXPERIENCE MANAGER:
         experienceManager = ExperienceManager(title: "Mission title", momentBlocks: stages)
-
-//        let ret: String = initializeExperienceManager()
-//        print(ret)
+        // Call initialize run to record run
+        initialize_run()
         
         // Set up the map view
         mapView.delegate = self

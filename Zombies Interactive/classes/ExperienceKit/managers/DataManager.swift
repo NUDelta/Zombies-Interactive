@@ -199,17 +199,15 @@ class DataManager : NSObject, CLLocationManagerDelegate {
                     let expandMoment:SynthVoiceMoment = SynthVoiceMoment(title: "newMoment", isInterruptable: false, content: self.momentString)
                     let block_body = MomentBlockSimple(moments: [Sound(fileNames:["radio_static"]), expandMoment, Sound(fileNames:["radio_static"])], title:"expand moment block", canInsertImmediately: true)
                     // Insert moment into experience manager
-                    self._experienceManager.insertMomentBlockSimple(block_body)
-                    self.playedMoments.insert(self.momentString)
+                self._experienceManager.insertMomentBlockSimple(block_body)
+                self.playedMoments.insert(self.momentString)
                 }
-
             }
         }
     }
     
-    // SEND A LOCATION, RECIEVE THE "BEST" MOMENT FROM OPPORTUNITY MANANGER ON BACKEND
-    func postLocation(_ location:[String:Double]) {
-        let params = location
+    // SEND A LOCATION along with run_id, RECIEVE THE "BEST" MOMENT FROM OPPORTUNITY MANANGER ON BACKEND
+    func postLocation(_ params:[String:Any]) {
         var ret = [String:Any]()
         CommManager.instance.urlRequest(route: "location", parameters: params, completion: {
             json in
@@ -231,9 +229,11 @@ class DataManager : NSObject, CLLocationManagerDelegate {
         let userLocation:CLLocation = locations[0];
         let long = userLocation.coordinate.longitude;
         let lat = userLocation.coordinate.latitude;
-        var json = [String:Double]();
+        var json = [String:Any]();
         json["longitude"] = long
         json["latitude"] = lat
+        json["run_id"] = self._experienceManager.run_id
+        json["user_id"] = self._experienceManager.user_id
         
         print("long: \(long), lat: \(lat)")
         

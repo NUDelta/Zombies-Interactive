@@ -1,0 +1,55 @@
+<gpx>
+    <name>route1</name>
+    <number>1</number>
+    <wpt lat="42.046040" lon="-87.679731">
+        <ele>1</ele>
+        <time>2016-12-29T00:01:00Z</time>
+        <name>pt1</name>
+    </wpt>
+    <wpt lat="42.047984" lon="-87.678874">
+        <ele>2</ele>
+        <time>2016-12-29T00:01:20Z</time>
+        <name>pt2</name>
+    </wpt>
+    <wpt lat="42.049056" lon="-87.678271">
+        <ele>3</ele>
+        <time>2016-12-29T00:01:30Z</time>
+        <name>pt3</name>
+    </wpt>
+    <wpt lat="42.050576" lon="-87.677526">
+        <ele>4</ele>
+        <time>2016-12-29T00:01:40Z</time>
+        <name>pt4</name>
+    </wpt>
+    <wpt lat="42.051271" lon="-87.676939">
+        <ele>5</ele>
+        <time>2016-12-29T00:01:50Z</time>
+        <name>pt5</name>
+    </wpt>
+    <wpt lat="42.051683" lon="-87.676288">
+        <ele>6</ele>
+        <time>2016-12-29T00:02:00Z</time>
+        <name>pt6</name>
+    </wpt>
+    <wpt lat="42.052142" lon="-87.677002">
+        <ele>7</ele>
+        <time>2016-12-29T00:02:10Z</time>
+        <name>pt7</name>
+    </wpt>
+    <wpt lat="42.053132" lon="-87.677193">
+        <ele>8</ele>
+        <time>2016-12-29T00:02:20Z</time>
+        <name>pt8</name>
+    </wpt>
+    <wpt lat="42.054510" lon="-87.677208">
+        <ele>9</ele>
+        <time>2016-12-29T00:02:30Z</time>
+        <name>pt9</name>
+    </wpt>
+    <wpt lat="42.056266" lon="-87.677177">
+        <ele>10</ele>
+        <time>2016-12-29T00:02:40Z</time>
+        <name>pt10</name>
+    </wpt>
+</gpx>
+
