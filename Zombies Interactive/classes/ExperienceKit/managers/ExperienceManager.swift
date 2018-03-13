@@ -34,6 +34,8 @@ class ExperienceManager: NSObject, OpportunityManagerDelegate {
     var isPlaying = false
     var momentBlocks = [MomentBlock]()
     var currentMomentBlockIdx = -1
+    var run_id = [String:Any]()
+    var user_id = [String:Any]()
     
     // should be optional whether their experience will collect data, especially location always
     var dataManager: DataManager?
@@ -200,12 +202,14 @@ class ExperienceManager: NSObject, OpportunityManagerDelegate {
     
     func finishExperience() {
         print("\nFinished experience")
+        let end_text = "Good work out there, Runner 5. See you next time."
+        let endAudio:SynthVoiceMoment = SynthVoiceMoment(title: "end", isInterruptable: false, content: end_text)
+        let newEndMoment = MomentBlockSimple(moments: [Sound(fileNames:["radio_static"]), endAudio, Sound(fileNames:["radio_static"])], title:"expand moment block", canInsertImmediately: true)
+        self.insertMomentBlockSimple(newEndMoment)
         dataManager?.stopUpdatingLocation()
-        
         self.experience?.dateCompleted = Date()
         self.experience?.completed = true
         self.experience?.saveInBackground()
-  
         delegate?.didFinishExperience?()
     }
     
@@ -230,7 +234,7 @@ class ExperienceManager: NSObject, OpportunityManagerDelegate {
     
     func insertMomentBlockSimple( _ momentBlockSimple: MomentBlockSimple )
     {
-        if let  curMomentBlock = currentMomentBlock,
+        if let curMomentBlock = currentMomentBlock,
             let curMoment = curMomentBlock.currentMoment {
             if curMoment.isInterruptable || momentBlockSimple.canInsertImmediately {
                 curMomentBlock.insertMomentsAtIndex(momentBlockSimple.moments,

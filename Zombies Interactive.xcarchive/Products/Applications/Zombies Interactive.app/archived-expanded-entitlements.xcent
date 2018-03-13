@@ -3,10 +3,10 @@
 <plist version="1.0">
 <dict>
 	<key>application-identifier</key>
-	<string>823S57WQK3.edu.northwestern.delta.Zombies-Interactive</string>
+	<string>823S57WQK3.edu.northwestern.delta.I</string>
 	<key>keychain-access-groups</key>
 	<array>
-		<string>823S57WQK3.edu.northwestern.delta.Zombies-Interactive</string>
+		<string>823S57WQK3.edu.northwestern.delta.I</string>
 	</array>
 </dict>
 </plist>

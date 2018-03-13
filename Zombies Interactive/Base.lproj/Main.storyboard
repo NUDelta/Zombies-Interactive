@@ -339,6 +339,15 @@ Good luck.</string>
                                     <action selector="btn_startLocUpdate:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="eBt-VN-3RQ"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JuM-bX-3AM">
+                                <rect key="frame" x="280" y="391" width="30" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="End"/>
+                                <connections>
+                                    <action selector="endExperience:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="lrb-j5-0h6"/>
+                                    <action selector="previousMoment:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="ygB-Zr-sv0"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.66666666666666663" green="0.66666666666666663" blue="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
@@ -417,6 +426,7 @@ Good luck.</string>
                     <navigationItem key="navigationItem" id="b8O-Hk-m5y"/>
                     <connections>
                         <outlet property="controlLabel" destination="yVR-oT-Kmv" id="fTu-no-axg"/>
+                        <outlet property="endExperience" destination="JuM-bX-3AM" id="Q8W-Ub-8zZ"/>
                         <outlet property="mapView" destination="TD2-NT-Tqh" id="QQ9-UU-XAw"/>
                         <outlet property="nextMomentButton" destination="Z7h-kp-mr1" id="UHF-mG-Tay"/>
                         <outlet property="stepsTakenLabel" destination="57M-HO-7m7" id="EQm-xR-UFj"/>
@@ -425,7 +435,7 @@ Good luck.</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2583" y="-71"/>
+            <point key="canvasLocation" x="2805" y="-71"/>
         </scene>
         <!--Home View Controller-->
         <scene sceneID="1IH-jK-WUk">
