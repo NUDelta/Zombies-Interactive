@@ -8,6 +8,8 @@ Architecture for HabitSourcing apps
 
 # How to Run
 Clone the repo. Open in XCode. Click play.
+- LOCAL RUN: change DEBUG = TRUE in config.swift and use IP address from ifconfig (terminal)
+- REMOTE RUN: change DEBUG = FALSE in config.swift
 
 # Navigating the project
 All content specific to ZombieRunX can be found in the view controllers. The ExperienceKit code is organized by class, there is a separate file for each class. Classes are further grouped into models, managers, utilities, etc. The group names are self-explanatory and class definitions & properties are fairly well-commented regarding their purpose and usage.
