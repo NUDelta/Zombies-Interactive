@@ -122,6 +122,10 @@ class MomentBlock: NSObject{
             self.eventManager.trigger("sensorCollectorEnded")
         }
         
+        // Trigger action verifier
+        print(self.currentMoment?.title)
+        self.eventManager.trigger("verifyMoment")
+        
         // stop the current moment's audio here instead of ExperienceManager?
         self.currentMomentIdx += 1
         

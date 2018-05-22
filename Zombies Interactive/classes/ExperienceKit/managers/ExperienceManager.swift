@@ -34,10 +34,9 @@ class ExperienceManager: NSObject, OpportunityManagerDelegate {
     var isPlaying = false
     var momentBlocks = [MomentBlock]()
     var currentMomentBlockIdx = -1
-    var run_id = [String:Any]()
-    var user_id = [String:Any]()
+    var run_id = ""
+    var user_id = ""
     
-    // should be optional whether their experience will collect data, especially location always
     var dataManager: DataManager?
     var opportunityManager: OpportunityManager?
     var scaffoldingManager: ScaffoldingManager?
@@ -99,9 +98,11 @@ class ExperienceManager: NSObject, OpportunityManagerDelegate {
                 momentBlock.eventManager.listenTo("startingSound", action: handleSoundStart)
                 momentBlock.eventManager.listenTo("choseRandomMomentBlockSimple", action: updateMomentBlockSimplePool)
                 
+                
                 if let dataManager = dataManager {
                     momentBlock.eventManager.listenTo("sensorCollectorStarted", action: dataManager.startCollecting)
                     momentBlock.eventManager.listenTo("sensorCollectorEnded", action: dataManager.stopCollecting)
+                    momentBlock.eventManager.listenTo("verifyMoment", action: dataManager.verifyMoment)
                     
     //                MomentBlock.eventManager.listenTo("foundWorldObject", action: dataManager.recordWorldObject)
                 }
@@ -188,7 +189,6 @@ class ExperienceManager: NSObject, OpportunityManagerDelegate {
         currentMomentBlock?.pause()
     }
     
-    
     func nextMomentBlock() {
         self.currentMomentBlockIdx += 1
         print("\n--next moment block (idx:\(currentMomentBlockIdx))--")
@@ -236,12 +236,14 @@ class ExperienceManager: NSObject, OpportunityManagerDelegate {
     {
         if let curMomentBlock = currentMomentBlock,
             let curMoment = curMomentBlock.currentMoment {
+            if let dataManager = dataManager  {
+                curMoment.eventManager.listenTo("verifyMoment", action: dataManager.verifyMoment)
+            }
             if curMoment.isInterruptable || momentBlockSimple.canInsertImmediately {
                 curMomentBlock.insertMomentsAtIndex(momentBlockSimple.moments,
                                                     idx: curMomentBlock.currentMomentIdx + 1)
                 curMoment.finished()
             }
-            
         }
     }
     

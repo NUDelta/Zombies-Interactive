@@ -212,8 +212,10 @@ class MissionViewController: UIViewController, MKMapViewDelegate, ExperienceMana
             json in
             ret = json
             // Receive the run_id and user_id and save it in the Experience Manager object
-            self.experienceManager.run_id = ret["run_id"] as! [String : Any]
-            self.experienceManager.user_id = ret["user_id"] as! [String : Any]
+            print(self.experienceManager.run_id)
+            self.experienceManager.run_id = ret["run_id"] as! String
+            print(self.experienceManager.run_id)
+            self.experienceManager.user_id = ret["user_id"] as! String
         })
     }
 
@@ -231,17 +233,19 @@ class MissionViewController: UIViewController, MKMapViewDelegate, ExperienceMana
         */
         
         // Initialize experience manager with intro moment grabbed from backend
-        let intro_text = "You can hear me alright? I'm your designated guide! We need you to get back to base safely and gather some important information for us. Got it? Good. Ok. I see you're starting out now -- keep a good pace and stay alert"
+        let intro_text = "You can hear me alright?"
         
         let newIntroMoment:Moment = SynthVoiceMoment(title:"intro", isInterruptable: false, content: intro_text)
 
-        let block_body = MomentBlock(moments: [Sound(fileNames:["radio_static"], isInterruptable: false),newIntroMoment], title: "block:body")
+        let block_body = MomentBlock(moments: [newIntroMoment], title: "block:body")
+        
+//        let block_body = MomentBlock(moments: [Sound(fileNames:["radio_static"], isInterruptable: false),newIntroMoment], title: "block:body")
        
-        let block_body2 = MomentBlock(moments: [Sound(fileNames: ["silence"], isInterruptable:true)],  title: "block:silence")
+//        let block_body2 = MomentBlock(moments: [Sound(fileNames: ["silence"], isInterruptable:true)],  title: "block:silence")
+//
+//        let block_body3 = MomentBlock(moments: [Sound(fileNames: ["silence"], isInterruptable:true)],  title: "block:silence2")
         
-        let block_body3 = MomentBlock(moments: [Sound(fileNames: ["silence"], isInterruptable:true)],  title: "block:silence2")
-        
-        let stages: [MomentBlock] = [block_body, block_body2, block_body3]
+        let stages: [MomentBlock] = [block_body]
         // NEW EXPERIENCE MANAGER:
         experienceManager = ExperienceManager(title: "Mission title", momentBlocks: stages)
         // Call initialize run to record run

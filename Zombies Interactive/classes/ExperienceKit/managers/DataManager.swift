@@ -40,6 +40,7 @@ class DataManager : NSObject, CLLocationManagerDelegate {
     var currentMotionActivityState: String?
     let synthesizer : AVSpeechSynthesizer = AVSpeechSynthesizer()
     var playedMoments = Set<String>()
+    var curr_speed = 0.0
     
     // New snippets
     let demoId = "1"
@@ -58,8 +59,7 @@ class DataManager : NSObject, CLLocationManagerDelegate {
         self.experience = experience
         
         self.locationManager.delegate = self
-        self.locationManager.distanceFilter = 10 // distance runner must move in meters to call update eventconfi
-        self.locationManager.desiredAccuracy = kCLLocationAccuracyBestForNavigation
+             self.locationManager.desiredAccuracy = kCLLocationAccuracyBestForNavigation
         self.locationManager.requestAlwaysAuthorization()
         self.locationManager.requestWhenInUseAuthorization()
         self.locationManager.startUpdatingHeading()
@@ -191,6 +191,17 @@ class DataManager : NSObject, CLLocationManagerDelegate {
             //                    }
         }
     }
+    
+    func verifyMoment(){
+        //var ret = [String:Any]()
+        print("hit verifyMoment")
+       // CommManager.instance.urlRequest(route: "verify", completion: {
+//            json in
+//            ret = json
+//            print("verified")
+   //     })
+    }
+    
     func buildMoment(_ moment:[String:Any]){
         if moment["prompt"] != nil{
             self.momentString = moment["prompt"] as! String
@@ -200,6 +211,8 @@ class DataManager : NSObject, CLLocationManagerDelegate {
                     let block_body = MomentBlockSimple(moments: [Sound(fileNames:["radio_static"]), expandMoment, Sound(fileNames:["radio_static"])], title:"expand moment block", canInsertImmediately: true)
                     // Insert moment into experience manager
                 self._experienceManager.insertMomentBlockSimple(block_body)
+                
+                // Does the moment play as soon as it is inserted?
                 self.playedMoments.insert(self.momentString)
                 }
             }
@@ -232,6 +245,8 @@ class DataManager : NSObject, CLLocationManagerDelegate {
         var json = [String:Any]();
         json["longitude"] = long
         json["latitude"] = lat
+        json["speed"] = userLocation.speed
+        curr_speed = userLocation.speed
         json["run_id"] = self._experienceManager.run_id
         json["user_id"] = self._experienceManager.user_id
         
