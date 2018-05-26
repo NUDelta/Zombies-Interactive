@@ -193,27 +193,40 @@ class DataManager : NSObject, CLLocationManagerDelegate {
     }
     
     func verifyMoment(){
-        //var ret = [String:Any]()
-        print("hit verifyMoment")
-       // CommManager.instance.urlRequest(route: "verify", completion: {
-//            json in
-//            ret = json
-//            print("verified")
-   //     })
+        if (self._experienceManager.run_id != ""){
+            var ret = [String:Any]()
+            var json = [String:Any]();
+            json["run_id"] = self._experienceManager.run_id
+            print("RUN ID IS: ")
+            print(self._experienceManager.run_id)
+            json["speed"] = curr_speed
+            print("hit verifyMoment")
+            CommManager.instance.urlRequest(route: "verify",  parameters: json, completion: {
+                json in
+                ret = json
+                print(ret)
+            })
+        }
+        else {
+            print("run id is nil. Don't verify this.")
+        }
     }
     
     func buildMoment(_ moment:[String:Any]){
         if moment["prompt"] != nil{
+            print ("whatta we got")
+            print(moment)
             self.momentString = moment["prompt"] as! String
-            if (self.momentString != "" && !self.playedMoments.contains(self.momentString)){
+            if (self.momentString != ""){
                 DispatchQueue.main.async {
                     let expandMoment:SynthVoiceMoment = SynthVoiceMoment(title: "newMoment", isInterruptable: false, content: self.momentString)
-                    let block_body = MomentBlockSimple(moments: [Sound(fileNames:["radio_static"]), expandMoment, Sound(fileNames:["radio_static"])], title:"expand moment block", canInsertImmediately: true)
+                    let block_body = MomentBlockSimple(moments: [Sound(fileNames:["radio_static"]), expandMoment, Sound(fileNames:["radio_static"])], title:"expand moment block", canInsertImmediately: false)
                     // Insert moment into experience manager
                 self._experienceManager.insertMomentBlockSimple(block_body)
                 
                 // Does the moment play as soon as it is inserted?
                 self.playedMoments.insert(self.momentString)
+                print("inserted moment")
                 }
             }
         }
@@ -229,7 +242,9 @@ class DataManager : NSObject, CLLocationManagerDelegate {
             // Receive json and create moment
             print("Getting right moment:")
             print(ret)
-            self.buildMoment(ret)
+            if !ret.isEmpty{
+                self.buildMoment(ret)
+            }
         })
     }
     

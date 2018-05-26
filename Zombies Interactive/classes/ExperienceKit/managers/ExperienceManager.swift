@@ -236,9 +236,9 @@ class ExperienceManager: NSObject, OpportunityManagerDelegate {
     {
         if let curMomentBlock = currentMomentBlock,
             let curMoment = curMomentBlock.currentMoment {
-            if let dataManager = dataManager  {
-                curMoment.eventManager.listenTo("verifyMoment", action: dataManager.verifyMoment)
-            }
+//            if let dataManager = dataManager  {
+////                curMoment.eventManager.listenTo("verifyMoment", action: dataManager.verifyMoment)
+//            }
             if curMoment.isInterruptable || momentBlockSimple.canInsertImmediately {
                 curMomentBlock.insertMomentsAtIndex(momentBlockSimple.moments,
                                                     idx: curMomentBlock.currentMomentIdx + 1)

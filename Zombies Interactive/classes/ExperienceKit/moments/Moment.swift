@@ -61,8 +61,7 @@ class Moment: NSObject {
     func finished(){
         print("  (Moment::finished) Finished moment: \(self.title)")
         self.eventManager.trigger("nextMoment")
-        // When finished, trigger action verifier?
-        
+        self.eventManager.trigger("verifyMoment")
     }
     
     /// Sets the moment to a state where it can be reused again to save memory

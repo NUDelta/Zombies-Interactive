@@ -241,11 +241,11 @@ class MissionViewController: UIViewController, MKMapViewDelegate, ExperienceMana
         
 //        let block_body = MomentBlock(moments: [Sound(fileNames:["radio_static"], isInterruptable: false),newIntroMoment], title: "block:body")
        
-//        let block_body2 = MomentBlock(moments: [Sound(fileNames: ["silence"], isInterruptable:true)],  title: "block:silence")
+        let block_body2 = MomentBlock(moments: [Sound(fileNames: ["silence"], isInterruptable:true)],  title: "block:silence")
 //
 //        let block_body3 = MomentBlock(moments: [Sound(fileNames: ["silence"], isInterruptable:true)],  title: "block:silence2")
         
-        let stages: [MomentBlock] = [block_body]
+        let stages: [MomentBlock] = [block_body, block_body2]
         // NEW EXPERIENCE MANAGER:
         experienceManager = ExperienceManager(title: "Mission title", momentBlocks: stages)
         // Call initialize run to record run

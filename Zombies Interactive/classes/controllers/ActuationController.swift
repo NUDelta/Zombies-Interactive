@@ -44,7 +44,7 @@ class OpenEarsController: NSObject, OEEventsObserverDelegate{
     
     // OEEventsObserver delegate methods
     func pocketsphinxDidReceiveHypothesis(_ hypothesis: String!, recognitionScore: String!, utteranceID: String!) {
-        print("  The received hypothesis is " + hypothesis + " with a score of " + recognitionScore + " and an ID of " + utteranceID)
+        // print("  The received hypothesis is " + hypothesis + " with a score of " + recognitionScore + " and an ID of " + utteranceID)
         // if score is a certain certainty and that word is in words,
         // then send an event trigger for whatever is listening
         self.currentHypothesis = hypothesis

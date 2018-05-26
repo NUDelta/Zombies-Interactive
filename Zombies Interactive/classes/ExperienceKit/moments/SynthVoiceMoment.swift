@@ -54,6 +54,7 @@ class SynthVoiceMoment : Moment {
     
     override func finished(){
         _timer?.invalidate()
+        self.eventManager.trigger("verifyMoment")
         super.finished()
     }
 }
