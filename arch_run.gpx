@@ -6,15 +6,20 @@
         <time>2016-12-29T00:01:00Z</time>
         <name>pt1</name>
     </wpt>
-    <wpt lat="42.059743" lon="-87.674299">
-        <ele>2</ele>
-        <time>2016-12-29T00:01:10Z</time>
-        <name>pt2</name>
-    </wpt>
+<!--    <wpt lat="42.059743" lon="-87.674299">-->
+<!--        <ele>2</ele>-->
+<!--        <time>2016-12-29T00:01:10Z</time>-->
+<!--        <name>pt2</name>-->
+<!--    </wpt>-->
     <wpt lat="42.058883" lon="-87.672863">
         <ele>3</ele>
         <time>2016-12-29T00:01:40Z</time>
         <name>pt3</name>
+    </wpt>
+    <wpt lat="42.058883" lon="-87.672863">
+        <ele>4</ele>
+        <time>2016-12-29T00:10:30Z</time>
+        <name>pt4</name>
     </wpt>
 <!--    <wpt lat="42.050576" lon="-87.677526">-->
 <!--        <ele>4</ele>-->

@@ -233,7 +233,7 @@ class MissionViewController: UIViewController, MKMapViewDelegate, ExperienceMana
         */
         
         // Initialize experience manager with intro moment grabbed from backend
-        let intro_text = "You can hear me alright?"
+        let intro_text = "Hey there, runner number 5. I am your guide. We need you to get back to base safely and gather some important information for us about the Northwestern Campus. Got it? Ok. Keep a good pace and stay alert"
         
         let newIntroMoment:Moment = SynthVoiceMoment(title:"intro", isInterruptable: false, content: intro_text)
 

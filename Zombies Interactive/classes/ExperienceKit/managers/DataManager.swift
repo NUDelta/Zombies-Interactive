@@ -220,10 +220,11 @@ class DataManager : NSObject, CLLocationManagerDelegate {
             if (self.momentString != ""){
                 DispatchQueue.main.async {
                     let expandMoment:SynthVoiceMoment = SynthVoiceMoment(title: "newMoment", isInterruptable: false, content: self.momentString)
-                    let block_body = MomentBlockSimple(moments: [Sound(fileNames:["radio_static"]), expandMoment, Sound(fileNames:["radio_static"])], title:"expand moment block", canInsertImmediately: false)
+                    let block_body = MomentBlockSimple(moments: [Sound(fileNames:["radio_static"]), expandMoment, Sound(fileNames:["radio_static"]), Sound(fileNames: ["silence"], isInterruptable:true)], title:"expand moment block", canInsertImmediately: false)
+                
                     // Insert moment into experience manager
                 self._experienceManager.insertMomentBlockSimple(block_body)
-                
+
                 // Does the moment play as soon as it is inserted?
                 self.playedMoments.insert(self.momentString)
                 print("inserted moment")
